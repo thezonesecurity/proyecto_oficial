@@ -1,5 +1,6 @@
 import React from "react";
 import { MdOutlineAccountCircle } from "react-icons/md";
+import { InsertarDocente } from "./InsertarDocente";
 export const CabeceraDocente = () => {
   return (
     <div className="col card">
@@ -35,6 +36,7 @@ export const CabeceraDocente = () => {
           <div className="card-body">
             {/*para el contenido */}
             <hr />
+            <InsertarDocente />
           </div>
         </div>
       </div>
