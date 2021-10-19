@@ -36,7 +36,7 @@ export const AsignacionDocentes = () => {
                 <option value="2">Ing. Clever</option>
                 <option value="3">Ing. Oscar Apaza</option>
                 <option value="3">Ing. Jesús López</option>
-            </select> 
+            </select>
             </td>
             <td>
             <select class="form-select" aria-label="Default select example">

@@ -1,6 +1,7 @@
 import React from "react";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import { ListaHorario } from "./horarios/ListaHorario";
+//import { ListaHorario } from "./horarios/ListaHorario";
+import { NuevosHorarios } from "./horarios/NuevosHorarios";
 
 export const CabeceraHorario = () => {
   return (
@@ -32,7 +33,8 @@ export const CabeceraHorario = () => {
           <div className="card-body">
             {/*para el contenido */}
             <hr />
-            <ListaHorario />
+            {/*<ListaHorario />*/}
+            <NuevosHorarios />
           </div>
         </div>
       </div>

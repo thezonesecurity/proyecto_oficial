@@ -26,6 +26,7 @@ export const CabeceraMateria = () => {
                     Asignacion Docente
                   </a>
                 </li>
+
                 <li className="nav-item" class="col">
                   <li class="col align-self-center">
                     <MdOutlineAccountCircle />
@@ -39,7 +40,7 @@ export const CabeceraMateria = () => {
             {/*para el contenido */}
             <hr />
             {/*<ListaMateria />*/}
-            <AsignacionDocentes/>
+            <AsignacionDocentes />
           </div>
         </div>
       </div>
