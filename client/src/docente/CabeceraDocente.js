@@ -1,6 +1,5 @@
 import React from "react";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import { ListaMateria } from "../materia/ListaMateria";
 import { EditarDocente } from "./EditarDocente";
 import { InsertarDocente } from "./InsertarDocente";
 import { ListaDocente } from "./ListaDocente";
@@ -41,7 +40,7 @@ export const CabeceraDocente = () => {
             <hr />
             {/*<InsertarDocente />   <InsertarDocente />  */}
             {/*<EditarDocente />*/}
-            <EditarDocente />
+            <InsertarDocente />
           </div>
         </div>
       </div>
