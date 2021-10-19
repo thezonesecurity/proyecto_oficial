@@ -38,13 +38,12 @@ export const CabeceraDocente = () => {
           <div className="card-body">
             {/*para el contenido */}
             <hr />
-            {/*<InsertarDocente />*/}
+            {/*<InsertarDocente, ListaDocente  />*/}
             {/*<EditarDocente />*/}
-            <ListaDocente/>
+            <ListaDocente />
           </div>
         </div>
       </div>
     </div>
   );
 };
-
