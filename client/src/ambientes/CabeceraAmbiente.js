@@ -1,10 +1,8 @@
 import React from "react";
+import { ContenidoListarAmbiente } from "./ContenidoListarAmbiente";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import { ListaMateria } from "../materia/ListaMateria";
-import { EditarDocente } from "./EditarDocente";
-import { InsertarDocente } from "./InsertarDocente";
-import { ListaDocente } from "./ListaDocente";
-export const CabeceraDocente = () => {
+
+export const CabeceraAmbiente = () => {
   return (
     <div className="col card">
       <div>
@@ -14,17 +12,17 @@ export const CabeceraDocente = () => {
               <ul className="nav nav-tabs card-header-tabs">
                 <li className="nav-item" class="col">
                   <a className="nav-link active" aria-current="true" href="#">
-                    Ver lista de docentes
+                    Ver lista de Ambientes
                   </a>
                 </li>
                 <li className="nav-item" class="col">
                   <a className="nav-link active " href="#">
-                    Crear Docentes
+                    Crear Ambientes
                   </a>
                 </li>
                 <li className="nav-item" class="col">
                   <a className="nav-link active" href="#">
-                    Editar Docente
+                    Ver Ambientes
                   </a>
                 </li>
                 <li className="nav-item" class="col">
@@ -39,9 +37,7 @@ export const CabeceraDocente = () => {
           <div className="card-body">
             {/*para el contenido */}
             <hr />
-            {/*<InsertarDocente, ListaDocente  />*/}
-            {/*<EditarDocente />*/}
-            <ListaDocente />
+            <ContenidoListarAmbiente />
           </div>
         </div>
       </div>
