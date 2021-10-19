@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { MainDocente } from "./docente/MainDocente";
 
-ReactDOM.render(<MainDocente />, document.getElementById("root"));
+import { MainMateria } from "./materia/MainMateria";
+
+ReactDOM.render(<MainMateria />, document.getElementById("root"));
