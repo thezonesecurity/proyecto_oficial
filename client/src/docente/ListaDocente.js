@@ -46,12 +46,9 @@ export const ListaDocente = () => {
           </tr>
         </tbody>
       </table>
-      <select class="form-select" id="autoSizingSelect">
-        <option selected>Choose...</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
+      <button type="button" class="btn btn-secondary">
+        Imprimir
+      </button>
     </div>
   );
 };

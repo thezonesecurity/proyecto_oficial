@@ -1,9 +1,8 @@
 import React from "react";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import { EditarDocente } from "./EditarDocente";
-import { InsertarDocente } from "./InsertarDocente";
-import { ListaDocente } from "./ListaDocente";
-export const CabeceraDocente = () => {
+import { ListaSemestreAsignado } from "./ListaSemestreAsignado";
+
+export const CabeceraSemestre = () => {
   return (
     <div className="col card">
       <div>
@@ -13,19 +12,15 @@ export const CabeceraDocente = () => {
               <ul className="nav nav-tabs card-header-tabs">
                 <li className="nav-item" class="col">
                   <a className="nav-link active" aria-current="true" href="#">
-                    Ver lista de docentes
+                    Registrar Semestre
                   </a>
                 </li>
                 <li className="nav-item" class="col">
                   <a className="nav-link active " href="#">
-                    Crear Docentes
+                    Informe Semestre
                   </a>
                 </li>
-                <li className="nav-item" class="col">
-                  <a className="nav-link active" href="#">
-                    Editar Docente
-                  </a>
-                </li>
+
                 <li className="nav-item" class="col">
                   <li class="col align-self-center">
                     <MdOutlineAccountCircle />
@@ -38,9 +33,7 @@ export const CabeceraDocente = () => {
           <div className="card-body">
             {/*para el contenido */}
             <hr />
-            {/*<InsertarDocente, ListaDocente  />*/}
-            {/*<EditarDocente />*/}
-            <ListaDocente />
+            <ListaSemestreAsignado />
           </div>
         </div>
       </div>
