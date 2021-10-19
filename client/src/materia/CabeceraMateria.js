@@ -1,5 +1,6 @@
 import React from "react";
 import { MdOutlineAccountCircle } from "react-icons/md";
+import { AsignacionDocentes, Asignacion_Docentes } from "./AsignacionDocentes";
 import { ListaMateria } from "./ListaMateria";
 
 export const CabeceraMateria = () => {
@@ -37,7 +38,8 @@ export const CabeceraMateria = () => {
           <div className="card-body">
             {/*para el contenido */}
             <hr />
-            <ListaMateria />
+            {/*<ListaMateria />*/}
+            <AsignacionDocentes/>
           </div>
         </div>
       </div>
