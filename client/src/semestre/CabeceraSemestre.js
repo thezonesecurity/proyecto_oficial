@@ -1,6 +1,7 @@
 import React from "react";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { ListaSemestreAsignado } from "./ListaSemestreAsignado";
+import { RegistrarSemestre } from "./RegistrarSemestre";
 
 export const CabeceraSemestre = () => {
   return (
@@ -33,7 +34,7 @@ export const CabeceraSemestre = () => {
           <div className="card-body">
             {/*para el contenido */}
             <hr />
-            <ListaSemestreAsignado />
+            <RegistrarSemestre />
           </div>
         </div>
       </div>
