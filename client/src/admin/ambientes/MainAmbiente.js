@@ -1,16 +1,15 @@
 import React from "react";
-import { CabeceraDocente } from "./CabeceraDocente";
-
-import "./style.css";
 import { HeaderTitle } from "../HeaderTitle";
 import { SidebarMenu } from "../SidebarMenu";
-export const MainDocente = () => {
+import { CabeceraAmbiente } from "./CabeceraAmbiente";
+
+export const MainAmbiente = () => {
   return (
     <div className="container">
       <div className="row align-items-start">
         <HeaderTitle />
         <SidebarMenu />
-        <CabeceraDocente />
+        <CabeceraAmbiente />
       </div>
     </div>
   );

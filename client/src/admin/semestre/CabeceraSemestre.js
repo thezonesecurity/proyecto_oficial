@@ -34,7 +34,8 @@ export const CabeceraSemestre = () => {
           <div className="card-body">
             {/*para el contenido */}
             <hr />
-            <RegistrarSemestre />
+            {/*<RegistrarSemestre, /> */}
+            <ListaSemestreAsignado />
           </div>
         </div>
       </div>

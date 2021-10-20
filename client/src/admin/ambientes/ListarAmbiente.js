@@ -1,6 +1,6 @@
 import React from "react";
 import { MdCreate, MdDeleteSweep } from "react-icons/md";
-export const ContenidoListarAmbiente = () => {
+export const ListarAmbiente = () => {
   return (
     <div>
       <h8>Lista de Ambientes</h8>

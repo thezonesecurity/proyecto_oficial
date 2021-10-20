@@ -1,9 +1,9 @@
 import React from "react";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import { Planilla } from "./Planilla";
-import { ReporteDocentesyMaterias } from "./ReporteDocentesyMaterias";
+import { AsignacionDocentes, Asignacion_Docentes } from "./AsignacionDocentes";
+import { ListaMateria } from "./ListaMateria";
 
-export const CabeceraReportes = () => {
+export const CabeceraMateria = () => {
   return (
     <div className="col card">
       <div>
@@ -11,14 +11,19 @@ export const CabeceraReportes = () => {
           <div className="card-header">
             <div class="row align-items-start">
               <ul className="nav nav-tabs card-header-tabs">
-                <li className="nav-item" class="col-4">
-                  <a className="nav-link active " href="#">
-                    Planillas
+                <li className="nav-item" class="col">
+                  <a className="nav-link active" aria-current="true" href="#">
+                    Ver lista de Materias
                   </a>
                 </li>
-                <li className="nav-item" class="col-6">
+                <li className="nav-item" class="col">
                   <a className="nav-link active " href="#">
-                    Reporte de Docentes y materias
+                    Crear Materias
+                  </a>
+                </li>
+                <li className="nav-item" class="col">
+                  <a className="nav-link active" href="#">
+                    Asignacion Docente
                   </a>
                 </li>
 
@@ -32,8 +37,10 @@ export const CabeceraReportes = () => {
           </div>
 
           <div className="card-body">
-            {/*<Planilla />  */}
-            <ReporteDocentesyMaterias />
+            {/*para el contenido */}
+            <hr />
+            {/*<ListaMateria, AsignacionDocentes />*/}
+            <AsignacionDocentes />
           </div>
         </div>
       </div>

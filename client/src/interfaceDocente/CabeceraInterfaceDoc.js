@@ -1,8 +1,6 @@
 import React from "react";
-import { ContenidoListarAmbiente } from "./ContenidoListarAmbiente";
 import { MdOutlineAccountCircle } from "react-icons/md";
-
-export const CabeceraAmbiente = () => {
+export const CabeceraInterfaceDoc = () => {
   return (
     <div className="col card">
       <div>
@@ -12,17 +10,13 @@ export const CabeceraAmbiente = () => {
               <ul className="nav nav-tabs card-header-tabs">
                 <li className="nav-item" class="col">
                   <a className="nav-link active" aria-current="true" href="#">
-                    Ver lista de Ambientes
+                    Ver Materias asignadas
                   </a>
                 </li>
-                <li className="nav-item" class="col">
-                  <a className="nav-link active " href="#">
-                    Crear Ambientes
-                  </a>
-                </li>
+
                 <li className="nav-item" class="col">
                   <a className="nav-link active" href="#">
-                    Ver Ambientes
+                    Ajuste de materia
                   </a>
                 </li>
                 <li className="nav-item" class="col">
@@ -37,7 +31,6 @@ export const CabeceraAmbiente = () => {
           <div className="card-body">
             {/*para el contenido */}
             <hr />
-            <ContenidoListarAmbiente />
           </div>
         </div>
       </div>

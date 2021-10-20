@@ -1,9 +1,6 @@
 import React from "react";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import { AsignacionDocentes, Asignacion_Docentes } from "./AsignacionDocentes";
-import { ListaMateria } from "./ListaMateria";
-
-export const CabeceraMateria = () => {
+export const CabeceraInterfaceEstudiant = () => {
   return (
     <div className="col card">
       <div>
@@ -13,20 +10,15 @@ export const CabeceraMateria = () => {
               <ul className="nav nav-tabs card-header-tabs">
                 <li className="nav-item" class="col">
                   <a className="nav-link active" aria-current="true" href="#">
-                    Ver lista de Materias
-                  </a>
-                </li>
-                <li className="nav-item" class="col">
-                  <a className="nav-link active " href="#">
-                    Crear Materias
-                  </a>
-                </li>
-                <li className="nav-item" class="col">
-                  <a className="nav-link active" href="#">
-                    Asignacion Docente
+                    Programar materias
                   </a>
                 </li>
 
+                <li className="nav-item" class="col">
+                  <a className="nav-link active" href="#">
+                    Ver Materias Programadas
+                  </a>
+                </li>
                 <li className="nav-item" class="col">
                   <li class="col align-self-center">
                     <MdOutlineAccountCircle />
@@ -39,8 +31,6 @@ export const CabeceraMateria = () => {
           <div className="card-body">
             {/*para el contenido */}
             <hr />
-            {/*<ListaMateria />*/}
-            <AsignacionDocentes />
           </div>
         </div>
       </div>
