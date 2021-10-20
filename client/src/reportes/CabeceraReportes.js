@@ -1,6 +1,7 @@
 import React from "react";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { Planilla } from "./Planilla";
+import { ReporteDocentesyMaterias } from "./ReporteDocentesyMaterias";
 
 export const CabeceraReportes = () => {
   return (
@@ -31,7 +32,8 @@ export const CabeceraReportes = () => {
           </div>
 
           <div className="card-body">
-            <Planilla />
+            {/*<Planilla />  */}
+            <ReporteDocentesyMaterias />
           </div>
         </div>
       </div>
