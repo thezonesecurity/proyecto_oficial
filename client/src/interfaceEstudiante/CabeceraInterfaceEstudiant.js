@@ -1,6 +1,7 @@
 import React from "react";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { ProgramarMaterias } from "./ProgramarMaterias";
+import { VerMateriasProgramadas } from "./VerMateriasProgramadas";
 export const CabeceraInterfaceEstudiant = () => {
   return (
     <div className="col card">
@@ -30,10 +31,10 @@ export const CabeceraInterfaceEstudiant = () => {
           </div>
 
           <div className="card-body">
-            {/*para el contenido */}
+            {/*para el contenido   <ProgramarMaterias />*/}
             <hr />
 
-            <ProgramarMaterias />
+            <VerMateriasProgramadas />
           </div>
         </div>
       </div>
