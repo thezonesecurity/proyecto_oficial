@@ -1,9 +1,13 @@
 import React from "react";
-import "./TableListaHorario.css";
+import { OpcionSemestre } from "./OpcionSemestre";
 export const TablaListaHoraio = () => {
   return (
     <div>
-      <table className="table">
+      <div className="col-md-4">
+        <OpcionSemestre />
+      </div>
+      <br />
+      <table className="table table-bordered table-hover">
         <thead>
           <tr>
             <th>Horas</th>
