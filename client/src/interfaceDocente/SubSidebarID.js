@@ -27,15 +27,15 @@ export const SubSidebarID = () => {
           <br />
           <a>
             <b>Apellidos:</b>Ruiz Molina
-          </a>{" "}
+          </a>
           <br />
           <a>
             <b>Email:</b> limber@gmail.com
-          </a>{" "}
+          </a>
           <br />
           <a>
             <b>Direccion:</b>Calle Oruro N°458
-          </a>{" "}
+          </a>
           <br />
         </ul>
       </div>
