@@ -9,4 +9,4 @@ import { MainSemestre } from "./admin/semestre/MainSemestre";
 import { MainInterfaceDocente } from "./interfaceDocente/MainInterfaceDocente";
 import { MainInterfaceEstudiante } from "./interfaceEstudiante/MainInterfaceEstudiante";
 
-ReactDOM.render(<MainInterfaceDocente />, document.getElementById("root"));
+ReactDOM.render(<MainMateria />, document.getElementById("root"));
