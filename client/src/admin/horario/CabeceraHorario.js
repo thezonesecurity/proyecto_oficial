@@ -4,6 +4,8 @@ import { ListaHorario } from "./horarios/ListaHorario";
 //import { ListaHorario } from "./horarios/ListaHorario";
 import { NuevosHorarios } from "./horarios/NuevosHorarios";
 
+import { TablaListaHoraio } from "./horarios/TablaListaHoraio";
+
 export const CabeceraHorario = () => {
   return (
     <div className="col card">
@@ -35,7 +37,8 @@ export const CabeceraHorario = () => {
             {/*para el contenido */}
             <hr />
             {/*<NuevosHorarios, ListaHorario />*/}
-            <ListaHorario />
+
+            <TablaListaHoraio />
           </div>
         </div>
       </div>
