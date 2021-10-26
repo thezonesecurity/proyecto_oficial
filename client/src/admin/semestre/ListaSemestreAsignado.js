@@ -4,9 +4,9 @@ export const ListaSemestreAsignado = () => {
   return (
     <div>
       <h4>Informe de Semestres Asignados</h4>
-      <div class="col-md-4">
-        <label for="inputState" class="form-label"></label>
-        <select id="inputState" class="form-select">
+      <div className="col-md-4">
+        <label for="inputState" className="form-label"></label>
+        <select id="inputState" className="form-select">
           <option selected>Semestre1</option>
           <option>Semestre2</option>
           <option>Semestre3</option>
@@ -66,7 +66,7 @@ export const ListaSemestreAsignado = () => {
         </tbody>
       </table>
       <div>
-        <button type="button" class="btn btn-dark">
+        <button type="button" className="btn btn-dark">
           Imprimir
         </button>
       </div>

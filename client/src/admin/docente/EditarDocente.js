@@ -8,40 +8,40 @@ export const EditarDocente = () => {
     <di>
       <h8>Editar Docentes</h8>
       <div>
-        <div class="row align-items-start">
-          <h9 class="col">Nro.</h9>
-          <h9 class="col"> Nombres</h9>
-          <h9 class="col"> Apellidos</h9>
-          <h9 class="col"> Opciones</h9>
+        <div className="row align-items-start">
+          <h9 className="col">Nro.</h9>
+          <h9 className="col"> Nombres</h9>
+          <h9 className="col"> Apellidos</h9>
+          <h9 className="col"> Opciones</h9>
         </div>
 
-        <div class="row align-items-start">
-          <div class="col">1</div>
-          <div class="col">Juan </div>
-          <div class="col">Ramon Valdez</div>
-          <div class="col">
+        <div className="row align-items-start">
+          <div className="col">1</div>
+          <div className="col">Juan </div>
+          <div className="col">Ramon Valdez</div>
+          <div className="col">
             <MdCreate /> <MdDeleteSweep />
           </div>
         </div>
-        <div class="row align-items-center">
-          <div class="col">2</div>
-          <div class="col">Ana </div>
-          <div class="col">Maria Mendoza</div>
-          <div class="col">
+        <div className="row align-items-center">
+          <div className="col">2</div>
+          <div className="col">Ana </div>
+          <div className="col">Maria Mendoza</div>
+          <div className="col">
             <MdCreate /> <MdDeleteSweep />
           </div>
         </div>
-        <div class="row align-items-end">
-          <div class="col">3</div>
-          <div class="col">Alex </div>
-          <div class="col">Gutierrez</div>
-          <div class="col">
+        <div className="row align-items-end">
+          <div className="col">3</div>
+          <div className="col">Alex </div>
+          <div className="col">Gutierrez</div>
+          <div className="col">
             <MdCreate /> <MdDeleteSweep />
           </div>
         </div>
       </div>
 
-      <button type="button" class="btn btn-outline-secondary">
+      <button type="button" className="btn btn-outline-secondary">
         Guardar
       </button>
     </di>

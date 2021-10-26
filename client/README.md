@@ -68,3 +68,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+NOTAS
+para interface ADMIN
+http://localhost:3000/materia
+http://localhost:3000/docente
+http://localhost:3000/ambiente
+http://localhost:3000/semestre
+http://localhost:3000/horario
+http://localhost:3000/reporte
+para interface DOCENTE
+http://localhost:3000/interface-docente
+para inteface ESTUDIANTE
+http://localhost:3000/interface-estudiante

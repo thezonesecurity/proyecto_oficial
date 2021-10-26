@@ -1,9 +1,9 @@
 import React from "react";
-import { ListarAmbiente } from "./ListarAmbiente";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import { CrearAmbiente } from "./CrearAmbiente";
-
+import { Link, useRouteMatch } from "react-router-dom";
+import { RouteAmbiente } from "./route/RouteAmbiente";
 export const CabeceraAmbiente = () => {
+  let { path, url } = useRouteMatch();
   return (
     <div className="col card">
       <div>
@@ -11,18 +11,16 @@ export const CabeceraAmbiente = () => {
           <div className="card-header">
             <div class="row align-items-start">
               <ul className="nav nav-tabs card-header-tabs">
-                <li className="nav-item" class="col">
-                  <a className="nav-link active" aria-current="true" href="#">
+                <li className="nav-link active col">
+                  <Link to={`${url}/lista-ambientes`}>
                     Ver lista de Ambientes
-                  </a>
+                  </Link>
                 </li>
-                <li className="nav-item" class="col">
-                  <a className="nav-link active " href="#">
-                    Crear Ambientes
-                  </a>
+                <li className="nav-link active col" aria-current="true">
+                  <Link to={`${url}/crear-ambiente`}>Crear Ambientes</Link>
                 </li>
 
-                <li className="nav-item" class="col">
+                <li className="nav-item col">
                   <li class="col align-self-center">
                     <MdOutlineAccountCircle />
                   </li>
@@ -34,8 +32,8 @@ export const CabeceraAmbiente = () => {
           <div className="card-body">
             {/*para el contenido */}
             <hr />
-            {/*<ListarAmbiente />*/}
-            <CrearAmbiente />
+            {/*<ListarAmbiente /> <RouteAmbiente path={path} />*/}
+            <RouteAmbiente path={path} />
           </div>
         </div>
       </div>

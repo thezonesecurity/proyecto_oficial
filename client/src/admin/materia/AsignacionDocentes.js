@@ -4,7 +4,7 @@ export const AsignacionDocentes = () => {
   return (
     <div>
       <h8>Asignación de Docentes</h8>
-      <table class="table table-bordered">
+      <table className="table table-bordered">
         <thead>
           <th scope="col">Materia</th>
           <th scope="col">Siglas</th>
@@ -20,7 +20,10 @@ export const AsignacionDocentes = () => {
             <td>SIS-101</td>
             <td>08:00 - 08:45</td>
             <td>
-              <select class="form-select" aria-label="Default select example">
+              <select
+                className="form-select"
+                aria-label="Default select example"
+              >
                 <option selected>Grupo</option>
                 <option value="1">G1</option>
                 <option value="2">G2</option>
@@ -30,7 +33,10 @@ export const AsignacionDocentes = () => {
             </td>
 
             <td>
-              <select class="form-select" aria-label="Default select example">
+              <select
+                className="form-select"
+                aria-label="Default select example"
+              >
                 <option selected>Docente</option>
                 <option value="1">Ing. Limber Ruiz</option>
                 <option value="2">Ing. Clever</option>
@@ -39,7 +45,10 @@ export const AsignacionDocentes = () => {
               </select>
             </td>
             <td>
-              <select class="form-select" aria-label="Default select example">
+              <select
+                className="form-select"
+                aria-label="Default select example"
+              >
                 <option selected>Ambiente</option>
                 <option value="1">Amb. 2 2do P.</option>
                 <option value="2">Amb. 5 3er P.</option>
@@ -56,7 +65,10 @@ export const AsignacionDocentes = () => {
             <td>SIS-737</td>
             <td>10:00 - 10:45</td>
             <td>
-              <select class="form-select" aria-label="Default select example">
+              <select
+                className="form-select"
+                aria-label="Default select example"
+              >
                 <option selected>Grupo</option>
                 <option value="1">G1</option>
                 <option value="2">G2</option>
@@ -64,14 +76,20 @@ export const AsignacionDocentes = () => {
             </td>
 
             <td>
-              <select class="form-select" aria-label="Default select example">
+              <select
+                className="form-select"
+                aria-label="Default select example"
+              >
                 <option selected>Docente</option>
                 <option value="1">Ing. Limber Ruiz</option>
                 <option value="2">Ing. Oscar Apaza</option>
               </select>
             </td>
             <td>
-              <select class="form-select" aria-label="Default select example">
+              <select
+                className="form-select"
+                aria-label="Default select example"
+              >
                 <option selected>Ambiente</option>
                 <option value="1">Amb. 6 3er P.</option>
                 <option value="2">Amb. 2 1er P.</option>
@@ -86,7 +104,10 @@ export const AsignacionDocentes = () => {
             <td>SIS-313</td>
             <td>14:00 - 14:45</td>
             <td>
-              <select class="form-select" aria-label="Default select example">
+              <select
+                className="form-select"
+                aria-label="Default select example"
+              >
                 <option selected>Grupo</option>
                 <option value="1">G1</option>
                 <option value="2">G2</option>
@@ -94,14 +115,20 @@ export const AsignacionDocentes = () => {
             </td>
 
             <td>
-              <select class="form-select" aria-label="Default select example">
+              <select
+                className="form-select"
+                aria-label="Default select example"
+              >
                 <option selected>Docente</option>
                 <option value="1">Ing. Martín Sandy</option>
                 <option value="2">Ing. Oscar Apaza</option>
               </select>
             </td>
             <td>
-              <select class="form-select" aria-label="Default select example">
+              <select
+                className="form-select"
+                aria-label="Default select example"
+              >
                 <option selected>Ambiente</option>
                 <option value="1">Amb. 1 1er P.</option>
                 <option value="2">Amb. 3 1er P.</option>
@@ -111,7 +138,7 @@ export const AsignacionDocentes = () => {
         </tbody>
       </table>
 
-      <button type="button" class="btn btn-outline-secondary">
+      <button type="button" className="btn btn-outline-secondary">
         Guardar
       </button>
     </div>

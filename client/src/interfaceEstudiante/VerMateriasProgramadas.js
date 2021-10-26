@@ -4,11 +4,11 @@ export const VerMateriasProgramadas = () => {
   return (
     <div>
       <h4>Mi Programacion de Marerias</h4>
-      <div class="col-md-4">
-        <label for="inputState" class="form-label"></label>
+      <div className="col-md-4">
+        <label for="inputState" className="form-label"></label>
       </div>
       <table className="table table-bordered table-hover">
-        <thead class="table-dark">
+        <thead className="table-dark">
           <tr>
             <th scope="col">Sigla</th>
             <th scope="col">Materia</th>
@@ -74,7 +74,7 @@ export const VerMateriasProgramadas = () => {
         </tbody>
       </table>
       <div>
-        <button type="button" class="btn btn-dark">
+        <button type="button" className="btn btn-dark">
           Imprimir
         </button>
       </div>

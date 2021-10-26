@@ -5,7 +5,7 @@ export const SubSidebarID = () => {
     <div className="profile clearfix">
       <h4>DOCENTE</h4>
       <br />
-      <div class="profile_pic">
+      <div className="profile_pic">
         <img
           src="https://p4.wallpaperbetter.com/wallpaper/115/377/258/anime-demon-slayer-kimetsu-no-yaiba-nezuko-kamado-hd-wallpaper-preview.jpg"
           width="90"

@@ -5,30 +5,30 @@ export const CrearAmbiente = () => {
     <div>
       <h4>Formulario para crear ambiente</h4>
 
-      <div class="form-group row">
-        <label for="input" class="col-sm-2 col-form-label">
+      <div className="form-group row">
+        <label for="input" className="col-sm-2 col-form-label">
           Ambiente:
         </label>
-        <div class="col-sm-8">
+        <div className="col-sm-8">
           <input type="text" id="uname" name="ambiente"></input>
         </div>
       </div>
 
       <br></br>
-      <div class="form-group row">
-        <label for="input" class="col-sm-2 col-form-label">
+      <div className="form-group row">
+        <label for="input" className="col-sm-2 col-form-label">
           Ubicación:
         </label>
-        <div class="col-sm-8">
+        <div className="col-sm-8">
           <input type="text" id="uname" name="ubicacion"></input>
         </div>
       </div>
       <br></br>
 
-      <button type="button" class="btn btn-secondary">
+      <button type="button" className="btn btn-secondary">
         Guardar
       </button>
-      <button type="button" class="btn btn-secondary">
+      <button type="button" className="btn btn-secondary">
         Cancelar
       </button>
     </div>

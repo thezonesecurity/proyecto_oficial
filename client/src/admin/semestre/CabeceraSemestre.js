@@ -1,29 +1,28 @@
 import React from "react";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import { ListaSemestreAsignado } from "./ListaSemestreAsignado";
-import { RegistrarSemestre } from "./RegistrarSemestre";
 
+import { Link, useRouteMatch } from "react-router-dom";
+import { RouteSemestre } from "./route/RouteSemestre";
 export const CabeceraSemestre = () => {
+  let { path, url } = useRouteMatch();
   return (
     <div className="col card">
       <div>
         <div className="card text-center">
           <div className="card-header">
-            <div class="row align-items-start">
+            <div className="row align-items-start">
               <ul className="nav nav-tabs card-header-tabs">
-                <li className="nav-item" class="col">
-                  <a className="nav-link active" aria-current="true" href="#">
+                <li className="nav-link active col">
+                  <Link to={`${url}/registrar-semestre`}>
                     Registrar Semestre
-                  </a>
+                  </Link>
                 </li>
-                <li className="nav-item" class="col">
-                  <a className="nav-link active " href="#">
-                    Informe Semestre
-                  </a>
+                <li className="nav-link active col">
+                  <Link to={`${url}/informe-semestre`}>Informe Semestre</Link>
                 </li>
 
-                <li className="nav-item" class="col">
-                  <li class="col align-self-center">
+                <li className="nav-item col">
+                  <li className="col align-self-center">
                     <MdOutlineAccountCircle />
                   </li>
                 </li>
@@ -34,8 +33,7 @@ export const CabeceraSemestre = () => {
           <div className="card-body">
             {/*para el contenido */}
             <hr />
-            {/*<RegistrarSemestre, /> */}
-            <ListaSemestreAsignado />
+            <RouteSemestre path={path} />
           </div>
         </div>
       </div>

@@ -1,28 +1,27 @@
 import React from "react";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import { Planilla } from "./Planilla";
-import { ReporteDocentesyMaterias } from "./ReporteDocentesyMaterias";
 
+import { Link, useRouteMatch } from "react-router-dom";
+import { RouteReportes } from "./route/RouteReportes";
 export const CabeceraReportes = () => {
+  let { path, url } = useRouteMatch();
   return (
     <div className="col card">
       <div>
         <div className="card text-center">
           <div className="card-header">
-            <div class="row align-items-start">
+            <div className="row align-items-start">
               <ul className="nav nav-tabs card-header-tabs">
-                <li className="nav-item" class="col-4">
-                  <a className="nav-link active " href="#">
-                    Planillas
-                  </a>
+                <li className="nav-link active col">
+                  <Link to={`${url}/planilla`}> Planillas</Link>
                 </li>
-                <li className="nav-item" class="col-6">
-                  <a className="nav-link active " href="#">
+                <li className="nav-link active col">
+                  <Link to={`${url}/reporte-doc-mat`}>
                     Reporte de Docentes y materias
-                  </a>
+                  </Link>
                 </li>
 
-                <li className="nav-item" class="col">
+                <li className="nav-item col">
                   <li class="col align-self-center">
                     <MdOutlineAccountCircle />
                   </li>
@@ -32,8 +31,7 @@ export const CabeceraReportes = () => {
           </div>
 
           <div className="card-body">
-            {/*<Planilla, ReporteDocentesyMaterias/>  */}
-            <Planilla />
+            <RouteReportes path={path} />
           </div>
         </div>
       </div>

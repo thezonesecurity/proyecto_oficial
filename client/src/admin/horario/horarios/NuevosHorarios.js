@@ -20,7 +20,7 @@ export const NuevosHorarios = () => {
         <div>
           <thead>
             <th scope="col">Asignar Materia: </th>
-            <select class="form-select" aria-label="Default select example">
+            <select className="form-select" aria-label="Default select example">
               <option selected>Materia</option>
               <option value="1">Programación 1</option>
               <option value="2">Diseño</option>
@@ -32,19 +32,19 @@ export const NuevosHorarios = () => {
         </div>
       </tbody>
       <br></br>
-      <table class="table table-borderless">
+      <table className="table table-borderless">
         <th>
-          <button type="button" class="btn btn-outline-secondary">
+          <button type="button" className="btn btn-outline-secondary">
             Guardar
           </button>
         </th>
         <th>
-          <button type="button" class="btn btn-outline-secondary">
+          <button type="button" className="btn btn-outline-secondary">
             Cancelar
           </button>
         </th>
         <th>
-          <button type="button" class="btn btn-outline-secondary">
+          <button type="button" className="btn btn-outline-secondary">
             Ver Horarios
           </button>
         </th>

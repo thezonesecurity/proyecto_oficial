@@ -4,7 +4,7 @@ import { TablaProgramacion } from "./TablaProgramacion";
 export const ProgramarMaterias = () => {
   return (
     <div>
-      <div class="form-group row">
+      <div className="form-group row">
         <h8>Programación de Materias</h8>
         <div>
           <br></br>
@@ -13,13 +13,13 @@ export const ProgramarMaterias = () => {
         </div>
       </div>
       <br></br>
-      <div class="form-group row">
-        <div class="col-sm-10 col-form-label">
-          <button type="button" class="btn btn-outline-secondary">
-            Guardar
+      <div className="form-group row">
+        <div className="col-sm-10 col-form-label">
+          <button type="button" className="btn btn-outline-secondary">
+            Programar
           </button>
 
-          <button type="button" class="btn btn-outline-secondary">
+          <button type="button" className="btn btn-outline-secondary">
             Cancelar
           </button>
         </div>

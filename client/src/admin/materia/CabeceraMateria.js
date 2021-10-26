@@ -1,34 +1,30 @@
 import React from "react";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import { AsignacionDocentes, Asignacion_Docentes } from "./AsignacionDocentes";
-import { CrearMateria } from "./CrearMateria";
-import { ListaMateria } from "./ListaMateria";
+import { Link, useRouteMatch } from "react-router-dom";
+import { RouteMateria } from "./route/RouteMateria";
 
 export const CabeceraMateria = () => {
+  let { path, url } = useRouteMatch();
   return (
     <div className="col card">
       <div>
         <div className="card text-center">
           <div className="card-header">
-            <div class="row align-items-start">
+            <div className="row align-items-start">
               <ul className="nav nav-tabs card-header-tabs">
-                <li className="nav-item" className="col">
-                  <a className="nav-link active" aria-current="true" href="#">
-                    Ver lista de Materias
-                  </a>
+                <li className="nav-link active col">
+                  <Link to={`${url}/lista-materia`}>Ver lista de Materias</Link>
                 </li>
-                <li className="nav-item" className="col">
-                  <a className="nav-link active " href="#">
-                    Crear Materias
-                  </a>
+                <li className="nav-link active col">
+                  <Link to={`${url}/crear-materia`}>Crear Materias</Link>
                 </li>
-                <li className="nav-item" className="col">
-                  <a className="nav-link active" href="#">
+                <li className="nav-link active col">
+                  <Link to={`${url}/asignacion-docente`}>
                     Asignacion Docente
-                  </a>
+                  </Link>
                 </li>
 
-                <li className="nav-item" className="col">
+                <li className="nav-item col">
                   <li className="col align-self-center">
                     <MdOutlineAccountCircle />
                   </li>
@@ -41,7 +37,7 @@ export const CabeceraMateria = () => {
             {/*para el contenido */}
             <hr />
             {/*<ListaMateria, AsignacionDocentes />*/}
-            <CrearMateria />
+            <RouteMateria path={path} />
           </div>
         </div>
       </div>

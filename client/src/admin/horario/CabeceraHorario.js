@@ -3,10 +3,12 @@ import { MdOutlineAccountCircle } from "react-icons/md";
 import { ListaHorario } from "./horarios/ListaHorario";
 //import { ListaHorario } from "./horarios/ListaHorario";
 import { NuevosHorarios } from "./horarios/NuevosHorarios";
-
+import { RouteHorario } from "./horarios/route/RouteHorario";
+import { Link, useRouteMatch } from "react-router-dom";
 import { TablaListaHoraio } from "./horarios/TablaListaHoraio";
 
 export const CabeceraHorario = () => {
+  let { path, url } = useRouteMatch();
   return (
     <div className="col card">
       <div>
@@ -14,17 +16,14 @@ export const CabeceraHorario = () => {
           <div className="card-header">
             <div class="row align-items-start">
               <ul className="nav nav-tabs card-header-tabs">
-                <li className="nav-item" class="col">
-                  <a className="nav-link active" aria-current="true" href="#">
-                    Nuevos Horarios
-                  </a>
+                <li className="nav-link active col">
+                  <Link to={`${url}/crear-horarios`}>Nuevos Horarios</Link>
                 </li>
-                <li className="nav-item" class="col">
-                  <a className="nav-link active " href="#">
-                    Horarios
-                  </a>
+                <li className="nav-link active col">
+                  <Link to={`${url}/ver-horarios`}>Ver Horarios</Link>
                 </li>
-                <li className="nav-item" class="col">
+
+                <li className="nav-item col">
                   <li class="col align-self-center">
                     <MdOutlineAccountCircle />
                   </li>
@@ -36,9 +35,9 @@ export const CabeceraHorario = () => {
           <div className="card-body">
             {/*para el contenido */}
             <hr />
-            {/*<NuevosHorarios, ListaHorario />*/}
+            {/*<NuevosHorarios, ListaHorario /> -> TablaListaHoraio*/}
 
-            <TablaListaHoraio />
+            <RouteHorario path={path} />
           </div>
         </div>
       </div>

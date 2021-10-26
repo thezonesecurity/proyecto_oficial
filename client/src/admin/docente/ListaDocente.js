@@ -46,7 +46,7 @@ export const ListaDocente = () => {
           </tr>
         </tbody>
       </table>
-      <button type="button" class="btn btn-secondary">
+      <button type="button" className="btn btn-secondary">
         Imprimir
       </button>
     </div>

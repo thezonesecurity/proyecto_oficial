@@ -1,6 +1,5 @@
 import React from "react";
 import { TablaListaHoraio } from "./TablaListaHoraio";
-import { MdOutlineAccountCircle } from "react-icons/md";
 
 export const ListaHorario = () => {
   return (

@@ -4,13 +4,13 @@ export const RegistrarSemestre = () => {
   return (
     <div>
       <div>
-        <div class="form-group row">
+        <div className="form-group row">
           <h4>Registrar Semestre</h4>
-          <label for="input" class="col-sm-2 col-form-label">
+          <label for="input" className="col-sm-2 col-form-label">
             Numero de Semestre
           </label>
           <div class="col-sm-10">
-            <select id="inputState" class="form-select">
+            <select id="inputState" className="form-select">
               <option selected>Semestre1</option>
               <option>Semestre2</option>
               <option>Semestre3</option>
@@ -25,10 +25,10 @@ export const RegistrarSemestre = () => {
         </div>
         <hr />
         <div class="form-group row">
-          <label for="input" class="col-sm-2 col-form-label">
+          <label for="input" className="col-sm-2 col-form-label">
             Año
           </label>
-          <div class="col-sm-10">
+          <div className="col-sm-10">
             <input
               type="text"
               class="form-control"
@@ -38,12 +38,12 @@ export const RegistrarSemestre = () => {
           </div>
         </div>
         <hr />
-        <div class="form-group row">
-          <label for="input" class="col-sm-2 col-form-label">
+        <div className="form-group row">
+          <label for="input" className="col-sm-2 col-form-label">
             Materias
           </label>
           <div class="col-sm-10">
-            <select id="inputState" class="form-select">
+            <select id="inputState" className="form-select">
               <option selected>Diseño</option>
               <option>Programacion</option>
               <option>Forence</option>
@@ -52,16 +52,16 @@ export const RegistrarSemestre = () => {
               <option>Redes</option>
               <option>Seguridad</option>
             </select>
-            <textarea class="form-control" rows="3"></textarea>
+            <textarea className="form-control" rows="3"></textarea>
           </div>
         </div>
-        <div class="form-group row">
-          <div class="col-sm-10 col-form-label">
-            <button type="button" class="btn btn-dark">
+        <div className="form-group row">
+          <div className="col-sm-10 col-form-label">
+            <button type="button" className="btn btn-dark">
               Guardar
             </button>
 
-            <button type="button" class="btn btn-dark">
+            <button type="button" className="btn btn-dark">
               Cancelar
             </button>
           </div>

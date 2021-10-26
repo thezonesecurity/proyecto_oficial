@@ -4,8 +4,8 @@ export const MateriasAsignadasDocente = () => {
   return (
     <div>
       <h4>Materias Asignadas al Docente</h4>
-      <div class="col-md-4">
-        <label for="inputState" class="form-label"></label>
+      <div className="col-md-4">
+        <label for="inputState" className="form-label"></label>
       </div>
       <table className="table table-bordered table-hover">
         <thead>
@@ -49,7 +49,7 @@ export const MateriasAsignadasDocente = () => {
         </tbody>
       </table>
       <div>
-        <button type="button" class="btn btn-dark">
+        <button type="button" className="btn btn-dark">
           Imprimir
         </button>
       </div>

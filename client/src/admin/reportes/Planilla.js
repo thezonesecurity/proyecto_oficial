@@ -4,7 +4,7 @@ export const Planilla = () => {
   return (
     <div>
       <h8>Planillas</h8>
-      <table class="table table-bordered">
+      <table className="table table-bordered">
         <thead>
           <th scope="col">Docente</th>
           <th scope="col">Ambiente</th>
@@ -44,7 +44,7 @@ export const Planilla = () => {
         </tbody>
       </table>
 
-      <button type="button" class="btn btn-outline-secondary">
+      <button type="button" className="btn btn-outline-secondary">
         Imprimir
       </button>
     </div>

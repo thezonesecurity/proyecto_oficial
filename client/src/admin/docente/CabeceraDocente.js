@@ -1,10 +1,8 @@
 import React from "react";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import { EditarDocente } from "./EditarDocente";
-import { ListaDocente } from "./ListaDocente";
-import { Link, Redirect, useRouteMatch } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
+import { RouteDocente } from "./route/RouteDocente";
 
-import { InsertarDocente } from "./InsertarDocente";
 export const CabeceraDocente = () => {
   let { path, url } = useRouteMatch();
   console.log(url);
@@ -15,19 +13,17 @@ export const CabeceraDocente = () => {
           <div className="card-header">
             <div class="row align-items-start">
               <ul className="nav nav-tabs card-header-tabs">
-                <li className="nav-item" class="col">
-                  <Link to={`${url}/lista`}>Ver Lista de Docentes</Link>
+                <li className="nav-link active col" aria-current="true">
+                  <Link to={`${url}/lista-docente`}>Ver Lista de Docentes</Link>
                 </li>
-                <li className="nav-item" class="col">
-                  <Link to={`${url}/insertar`}>Crear Docentes</Link>
+                <li className="nav-link active col" aria-current="true">
+                  <Link to={`${url}/crear-docente`}>Crear Docentes</Link>
                 </li>
-                <li className="nav-item" class="col">
-                  <a className="nav-link active" href="#">
-                    Editar Docente
-                  </a>
+                <li className="nav-link active col" aria-current="true">
+                  <Link to={`${url}/editar-docente`}>Editar Docente</Link>
                 </li>
-                <li className="nav-item" class="col">
-                  <li class="col align-self-center">
+                <li className="nav-link active col">
+                  <li className="col align-self-center">
                     <MdOutlineAccountCircle />
                   </li>
                 </li>
@@ -38,8 +34,7 @@ export const CabeceraDocente = () => {
           <div className="card-body">
             {/*para el contenido */}
             <hr />
-            {/*<InsertarDocente, ListaDocente, EditarDocente   />*/}
-            <ListaDocente />
+            <RouteDocente path={path} />
           </div>
         </div>
       </div>
