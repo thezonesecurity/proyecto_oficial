@@ -2,8 +2,12 @@ import React from "react";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { EditarDocente } from "./EditarDocente";
 import { ListaDocente } from "./ListaDocente";
+import { Link, Redirect, useRouteMatch } from "react-router-dom";
+
 import { InsertarDocente } from "./InsertarDocente";
 export const CabeceraDocente = () => {
+  let { path, url } = useRouteMatch();
+  console.log(url);
   return (
     <div className="col card">
       <div>
@@ -12,14 +16,10 @@ export const CabeceraDocente = () => {
             <div class="row align-items-start">
               <ul className="nav nav-tabs card-header-tabs">
                 <li className="nav-item" class="col">
-                  <a className="nav-link active" aria-current="true" href="#">
-                    Ver lista de docentes
-                  </a>
+                  <Link to={`${url}/lista`}>Ver Lista de Docentes</Link>
                 </li>
                 <li className="nav-item" class="col">
-                  <a className="nav-link active " href="#">
-                    Crear Docentes
-                  </a>
+                  <Link to={`${url}/insertar`}>Crear Docentes</Link>
                 </li>
                 <li className="nav-item" class="col">
                   <a className="nav-link active" href="#">
@@ -39,7 +39,7 @@ export const CabeceraDocente = () => {
             {/*para el contenido */}
             <hr />
             {/*<InsertarDocente, ListaDocente, EditarDocente   />*/}
-            <InsertarDocente />
+            <ListaDocente />
           </div>
         </div>
       </div>

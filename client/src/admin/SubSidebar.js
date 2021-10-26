@@ -1,37 +1,61 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export const SubSidebar = () => {
   return (
     <ul className="nav flex-column">
       <li className="nav-item">
-        <a className="nav-link active" aria-current="page" href="#">
-          Docentes
-        </a>
+        <Link
+          to="/docente"
+          className="btn btn-outline-info"
+          aria-current="page"
+        >
+          Docente
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link active" aria-current="page" href="#">
-          materias
-        </a>
+        <Link
+          to="/materia"
+          className="btn btn-outline-info"
+          aria-current="page"
+        >
+          Materias
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="btn btn-outline-info" aria-current="page" href="#">
+        <Link
+          to="/ambiente"
+          className="btn btn-outline-info"
+          aria-current="page"
+        >
           Ambientes
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link active" aria-current="page" href="#">
+        <Link
+          to="/semestre"
+          className="btn btn-outline-info"
+          aria-current="page"
+        >
           Semestre
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link active" aria-current="page" href="#">
+        <Link
+          to="/horario"
+          className="btn btn-outline-info"
+          aria-current="page"
+        >
           Horarios
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link active" aria-current="page" href="#">
+        <Link
+          to="/reporte"
+          className="btn btn-outline-info"
+          aria-current="page"
+        >
           Reportes
-        </a>
+        </Link>
       </li>
     </ul>
   );
