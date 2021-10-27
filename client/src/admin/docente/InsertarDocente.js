@@ -8,14 +8,18 @@ export const InsertarDocente = () => {
         <input
           type="text"
           name="nombre"
+          value=""
           id="nombre"
           placeholder="Escribe tu nombre"
+          onChange=""
         />
 
         <label for="apellidos">Apellidos</label>
         <input
           type="text"
           name="apellidos"
+          value=""
+          onChange=""
           id="apellidos"
           placeholder="1r Apellido"
         />
@@ -25,6 +29,8 @@ export const InsertarDocente = () => {
         <input
           type="email"
           name="email"
+          value=""
+          onChange=""
           id="email"
           placeholder="email"
           required
@@ -34,6 +40,8 @@ export const InsertarDocente = () => {
         <input
           type="text"
           name="direccion"
+          value=""
+          onChange=""
           id="direccion"
           placeholder="calle oruro #15"
         />
@@ -42,6 +50,8 @@ export const InsertarDocente = () => {
         <input
           type="text"
           name="telfono"
+          value=""
+          onChange=""
           id="telefono"
           placeholder="79727515"
         />
@@ -50,6 +60,8 @@ export const InsertarDocente = () => {
         <input
           name="carga_horaria"
           type="carga_horaria"
+          value=""
+          onChange=""
           placeholder="24"
           maxlength="10"
         />
