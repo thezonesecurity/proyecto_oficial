@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ContenidoLista } from "./ContenidoLista";
+import { ContenidoTabla } from "./ContenidoTabla";
+import DataDocente from "./contex/AppContext";
 
 export const ListaDocente = () => {
+  const { state, dispatch } = useContext(DataDocente);
+
+  console.log("state", state);
+
   return (
     <div>
       <h8>Listado de Docentes</h8>
@@ -8,7 +15,8 @@ export const ListaDocente = () => {
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Nombres y Apellidos</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
             <th scope="col">C.I.</th>
             <th scope="col">E-mail</th>
             <th scope="col">Direccion</th>
@@ -16,35 +24,9 @@ export const ListaDocente = () => {
             <th scope="col">Carga horaria</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Juan ramon valdez</td>
-            <td>1252843</td>
-            <td>Valdez@gmail.com</td>
-            <td>Calle Avaroa</td>
-            <td>6245521</td>
-            <td>15 Hrs.</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Ana Maria Mendoza</td>
-            <td>8754843</td>
-            <td>MAria@gmail.com</td>
-            <td>Av. Murillo</td>
-            <td>62596427</td>
-            <td>20 Hrs.</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Diego Mauricio Tupa</td>
-            <td>85425782-b</td>
-            <td>Diego-Tupa@gmail.com</td>
-            <td>Calle Bustillos</td>
-            <td>6212455</td>
-            <td>30 Hrs.</td>
-          </tr>
-        </tbody>
+        {state.map((item) => {
+          return <ContenidoLista key={item.id} {...item} />;
+        })}
       </table>
       <button type="button" className="btn btn-secondary">
         Imprimir

@@ -5,7 +5,7 @@ import { CabeceraAmbiente } from "./CabeceraAmbiente";
 
 export const MainAmbiente = () => {
   return (
-    <div className="container">
+    <div>
       <div className="row align-items-start">
         <HeaderTitle />
         <SidebarMenu />

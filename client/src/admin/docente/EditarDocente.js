@@ -1,13 +1,66 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { MdCreate, MdDeleteSweep } from "react-icons/md";
+import { ContenidoTabla } from "./ContenidoTabla";
+import DataDocente from "./contex/AppContext";
+import { ModalDocente } from "./ModalDocente";
+
 export const EditarDocente = () => {
+  const { state, dispatch } = useContext(DataDocente);
+
   const test = () => {
-    console.log("prueba de test");
+    //console.log("prueba de test");
   };
+  const {
+    num,
+    nombre,
+    apellidos,
+    ci,
+    email,
+    direccion,
+    telefono,
+    carga_horaria,
+    id,
+  } = state;
+
   return (
-    <di>
+    <div>
       <h8>Editar Docentes</h8>
-      <div>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">C.I.</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">telefono</th>
+            <th scope="col">Carga horaria</th>
+            <th scope="col">Opciones</th>
+          </tr>
+        </thead>
+        {state.map((item) => {
+          return <ContenidoTabla key={item.id} {...item} />;
+        })}
+      </table>
+      <tbody>
+        <tr>
+          <th scope="row">{num}</th>
+          <td>{nombre}</td>
+          <td>{apellidos}</td>
+          <td>{ci}</td>
+          <td>{email}</td>
+          <td>{direccion}</td>
+          <td>{telefono}</td>
+          <td> {carga_horaria}</td>
+        </tr>
+      </tbody>
+    </div>
+  );
+};
+
+{
+  /*<div>
         <div className="row align-items-start">
           <h9 className="col">Nro.</h9>
           <h9 className="col"> Nombres</h9>
@@ -39,11 +92,5 @@ export const EditarDocente = () => {
             <MdCreate /> <MdDeleteSweep />
           </div>
         </div>
-      </div>
-
-      <button type="button" className="btn btn-outline-secondary">
-        Guardar
-      </button>
-    </di>
-  );
-};
+      </div>*/
+}
