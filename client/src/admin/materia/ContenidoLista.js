@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { MdCreate, MdDeleteSweep } from "react-icons/md";
+import { Actions } from "./constants/Actions";
+import DataMateria from "./contex/AppContext";
 
-export const ContenidoLista = ({ num, materia, sigla, carga_horaria }) => {
+export const ContenidoLista = ({ num, materia, sigla, carga_horaria, id }) => {
+  const { state, dispatch } = useContext(DataMateria);
+  //console.log("contenido lista", state);
+  const handlerClick = (id) => {
+    console.log("eleminado");
+    dispatch({ type: Actions.REMOVE_FORM_M, payload: id });
+  };
+
   return (
     <tbody>
       <tr>
@@ -14,7 +23,12 @@ export const ContenidoLista = ({ num, materia, sigla, carga_horaria }) => {
             <MdCreate />
           </button>
           {"   "}
-          <button className="btn btn-outline-danger btn-sm">
+          <button
+            className="btn btn-outline-danger btn-sm"
+            onClick={() => {
+              handlerClick(id);
+            }}
+          >
             <MdDeleteSweep />
           </button>
         </td>

@@ -25,7 +25,7 @@ export const CrearMateria = () => {
     });
     resetForm();
   };
-  console.log("stateCrearMateria", state);
+  //console.log("stateCrearMateria", state);
   const clearform = () => {
     resetForm();
   };

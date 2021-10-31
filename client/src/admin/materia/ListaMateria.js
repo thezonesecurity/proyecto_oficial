@@ -4,7 +4,7 @@ import { ContenidoLista } from "./ContenidoLista";
 import DataMateria from "./contex/AppContext";
 export const ListaMateria = () => {
   const { state, dispatch } = useContext(DataMateria);
-  console.log("state", state);
+  //console.log("state", state);
   return (
     <div>
       <h4>Listado de Materias</h4>
