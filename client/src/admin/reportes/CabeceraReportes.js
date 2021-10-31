@@ -11,11 +11,11 @@ export const CabeceraReportes = () => {
         <div className="card text-center">
           <div className="card-header">
             <div className="row align-items-start">
-              <ul className="nav nav-tabs card-header-tabs">
-                <li className="nav-link active col">
+              <ul className="nav card-header-tabs">
+                <li className="btn btn-outline-dark">
                   <Link to={`${url}/planilla`}> Planillas</Link>
                 </li>
-                <li className="nav-link active col">
+                <li className="btn btn-outline-dark">
                   <Link to={`${url}/reporte-doc-mat`}>
                     Reporte de Docentes y materias
                   </Link>

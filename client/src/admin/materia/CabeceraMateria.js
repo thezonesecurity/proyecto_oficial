@@ -11,14 +11,14 @@ export const CabeceraMateria = () => {
         <div className="card text-center">
           <div className="card-header">
             <div className="row align-items-start">
-              <ul className="nav nav-tabs card-header-tabs">
-                <li className="nav-link active col">
+              <ul className="nav card-header-tabs">
+                <li className="btn btn-outline-dark">
                   <Link to={`${url}/lista-materia`}>Ver lista de Materias</Link>
                 </li>
-                <li className="nav-link active col">
+                <li className="btn btn-outline-dark">
                   <Link to={`${url}/crear-materia`}>Crear Materias</Link>
                 </li>
-                <li className="nav-link active col">
+                <li className="btn btn-outline-dark">
                   <Link to={`${url}/asignacion-materia-docente`}>
                     Asignacion Materia-Docente
                   </Link>

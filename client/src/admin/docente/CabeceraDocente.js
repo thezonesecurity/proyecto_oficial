@@ -12,14 +12,14 @@ export const CabeceraDocente = () => {
         <div className="card text-center">
           <div className="card-header">
             <div className="row align-items-start">
-              <ul className="nav nav-tabs card-header-tabs">
-                <li className="nav-link active col" aria-current="true">
+              <ul className="nav  card-header-tabs">
+                <li className="btn btn-outline-dark" aria-current="true">
                   <Link to={`${url}/lista-docente`}>Ver Lista de Docentes</Link>
                 </li>
-                <li className="nav-link active col" aria-current="true">
+                <li className="btn btn-outline-dark" aria-current="true">
                   <Link to={`${url}/crear-docente`}>Crear Docentes</Link>
                 </li>
-                <li className="nav-link active col" aria-current="true">
+                <li className="btn btn-outline-dark" aria-current="true">
                   <Link to={`${url}/editar-docente`}>Editar Docente</Link>
                 </li>
                 <li className="nav-link active col">

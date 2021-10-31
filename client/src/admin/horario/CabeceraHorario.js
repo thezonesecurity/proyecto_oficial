@@ -15,11 +15,11 @@ export const CabeceraHorario = () => {
         <div className="card text-center">
           <div className="card-header">
             <div class="row align-items-start">
-              <ul className="nav nav-tabs card-header-tabs">
-                <li className="nav-link active col">
+              <ul className="nav card-header-tabs">
+                <li className="btn btn-outline-dark">
                   <Link to={`${url}/crear-horarios`}>Nuevos Horarios</Link>
                 </li>
-                <li className="nav-link active col">
+                <li className="btn btn-outline-dark">
                   <Link to={`${url}/ver-horarios`}>Ver Horarios</Link>
                 </li>
 

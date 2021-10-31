@@ -10,13 +10,13 @@ export const CabeceraAmbiente = () => {
         <div className="card text-center">
           <div className="card-header">
             <div class="row align-items-start">
-              <ul className="nav nav-tabs card-header-tabs">
-                <li className="nav-link active col">
+              <ul className="nav  card-header-tabs">
+                <li className="btn btn-outline-dark">
                   <Link to={`${url}/lista-ambientes`}>
                     Ver lista de Ambientes
                   </Link>
                 </li>
-                <li className="nav-link active col" aria-current="true">
+                <li className="btn btn-outline-dark" aria-current="true">
                   <Link to={`${url}/crear-ambiente`}>Crear Ambientes</Link>
                 </li>
 

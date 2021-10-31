@@ -11,13 +11,13 @@ export const CabeceraSemestre = () => {
         <div className="card text-center">
           <div className="card-header">
             <div className="row align-items-start">
-              <ul className="nav nav-tabs card-header-tabs">
-                <li className="nav-link active col">
+              <ul className="nav card-header-tabs">
+                <li className="btn btn-outline-dark">
                   <Link to={`${url}/registrar-semestre`}>
                     Registrar Semestre
                   </Link>
                 </li>
-                <li className="nav-link active col">
+                <li className="btn btn-outline-dark">
                   <Link to={`${url}/informe-semestre`}>Informe Semestre</Link>
                 </li>
 
