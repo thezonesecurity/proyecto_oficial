@@ -38,7 +38,7 @@ export const InsertarDocente = () => {
 
     resetForm();
   };
-  //console.log("data", state);
+  console.log("dataDocente", state);
 
   return (
     <div>

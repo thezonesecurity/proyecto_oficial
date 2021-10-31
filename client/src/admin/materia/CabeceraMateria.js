@@ -20,7 +20,7 @@ export const CabeceraMateria = () => {
                 </li>
                 <li className="nav-link active col">
                   <Link to={`${url}/asignacion-docente`}>
-                    Asignacion Docente
+                    Asignacion Materia-Docente
                   </Link>
                 </li>
 
