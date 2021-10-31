@@ -52,3 +52,11 @@ form input[type="submit"]:hover {
   cursor: pointer;
 }
 /*fin de insertar docente*/
+a:link {
+  text-decoration: none;
+}
+.subSidebar {
+  padding: 10px;
+  padding-left: 65px;
+  padding-top: 20px;
+}
