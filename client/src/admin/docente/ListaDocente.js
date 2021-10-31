@@ -10,7 +10,7 @@ export const ListaDocente = () => {
 
   return (
     <div>
-      <h8>Listado de Docentes</h8>
+      <h4>Listado de Docentes</h4>
       <table className="table">
         <thead>
           <tr>

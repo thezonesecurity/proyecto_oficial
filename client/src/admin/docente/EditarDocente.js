@@ -24,7 +24,7 @@ export const EditarDocente = () => {
 
   return (
     <div>
-      <h8>Editar Docentes</h8>
+      <h4>Editar Docentes</h4>
       <table className="table">
         <thead>
           <tr>
@@ -42,19 +42,20 @@ export const EditarDocente = () => {
         {state.map((item) => {
           return <ContenidoTabla key={item.id} {...item} />;
         })}
+
+        <tbody>
+          <tr>
+            <th scope="row">{num}</th>
+            <td>{nombre}</td>
+            <td>{apellidos}</td>
+            <td>{ci}</td>
+            <td>{email}</td>
+            <td>{direccion}</td>
+            <td>{telefono}</td>
+            <td> {carga_horaria}</td>
+          </tr>
+        </tbody>
       </table>
-      <tbody>
-        <tr>
-          <th scope="row">{num}</th>
-          <td>{nombre}</td>
-          <td>{apellidos}</td>
-          <td>{ci}</td>
-          <td>{email}</td>
-          <td>{direccion}</td>
-          <td>{telefono}</td>
-          <td> {carga_horaria}</td>
-        </tr>
-      </tbody>
     </div>
   );
 };
