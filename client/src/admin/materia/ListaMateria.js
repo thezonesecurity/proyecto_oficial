@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { MdCreate, MdDeleteSweep } from "react-icons/md";
+
+import { ContenidoLista } from "./ContenidoLista";
 import DataMateria from "./contex/AppContext";
 export const ListaMateria = () => {
   const { state, dispatch } = useContext(DataMateria);
@@ -13,27 +14,13 @@ export const ListaMateria = () => {
             <th scope="col">#</th>
             <th scope="col">Materia</th>
             <th scope="col">Sigla</th>
+            <th scope="col">Carga Horaria</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
-        <tbody>
-          {state.map((item) => {
-            <tr key={item.id}>
-              <th scope="row">{item.num}</th>
-              <td>{item.materia}</td>
-              <td>{item.sigla}</td>
-              <td>
-                <button className="btn btn-outline-secondary btn-sm">
-                  <MdCreate />
-                </button>
-                {"   "}
-                <button className="btn btn-outline-danger btn-sm">
-                  <MdDeleteSweep />
-                </button>
-              </td>
-            </tr>;
-          })}
-        </tbody>
+        {state.map((item) => {
+          return <ContenidoLista key={item.id} {...item} />;
+        })}
       </table>
       <div>
         <button type="button" className="btn btn-dark">
