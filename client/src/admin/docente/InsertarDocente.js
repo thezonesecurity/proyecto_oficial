@@ -5,12 +5,7 @@ import { useForm } from "./hooks/useForm";
 import uniqid from "uniqid";
 
 export const InsertarDocente = () => {
-  const { state, dispatch } = useContext(DataDocente);
-
-  //const handlerClickEvent = () => {
-  //console.log("hola", dispatch);
-  //dispatch({ type: actions.CHANCE_NAME, payload: "rabbit " });
-  //};
+  const { state, setState, dispatch } = useContext(DataDocente);
 
   const [form, handlerChangeForm, resetForm] = useForm({
     num: "",
@@ -21,7 +16,6 @@ export const InsertarDocente = () => {
     direccion: "",
     telefono: "",
     carga_horaria: "",
-    state: false,
   });
   const {
     num,
@@ -44,8 +38,8 @@ export const InsertarDocente = () => {
 
     resetForm();
   };
+  console.log("dataDocente", state);
 
-  //console.log("form", form);
   return (
     <div>
       <form>
@@ -53,12 +47,11 @@ export const InsertarDocente = () => {
         <input
           type="text"
           name="nombre"
-          id=""
+          id="dd"
           value={nombre}
           placeholder="Escribe tu nombre"
           onChange={handlerChangeForm}
         />
-
         <label htmlFor="apellidos">Apellidos</label>
         <input
           type="text"
@@ -89,7 +82,6 @@ export const InsertarDocente = () => {
           onChange={handlerChangeForm}
           required
         />
-
         <label htmlFor="direccion">Direccion</label>
         <input
           type="text"
@@ -99,7 +91,6 @@ export const InsertarDocente = () => {
           placeholder="calle oruro #15"
           onChange={handlerChangeForm}
         />
-
         <label htmlFor="telefono">Telefono</label>
         <input
           type="number"
@@ -118,9 +109,6 @@ export const InsertarDocente = () => {
           placeholder="ej. 45 min"
           onChange={handlerChangeForm}
         />
-
-        <br></br>
-
         <button
           onClick={handlerSubmit}
           type="button"
