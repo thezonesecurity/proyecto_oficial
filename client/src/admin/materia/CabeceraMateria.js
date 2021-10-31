@@ -19,7 +19,7 @@ export const CabeceraMateria = () => {
                   <Link to={`${url}/crear-materia`}>Crear Materias</Link>
                 </li>
                 <li className="nav-link active col">
-                  <Link to={`${url}/asignacion-docente`}>
+                  <Link to={`${url}/asignacion-materia-docente`}>
                     Asignacion Materia-Docente
                   </Link>
                 </li>
