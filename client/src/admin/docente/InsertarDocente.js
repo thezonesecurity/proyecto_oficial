@@ -99,7 +99,7 @@ export const InsertarDocente = () => {
         />
 
         <label htmlFor="carga_horaria">C. Horaria</label>
-        <input
+        <inputxit
           name="carga_horaria"
           type="number"
           value={carga_horaria}
