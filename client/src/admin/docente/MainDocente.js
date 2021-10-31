@@ -12,7 +12,8 @@ export const MainDocente = () => {
   return (
     <DataDocente.Provider value={{ state, dispatch }}>
       {/*el dispatch se encarga de modificar los valores del state*/}
-      <div className="container">
+      <div>
+        {/*quitar de los otros MAIN......... el: (className="container)"*/}
         <div className="row align-items-start">
           <HeaderTitle />
           <SidebarMenu />

@@ -5,7 +5,7 @@ import { SidebarMenu } from "../SidebarMenu";
 import { CabeceraMateria } from "./CabeceraMateria";
 export const MainMateria = () => {
   return (
-    <div className="container">
+    <div>
       <div className="row align-items-start">
         <HeaderTitle />
         <SidebarMenu />

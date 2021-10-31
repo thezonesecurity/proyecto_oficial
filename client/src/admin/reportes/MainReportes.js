@@ -5,7 +5,7 @@ import { CabeceraReportes } from "./CabeceraReportes";
 
 export const MainReportes = () => {
   return (
-    <div className="container">
+    <div>
       <div className="row align-items-start">
         <HeaderTitle />
         <SidebarMenu />

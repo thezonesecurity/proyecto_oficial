@@ -8,6 +8,7 @@ export const InsertarDocente = () => {
   const { state, setState, dispatch } = useContext(DataDocente);
 
   const [form, handlerChangeForm, resetForm] = useForm({
+    num: "",
     nombre: "",
     apellidos: "",
     ci: "",
@@ -16,16 +17,25 @@ export const InsertarDocente = () => {
     telefono: "",
     carga_horaria: "",
   });
-  const { nombre, apellidos, ci, email, direccion, telefono, carga_horaria } =
-    form;
+  const {
+    num,
+    nombre,
+    apellidos,
+    ci,
+    email,
+    direccion,
+    telefono,
+    carga_horaria,
+  } = form;
   const handlerSubmit = (e) => {
     // e.preventDefault(); --> evita que se propague el formulario
     e.preventDefault();
-
+    //const num = 0;
     dispatch({
       type: actions.ADD_FORM,
-      payload: { ...form, id: uniqid() },
+      payload: { ...form, id: uniqid(), num: state.length + 1 },
     });
+
     resetForm();
   };
   //console.log("data", state);
@@ -64,6 +74,8 @@ export const InsertarDocente = () => {
         <input
           type="email"
           name="email"
+          value=""
+          onChange=""
           id="email"
           value={email}
           placeholder="email"

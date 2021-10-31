@@ -5,7 +5,7 @@ import { SidebarMenu } from "../SidebarMenu";
 import { CabeceraSemestre } from "./CabeceraSemestre";
 export const MainSemestre = () => {
   return (
-    <div className="container">
+    <div>
       <div className="row align-items-start">
         <HeaderTitle />
         <SidebarMenu />

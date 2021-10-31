@@ -5,7 +5,7 @@ import { CabeceraHorario } from "./CabeceraHorario";
 
 export const MainHorario = () => {
   return (
-    <div className="container">
+    <div>
       <div className="row align-items-start">
         <HeaderTitle />
         <SidebarMenu />
