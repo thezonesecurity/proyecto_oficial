@@ -1,7 +1,5 @@
 import React from "react";
 import { RouteAppAdmin } from "./admin/route/RouteAppAdmin";
-import { RouteAppID } from "./interfaceDocente/route/RouteAppID";
-import { RouteAppIE } from "./interfaceEstudiante/route/RouteAppIE";
 
 export const MainApp = () => {
   return (
@@ -12,6 +10,6 @@ export const MainApp = () => {
     <div>
       <RouteAppAdmin />
     </div>
-    /**/
+    /*<RouteAppAdmin />*/
   );
 };

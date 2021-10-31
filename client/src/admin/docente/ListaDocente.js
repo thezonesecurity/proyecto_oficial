@@ -11,7 +11,7 @@ export const ListaDocente = () => {
   return (
     <div>
       <h4>Listado de Docentes</h4>
-      <table className="table">
+      <table className="table table-dark">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -28,7 +28,7 @@ export const ListaDocente = () => {
           return <ContenidoLista key={item.id} {...item} />;
         })}
       </table>
-      <button type="button" className="btn btn-secondary">
+      <button type="button" className="btn btn-dark">
         Imprimir
       </button>
     </div>

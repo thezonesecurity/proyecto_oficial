@@ -19,7 +19,7 @@ export const ContenidoLista = ({ num, materia, sigla, carga_horaria, id }) => {
         <td>{sigla}</td>
         <td>{carga_horaria}</td>
         <td>
-          <button className="btn btn-outline-secondary btn-sm">
+          <button className="btn btn-outline-success btn-sm">
             <MdCreate />
           </button>
           {"   "}

@@ -31,7 +31,7 @@ export const ContenidoTabla = ({
         <td>{email}</td>
         <td>{direccion}</td>
         <td>{telefono}</td>
-        <td> {carga_horaria}</td>
+        <td>{carga_horaria}</td>
         <td>
           <button className="btn btn-outline-secondary btn-sm">
             <ModalDocente />

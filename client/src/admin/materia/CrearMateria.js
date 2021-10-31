@@ -67,23 +67,24 @@ export const CrearMateria = () => {
             placeholder="Ej. 45 "
           ></input>
         </div>
+        <br></br>
+        <button
+          onClick={handlerSubmit}
+          type="button"
+          className="btn btn-outline-success"
+        >
+          Guardar
+        </button>
+        {"   "}
+        <button
+          onClick={clearform}
+          type="button"
+          className="btn btn-outline-dark"
+        >
+          Cancelar
+        </button>
       </form>
       <br />
-      <button
-        onClick={handlerSubmit}
-        type="button"
-        className="btn btn-outline-secondary"
-      >
-        Guardar
-      </button>
-      {"   "}
-      <button
-        onClick={clearform}
-        type="button"
-        className="btn btn-outline-secondary"
-      >
-        Cancelar
-      </button>
     </div>
   );
 };

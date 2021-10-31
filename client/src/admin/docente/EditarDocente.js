@@ -25,7 +25,7 @@ export const EditarDocente = () => {
   return (
     <div>
       <h4>Editar Docentes</h4>
-      <table className="table">
+      <table className="table table-dark">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -52,7 +52,7 @@ export const EditarDocente = () => {
             <td>{email}</td>
             <td>{direccion}</td>
             <td>{telefono}</td>
-            <td> {carga_horaria}</td>
+            <td>{carga_horaria}</td>
           </tr>
         </tbody>
       </table>

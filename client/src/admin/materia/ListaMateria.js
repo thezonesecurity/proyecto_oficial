@@ -8,7 +8,7 @@ export const ListaMateria = () => {
   return (
     <div>
       <h4>Listado de Materias</h4>
-      <table className="table table-bordered table-hover">
+      <table className="table table-dark">
         <thead>
           <tr>
             <th scope="col">#</th>

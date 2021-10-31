@@ -5,6 +5,9 @@ import {
   Route,
   /*Link*/
 } from "react-router-dom";
+import { DashBoardComponent } from "../../login/dashboard/DashBoardComponent";
+import { Login } from "../../login/Login";
+import { Register } from "../../login/Register";
 import { MainAmbiente } from "../ambientes/MainAmbiente";
 import { MainDocente } from "../docente/MainDocente";
 import { MainHorario } from "../horario/MainHorario";
@@ -22,6 +25,9 @@ export const RouteAppAdmin = () => {
         <Route path="/horario" component={MainHorario} />
         <Route path="/reporte" component={MainReportes} />
         <Route path="/semestre" component={MainSemestre} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+        <Route path="/" component={DashBoardComponent} />
       </Switch>
     </Router>
   );
