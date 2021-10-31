@@ -52,6 +52,7 @@ form input[type="submit"]:hover {
   cursor: pointer;
 }
 /*fin de insertar docente*/
+<<<<<<< HEAD
 
 /* Made with love by Mutiullah Samim*/
 
@@ -140,4 +141,13 @@ input:focus {
 
 .links a {
   margin-left: 4px;
+=======
+a:link {
+  text-decoration: none;
+}
+.subSidebar {
+  padding: 10px;
+  padding-left: 65px;
+  padding-top: 20px;
+>>>>>>> 8293e959e9d325d25a80c600e4898e06f40ca3ce
 }

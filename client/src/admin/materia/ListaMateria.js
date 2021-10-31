@@ -18,9 +18,17 @@ export const ListaMateria = () => {
             <th scope="col">Acciones</th>
           </tr>
         </thead>
-        {state.map((item) => {
-          return <ContenidoLista key={item.id} {...item} />;
-        })}
+        {state.length > 0 ? (
+          state.map((item) => {
+            return <ContenidoLista key={item.id} {...item} />;
+          })
+        ) : (
+          <tbody>
+            <tr>
+              <td colSpan="5">No hay materias registradas...</td>
+            </tr>
+          </tbody>
+        )}
       </table>
       <div>
         <button type="button" className="btn btn-dark">
