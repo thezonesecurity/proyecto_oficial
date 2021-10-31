@@ -3,13 +3,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { MdCreate, MdDeleteSweep } from "react-icons/md";
 import { Button, Modal } from "react-bootstrap";
 import DataDocente from "./contex/AppContext";
+import { useForm } from "./hooks/useForm";
 export const ModalDocente = () => {
   const { state, dispatch } = useContext(DataDocente);
+
+  const [data, setData] = useState(DataDocente);
+
   console.log("modaldocente", state);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const stateob = Object.assign({}, state);
   const {
     num,
     nombre,
@@ -20,7 +25,29 @@ export const ModalDocente = () => {
     telefono,
     carga_horaria,
     id,
-  } = state;
+  } = stateob[0];
+
+  console.log("listados", stateob);
+  //console.log("nombres", state);
+
+  /*const editar = (dato) => {
+    var contador = 0;
+    var arreglo = state.form;
+    arreglo.map((registro) => {
+      if (dato.id == registro.id) {
+        arreglo[contador].nombre = dato.nombre;
+        arreglo[contador].apellidos = dato.apellidos;
+        arreglo[contador].ci = dato.ci;
+        arreglo[contador].email = dato.email;
+        arreglo[contador].direccion = dato.direccion;
+        arreglo[contador].telefono = dato.telefono;
+        arreglo[contador].carga_horaria = dato.carga_horaria;
+      }
+      contador++;
+    });
+    this.setState({ form: arreglo });
+  };*/
+
   return (
     <>
       <Button className="btn btn-outline-secondary btn-sm" onClick={handleShow}>
@@ -40,7 +67,6 @@ export const ModalDocente = () => {
               id=""
               value={nombre}
               placeholder="Escribe tu nombre"
-              onChange=""
             />
 
             <label htmlFor="apellidos">Apellidos</label>
@@ -48,30 +74,25 @@ export const ModalDocente = () => {
               type="text"
               name="apellidos"
               id=""
-              value=""
+              value={apellidos}
               placeholder="1r Apellido"
-              onChange=""
             />
             <label htmlFor="ci">CI</label>
             <input
               type="text"
               name="ci"
               id=""
-              value=""
+              value={ci}
               placeholder="8745269"
-              onChange=""
             />
             <label htmlFor="inputEmail4">Email</label>
             <input
               type="email"
               name="email"
               value=""
-              onChange=""
               id="email"
-              value=""
+              value={email}
               placeholder="email"
-              onChange=""
-              required
             />
 
             <label htmlFor="direccion">Direccion</label>
@@ -79,9 +100,8 @@ export const ModalDocente = () => {
               type="text"
               name="direccion"
               id=""
-              value=""
+              value={direccion}
               placeholder="calle oruro #15"
-              onChange=""
             />
 
             <label htmlFor="telefono">Telefono</label>
@@ -89,18 +109,16 @@ export const ModalDocente = () => {
               type="number"
               name="telefono"
               id="telefono"
-              value=""
+              value={telefono}
               placeholder="79727515"
-              onChange=""
             />
 
             <label htmlFor="carga_horaria">C. Horaria</label>
             <input
               name="carga_horaria"
               type="number"
-              value=""
+              value={carga_horaria}
               placeholder="ej. 45 min"
-              onChange=""
             />
           </form>
         </Modal.Body>
