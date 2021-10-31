@@ -6,8 +6,13 @@ export const AppReducer = (state, action) => {
     case actions.ADD_FORM: {
       return [...state, action.payload];
     }
+
     case actions.REMOVE_FORM: {
       return state.filter((item) => item.id !== action.payload);
+    }
+
+    case actions.EDDIT_FORM: {
+      return;
     }
     default: {
       return state;

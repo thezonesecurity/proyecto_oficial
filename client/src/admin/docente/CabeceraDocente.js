@@ -11,7 +11,7 @@ export const CabeceraDocente = () => {
       <div>
         <div className="card text-center">
           <div className="card-header">
-            <div class="row align-items-start">
+            <div className="row align-items-start">
               <ul className="nav nav-tabs card-header-tabs">
                 <li className="nav-link active col" aria-current="true">
                   <Link to={`${url}/lista-docente`}>Ver Lista de Docentes</Link>
