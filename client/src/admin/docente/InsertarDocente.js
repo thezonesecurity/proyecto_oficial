@@ -106,7 +106,6 @@ export const InsertarDocente = () => {
             onChange={handlerChangeForm}
           />
 
-<<<<<<< HEAD
           <label htmlFor="carga_horaria">C. Horaria</label>
           <input
             name="carga_horaria"
@@ -116,17 +115,7 @@ export const InsertarDocente = () => {
             onChange={handlerChangeForm}
           />
         </div>
-        <br />
-=======
-        <label htmlFor="carga_horaria">C. Horaria</label>
-        <input
-          name="carga_horaria"
-          type="number"
-          value={carga_horaria}
-          placeholder="ej. 45 min"
-          onChange={handlerChangeForm}
-        />
->>>>>>> 8293e959e9d325d25a80c600e4898e06f40ca3ce
+        <br></br>
         <button
           onClick={handlerSubmit}
           type="button"
