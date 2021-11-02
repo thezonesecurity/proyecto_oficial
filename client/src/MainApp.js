@@ -10,6 +10,6 @@ export const MainApp = () => {
     <div>
       <RouteAppAdmin />
     </div>
-    /*<RouteAppAdmin />*/
+    /*<RouteAppAdmin />,  <LoginComponent />*/
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Narvar } from "./Narvar";
 export const SubSidebar = () => {
   return (
     <div className="subSidebar">
@@ -63,6 +64,8 @@ export const SubSidebar = () => {
             Reportes
           </Link>
         </li>
+        <br></br>
+        <Narvar />
       </ul>
     </div>
   );

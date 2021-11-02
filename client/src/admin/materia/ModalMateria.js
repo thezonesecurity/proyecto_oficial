@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { MdCreate, MdDeleteSweep } from "react-icons/md";
+import { MdCreate } from "react-icons/md";
 import { Button, Modal } from "react-bootstrap";
 import DataMateria from "./contex/AppContext";
 
@@ -11,7 +11,7 @@ export const ModalMateria = () => {
   const handleShow = () => setShow(true);
   //config para los datos
   const { state, dispatch } = useContext(DataMateria);
-  console.log("state", state);
+  //console.log("state", state);
   let contador = 0;
   const { id, materia, sigla, num, carga_horaria } = state[contador];
   //esta parte sera para guardar los datos

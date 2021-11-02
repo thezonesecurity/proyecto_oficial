@@ -4,8 +4,9 @@ import { Link, useRouteMatch } from "react-router-dom";
 import { RouteDocente } from "./route/RouteDocente";
 
 export const CabeceraDocente = () => {
-  let { path, url } = useRouteMatch();
-  console.log(url);
+  let { path, url } = useRouteMatch(); //(useRouteMatch).. es una lebrireria que hace coincidir con los datos del url
+  // console.log(url);
+
   return (
     <div className="col card">
       <div>

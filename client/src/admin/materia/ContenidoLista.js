@@ -14,15 +14,13 @@ export const ContenidoLista = ({ num, materia, sigla, carga_horaria, id }) => {
 
   return (
     <tbody>
-      <tr>
+      <tr key={id}>
         <th scope="row">{num}</th>
         <td>{materia}</td>
         <td>{sigla}</td>
         <td>{carga_horaria}</td>
         <td>
-          <button className="btn btn-outline-secondary btn-sm">
-            <ModalMateria />
-          </button>
+          <ModalMateria />
           {"   "}
           <button
             className="btn btn-outline-danger btn-sm"
