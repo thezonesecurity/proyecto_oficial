@@ -20,7 +20,7 @@ export const ListaMateria = () => {
         </thead>
         {state.length > 0 ? (
           state.map((item) => {
-            return <ContenidoLista key={item.id} {...item} />;
+            return <ContenidoLista {...item} />;
           })
         ) : (
           <tbody>
