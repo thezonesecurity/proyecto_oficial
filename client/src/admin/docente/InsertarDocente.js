@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { actions } from "./contants/actions";
 import DataDocente from "./contex/AppContext";
 import { useForm } from "./hooks/useForm";
 import uniqid from "uniqid";
-
+import { ErrorValidacion } from "../ErrorValidacion";
+import { MessageCreateUser } from "../MessageCreateUser";
 export const InsertarDocente = () => {
   const { state, setState, dispatch } = useContext(DataDocente);
 
@@ -28,20 +29,50 @@ export const InsertarDocente = () => {
     carga_horaria,
   } = form;
 
-  //esto es para insertar docentes nuevos
+  //esto es para insertar docentes nuevos y validar
+  const [errors, setErrors] = useState(false);
+  const [createUser, setCreateUser] = useState(false);
   const handlerSubmit = (e) => {
     // e.preventDefault(); --> evita que se propague el formulario
     e.preventDefault();
     //const num = 0;
+    if (
+      nombre === "" ||
+      apellidos === "" ||
+      ci === "" ||
+      email === "" ||
+      direccion === "" ||
+      telefono === "" ||
+      carga_horaria === ""
+    ) {
+      setErrors(true);
+      return;
+    } else {
+      setCreateUser(true);
+    }
     dispatch({
       type: actions.ADD_FORM,
       payload: { ...form, id: uniqid(), num: state.length + 1 },
     });
     resetForm();
+    setErrors(false);
   };
+  let componente;
+  if (errors) {
+    //mostrando el error
+    componente = (
+      <ErrorValidacion mensaje="Verifique todos los campos son requeridos" />
+    );
+  } else componente = null;
+  let created;
+  if (createUser) {
+    created = <MessageCreateUser mensaje="Docente creado correctamente" />;
+  } else created = null;
   //este es para el boton cancelar que recetea la tabla
   const clearForm = () => {
     resetForm();
+    setErrors(false);
+    setCreateUser(false);
   };
   //console.log("dataDocente", state);
 
@@ -84,7 +115,6 @@ export const InsertarDocente = () => {
             value={email}
             placeholder="email"
             onChange={handlerChangeForm}
-            required
           />
           <label htmlFor="direccion">Direccion</label>
           <input
@@ -115,6 +145,8 @@ export const InsertarDocente = () => {
           />
         </div>
         <br></br>
+        {componente}
+        {created}
         <button
           onClick={handlerSubmit}
           type="button"
