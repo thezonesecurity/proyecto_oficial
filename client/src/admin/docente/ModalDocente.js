@@ -1,19 +1,19 @@
 import React, { useContext, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { MdCreate, MdDeleteSweep } from "react-icons/md";
+import { MdCreate } from "react-icons/md";
 import { Button, Modal } from "react-bootstrap";
 import DataDocente from "./contex/AppContext";
-import { useForm } from "./hooks/useForm";
+
 export const ModalDocente = () => {
   const { state, dispatch } = useContext(DataDocente);
 
   const [data, setData] = useState(DataDocente);
 
-  console.log("modaldocente", state);
+  //console.log("modaldocente", state);
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false); //handleClose cierra el modal
+  const handleShow = () => setShow(true); //handleShow abre el modal
   const stateob = Object.assign({}, state);
   const {
     num,
@@ -27,7 +27,7 @@ export const ModalDocente = () => {
     id,
   } = stateob[0];
 
-  console.log("listados", stateob);
+  //console.log("listados", stateob);
   //console.log("nombres", state);
 
   /*const editar = (dato) => {
@@ -89,7 +89,6 @@ export const ModalDocente = () => {
             <input
               type="email"
               name="email"
-              value=""
               id="email"
               value={email}
               placeholder="email"

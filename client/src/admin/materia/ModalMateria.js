@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { MdCreate, MdDeleteSweep } from "react-icons/md";
+import { MdCreate } from "react-icons/md";
 import { Button, Modal } from "react-bootstrap";
 import DataMateria from "./contex/AppContext";
 

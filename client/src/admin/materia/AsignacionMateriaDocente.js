@@ -6,7 +6,7 @@ import DataMateria from "./contex/AppContext";
 export const AsignacionMateriaDocente = () => {
   //para mostrar materia
   const { state } = useContext(DataMateria);
-  console.log("state", state);
+  //console.log("state", state);
   //para mostrar docente
 
   return (

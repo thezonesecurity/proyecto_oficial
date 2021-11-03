@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import { MdPersonPin, MdVpnKey } from "react-icons/md";
+import { Link } from "react-router-dom";
+export const LoginAD = (props) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-export const Login = () => {
+  const emailChangeHandler = (e) => {
+    //console.log("usuario", e.target.value);
+    setEmail(e.target.value);
+  };
+  const passwordChangeHandler = (e) => {
+    //console.log("password", e.target.value);
+    setPassword(e.target.value);
+  };
+
+  const handlerSubmit = (e) => {
+    props.onLogin(email, password);
+    e.preventDefault();
+  };
+
   return (
     <div className="container">
       <div className="d-flex justify-content-center h-100">
         <div className="card">
           <div className="card-header">
-            <h3>Sing In</h3>
+            <h3>UATF</h3>
             <div className="d-flex justify-content-end social_icon">
               <span className="fab fa-facebook-square"></span>
               <span className="fab fa-google-plus-square"></span>
@@ -14,29 +32,31 @@ export const Login = () => {
             </div>
           </div>
           <div className="card-body">
-            <form>
+            <form onSubmit={handlerSubmit}>
               <div className="input-group form-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text">
-                    <i className="fas fa-user"></i>
+                    <MdPersonPin />
                   </span>
                 </div>
                 <input
-                  type="text"
+                  type="email"
                   className="form-control"
-                  placeholder="username"
+                  placeholder="email"
+                  onChange={emailChangeHandler}
                 />
               </div>
               <div className="input-group form-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text">
-                    <i className="fas fa-key"></i>
+                    <MdVpnKey />
                   </span>
                 </div>
                 <input
                   type="password"
                   className="form-control"
                   placeholder="password"
+                  onChange={passwordChangeHandler}
                 />
               </div>
               <div className="row align-items-center remember">
@@ -49,16 +69,11 @@ export const Login = () => {
                   value="Login"
                   className="btn float-right login_btn"
                 />
+                <div className="d-flex justify-content-center links">
+                  <a href="#">Sign Up</a>
+                </div>
               </div>
             </form>
-          </div>
-          <div className="card-footer">
-            <div className="d-flex justify-content-center links">
-              Don't have an account? <a href="#">Sign Up</a>
-            </div>
-            <div className="d-flex justify-content-center">
-              <a href="#">Forgot your password</a>
-            </div>
           </div>
         </div>
       </div>

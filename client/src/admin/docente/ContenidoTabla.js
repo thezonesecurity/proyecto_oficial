@@ -5,6 +5,7 @@ import DataDocente from "./contex/AppContext";
 import { ModalDocente } from "./ModalDocente";
 
 export const ContenidoTabla = ({
+  // estos datos esta siendo recuperados del editar docente
   apellidos,
   nombre,
   carga_horaria,
@@ -17,13 +18,14 @@ export const ContenidoTabla = ({
 }) => {
   //  console.log(num);
   const { state, dispatch } = useContext(DataDocente);
+  //(handlerClick) es para elminiar al docente
   const handlerClick = (id) => {
     dispatch({ type: actions.REMOVE_FORM, payload: id });
   };
 
   return (
     <tbody>
-      <tr>
+      <tr key={id}>
         <th scope="row">{num}</th>
         <td>{nombre}</td>
         <td>{apellidos}</td>
@@ -33,9 +35,8 @@ export const ContenidoTabla = ({
         <td>{telefono}</td>
         <td>{carga_horaria}</td>
         <td>
-          <button className="btn btn-outline-secondary btn-sm">
-            <ModalDocente />
-          </button>
+          <ModalDocente />
+
           {"   "}
           <button
             className="btn btn-outline-danger btn-sm"

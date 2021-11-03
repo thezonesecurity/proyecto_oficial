@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 import { ContenidoLista } from "./ContenidoLista";
-import { ContenidoTabla } from "./ContenidoTabla";
 import DataDocente from "./contex/AppContext";
 
 export const ListaDocente = () => {
   const { state, dispatch } = useContext(DataDocente);
 
-  console.log("state", state);
+  //console.log("state", state);
 
   return (
     <div>
@@ -24,9 +23,17 @@ export const ListaDocente = () => {
             <th scope="col">Carga horaria</th>
           </tr>
         </thead>
-        {state.map((item) => {
-          return <ContenidoLista key={item.id} {...item} />;
-        })}
+        {state.length > 0 ? (
+          state.map((item) => {
+            return <ContenidoLista key={item.id} {...item} />;
+          })
+        ) : (
+          <tbody>
+            <tr>
+              <td colSpan="8">No hay Docentes registrados...</td>
+            </tr>
+          </tbody>
+        )}
       </table>
       <button type="button" className="btn btn-dark">
         Imprimir

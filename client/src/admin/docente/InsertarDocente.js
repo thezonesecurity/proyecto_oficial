@@ -27,6 +27,8 @@ export const InsertarDocente = () => {
     telefono,
     carga_horaria,
   } = form;
+
+  //esto es para insertar docentes nuevos
   const handlerSubmit = (e) => {
     // e.preventDefault(); --> evita que se propague el formulario
     e.preventDefault();
@@ -35,14 +37,13 @@ export const InsertarDocente = () => {
       type: actions.ADD_FORM,
       payload: { ...form, id: uniqid(), num: state.length + 1 },
     });
-
     resetForm();
   };
-
+  //este es para el boton cancelar que recetea la tabla
   const clearForm = () => {
     resetForm();
   };
-  console.log("dataDocente", state);
+  //console.log("dataDocente", state);
 
   return (
     <div>
@@ -52,7 +53,7 @@ export const InsertarDocente = () => {
           <input
             type="text"
             name="nombre"
-            id="dd"
+            id="nombre"
             value={nombre}
             placeholder="Escribe tu nombre"
             onChange={handlerChangeForm}
@@ -61,7 +62,7 @@ export const InsertarDocente = () => {
           <input
             type="text"
             name="apellidos"
-            id=""
+            id="apellidos"
             value={apellidos}
             placeholder="1r Apellido"
             onChange={handlerChangeForm}
@@ -70,7 +71,7 @@ export const InsertarDocente = () => {
           <input
             type="text"
             name="ci"
-            id=""
+            id="ci"
             value={ci}
             placeholder="8745269"
             onChange={handlerChangeForm}
@@ -79,8 +80,6 @@ export const InsertarDocente = () => {
           <input
             type="email"
             name="email"
-            value=""
-            onChange=""
             id="email"
             value={email}
             placeholder="email"
@@ -91,7 +90,7 @@ export const InsertarDocente = () => {
           <input
             type="text"
             name="direccion"
-            id=""
+            id="direccion"
             value={direccion}
             placeholder="calle oruro #15"
             onChange={handlerChangeForm}

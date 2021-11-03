@@ -36,7 +36,6 @@ export const CabeceraMateria = () => {
           <div className="card-body">
             {/*para el contenido */}
             <hr />
-            {/*<ListaMateria, AsignacionDocentes />*/}
             <RouteMateria path={path} />
           </div>
         </div>
