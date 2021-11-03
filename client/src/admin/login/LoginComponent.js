@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
+import store from "./store/store";
 import { Provider } from "react-redux";
+import { RouteAppAdmin } from "../route/RouteAppAdmin";
 
-import { LoginAD } from "./LoginAD";
+export const LoginComponent = () => {
+  return (
+    <Provider store={store}>
+      <RouteAppAdmin />
+    </Provider>
+  );
+};
+/*import { LoginAD } from "./LoginAD";
 import store from "./store/store";
 export const LoginComponent = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const loginHandler = (email, password) => {
     console.log("Logind in.....");
     localStorage.setItem("isLoggedIn", 1);
@@ -19,4 +29,4 @@ export const LoginComponent = () => {
       <LoginAD onLogin={loginHandler} />
     </Provider>
   );
-};
+}; */

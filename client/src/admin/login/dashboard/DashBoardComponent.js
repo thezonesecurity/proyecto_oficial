@@ -1,9 +1,8 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { RouteAppAdmin } from "../../admin/route/RouteAppAdmin";
-import { RouteAppID } from "../../interfaceDocente/route/RouteAppID";
-import { RouteAppIE } from "../../interfaceEstudiante/route/RouteAppIE";
+import { SidebarMenu } from "../../SidebarMenu";
+import { MainDashboard } from "./MainDashboard";
 
 export const DashBoardComponent = ({ children, ...rest }) => {
   //const { auth } = useSelector((state) => state);
@@ -11,7 +10,18 @@ export const DashBoardComponent = ({ children, ...rest }) => {
   /* si el rol de usuario es docente se va a dirijir a RouterAppDocente*/
   /* si el rol de usuario es estudiante se va a dirijir a RouterAppEstudiante*/
   /*<RouteAppAdmin />, <RouteAppID />, <RouteAppIE />, <RouteLogin/>*/
-  return {
-    /*auth == null ? <Redirect to="/login" /> : <Redirect to="/" />;*/
-  };
+  const { auth } = useSelector((state) => state);
+  const { user } = auth;
+  return user == null ? (
+    <Redirect to="/login" />
+  ) : (
+    <>
+      <SidebarMenu />
+      <Switch>
+        <Route path="/dashboard" component={MainDashboard} />
+      </Switch>
+    </>
+  );
 };
+/*auth == null ? <Redirect to="/login" /> : <Redirect to="/" />;*/
+/* */

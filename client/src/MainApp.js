@@ -1,5 +1,5 @@
 import React from "react";
-import { RouteAppAdmin } from "./admin/route/RouteAppAdmin";
+import { LoginComponent } from "./admin/login/LoginComponent";
 
 export const MainApp = () => {
   return (
@@ -8,7 +8,7 @@ export const MainApp = () => {
     /* si el rol de usuario es estudiante se va a dirijir a RouterAppEstudiante*/
     /*<RouteAppAdmin />, <RouteAppID />, <RouteAppIE />, <RouteLogin/>*/
     <div>
-      <RouteAppAdmin />
+      <LoginComponent />
     </div>
     /*<RouteAppAdmin />,  <LoginComponent />*/
   );
