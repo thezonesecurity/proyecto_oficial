@@ -14,7 +14,7 @@ export const ContenidoLista = ({ num, materia, sigla, carga_horaria, id }) => {
 
   return (
     <tbody>
-      <tr>
+      <tr key={id}>
         <th scope="row">{num}</th>
         <td>{materia}</td>
         <td>{sigla}</td>
