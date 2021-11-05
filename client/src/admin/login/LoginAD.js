@@ -11,8 +11,8 @@ export const LoginAD = () => {
   const { auth } = useSelector((state) => state);
   const { user, msnerror } = auth;
   const [form, handlerChangeForm, handlerResetForm] = useForm({
-    email: "seminario@gmail.com",
-    password: "1234",
+    email: "",
+    password: "",
   });
 
   const { email, password } = form;

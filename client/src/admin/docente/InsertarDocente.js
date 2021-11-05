@@ -46,6 +46,7 @@ export const InsertarDocente = () => {
       carga_horaria === ""
     ) {
       setErrors(true);
+      setCreateUser(false);
       return;
     } else {
       setCreateUser(true);
