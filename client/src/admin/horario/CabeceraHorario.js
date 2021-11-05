@@ -12,10 +12,10 @@ export const CabeceraHorario = () => {
             <div className="row align-items-start">
               <ul className="nav card-header-tabs">
                 <li className="btn btn-outline-dark">
-                  <Link to={`${url}/crear-horarios`}>Nuevos Horarios</Link>
+                  <Link to={`${url}/ver-horarios`}>Ver Horarios</Link>
                 </li>
                 <li className="btn btn-outline-dark">
-                  <Link to={`${url}/ver-horarios`}>Ver Horarios</Link>
+                  <Link to={`${url}/crear-horarios`}>Nuevos Horarios</Link>
                 </li>
               </ul>
             </div>
