@@ -1,5 +1,4 @@
 import React from "react";
-import { MdOutlineAccountCircle } from "react-icons/md";
 import { Link, useRouteMatch } from "react-router-dom";
 import { RouteMateria } from "./route/RouteMateria";
 
@@ -22,12 +21,6 @@ export const CabeceraMateria = () => {
                   <Link to={`${url}/asignacion-materia-docente`}>
                     Asignacion Materia-Docente
                   </Link>
-                </li>
-
-                <li className="nav-item col">
-                  <li className="col align-self-center">
-                    <MdOutlineAccountCircle />
-                  </li>
                 </li>
               </ul>
             </div>

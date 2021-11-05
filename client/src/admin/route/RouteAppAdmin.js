@@ -20,12 +20,12 @@ export const RouteAppAdmin = ({ path }) => {
   return (
     <Router>
       <Switch>
-        <Route path="/docente" component={MainDocente} />
+        {/*}  <Route path="/docente" component={MainDocente} />
         <Route path="/materia" component={MainMateria} />
         <Route path="/ambiente" component={MainAmbiente} />
         <Route path="/horario" component={MainHorario} />
         <Route path="/reporte" component={MainReportes} />
-        <Route path="/semestre" component={MainSemestre} />
+  <Route path="/semestre" component={MainSemestre} />*/}
         <Route path="/login" component={LoginAD} />
         <Route path="/register" component={Register} />
         <Route path="/" component={DashBoardComponent} />

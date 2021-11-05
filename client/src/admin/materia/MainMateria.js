@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from "react";
 import { AppReducer } from "../docente/contex/AppReducer";
-import { HeaderTitle } from "../HeaderTitle";
+
 import { SidebarMenu } from "../SidebarMenu";
 import { CabeceraMateria } from "./CabeceraMateria";
 import DataMateria from "./contex/AppContext";
@@ -12,7 +12,6 @@ export const MainMateria = () => {
     <DataMateria.Provider value={{ state, dispatch }}>
       <div>
         <div className="row align-items-start">
-          <HeaderTitle />
           <SidebarMenu />
           <CabeceraMateria />
         </div>

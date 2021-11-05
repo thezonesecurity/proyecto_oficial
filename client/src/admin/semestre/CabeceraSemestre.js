@@ -1,6 +1,4 @@
 import React from "react";
-import { MdOutlineAccountCircle } from "react-icons/md";
-
 import { Link, useRouteMatch } from "react-router-dom";
 import { RouteSemestre } from "./route/RouteSemestre";
 export const CabeceraSemestre = () => {
@@ -19,12 +17,6 @@ export const CabeceraSemestre = () => {
                 </li>
                 <li className="btn btn-outline-dark">
                   <Link to={`${url}/informe-semestre`}>Informe Semestre</Link>
-                </li>
-
-                <li className="nav-item col">
-                  <li className="col align-self-center">
-                    <MdOutlineAccountCircle />
-                  </li>
                 </li>
               </ul>
             </div>

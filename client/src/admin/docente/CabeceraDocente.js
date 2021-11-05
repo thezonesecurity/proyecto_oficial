@@ -1,5 +1,5 @@
 import React from "react";
-import { MdOutlineAccountCircle } from "react-icons/md";
+
 import { Link, useRouteMatch } from "react-router-dom";
 import { RouteDocente } from "./route/RouteDocente";
 
@@ -22,11 +22,6 @@ export const CabeceraDocente = () => {
                 </li>
                 <li className="btn btn-outline-dark" aria-current="true">
                   <Link to={`${url}/editar-docente`}>Editar Docente</Link>
-                </li>
-                <li className="nav-link active col">
-                  <li className="col align-self-center">
-                    <MdOutlineAccountCircle />
-                  </li>
                 </li>
               </ul>
             </div>

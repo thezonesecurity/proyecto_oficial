@@ -1,5 +1,4 @@
 import React from "react";
-import { MdOutlineAccountCircle } from "react-icons/md";
 import { Link, useRouteMatch } from "react-router-dom";
 import { RouteAmbiente } from "./route/RouteAmbiente";
 export const CabeceraAmbiente = () => {
@@ -9,7 +8,7 @@ export const CabeceraAmbiente = () => {
       <div>
         <div className="card text-center">
           <div className="card-header">
-            <div class="row align-items-start">
+            <div className="row align-items-start">
               <ul className="nav  card-header-tabs">
                 <li className="btn btn-outline-dark">
                   <Link to={`${url}/lista-ambientes`}>
@@ -18,12 +17,6 @@ export const CabeceraAmbiente = () => {
                 </li>
                 <li className="btn btn-outline-dark" aria-current="true">
                   <Link to={`${url}/crear-ambiente`}>Crear Ambientes</Link>
-                </li>
-
-                <li className="nav-item col">
-                  <li class="col align-self-center">
-                    <MdOutlineAccountCircle />
-                  </li>
                 </li>
               </ul>
             </div>

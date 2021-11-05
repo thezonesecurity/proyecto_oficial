@@ -1,5 +1,4 @@
 import React from "react";
-import { MdOutlineAccountCircle } from "react-icons/md";
 
 import { Link, useRouteMatch } from "react-router-dom";
 import { RouteReportes } from "./route/RouteReportes";
@@ -19,12 +18,6 @@ export const CabeceraReportes = () => {
                   <Link to={`${url}/reporte-doc-mat`}>
                     Reporte de Docentes y materias
                   </Link>
-                </li>
-
-                <li className="nav-item col">
-                  <li class="col align-self-center">
-                    <MdOutlineAccountCircle />
-                  </li>
                 </li>
               </ul>
             </div>
