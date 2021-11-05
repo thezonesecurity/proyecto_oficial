@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { MdPersonPin, MdVpnKey } from "react-icons/md";
 import { useForm } from "./hooks/useForm";
 import { useDispatch } from "react-redux";
-import { authAsync } from "./actions/auth";
+import { authAsync, auth } from "./actions/auth";
 import { useSelector } from "react-redux";
 
 export const LoginAD = () => {
   const dispatch = useDispatch();
-  const { auth } = useSelector((state) => state);
-  const { user, msnerror } = auth;
+  useEffect(() => {
+    const userData = localStorage.getItem("user");
+    if (userData != null) {
+      dispatch(auth(JSON.parse(userData)));
+    }
+  }, []);
+
+  const { auth: authRename } = useSelector((state) => state);
+  const { user, msnerror } = authRename;
   const [form, handlerChangeForm, handlerResetForm] = useForm({
     email: "seminario@gmail.com",
     password: "1234",
@@ -20,22 +27,6 @@ export const LoginAD = () => {
     e.preventDefault(); //e.preventDefault(); es para que no se recargue en otro servicio
     dispatch(authAsync(email, password));
   };
-  /*const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const emailChangeHandler = (e) => {
-    //console.log("usuario", e.target.value);
-    setEmail(e.target.value);
-  };
-  const passwordChangeHandler = (e) => {
-    //console.log("password", e.target.value);
-    setPassword(e.target.value);
-  };
-
-  const handlerSubmit = (e) => {
-    props.onLogin(email, password);
-    e.preventDefault();
-  };*/
 
   return (
     <>
@@ -99,7 +90,7 @@ export const LoginAD = () => {
           </div>
         </div>
       ) : (
-        <Redirect to="/" />
+        <Redirect to="/docente" />
       )}
     </>
   );

@@ -64,12 +64,11 @@ a:link {
 /* Made with love by Mutiullah Samim*/
 
 @import url("https://fonts.googleapis.com/css?family=Numans");
-
 html,
 body {
   /* background-image: url("https://getwallpapers.com/wallpaper/download/344517"); */
   /* background-image: url("https://getwallpapers.com/wallpaper/download/7676"); */
-  background-image: url("https://previews.123rf.com/images/alexandersikov/alexandersikov1710/alexandersikov171000106/87352287-inteligencia-artificial-inteligente-inteligencia-artificial-ai-learning-learning-business-technology.jpg");
+  background-image: url("http://2.bp.blogspot.com/-8LQBkzsrm8U/UjzwFDzNfzI/AAAAAAAAOio/aNaKwV5lADI/s1600/Descargar%2BPack%2BWallpaper%2BGratis%2BAbstractos%2B%25252818%252529.jpg");
   /* background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg'); */
   background-size: cover;
   background-repeat: no-repeat;
@@ -84,7 +83,7 @@ body {
 }
 
 .card {
-  background-color: rgba(130, 155, 184, 0.164) !important;
+  background-color: rgba(14, 59, 104, 0.096) !important;
 }
 
 .social_icon span {

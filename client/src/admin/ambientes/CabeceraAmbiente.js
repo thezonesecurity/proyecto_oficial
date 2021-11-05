@@ -9,7 +9,7 @@ export const CabeceraAmbiente = () => {
       <div>
         <div className="card text-center">
           <div className="card-header">
-            <div class="row align-items-start">
+            <div className="row align-items-start">
               <ul className="nav  card-header-tabs">
                 <li className="btn btn-outline-dark">
                   <Link to={`${url}/lista-ambientes`}>
@@ -21,7 +21,7 @@ export const CabeceraAmbiente = () => {
                 </li>
 
                 <li className="nav-item col">
-                  <li class="col align-self-center">
+                  <li className="col align-self-center">
                     <MdOutlineAccountCircle />
                   </li>
                 </li>

@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from "react";
-import { HeaderTitle } from "../HeaderTitle";
+
 import { SidebarMenu } from "../SidebarMenu";
 import { CabeceraDocente } from "./CabeceraDocente";
 import { AppReducer } from "./contex/AppReducer";
@@ -15,7 +15,6 @@ export const MainDocente = () => {
       {/*el dispatch se encarga de modificar los valores del state*/}
       <div>
         <div className="row align-items-start">
-          <HeaderTitle />
           <SidebarMenu />
           <CabeceraDocente />
         </div>
