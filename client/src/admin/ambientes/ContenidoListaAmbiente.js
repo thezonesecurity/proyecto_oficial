@@ -1,6 +1,16 @@
-import React from "react";
-import { MdCreate, MdDeleteSweep } from "react-icons/md";
+import React, { useContext } from "react";
+import { MdDeleteSweep } from "react-icons/md";
+
+import { actionsAmb } from "./contants/actionsAmb";
+import DataAmbiente from "./contex/AppContext";
+import { ModalAmbiente } from "./ModalAmbiente";
 export const ContenidoListaAmbiente = ({ id, num, ambiente, ubicacion }) => {
+  const { state, dispatch } = useContext(DataAmbiente);
+  //console.log("contenido lista", state);
+  const handlerClickDelete = (id) => {
+    //console.log("eleminado");
+    dispatch({ type: actionsAmb.REMOVE_FORM_A, payload: id });
+  };
   return (
     <tbody>
       <tr key={id}>
@@ -8,9 +18,14 @@ export const ContenidoListaAmbiente = ({ id, num, ambiente, ubicacion }) => {
         <td class="col">{ambiente}</td>
         <td class="col">{ubicacion}</td>
         <td>
-          <MdCreate />
+          <ModalAmbiente />
           {"   "}
-          <button className="btn btn-outline-danger btn-sm">
+          <button
+            className="btn btn-outline-danger btn-sm"
+            onClick={() => {
+              handlerClickDelete(id);
+            }}
+          >
             <MdDeleteSweep />
           </button>
         </td>
