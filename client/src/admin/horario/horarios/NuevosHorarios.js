@@ -109,11 +109,11 @@ export const NuevosHorarios = () => {
           >
             <option defaultValue="Elegir dia..">Elegir Dia...</option>
             <option value="lunes">lunes</option>
-            <option value="Martes">Martes</option>
-            <option value="Miercoles">Miercoles</option>
-            <option value="Jueves">Jueves</option>
-            <option value="Viernes">Viernes</option>
-            <option value="Sabado">Sabado</option>
+            <option value="martes">Martes</option>
+            <option value="miercoles">Miercoles</option>
+            <option value="jueves">Jueves</option>
+            <option value="viernes">Viernes</option>
+            <option value="sabado">Sabado</option>
           </select>
         </div>
         <br />
