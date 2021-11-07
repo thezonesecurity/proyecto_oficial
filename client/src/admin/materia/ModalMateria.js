@@ -13,6 +13,8 @@ export const ModalMateria = () => {
   const { state, dispatch } = useContext(DataMateria);
   //console.log("state", state);
   const { id, materia, sigla, num, carga_horaria } = state[0];
+  //console.log("materia", state);
+
   //esta parte sera para guardar los datos
   const editData = (dato) => {
     let contador = 0;
