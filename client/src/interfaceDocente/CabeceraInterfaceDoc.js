@@ -25,7 +25,7 @@ export const CabeceraInterfaceDoc = () => {
                 </li>
 
                 <li className="nav-item col">
-                  <li class="col align-self-center">
+                  <li className="col align-self-center">
                     <MdOutlineAccountCircle />
                   </li>
                 </li>

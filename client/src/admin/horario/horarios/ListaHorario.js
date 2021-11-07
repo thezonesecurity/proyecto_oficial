@@ -1,97 +1,105 @@
-import React, { useContext } from "react";
-import DataHorario from "./contex/AppContexH";
-import { OpcionSemestre } from "./OpcionSemestre";
-import { TablaListaHoraio } from "./TablaListaHoraio";
+import React, { useState } from "react";
+import { TablaSemestre1 } from "./semestre/semestre1/TablaSemestre1";
+import { TablaSemestre2 } from "./semestre/semestre2/TablaSemestre2";
+import { TablaSemestre3 } from "./semestre/semestre3/TablaSemestre3";
+import { TablaSemestre4 } from "./semestre/semestre4/TablaSemestre4";
 
 export const ListaHorario = () => {
-  const { state, dispatch } = useContext(DataHorario);
-  //console.log("statehotario", state);
-  const falsehorarios = [
-    {
-      elegirDia: "lunes",
-      elegirMateria: "Diseño",
-      elegirSemestre: "Semestre 2",
-      horaFin: "08:30",
-      horaInicio: "07:45",
-      id: "a1",
-      valido: null,
-    },
-    {
-      elegirDia: "martes",
-      elegirMateria: "Diseño 2",
-      elegirSemestre: "Semestre 2",
-      horaFin: "08:30",
-      horaInicio: "07:45",
-      id: "a2",
-      valido: null,
-    },
-    {
-      elegirDia: "miercoles",
-      elegirMateria: "Diseño 3",
-      elegirSemestre: "Semestre 2",
-      horaFin: "08:30",
-      horaInicio: "07:45",
-      id: "a3",
-      valido: null,
-    },
-    {
-      elegirDia: "jueves",
-      elegirMateria: "Diseño 4",
-      elegirSemestre: "Semestre 2",
-      horaFin: "08:30",
-      horaInicio: "07:45",
-      id: "a4",
-      valido: null,
-    },
-    {
-      elegirDia: "viernes",
-      elegirMateria: "Diseño 5",
-      elegirSemestre: "Semestre 2",
-      horaFin: "08:30",
-      horaInicio: "07:45",
-      id: "a4",
-      valido: null,
-    },
-  ];
+  const [stateOption, setStateOpction] = useState({ valor: "" });
+  const opcionValue = "";
+  const handleChangeOption = (e) => {
+    e.preventDefault();
+    //console.log("value", e.target.value);
+    setStateOpction(e.target.value);
+  };
+  // console.log(stateOption);
+
+  //LOGICA PARA SELECCIONAR SEMESTRE
+  let ShowSemestre1,
+    ShowSemestre2,
+    ShowSemestre3,
+    ShowSemestre4,
+    mensajeSemestre = null;
+  if (stateOption === "S1") {
+    ShowSemestre1 = <TablaSemestre1 />;
+    mensajeSemestre = "HORARIO DE SEMESTRE 1";
+  } else ShowSemestre1 = null;
+  if (stateOption === "S2") {
+    ShowSemestre2 = <TablaSemestre2 />;
+    mensajeSemestre = "HORARIO DE SEMESTRE 2";
+  } else ShowSemestre2 = null;
+  if (stateOption === "S3") {
+    ShowSemestre3 = <TablaSemestre3 />;
+    mensajeSemestre = "HORARIO DE SEMESTRE 3";
+  } else ShowSemestre3 = null;
+  if (stateOption === "S4") {
+    ShowSemestre4 = <TablaSemestre4 />;
+    mensajeSemestre = "HORARIO DE SEMESTRE 4";
+  } else ShowSemestre4 = null;
   return (
     <div>
       <h4>Horarios</h4>
       <div className="col-md-4">
-        <OpcionSemestre />
+        <select
+          className="form-select"
+          id="validationCustom04"
+          value={stateOption.valor}
+          onChange={handleChangeOption}
+        >
+          <option value="S0">Elegir Semestre...</option>
+          <option value="S1">Semestre 1</option>
+          <option value="S2">Semestre 2</option>
+          <option value="S3">Semestre 3</option>
+          <option value="S4">Semestre 4</option>
+        </select>
       </div>
       <br />
-      <div>
-        <table className="table table-dark">
-          <thead>
+      <table className="table table-dark">
+        <thead>
+          <tr>
+            <th colSpan="6">{mensajeSemestre}</th>
+          </tr>
+          <tr>
+            <th scope="col">hora</th>
+            <th scope="col">lunes</th>
+            <th scope="col">Martes</th>
+            <th scope="col">Miercoles</th>
+            <th scope="col">Jueves</th>
+            <th scope="col">Viernes</th>
+          </tr>
+        </thead>
+        {ShowSemestre1}
+        {ShowSemestre2}
+        {ShowSemestre3}
+        {ShowSemestre4}
+        {stateOption === "S0" && (
+          <tbody>
             <tr>
-              <th scope="col">horas</th>
-              <th scope="col">lunes</th>
-              <th scope="col">Martes</th>
-              <th scope="col">Miercoles</th>
-              <th scope="col">Jueves</th>
-              <th scope="col">Viernes</th>
-              <th scope="col">Opciones</th>
+              <td colSpan="6">Elija un semestre...</td>
             </tr>
-          </thead>
-
-          {falsehorarios.length > 0 ? (
-            falsehorarios.map((horario) => {
-              return <TablaListaHoraio key={horario.id} {...horario} />;
-            })
-          ) : (
-            <tbody>
-              <tr>
-                <td colSpan="7">No hay Horarios registrados...</td>
-              </tr>
-            </tbody>
-          )}
-        </table>
-        <div>
-          <button type="button" className="btn btn-dark">
-            Imprimir
-          </button>
-        </div>
-      </div>
+          </tbody>
+        )}
+      </table>
     </div>
   );
 };
+
+/*
+ const [semestre1, setSemestre1] = useState(false);
+  const [semestre2, setSemestre2] = useState(false);
+  const pressS1 = () => {
+    //setSemestre1(true);
+    console.log("presss semestre 1");
+  };
+  const pressS2 = () => {
+    // setSemestre2(true);
+    console.log("presss semestre 2");
+  };
+  let componente, componente2;
+  if (semestre1) {
+    componente = <TablaSemestre1 />;
+  } else componente = null;
+  if (semestre2) {
+    componente2 = <TablaSemestre2 />;
+  } else componente2 = null;
+*/

@@ -3,14 +3,16 @@ import React from "react";
 export const Planilla = () => {
   return (
     <div>
-      <h8>Planillas</h8>
-      <table className="table table-bordered">
+      <h4>Planillas</h4>
+      <table className="table table-dark">
         <thead>
-          <th scope="col">Docente</th>
-          <th scope="col">Ambiente</th>
-          <th scope="col">Materia</th>
-          <th scope="col">Hora</th>
-          <th scope="col">Firma</th>
+          <tr>
+            <th scope="col">Docente</th>
+            <th scope="col">Ambiente</th>
+            <th scope="col">Materia</th>
+            <th scope="col">Hora</th>
+            <th scope="col">Firma</th>
+          </tr>
         </thead>
 
         <tbody>
@@ -21,9 +23,6 @@ export const Planilla = () => {
             <td>08:00 - 08:30</td>
             <td> </td>
           </tr>
-        </tbody>
-
-        <tbody>
           <tr>
             <td>Ing. Limber Ruíz</td>
             <td>Amb. 1, 3er P.</td>
@@ -31,9 +30,6 @@ export const Planilla = () => {
             <td>14:00 - 14:45</td>
             <td> </td>
           </tr>
-        </tbody>
-
-        <tbody>
           <tr>
             <td>Ing. Oscar Apaza</td>
             <td>Amb. 2, 3er P.</td>
@@ -44,7 +40,7 @@ export const Planilla = () => {
         </tbody>
       </table>
 
-      <button type="button" className="btn btn-outline-secondary">
+      <button type="button" className="btn btn-dark">
         Imprimir
       </button>
     </div>

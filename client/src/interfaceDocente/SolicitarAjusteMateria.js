@@ -12,7 +12,7 @@ export const SolicitarAjusteMateria = () => {
         <div className="col-sm-8">
           <input
             type="email"
-            class="form-control"
+            className="form-control"
             id=""
             placeholder="name@example.com"
           />
@@ -26,7 +26,7 @@ export const SolicitarAjusteMateria = () => {
         <div className="col-sm-8">
           <input
             type="email"
-            class="form-control"
+            className="form-control"
             id=""
             placeholder="name@example.com"
           />
