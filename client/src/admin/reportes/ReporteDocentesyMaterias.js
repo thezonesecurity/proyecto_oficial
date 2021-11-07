@@ -4,7 +4,7 @@ export const ReporteDocentesyMaterias = () => {
   return (
     <div>
       <h4>Reportes de Docentes y Materias</h4>
-      <table className="table">
+      <table className="table table-dark">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -46,7 +46,7 @@ export const ReporteDocentesyMaterias = () => {
           </tr>
         </tbody>
       </table>
-      <button type="button" className="btn btn-secondary">
+      <button type="button" className="btn btn-dark">
         Imprimir
       </button>
     </div>

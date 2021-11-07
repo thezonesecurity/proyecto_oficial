@@ -1,5 +1,4 @@
 import React from "react";
-
 import { SidebarMenu } from "../SidebarMenu";
 import { CabeceraReportes } from "./CabeceraReportes";
 

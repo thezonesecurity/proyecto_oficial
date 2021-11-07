@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { Actions } from "./constants/Actions";
 import DataMateria from "./contex/AppContext";
 import { useForm } from "./hooks/useForm";
@@ -6,7 +6,6 @@ import uniqid from "uniqid";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
 import Input from "./InputForm";
-import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 
 export const CrearMateria = () => {
   //usamos el useContext
