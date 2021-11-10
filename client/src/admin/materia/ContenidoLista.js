@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { MdDeleteSweep } from "react-icons/md";
 import { Actions } from "./constants/Actions";
 import DataMateria from "./contex/AppContext";
@@ -7,7 +7,7 @@ import { ModalMateria } from "./ModalMateria";
 export const ContenidoLista = ({ num, materia, sigla, carga_horaria, id }) => {
   const { state, dispatch } = useContext(DataMateria);
   //console.log("contenido lista", state);
-  const handlerClick = (id) => {
+  const handlerClickDelete = (id) => {
     //console.log("eleminado");
     dispatch({ type: Actions.REMOVE_FORM_M, payload: id });
   };
@@ -20,12 +20,23 @@ export const ContenidoLista = ({ num, materia, sigla, carga_horaria, id }) => {
         <td>{sigla}</td>
         <td>{carga_horaria}</td>
         <td>
-          <ModalMateria />
+          {state.length > 0 ? (
+            state.map((id) => {
+              return <ModalMateria key={id} {...id} />;
+            })
+          ) : (
+            <tbody>
+              <tr>
+                <td colSpan="5">No hay materias a Editar...</td>
+              </tr>
+            </tbody>
+          )}
+
           {"   "}
           <button
             className="btn btn-outline-danger btn-sm"
             onClick={() => {
-              handlerClick(id);
+              handlerClickDelete(id);
             }}
           >
             <MdDeleteSweep />
