@@ -17,11 +17,6 @@ export const CabeceraMateria = () => {
                 <li className="btn btn-outline-dark">
                   <Link to={`${url}/crear-materia`}>Crear Materias</Link>
                 </li>
-                <li className="btn btn-outline-dark">
-                  <Link to={`${url}/asignacion-materia-docente`}>
-                    Asignacion Materia-Docente
-                  </Link>
-                </li>
               </ul>
             </div>
           </div>

@@ -1,16 +1,14 @@
-import { actionsAmb } from "../contants/actionsAmb";
+import { ActionsSemestre } from "../constants/ActionsSemestre";
 
-export const AppReducerAmb = (state, action) => {
+export const AppReducerSemestre = (state, action) => {
   switch (action.type) {
-    case actionsAmb.ADD_FORM_A: {
+    case ActionsSemestre.ADD_FORM_SEMESTRE: {
       return [...state, action.payload]; //(payload) es la carga util que se recuperadatos del formulario
     }
-
-    case actionsAmb.REMOVE_FORM_A: {
+    case ActionsSemestre.REMOVE_FORM_SEMESTRE: {
       return state.filter((item) => item.id !== action.payload);
     }
-
-    case actionsAmb.EDDIT_FORM_A: {
+    case ActionsSemestre.EDDIT_FORM_SEMESTRE: {
       return;
     }
     default: {

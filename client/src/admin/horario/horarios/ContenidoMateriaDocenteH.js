@@ -1,11 +1,11 @@
 import React from "react";
 
-export const ContenidoMateriaDocente = ({ materia, sigla }) => {
+export const ContenidoMateriaDocenteH = () => {
   return (
     <tbody>
       <tr>
-        <td>{materia}</td>
-        <td>{sigla}</td>
+        <td>DIseño</td>
+        <td>SIS-154</td>
         <td>08:00 - 08:45</td>
         <td>
           <select className="form-select" aria-label="Default select example">
@@ -16,7 +16,6 @@ export const ContenidoMateriaDocente = ({ materia, sigla }) => {
             <option value="3">G4</option>
           </select>
         </td>
-
         <td>
           <select className="form-select" aria-label="Default select example">
             <option selected>Docente</option>

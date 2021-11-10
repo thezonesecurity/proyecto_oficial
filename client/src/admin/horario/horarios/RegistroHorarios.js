@@ -4,9 +4,8 @@ import { TablaSemestre2 } from "./semestre/semestre2/TablaSemestre2";
 import { TablaSemestre3 } from "./semestre/semestre3/TablaSemestre3";
 import { TablaSemestre4 } from "./semestre/semestre4/TablaSemestre4";
 
-export const ListaHorario = () => {
+export const RegistroHorarios = () => {
   const [stateOption, setStateOpction] = useState({ valor: "" });
-  const opcionValue = "";
   const handleChangeOption = (e) => {
     e.preventDefault();
     //console.log("value", e.target.value);
@@ -83,23 +82,3 @@ export const ListaHorario = () => {
     </div>
   );
 };
-
-/*
- const [semestre1, setSemestre1] = useState(false);
-  const [semestre2, setSemestre2] = useState(false);
-  const pressS1 = () => {
-    //setSemestre1(true);
-    console.log("presss semestre 1");
-  };
-  const pressS2 = () => {
-    // setSemestre2(true);
-    console.log("presss semestre 2");
-  };
-  let componente, componente2;
-  if (semestre1) {
-    componente = <TablaSemestre1 />;
-  } else componente = null;
-  if (semestre2) {
-    componente2 = <TablaSemestre2 />;
-  } else componente2 = null;
-*/

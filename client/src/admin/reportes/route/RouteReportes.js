@@ -1,6 +1,7 @@
 import React from "react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { InformeSemestre } from "../InformeSemestre";
 import { Planilla } from "../Planilla";
 import { ReporteDocentesyMaterias } from "../ReporteDocentesyMaterias";
 export const RouteReportes = ({ path }) => {
@@ -10,6 +11,10 @@ export const RouteReportes = ({ path }) => {
       <Route
         path={`${path}/reporte-doc-mat`}
         component={ReporteDocentesyMaterias}
+      ></Route>
+      <Route
+        path={`${path}/informe-semestre`}
+        component={InformeSemestre}
       ></Route>
     </Switch>
   );

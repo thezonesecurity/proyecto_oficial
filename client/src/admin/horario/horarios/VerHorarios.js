@@ -1,3 +1,46 @@
+import React from "react";
+
+export const VerHorarios = () => {
+  return (
+    <div>
+      <h4>Lista de Horarios</h4>
+      <div className="col-md-4">
+        <select className="form-select" id="va">
+          <option value="S0">Elegir Semestre...</option>
+          <option value="S1">Semestre 1</option>
+          <option value="S2">Semestre 2</option>
+          <option value="S3">Semestre 3</option>
+          <option value="S4">Semestre 4</option>
+        </select>
+      </div>
+      <br />
+      <table className="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">hora</th>
+            <th scope="col">lunes</th>
+            <th scope="col">Martes</th>
+            <th scope="col">Miercoles</th>
+            <th scope="col">Jueves</th>
+            <th scope="col">Viernes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>07:45-08:30</th>
+            <td>Cálculo 1</td>
+            <td>Fisica 1</td>
+            <td>Diseño 1</td>
+            <td>Sin asignar</td>
+            <td>Programacion 1</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+/*
 import React, { useContext, useState } from "react";
 import { ActionsH } from "./constants/ActionsH";
 import DataHorario from "./contex/AppContexH";
@@ -6,7 +49,7 @@ import uniqid from "uniqid";
 import { ErrorValidacion } from "../../ErrorValidacion";
 import { MessageCreateUser } from "../../MessageCreateUser";
 
-export const NuevosHorarios = () => {
+export const VerHorarios = () => {
   //usamos el useContext
   const { state, setState, dispatch } = useContext(DataHorario);
   //console.log("stateMAteria", state);
@@ -179,3 +222,5 @@ export const NuevosHorarios = () => {
     </div>
   );
 };
+
+*/

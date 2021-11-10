@@ -35,6 +35,7 @@ export const SubSidebar = () => {
           </Link>
         </li>
         <br />
+        {/*
         <li className="nav-item">
           <Link
             to="/semestre"
@@ -45,6 +46,7 @@ export const SubSidebar = () => {
           </Link>
         </li>
         <br />
+        */}
         <li className="nav-item">
           <Link
             to="/horario"

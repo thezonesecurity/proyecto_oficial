@@ -5,8 +5,25 @@ export const useForm = (initForm) => {
   const handlerChangeForm = ({ target }) => {
     setForm({ ...form, [target.name]: target.value });
   };
-  const handlerResetForm = ({ target }) => {
+  const handlerResetForm = () => {
     setForm(initForm);
   };
-  return [form, handlerChangeForm, handlerResetForm];
+  //para crear user
+
+  const [formUser, setFormUser] = useState(initForm);
+  const handlerChangeFormUser = ({ target }) => {
+    setFormUser({ ...formUser, [target.name]: target.value });
+  };
+  const handlerResetFormUser = ({ target }) => {
+    setFormUser(initForm);
+  };
+
+  return [
+    form,
+    handlerChangeForm,
+    handlerResetForm,
+    formUser,
+    handlerChangeFormUser,
+    handlerResetFormUser,
+  ];
 };

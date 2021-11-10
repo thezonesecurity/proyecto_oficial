@@ -1,16 +1,16 @@
-import { actionsAmb } from "../contants/actionsAmb";
+import { types } from "../types/types";
 
-export const AppReducerAmb = (state, action) => {
+export const AppReducerUser = (state, action) => {
   switch (action.type) {
-    case actionsAmb.ADD_FORM_A: {
+    case types.REGISTER_USER: {
       return [...state, action.payload]; //(payload) es la carga util que se recuperadatos del formulario
     }
 
-    case actionsAmb.REMOVE_FORM_A: {
+    case types.DELETE_USER: {
       return state.filter((item) => item.id !== action.payload);
     }
 
-    case actionsAmb.EDDIT_FORM_A: {
+    case types.UPDATE_USER: {
       return;
     }
     default: {

@@ -19,10 +19,14 @@ export const CabeceraReportes = () => {
                     Reporte de Docentes y materias
                   </Link>
                 </li>
+                <li className="btn btn-outline-dark">
+                  <Link to={`${url}/informe-semestre`}>
+                    Informe de Semestres
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
-
           <div className="card-body">
             <RouteReportes path={path} />
           </div>

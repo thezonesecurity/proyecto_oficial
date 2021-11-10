@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { MdPersonPin, MdVpnKey } from "react-icons/md";
+import { MdAttachEmail, MdVpnKey } from "react-icons/md";
 import { useForm } from "./hooks/useForm";
 import { useDispatch } from "react-redux";
 import { authAsync, auth } from "./actions/auth";
@@ -42,7 +42,7 @@ export const LoginAD = () => {
                   <div className="input-group form-group">
                     <div className="input-group-prepend">
                       <span className="input-group-text">
-                        <MdPersonPin />
+                        <MdAttachEmail />
                       </span>
                     </div>
                     <input
@@ -80,6 +80,7 @@ export const LoginAD = () => {
                       value="Login"
                       className="btn float-right login_btn"
                     />
+                    <br />
                     <div className="d-flex justify-content-center links">
                       <Link to="/register">Sign Up</Link>
                     </div>
