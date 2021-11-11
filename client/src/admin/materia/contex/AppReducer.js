@@ -12,7 +12,7 @@ export const AppReducer = (state, action) => {
     }
 
     case Actions.EDDIT_FORM_M: {
-      return;
+      return [...state, action.payload];
     }
     default: {
       return state;

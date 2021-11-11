@@ -20,19 +20,13 @@ export const ContenidoLista = ({ num, materia, sigla, carga_horaria, id }) => {
         <td>{sigla}</td>
         <td>{carga_horaria}</td>
         <td>
-          {state.length > 0 ? (
-            state.map((id) => {
-              return <ModalMateria key={id} {...id} />;
-            })
-          ) : (
-            <tbody>
-              <tr>
-                <td colSpan="5">No hay materias a Editar...</td>
-              </tr>
-            </tbody>
-          )}
-
-          {"   "}
+          <ModalMateria
+            id={id}
+            num={num}
+            materia={materia}
+            sigla={sigla}
+            carga_horaria={carga_horaria}
+          />
           <button
             className="btn btn-outline-danger btn-sm"
             onClick={() => {
