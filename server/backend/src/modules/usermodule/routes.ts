@@ -11,7 +11,7 @@ class Routes {
     this.mainApp = mainApp;
     this.app = this.mainApp.getApp();
 
-    this.userController = new UserController(mainApp.getClientMongoose());
+    this.userController = new UserController(mainApp);
 
     this.configureRoutes();
   }
@@ -25,6 +25,32 @@ class Routes {
       .route(`${this.rootPath}/`)
       .get((request: Request, response: Response) => {
         this.userController.get(request, response);
+      });
+    this.app
+      .route(`${this.rootPath}/:id`)
+      .get((request: Request, response: Response) => {
+        this.userController.getId(request, response);
+      });
+
+    this.app
+      .route(`${this.rootPath}/:id`)
+      .put((request: Request, response: Response) => {
+        this.userController.update(request, response);
+      });
+    this.app
+      .route(`${this.rootPath}/:id`)
+      .delete((request: Request, response: Response) => {
+        this.userController.delete(request, response);
+      });
+    this.app
+      .route(`${this.rootPath}/upload/:id`)
+      .put((request: Request, response: Response) => {
+        this.userController.upload(request, response);
+      });
+    this.app
+      .route(`${this.rootPath}/avatar/:id`)
+      .get((request: Request, response: Response) => {
+        this.userController.showavatar(request, response);
       });
   }
 }

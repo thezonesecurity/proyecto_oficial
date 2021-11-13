@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "ac0a408f-245e-4c78-81f5-cc33ee975277",
+		"name": "seminario3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Olga",
+							"type": "text"
+						},
+						{
+							"key": "apellidos",
+							"value": "Mamani",
+							"type": "text"
+						},
+						{
+							"key": "ci",
+							"value": "1789654",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "olga@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "direccion",
+							"value": "huachacalla",
+							"type": "text"
+						},
+						{
+							"key": "telefono",
+							"value": "546598",
+							"type": "text"
+						},
+						{
+							"key": "carga_horaria",
+							"value": "49",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456789",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get usersList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/user/618f28de003361abffe52448",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"user",
+						"618f28de003361abffe52448"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Wilmer",
+							"type": "text"
+						},
+						{
+							"key": "apellidos",
+							"value": "Martinez Espinoza",
+							"type": "text"
+						},
+						{
+							"key": "ci",
+							"value": "987654",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/user/618f289f003361abffe52446",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"user",
+						"618f289f003361abffe52446"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete users",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/user/618e9a485d17bdd23bed0082",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"user",
+						"618e9a485d17bdd23bed0082"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "uploadF",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/home/olga/Imágenes/Captura de pantalla de 2021-11-01 19-03-52.png"
+						},
+						{
+							"key": "otrofile",
+							"type": "file",
+							"src": "/home/olga/Imágenes/Captura de pantalla de 2021-09-18 09-00-32.png"
+						},
+						{
+							"key": "dosfile",
+							"type": "file",
+							"src": "/home/olga/Imágenes/Captura de pantalla de 2021-09-18 08-57-19.png"
+						},
+						{
+							"key": "tresfile",
+							"type": "file",
+							"src": "/home/olga/Imágenes/Captura de pantalla de 2021-09-18 09-03-51.png"
+						},
+						{
+							"key": "cuatrofile",
+							"type": "file",
+							"src": "/home/olga/Imágenes/Captura de pantalla de 2021-09-18 08-49-27.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/user/upload/618f28de003361abffe52448",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"user",
+						"upload",
+						"618f28de003361abffe52448"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "showAvatar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}

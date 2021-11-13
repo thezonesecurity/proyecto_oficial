@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MdCreate } from "react-icons/md";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Modal, NavItem } from "react-bootstrap";
 //import DataMateria from "./contex/AppContext";
 import DataMateria from "./contex/AppContext";
 import { useForm } from "./hooks/useForm";
@@ -26,16 +26,45 @@ export const ModalMateria = (props) => {
   });
 
   console.log("state", form);
-  const { materia, sigla, carga_horaria } = form;
+  const { id, materia, sigla, carga_horaria } = form;
+
+  /* const edit = state.map((item) =>
+    item.id === id
+      ? {
+          id,
+          materia: props,
+          sigla: props,
+          carga_horaria: props,
+        }
+      : item
+  );
+  setState(edit);
+
+  */
+
   const editData = (e) => {
     e.preventDefault();
-    handleClose();
   };
+  /* dispatch({
+      type: Actions.EDDIT_FORM_M,
+      payload: {
+        ...form,
+        id,
+        materia: props,
+        sigla: props,
+        carga_horaria: props,
+      },
+    });
+
+    handleClose();
+  };*/
 
   //--------------------------
   //console.log("materia", state);
   //console.log("MoDALmateria", form);
   //esta parte sera para guardar los datos
+  //-------------------------------
+  //esto es para recuperar datos de la edicion
   /*
   const editData = (dato) => {
     let contador = 0;
@@ -47,10 +76,23 @@ export const ModalMateria = (props) => {
         lista[contador].carga_horaria = dato.carga_horaria;
       }
       contador++;
-      handleClose();
     });
-  };
-  */
+    dispatch({
+      type: Actions.EDDIT_FORM_M,
+      payload: {
+        ...(state
+          ? {
+              id,
+              materia: props.materia,
+              sigla: props.sigla,
+              carga_horaria: props.carga_horaria,
+            }
+          : dato),
+      },
+    });
+    handleClose();
+  };*/
+
   return (
     <>
       <Button className="btn btn-outline-secondary btn-sm" onClick={handleShow}>
