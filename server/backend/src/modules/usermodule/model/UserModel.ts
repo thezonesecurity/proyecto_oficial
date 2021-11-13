@@ -1,22 +1,29 @@
 import { Mongoose, Schema, Document } from "mongoose";
 
-export interface IUser {
-  name?: string;
-  email?: string;
-  password?: string;
-  createAt?: Date;
-  updataAt?: Date;
+export interface IAvatar {
+  url: string;
+  path: string;
 }
-export interface User extends Document {
-  name: string;
-  email: string;
-  password: string;
+export interface IUser {
+  nombre?: string;
+  apellidos?: string;
+  ci?: string;
+  email?: string;
+  direccion?: string;
+  telefono?: string;
+  carga_horaria?: string;
+  password?: string;
+  avatar?: Array<IAvatar>;
+}
+export interface User extends Document, IUser {
   createAt: Date;
   updataAt: Date;
 }
 
 const userSchema = new Schema({
-  name: { type: String, required: true },
+  nombre: { type: String, required: true },
+  apellidos: { type: String, required: true },
+  ci: { type: String, required: true },
   email: {
     type: String,
     required: true,
@@ -27,7 +34,11 @@ const userSchema = new Schema({
       message: (props: any) => `${props.value} no es un correo valido`,
     },
   },
+  direccion: { type: String, required: true },
+  telefono: { type: String, required: false },
+  carga_horaria: { type: String, required: true },
   password: { type: String, required: true },
+  avatar: { type: Array, required: false },
   createAt: { type: Date, default: Date.now() },
   updateAt: { type: Date },
 });

@@ -5,6 +5,7 @@ db.createUser({
   pwd: "123",
   roles: [{ role: "readWrite", db: "api_seminario_dev" }],
 });
+db.createCollection("users");
 
 db = db.getSiblingDB("api_seminario_test");
 db.createUser({
@@ -12,6 +13,7 @@ db.createUser({
   pwd: "123",
   roles: [{ role: "readWrite", db: "api_seminario_test" }],
 });
+db.createCollection("users");
 
 db = db.getSiblingDB("api_seminario_production");
 db.createUser({
@@ -19,5 +21,6 @@ db.createUser({
   pwd: "123",
   roles: [{ role: "readWrite", db: "api_seminario_production" }],
 });
+db.createCollection("users");
 
 print("End  ###################3");
