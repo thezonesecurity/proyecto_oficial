@@ -1,18 +1,18 @@
 import { ActionsH } from "../constants/ActionsH";
-export const AppReducerH = (state, action) => {
+export const AppReducerH = (stateH, actionH) => {
   //console.log("reducer", action);
-  switch (action.type) {
+  switch (actionH.type) {
     case ActionsH.ADD_FORM_H: {
-      return [...state, action.payload];
+      return [...stateH, actionH.payload];
     }
     case ActionsH.REMOVE_FORM_H: {
-      return state.filter((item) => item.id !== action.payload);
+      return stateH.filter((item) => item.id !== actionH.payload);
     }
     case ActionsH.EDDIT_FORM_H: {
       return;
     }
     default: {
-      return state;
+      return stateH;
     }
   }
 };

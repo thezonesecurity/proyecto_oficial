@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import DataHorario from "./contex/AppContexH";
+import { VerTablaHorarios } from "./VerTablaHorarios";
 
 export const VerHorarios = () => {
+  const { stateH, dispatchH } = useContext(DataHorario);
+
+  // console.log("contenido lista hORAIO", id);
   return (
     <div>
       <h4>Lista de Horarios</h4>
@@ -25,16 +30,9 @@ export const VerHorarios = () => {
             <th scope="col">Viernes</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th>07:45-08:30</th>
-            <td>Cálculo 1</td>
-            <td>Fisica 1</td>
-            <td>Diseño 1</td>
-            <td>Sin asignar</td>
-            <td>Programacion 1</td>
-          </tr>
-        </tbody>
+        {stateH.map((horarios) => {
+          return <VerTablaHorarios {...horarios} />;
+        })}
       </table>
     </div>
   );

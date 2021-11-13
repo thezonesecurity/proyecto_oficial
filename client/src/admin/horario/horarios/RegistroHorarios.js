@@ -5,6 +5,10 @@ import { TablaSemestre3 } from "./semestre/semestre3/TablaSemestre3";
 import { TablaSemestre4 } from "./semestre/semestre4/TablaSemestre4";
 
 export const RegistroHorarios = () => {
+  //LOGICA PARA REGISTRAR HORARIOS
+
+  //FIN LOGICA PARA REGISTRAR HORARIOS
+  //LOGICA PARA SELECCIONAR SEMESTRE
   const [stateOption, setStateOpction] = useState({ valor: "" });
   const handleChangeOption = (e) => {
     e.preventDefault();
@@ -12,15 +16,13 @@ export const RegistroHorarios = () => {
     setStateOpction(e.target.value);
   };
   // console.log(stateOption);
-
-  //LOGICA PARA SELECCIONAR SEMESTRE
   let ShowSemestre1,
     ShowSemestre2,
     ShowSemestre3,
     ShowSemestre4,
     mensajeSemestre = null;
   if (stateOption === "S1") {
-    ShowSemestre1 = <TablaSemestre1 />;
+    ShowSemestre1 = <TablaSemestre1 ed="dat" />;
     mensajeSemestre = "HORARIO DE SEMESTRE 1";
   } else ShowSemestre1 = null;
   if (stateOption === "S2") {
@@ -35,6 +37,8 @@ export const RegistroHorarios = () => {
     ShowSemestre4 = <TablaSemestre4 />;
     mensajeSemestre = "HORARIO DE SEMESTRE 4";
   } else ShowSemestre4 = null;
+
+  //fin logica para mostrar opciones d semestre
   return (
     <div>
       <h4>Horarios</h4>

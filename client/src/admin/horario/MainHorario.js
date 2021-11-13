@@ -6,9 +6,9 @@ import { AppReducerH } from "./horarios/contex/AppReducerH";
 
 export const MainHorario = () => {
   const [horario, setHorario] = useState([]);
-  const [state, dispatch] = useReducer(AppReducerH, horario);
+  const [stateH, dispatchH] = useReducer(AppReducerH, horario);
   return (
-    <DataHorario.Provider value={{ state, dispatch }}>
+    <DataHorario.Provider value={{ stateH, dispatchH }}>
       <div>
         <div className="row align-items-start">
           <SidebarMenu />
