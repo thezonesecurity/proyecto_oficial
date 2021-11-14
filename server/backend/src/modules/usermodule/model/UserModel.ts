@@ -23,10 +23,11 @@ export interface User extends Document, IUser {
 const userSchema = new Schema({
   nombre: { type: String, required: true },
   apellidos: { type: String, required: true },
-  ci: { type: String, required: true },
+  ci: { type: String, required: true, unique: true },
   email: {
     type: String,
     required: true,
+    unique: true,
     validate: {
       validator: (v: string) => {
         return /^[\w\.]+@\w+[.][\w]{2,3}$/.test(v);

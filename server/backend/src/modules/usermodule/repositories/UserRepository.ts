@@ -17,7 +17,10 @@ class UserRepository<T> extends BaseRepository<IUser> {
     }
     return false;
   }
-  public login() {}
+  public async login(email: string, password: string): Promise<Boolean> {
+    const user = await this.userModel.findOne({ email, password });
+    return user == null ? false : true;
+  }
   public singOut() {}
 }
 export default UserRepository;

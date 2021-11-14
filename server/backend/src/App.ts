@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import mongoose, { Mongoose } from "mongoose";
 import fileUpload from "express-fileupload";
 import UserModule from "./modules/usermodule/init";
+import JsonWebToken from "./middleware/JsonWebToken";
 
 if (process.env.NODE_ENV == "development") {
   dotenv.config();
@@ -13,11 +14,13 @@ class App {
   private clientMongo: Mongoose;
   private apiversion: string;
   private uploadpath: string;
+  private jsonwebtoken: JsonWebToken;
   constructor() {
     this.app = express();
     this.uploadpath = process.env.UPLOADPATH || "/";
     this.apiversion = process.env.API_VERSION || "api";
     this.port = Number(process.env.PORT) || 8000;
+    this.jsonwebtoken = new JsonWebToken();
     this.clientMongo = mongoose;
     this.configureApp();
     this.configureDatabase();
@@ -61,6 +64,9 @@ class App {
   }
   public getUploadPath(): string {
     return this.uploadpath;
+  }
+  public getJsonWebToken(): JsonWebToken {
+    return this.jsonwebtoken;
   }
 }
 export default App;

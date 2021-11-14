@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { Mongoose } from "mongoose";
 import App from "../../../App";
-import { createModel, IAvatar, IUser } from "../model/UserModel";
+import { createModel, IAvatar, IUser, User } from "../model/UserModel";
 import UserRepository from "../repositories/UserRepository";
 import sha1 from "sha1";
 import { UploadedFile } from "express-fileupload";
@@ -11,7 +11,9 @@ import { UploadedFile } from "express-fileupload";
 class UserController {
   private userRepository: UserRepository<IUser>;
   private path: string;
+  private app: App;
   constructor(app: App) {
+    this.app = app;
     this.userRepository = new UserRepository(
       createModel(app.getClientMongoose())
     );
@@ -31,6 +33,7 @@ class UserController {
       password,
     } = request.body;
     //cifrar el passwors importante
+    password = sha1(password); // ya se cifro la constraseña
     const result = await this.userRepository.create({
       nombre,
       apellidos,
@@ -131,7 +134,22 @@ class UserController {
     const [avatar] = user.avatar;
     response.sendFile(avatar.path);
   }
-  public login(request: Request, response: Response) {}
+  public async login(request: Request, response: Response) {
+    let { email, password } = request.body;
+    password = sha1(password);
+    const result: Boolean = await this.userRepository.login(email, password);
+    if (result) {
+      const users: any = await this.userRepository.find({ email });
+      if (users.length === 1) {
+        const user: User = users[0];
+        const token: string = this.app
+          .getJsonWebToken()
+          .generateToken({ id: user.id, email });
+        response.status(200).json({ serverResponse: token });
+      }
+    }
+    response.status(300).json({ serverResponse: "Error in the credentials" });
+  }
   public singOut(request: Request, response: Response) {}
 }
 export default UserController;

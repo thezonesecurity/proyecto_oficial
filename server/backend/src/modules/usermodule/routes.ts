@@ -1,5 +1,5 @@
 import App from "../../App";
-import { Express, Request, Response } from "express";
+import { Express, NextFunction, Request, Response } from "express";
 import UserController from "./controller/userController";
 class Routes {
   private rootPath: string;
@@ -21,11 +21,15 @@ class Routes {
       .post((request: Request, response: Response) => {
         this.userController.create(request, response);
       });
-    this.app
-      .route(`${this.rootPath}/`)
-      .get((request: Request, response: Response) => {
+    this.app.route(`${this.rootPath}/`).get(
+      (request: Request, response: Response, next: NextFunction) => {
+        //estos comandos son para proteger
+        this.mainApp.getJsonWebToken().verifyToken(request, response, next);
+      },
+      (request: Request, response: Response) => {
         this.userController.get(request, response);
-      });
+      }
+    );
     this.app
       .route(`${this.rootPath}/:id`)
       .get((request: Request, response: Response) => {
@@ -51,6 +55,11 @@ class Routes {
       .route(`${this.rootPath}/avatar/:id`)
       .get((request: Request, response: Response) => {
         this.userController.showavatar(request, response);
+      });
+    this.app
+      .route(`${this.rootPath}/singin`)
+      .post((request: Request, response: Response) => {
+        this.userController.login(request, response);
       });
   }
 }
