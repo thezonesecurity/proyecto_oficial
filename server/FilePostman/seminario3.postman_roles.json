@@ -1,0 +1,463 @@
+{
+	"info": {
+		"_postman_id": "ac0a408f-245e-4c78-81f5-cc33ee975277",
+		"name": "seminario3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Olga",
+							"type": "text"
+						},
+						{
+							"key": "apellidos",
+							"value": "Mamani",
+							"type": "text"
+						},
+						{
+							"key": "ci",
+							"value": "1789654",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "olga@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "direccion",
+							"value": "huachacalla",
+							"type": "text"
+						},
+						{
+							"key": "telefono",
+							"value": "546598",
+							"type": "text"
+						},
+						{
+							"key": "carga_horaria",
+							"value": "49",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456789",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get usersList",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOTEyNDk3MzE4YWI0ZGU4NGY3ODY3ZiIsImVtYWlsIjoic2lub25AZ21haWwuY29tIiwiaWF0IjoxNjM2OTAyNjgxLCJleHAiOjE2MzY5MDYyODF9.7PTuJN98fchDRuJzy8OAKDiiyG9Ay0hXC6jvYpzEbTQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/user/618f28de003361abffe52448",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"user",
+						"618f28de003361abffe52448"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Wilmer",
+							"type": "text"
+						},
+						{
+							"key": "apellidos",
+							"value": "Martinez Espinoza",
+							"type": "text"
+						},
+						{
+							"key": "ci",
+							"value": "987654",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/user/618f289f003361abffe52446",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"user",
+						"618f289f003361abffe52446"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete users",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/user/618e9a485d17bdd23bed0082",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"user",
+						"618e9a485d17bdd23bed0082"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "uploadF",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/home/olga/Imágenes/Captura de pantalla de 2021-09-18 09-04-47.png"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/user/upload/618f289f003361abffe52446",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"user",
+						"upload",
+						"618f289f003361abffe52446"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "showAvatar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/user/avatar/618f289f003361abffe52446",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"user",
+						"avatar",
+						"618f289f003361abffe52446"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "sinon@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/user/singin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"user",
+						"singin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addrol",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "upload images",
+							"type": "text"
+						},
+						{
+							"key": "method",
+							"value": "put",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "/api1.0/user/upload",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/roles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRols",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/roles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRoles id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "getusers",
+							"type": "text"
+						},
+						{
+							"key": "method",
+							"value": "post",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "/api1.0/user",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/roles/6191949bb00b642bc188517d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"roles",
+						"6191949bb00b642bc188517d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteRoles id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/roles/6191949bb00b642bc188517d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"roles",
+						"6191949bb00b642bc188517d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addUserRol",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/addrol/618f290d003361abffe5244a/6191953fb00b642bc188517f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"addrol",
+						"618f290d003361abffe5244a",
+						"6191953fb00b642bc188517f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all user roles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/getall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"getall"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
