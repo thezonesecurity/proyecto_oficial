@@ -150,6 +150,10 @@ class UserController {
     }
     response.status(300).json({ serverResponse: "Error in the credentials" });
   }
+  public async getUserRoles(request: Request, response: Response) {
+    const result = await this.userRepository.getUserRoles();
+    response.status(200).json({ serverResponse: result });
+  }
   public singOut(request: Request, response: Response) {}
 }
 export default UserController;

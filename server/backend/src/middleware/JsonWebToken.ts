@@ -28,15 +28,19 @@ class JsonWebToken {
     }
     //verify the token
     try {
-      const decode = JWT.verify(token, this.secret);
+      const decode: any = JWT.verify(token, this.secret);
       if (decode) {
         console.log(decode);
+        this.checkRoles(decode.id);
         next();
         return;
       }
     } catch (error) {
       return response.status(300).json({ serverResponse: "Token invalido" });
     }
+  }
+  public checkRoles(id: string) {
+    //no tenemos idea de eso
   }
 }
 export default JsonWebToken;

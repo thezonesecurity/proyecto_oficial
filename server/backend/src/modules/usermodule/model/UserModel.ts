@@ -1,4 +1,5 @@
 import { Mongoose, Schema, Document } from "mongoose";
+import { IRoles } from "./RolesModel";
 
 export interface IAvatar {
   url: string;
@@ -14,6 +15,7 @@ export interface IUser {
   carga_horaria?: string;
   password?: string;
   avatar?: Array<IAvatar>;
+  roles?: Array<IRoles>;
 }
 export interface User extends Document, IUser {
   createAt: Date;
@@ -35,6 +37,7 @@ const userSchema = new Schema({
       message: (props: any) => `${props.value} no es un correo valido`,
     },
   },
+  roles: [{ type: Schema.Types.ObjectId, unique: true, ref: "roles" }],
   direccion: { type: String, required: true },
   telefono: { type: String, required: false },
   carga_horaria: { type: String, required: true },

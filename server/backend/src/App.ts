@@ -51,7 +51,7 @@ class App {
   }
   private startModules() {
     console.log("Load Modules ...");
-    new UserModule(`/${this.apiversion}/user`, this);
+    new UserModule(`/${this.apiversion}`, ["user", "roles"], this);
   }
   public getApp() {
     return this.app;
