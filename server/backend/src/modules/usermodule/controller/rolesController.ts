@@ -25,15 +25,18 @@ class RolesController {
     response.status(201).json({ ServerResponse: responseData });
   }
   public async get(request: Request, response: Response) {
+    // sirve la lista de los roles
     const list: IRoles[] = await this.rolesRepository.find({});
     response.status(200).json({ ServerResponse: list });
   }
   public async getId(request: Request, response: Response) {
+    // ver un solo rol por id
     const { id } = request.params;
     const rol = await this.rolesRepository.findOne(id);
     response.status(200).json({ serverResponse: rol });
   }
   public async update(request: Request, response: Response) {
+    //es para editar o actualizar los datos de roles
     const { id } = request.params;
     const { name, method, url } = request.body;
     const update = await this.rolesRepository.update(id, { name, method, url });
@@ -45,6 +48,7 @@ class RolesController {
     response.status(200).json({ serverResponse: deleteData });
   }
   public async addUserRol(request: Request, response: Response) {
+    //esto es para la signacion de roles
     const { idUs, idRol } = request.params;
     const result = await this.rolesRepository.addRolUser(idUs, idRol);
     response.status(201).json({ serverResponse: result });

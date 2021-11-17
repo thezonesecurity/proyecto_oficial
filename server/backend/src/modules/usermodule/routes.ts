@@ -49,7 +49,7 @@ class Routes {
         this.userController.update(request, response);
       });
     this.app
-      .route(`${this.rootPath}/:id`)
+      .route(`${this.rootPath}/${this.users}/:id`)
       .delete((request: Request, response: Response) => {
         this.userController.delete(request, response);
       });
@@ -58,11 +58,13 @@ class Routes {
       .put((request: Request, response: Response) => {
         this.userController.upload(request, response);
       });
+    // avatar
     this.app
       .route(`${this.rootPath}/${this.users}/avatar/:id`)
       .get((request: Request, response: Response) => {
         this.userController.showavatar(request, response);
       });
+    //para token login
     this.app
       .route(`${this.rootPath}/${this.users}/singin`)
       .post((request: Request, response: Response) => {
