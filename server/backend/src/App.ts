@@ -4,10 +4,11 @@ import mongoose, { Mongoose } from "mongoose";
 import fileUpload from "express-fileupload";
 import UserModule from "./modules/usermodule/init";
 import JsonWebToken from "./middleware/JsonWebToken";
-
+//import cors from "cors"
 if (process.env.NODE_ENV == "development") {
   dotenv.config();
 }
+const cors: any = require("cors");
 class App {
   private app: Express;
   private port: number;
@@ -30,6 +31,7 @@ class App {
     this.app.use(express.json());
     this.app.use(express.urlencoded());
     this.app.use(fileUpload({ limits: { fileSize: 20 * 1024 * 1024 } }));
+    this.app.use(cors());
   }
   private configureDatabase() {
     const dataBaseName = process.env.DB_NAME;
