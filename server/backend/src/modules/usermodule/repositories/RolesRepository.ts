@@ -1,4 +1,4 @@
-import { Model } from "mongoose";
+import { model, Model } from "mongoose";
 import { IRoles, Roles } from "../model/RolesModel";
 import { IUser, User } from "../model/UserModel";
 import { BaseRepository } from "./base/BaseRepository";
@@ -16,6 +16,7 @@ class RolesRepository<T> extends BaseRepository<IRoles> {
       const modelUser: User = user;
       const modeRol: Roles = rol;
       modelUser.roles?.push(modeRol.id);
+      // modelUser.mensaje?=modeRol.name;
       return await modelUser.save();
     }
     return null;
