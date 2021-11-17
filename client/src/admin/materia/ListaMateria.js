@@ -14,6 +14,7 @@ export const ListaMateria = () => {
             <th scope="col">#</th>
             <th scope="col">Materia</th>
             <th scope="col">Sigla</th>
+            <th scope="col">Semestre</th>
             <th scope="col">Carga Horaria</th>
             <th scope="col">Acciones</th>
           </tr>
@@ -25,7 +26,7 @@ export const ListaMateria = () => {
         ) : (
           <tbody>
             <tr>
-              <td colSpan="5">No hay materias registradas...</td>
+              <td colSpan="6">No hay materias registradas...</td>
             </tr>
           </tbody>
         )}

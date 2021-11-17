@@ -7,7 +7,7 @@ import { MainMateria } from "../../materia/MainMateria";
 import { MainAmbiente } from "../../ambientes/MainAmbiente";
 import { MainHorario } from "../../horario/MainHorario";
 import { MainReportes } from "../../reportes/MainReportes";
-//import { MainSemestre } from "../../semestre/MainSemestre";
+import { MainSemestre } from "../../semestre/MainSemestre";
 import { HeaderInterface } from "../../../HeaderInterface";
 
 export const DashBoardComponent = ({ children, ...rest }) => {
@@ -29,6 +29,7 @@ export const DashBoardComponent = ({ children, ...rest }) => {
         <Route path="/ambiente" component={MainAmbiente} />
         <Route path="/horario" component={MainHorario} />
         <Route path="/reporte" component={MainReportes} />
+        <Route path="/semestre" component={MainSemestre} />
       </Switch>
     </>
   );

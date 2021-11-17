@@ -5,17 +5,17 @@ export const InformeSemestre = () => {
     <div>
       <h4>Informe de Semestres Asignados</h4>
       <div className="col-md-4">
-        <label for="inputState" className="form-label"></label>
+        <label htmlFor="inputState" className="form-label"></label>
         <select id="inputState" className="form-select">
           <option selected>Semestre1</option>
-          <option>Semestre2</option>
-          <option>Semestre3</option>
-          <option>Semestre4</option>
-          <option>Semestre5</option>
-          <option>Semestre6</option>
-          <option>Semestre7</option>
-          <option>Semestre8</option>
-          <option>Semestre9</option>
+          <option value="s1">Semestre2</option>
+          <option value="s1">Semestre3</option>
+          <option value="s1">Semestre4</option>
+          <option value="s1">Semestre5</option>
+          <option value="s1">Semestre6</option>
+          <option value="s1">Semestre7</option>
+          <option value="s1">Semestre8</option>
+          <option value="s1">Semestre9</option>
         </select>
         <hr />
       </div>
