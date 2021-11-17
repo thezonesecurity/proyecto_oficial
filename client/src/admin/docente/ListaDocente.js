@@ -1,12 +1,33 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ContenidoLista } from "./ContenidoLista";
 import DataDocente from "./contex/AppContext";
-
+import axios from "axios";
 export const ListaDocente = () => {
   const { state, dispatch } = useContext(DataDocente);
-
   //console.log("state", state);
-
+  /*
+  //---------------------------------------------------------------------------------------
+  const [data, setData] = useState({});
+  useEffect(() => {
+    const RequestUser = async () => {
+      const dataUser = await axios
+        .get("http://localhost:8000/api1.0/user/")
+        .then(function (response) {
+          //console.log("api", response.data.serverResponse);
+          setData(response.data.serverResponse);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+        .then(function () {
+          // always executed
+        });
+    };
+    RequestUser();
+  }, []);
+  const peticionGet = () => {};
+  //-----------------------------------------------------------------------------------------
+*/
   return (
     <div>
       <h4>Listado de Docentes</h4>

@@ -16,6 +16,7 @@ export interface IUser {
   password?: string;
   avatar?: Array<IAvatar>;
   roles?: Array<IRoles>;
+  // mensaje?: string;
 }
 export interface User extends Document, IUser {
   createAt: Date;
@@ -45,6 +46,7 @@ const userSchema = new Schema({
   avatar: { type: Array, required: false },
   createAt: { type: Date, default: Date.now() },
   updateAt: { type: Date },
+  //mensaje: { type: String, require: false },
 });
 export const createModel = (mongoose: Mongoose) => {
   return mongoose.model<User>("user", userSchema);

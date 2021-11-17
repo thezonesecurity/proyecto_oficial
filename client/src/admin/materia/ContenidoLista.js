@@ -4,7 +4,14 @@ import { Actions } from "./constants/Actions";
 import DataMateria from "./contex/AppContext";
 import { ModalMateria } from "./ModalMateria";
 
-export const ContenidoLista = ({ num, materia, sigla, carga_horaria, id }) => {
+export const ContenidoLista = ({
+  num,
+  materia,
+  sigla,
+  carga_horaria,
+  id,
+  semestre,
+}) => {
   const { state, dispatch } = useContext(DataMateria);
   //console.log("contenido lista", state);
   const handlerClickDelete = (id) => {
@@ -18,6 +25,7 @@ export const ContenidoLista = ({ num, materia, sigla, carga_horaria, id }) => {
         <th scope="row">{num}</th>
         <td>{materia}</td>
         <td>{sigla}</td>
+        <td>{semestre}</td>
         <td>{carga_horaria}</td>
         <td>
           <ModalMateria
@@ -26,6 +34,7 @@ export const ContenidoLista = ({ num, materia, sigla, carga_horaria, id }) => {
             materia={materia}
             sigla={sigla}
             carga_horaria={carga_horaria}
+            semestre={semestre}
           />
           <button
             className="btn btn-outline-danger btn-sm"

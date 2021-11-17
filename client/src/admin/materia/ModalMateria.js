@@ -5,9 +5,6 @@ import { Button, Modal, NavItem } from "react-bootstrap";
 //import DataMateria from "./contex/AppContext";
 import DataMateria from "./contex/AppContext";
 import { useForm } from "./hooks/useForm";
-import { hasClass } from "dom-helpers";
-import { ListaMateria } from "./ListaMateria";
-import { Actions } from "./constants/Actions";
 
 export const ModalMateria = (props) => {
   //console.log("props", props);
@@ -16,83 +13,52 @@ export const ModalMateria = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   //config para los datos
-  //console.log("state", state);
-  //--------------------------------
   const { state, setState, dispatch } = useContext(DataMateria);
   const [form, handlerChangeForm, reserForm] = useForm({
     materia: props.materia,
     sigla: props.sigla,
     carga_horaria: props.carga_horaria,
+    semestre: props.semestre,
   });
 
-  console.log("state", form);
+  console.log("form", form);
+  const { id, materia, sigla, carga_horaria, semestre } = form;
+
+  const handlerChange = (e) => {
+    // console.log("e -> ", e.target.value);
+    //let change = { ...form, [e.target.name]: e.target.value };
+    setState({ [e.target.name]: e.target.value });
+  };
+
+  const handleSutmitEditData = (e) => {
+    e.preventDefault();
+    console.log("state", state);
+  };
+  /*
+  //////////////////////////////////////////
+  const { state, setState, dispatch } = useContext(DataMateria);
+  const [form, handlerChangeForm, reserForm] = useForm({
+    id: props.id,
+    materia: props.materia,
+    sigla: props.sigla,
+    carga_horaria: props.carga_horaria,
+  });
+
+  console.log("form", form);
   const { id, materia, sigla, carga_horaria } = form;
 
-  /* const edit = state.map((item) =>
-    item.id === id
-      ? {
-          id,
-          materia: props,
-          sigla: props,
-          carga_horaria: props,
-        }
-      : item
-  );
-  setState(edit);
-
-  */
-
-  const editData = (e) => {
-    e.preventDefault();
+  const handlerChange = (e) => {
+    // console.log("e -> ", e.target.value);
+    //let change = { ...form, [e.target.name]: e.target.value };
+    setState({ [e.target.name]: e.target.value });
   };
-  /* dispatch({
-      type: Actions.EDDIT_FORM_M,
-      payload: {
-        ...form,
-        id,
-        materia: props,
-        sigla: props,
-        carga_horaria: props,
-      },
-    });
 
-    handleClose();
-  };*/
-
-  //--------------------------
-  //console.log("materia", state);
-  //console.log("MoDALmateria", form);
-  //esta parte sera para guardar los datos
-  //-------------------------------
-  //esto es para recuperar datos de la edicion
-  /*
-  const editData = (dato) => {
-    let contador = 0;
-    let lista = state;
-    lista.map((registro) => {
-      if (dato.id === registro.id) {
-        lista[contador].materia = dato.materia;
-        lista[contador].sigla = dato.sigla;
-        lista[contador].carga_horaria = dato.carga_horaria;
-      }
-      contador++;
-    });
-    dispatch({
-      type: Actions.EDDIT_FORM_M,
-      payload: {
-        ...(state
-          ? {
-              id,
-              materia: props.materia,
-              sigla: props.sigla,
-              carga_horaria: props.carga_horaria,
-            }
-          : dato),
-      },
-    });
-    handleClose();
-  };*/
-
+  //console.log("edit", edit);
+  const  handleSutmitEditData= (e) => {
+    e.preventDefault();
+    console.log("State", state);
+  };
+  */
   return (
     <>
       <Button className="btn btn-outline-secondary btn-sm" onClick={handleShow}>
@@ -104,7 +70,7 @@ export const ModalMateria = (props) => {
           <Modal.Title>Editar Materia</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form>
+          <form onSubmit={handlerChange}>
             <label htmlFor="nombre">Numero</label>
             <input type="text" readOnly name="num" id="num" value={props.num} />
             <label htmlFor="nombre">Materia</label>
@@ -131,10 +97,18 @@ export const ModalMateria = (props) => {
               value={carga_horaria}
               onChange={handlerChangeForm}
             />
+            <label htmlFor="ci">Semestre</label>
+            <input
+              type="text"
+              name="semestre"
+              id="semestre"
+              value={semestre}
+              onChange={handlerChangeForm}
+            />
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={editData}>
+          <Button variant="primary" onClick={handleSutmitEditData}>
             Save Changes
           </Button>
           <Button variant="secondary" onClick={handleClose}>
@@ -218,3 +192,65 @@ export const ModalMateria = (props) => {
   };
 */
 }
+
+/* const edit = state.map((item) =>
+    item.id === id
+      ? {
+          id,
+          materia: props,
+          sigla: props,
+          carga_horaria: props,
+        }
+      : item
+  );
+  setState(edit);
+
+  */
+
+/* dispatch({
+      type: Actions.EDDIT_FORM_M,
+      payload: {
+        ...form,
+        id,
+        materia: props,
+        sigla: props,
+        carga_horaria: props,
+      },
+    });
+
+    handleClose();
+  };*/
+
+//--------------------------
+//console.log("materia", state);
+//console.log("MoDALmateria", form);
+//esta parte sera para guardar los datos
+//-------------------------------
+//esto es para recuperar datos de la edicion
+/*
+  const editData = (dato) => {
+    let contador = 0;
+    let lista = state;
+    lista.map((registro) => {
+      if (dato.id === registro.id) {
+        lista[contador].materia = dato.materia;
+        lista[contador].sigla = dato.sigla;
+        lista[contador].carga_horaria = dato.carga_horaria;
+      }
+      contador++;
+    });
+    dispatch({
+      type: Actions.EDDIT_FORM_M,
+      payload: {
+        ...(state
+          ? {
+              id,
+              materia: props.materia,
+              sigla: props.sigla,
+              carga_horaria: props.carga_horaria,
+            }
+          : dato),
+      },
+    });
+    handleClose();
+  };*/

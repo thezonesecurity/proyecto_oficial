@@ -8,6 +8,14 @@ import { MessageCreateUser } from "../MessageCreateUser";
 import Input from "./InputForm";
 
 export const CrearMateria = () => {
+  //para opcion semestre
+  const [valueSemestre, setValueSemestre] = useState({ valor: "" });
+  const handleChangeOption = (e) => {
+    e.preventDefault();
+    //console.log("value", e.target.value);
+    setValueSemestre(e.target.value);
+  };
+  //console.log(valueSemestre); -----------------
   //usamos el useContext
   const { state, setState, dispatch } = useContext(DataMateria);
   //console.log("stateMAteria", state);
@@ -19,8 +27,8 @@ export const CrearMateria = () => {
     carga_horaria: "",
     valido: null,
   });
-  //console.log("form", form.materia);
-  const { num, materia, sigla, carga_horaria, valido } = form;
+  //console.log("form", form);
+  const { num, materia, sigla, carga_horaria, semestre, valido } = form;
   const expresiones = {
     usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     nombre: /^[a-zA-ZÀ-ÿ\s]{4,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -35,7 +43,12 @@ export const CrearMateria = () => {
   const handlerSubmit = (e) => {
     e.preventDefault();
     //para validar
-    if (materia === "" || sigla === "" || carga_horaria === "") {
+    if (
+      materia === "" ||
+      sigla === "" ||
+      carga_horaria === "" ||
+      semestre === ""
+    ) {
       //aparece un error
       setErrors(true);
       setCreateUser(false);
@@ -46,7 +59,12 @@ export const CrearMateria = () => {
     //SI NO se agrega los datos
     dispatch({
       type: Actions.ADD_FORM_M,
-      payload: { ...form, id: uniqid(), num: state.length + 1 },
+      payload: {
+        ...form,
+        id: uniqid(),
+        num: state.length + 1,
+        semestre: valueSemestre,
+      },
     });
     resetForm();
     setErrors(false);
@@ -90,7 +108,7 @@ export const CrearMateria = () => {
           pattern="[A-Za-z0-9]{5,40}"
           title="Letras y números. Tamaño mínimo: 5. Tamaño máximo: 40"
         />
-        <span>este campo necesita caracteres</span>
+        {/*<span>este campo necesita caracteres</span>*/}
         <br />
         <Input
           htmlFor="uname"
@@ -117,6 +135,24 @@ export const CrearMateria = () => {
           inputmode="numeric"
           pattern="[0-9]*"
         />
+        <br />
+        <div className="form-group row">
+          <label className="col-sm-4 col-form">Semestre</label>
+          <div className="col-sm-7">
+            <select
+              id="semestre"
+              className="form-select"
+              value={valueSemestre}
+              onChange={handleChangeOption}
+            >
+              <option value="elegirSemestre">Elegir Semestre...</option>
+              <option value="semestre 1">Semestre 1</option>
+              <option value="semestre 2">Semestre 2</option>
+              <option value="semestre 3">Semestre 3</option>
+              <option value="semestre 4">Semestre 4</option>
+            </select>
+          </div>
+        </div>
         <br />
         {componente}
         {created}
