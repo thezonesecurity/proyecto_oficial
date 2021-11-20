@@ -2,11 +2,20 @@ import express, { Express } from "express";
 import dotenv from "dotenv";
 import mongoose, { Mongoose } from "mongoose";
 import fileUpload from "express-fileupload";
+<<<<<<< HEAD
 import JsonWebToken from "./middleware/JsonWebToken";
 
 import UserModule from "./modules/usermodule/init";
 import AmbienteModule from "./modules/ambientemodule/initAmbiente";
 import SemestreModule from "./modules/semestremodule/initS";
+=======
+import UserModule from "./modules/usermodule/init";
+import JsonWebToken from "./middleware/JsonWebToken";
+import SemestreModule from "./modules/semestremodule/initS";
+import AmbienteModule from "./modules/ambientemodule/initAmbiente";
+import MateriaModule from "./modules/materiamodule/initMateria";
+
+>>>>>>> 883dea70cf03f558a0eed9f42acaab913ce32aac
 //import cors from "cors"
 
 if (process.env.NODE_ENV == "development") {
@@ -21,6 +30,7 @@ class App {
   //private semestreversion: string; //
   private uploadpath: string;
   private jsonwebtoken: JsonWebToken;
+  //private apimateria: string;
   constructor() {
     this.app = express();
     this.uploadpath = process.env.UPLOADPATH || "/";
@@ -60,12 +70,17 @@ class App {
   private startModules() {
     console.log("Load Modules ...");
     new UserModule(`/${this.apiversion}`, ["user", "roles"], this);
+<<<<<<< HEAD
+=======
+    new MateriaModule(`/${this.apiversion}/materia`, this);
+>>>>>>> 883dea70cf03f558a0eed9f42acaab913ce32aac
     new SemestreModule(`/${this.apiversion}/semestre`, this);
     new AmbienteModule(`/${this.apiversion}/ambiente`, this);
   }
   public getApp() {
     return this.app;
   }
+  // hace peticiones a la base de datos
   public getClientMongoose(): Mongoose {
     return this.clientMongo;
   }
