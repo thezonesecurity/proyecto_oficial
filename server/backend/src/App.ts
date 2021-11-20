@@ -4,6 +4,8 @@ import mongoose, { Mongoose } from "mongoose";
 import fileUpload from "express-fileupload";
 import UserModule from "./modules/usermodule/init";
 import JsonWebToken from "./middleware/JsonWebToken";
+import MateriaModule from "./modules/materiamodule/initMateria";
+
 //import cors from "cors"
 if (process.env.NODE_ENV == "development") {
   dotenv.config();
@@ -16,10 +18,12 @@ class App {
   private apiversion: string;
   private uploadpath: string;
   private jsonwebtoken: JsonWebToken;
+  //private apimateria: string;
   constructor() {
     this.app = express();
     this.uploadpath = process.env.UPLOADPATH || "/";
     this.apiversion = process.env.API_VERSION || "api";
+    //this.apimateria = process.env.APIMATERIA || "api1.1";
     this.port = Number(process.env.PORT) || 8000;
     this.jsonwebtoken = new JsonWebToken();
     this.clientMongo = mongoose;
@@ -54,10 +58,12 @@ class App {
   private startModules() {
     console.log("Load Modules ...");
     new UserModule(`/${this.apiversion}`, ["user", "roles"], this);
+    new MateriaModule(`/${this.apiversion}/materia`, this);
   }
   public getApp() {
     return this.app;
   }
+  // hace peticiones a la base de datos
   public getClientMongoose(): Mongoose {
     return this.clientMongo;
   }

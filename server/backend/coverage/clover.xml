@@ -1,39 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1636814225470" clover="3.2.0">
-  <project timestamp="1636814225470" name="All files">
-    <metrics statements="16" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="8" elements="27" coveredelements="23" complexity="0" loc="16" ncloc="16" packages="3" files="3" classes="3"/>
-    <package name="model">
-      <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-      <file name="UserModel.ts" path="/home/olga/Documentos/proyecto_oficial/server/backend/src/modules/usermodule/model/UserModel.ts">
-        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+<coverage generated="1637439253251" clover="3.2.0">
+  <project timestamp="1637439253251" name="All files">
+    <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="7" elements="24" coveredelements="22" complexity="0" loc="15" ncloc="15" packages="3" files="3" classes="3"/>
+    <package name="modelM">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="MateriaModel.ts" path="/home/andrea/Documents/proyecto_oficial/server/backend/src/modules/materiamodule/modelM/MateriaModel.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="27" count="3" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="40" count="5" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="5" type="stmt"/>
       </file>
     </package>
-    <package name="repositories">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="UserRepository.ts" path="/home/olga/Documentos/proyecto_oficial/server/backend/src/modules/usermodule/repositories/UserRepository.ts">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
+    <package name="repositoriesM">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="UserRepositoryMateria.ts" path="/home/andrea/Documents/proyecto_oficial/server/backend/src/modules/materiamodule/repositoriesM/UserRepositoryMateria.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="repositories.base">
+    <package name="repositoriesM.baseM">
       <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
-      <file name="BaseRepository.ts" path="/home/olga/Documentos/proyecto_oficial/server/backend/src/modules/usermodule/repositories/base/BaseRepository.ts">
+      <file name="BaseRepositoryMateria.ts" path="/home/andrea/Documents/proyecto_oficial/server/backend/src/modules/materiamodule/repositoriesM/baseM/BaseRepositoryMateria.ts">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="8" count="5" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="18" count="3" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
         <line num="21" count="3" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
       </file>
     </package>
   </project>
