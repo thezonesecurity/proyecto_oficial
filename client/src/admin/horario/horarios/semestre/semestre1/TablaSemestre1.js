@@ -5,318 +5,270 @@ import DataHorario from "../../contex/AppContexH";
 import { OpcionesMateriaS1 } from "./OpcionesMateriaS1";
 import uniqid from "uniqid";
 export const TablaSemestre1 = () => {
+  /*
+     const [t, setT] = useState({ valor: "" });
+  const test = (dato) => {
+    setT(dato);
+  };
+  console.log("test1", t);
+  console.log("formHorario", form);
+  const [t2, setT2] = useState({ valor: "" });
+  const test2 = (dato) => {
+    setT2(dato);
+  };
+  console.log("test2", t2);
+    */
   const [box1A, setBox1A] = useState({ valor1A: "" });
-  const handleChangeBox1A = (e) => {
-    e.preventDefault();
-    // console.log("valueBox1A", e.target.value);
-    setBox1A(e.target.value);
+  const handleChangeBox1A = (dato) => {
+    setBox1A(dato);
   };
   //console.log("valorBox1A", box1A);
   const [box1B, setBox1B] = useState({ valor1B: "" });
-  const handleChangeBox1B = (e) => {
-    e.preventDefault();
-    setBox1B(e.target.value);
+  const handleChangeBox1B = (dato) => {
+    setBox1B(dato);
   };
   const [box1C, setBox1C] = useState({ valor1C: "" });
-  const handleChangeBox1C = (e) => {
-    e.preventDefault();
-    setBox1C(e.target.value);
+  const handleChangeBox1C = (dato) => {
+    setBox1C(dato);
   };
   const [box1D, setBox1D] = useState({ valor1D: "" });
-  const handleChangeBox1D = (e) => {
-    e.preventDefault();
-    setBox1D(e.target.value);
+  const handleChangeBox1D = (dato) => {
+    setBox1D(dato);
   };
   const [box1E, setBox1E] = useState({ valor1E: "" });
-  const handleChangeBox1E = (e) => {
-    e.preventDefault();
-    setBox1E(e.target.value);
+  const handleChangeBox1E = (dato) => {
+    setBox1E(dato);
   };
   //fila 2
   const [box2A, setBox2A] = useState({ valor2A: "" });
-  const handleChangeBox2A = (e) => {
-    e.preventDefault();
-    setBox2A(e.target.value);
+  const handleChangeBox2A = (dato) => {
+    setBox2A(dato);
   };
   const [box2B, setBox2B] = useState({ valor2B: "" });
-  const handleChangeBox2B = (e) => {
-    e.preventDefault();
-    setBox2B(e.target.value);
+  const handleChangeBox2B = (dato) => {
+    setBox2B(dato);
   };
   const [box2C, setBox2C] = useState({ valor2C: "" });
-  const handleChangeBox2C = (e) => {
-    e.preventDefault();
-    setBox2C(e.target.value);
+  const handleChangeBox2C = (dato) => {
+    setBox2C(dato);
   };
   const [box2D, setBox2D] = useState({ valor2D: "" });
-  const handleChangeBox2D = (e) => {
-    e.preventDefault();
-    setBox2D(e.target.value);
+  const handleChangeBox2D = (dato) => {
+    setBox2D(dato);
   };
   const [box2E, setBox2E] = useState({ valor2E: "" });
-  const handleChangeBox2E = (e) => {
-    e.preventDefault();
-    setBox2E(e.target.value);
+  const handleChangeBox2E = (dato) => {
+    setBox2E(dato);
   };
   //fila 3
   const [box3A, setBox3A] = useState({ valor3A: "" });
-  const handleChangeBox3A = (e) => {
-    e.preventDefault();
-    setBox3A(e.target.value);
+  const handleChangeBox3A = (dato) => {
+    setBox3A(dato);
   };
   const [box3B, setBox3B] = useState({ valor3B: "" });
-  const handleChangeBox3B = (e) => {
-    e.preventDefault();
-    setBox3B(e.target.value);
+  const handleChangeBox3B = (dato) => {
+    setBox3B(dato);
   };
   const [box3C, setBox3C] = useState({ valor3C: "" });
-  const handleChangeBox3C = (e) => {
-    e.preventDefault();
-    setBox3C(e.target.value);
+  const handleChangeBox3C = (dato) => {
+    setBox3C(dato);
   };
   const [box3D, setBox3D] = useState({ valor3D: "" });
-  const handleChangeBox3D = (e) => {
-    e.preventDefault();
-    setBox3D(e.target.value);
+  const handleChangeBox3D = (dato) => {
+    setBox3D(dato);
   };
   const [box3E, setBox3E] = useState({ valor3E: "" });
-  const handleChangeBox3E = (e) => {
-    e.preventDefault();
-    setBox3E(e.target.value);
+  const handleChangeBox3E = (dato) => {
+    setBox3E(dato);
   };
   //fila 4
   const [box4A, setBox4A] = useState({ valor4A: "" });
-  const handleChangeBox4A = (e) => {
-    e.preventDefault();
-    setBox4A(e.target.value);
+  const handleChangeBox4A = (dato) => {
+    setBox4A(dato);
   };
   const [box4B, setBox4B] = useState({ valor4B: "" });
-  const handleChangeBox4B = (e) => {
-    e.preventDefault();
-    setBox4B(e.target.value);
+  const handleChangeBox4B = (dato) => {
+    setBox4B(dato);
   };
   const [box4C, setBox4C] = useState({ valor4C: "" });
-  const handleChangeBox4C = (e) => {
-    e.preventDefault();
-    setBox4C(e.target.value);
+  const handleChangeBox4C = (dato) => {
+    setBox4C(dato);
   };
   const [box4D, setBox4D] = useState({ valor4D: "" });
-  const handleChangeBox4D = (e) => {
-    e.preventDefault();
-    setBox4D(e.target.value);
+  const handleChangeBox4D = (dato) => {
+    setBox4D(dato);
   };
   const [box4E, setBox4E] = useState({ valor4E: "" });
-  const handleChangeBox4E = (e) => {
-    e.preventDefault();
-    setBox4E(e.target.value);
+  const handleChangeBox4E = (dato) => {
+    setBox4E(dato);
   };
   //fila 5
   const [box5A, setBox5A] = useState({ valor5A: "" });
-  const handleChangeBox5A = (e) => {
-    e.preventDefault();
-    setBox5A(e.target.value);
+  const handleChangeBox5A = (dato) => {
+    setBox5A(dato);
   };
   const [box5B, setBox5B] = useState({ valor5B: "" });
-  const handleChangeBox5B = (e) => {
-    e.preventDefault();
-    setBox5B(e.target.value);
+  const handleChangeBox5B = (dato) => {
+    setBox5B(dato);
   };
   const [box5C, setBox5C] = useState({ valor5C: "" });
-  const handleChangeBox5C = (e) => {
-    e.preventDefault();
-    setBox5C(e.target.value);
+  const handleChangeBox5C = (dato) => {
+    setBox5C(dato);
   };
   const [box5D, setBox5D] = useState({ valor5D: "" });
-  const handleChangeBox5D = (e) => {
-    e.preventDefault();
-    setBox5D(e.target.value);
+  const handleChangeBox5D = (dato) => {
+    setBox5D(dato);
   };
   const [box5E, setBox5E] = useState({ valor5E: "" });
-  const handleChangeBox5E = (e) => {
-    e.preventDefault();
-    setBox5E(e.target.value);
+  const handleChangeBox5E = (dato) => {
+    setBox5E(dato);
   };
   //fila 6
   const [box6A, setBox6A] = useState({ valor6A: "" });
-  const handleChangeBox6A = (e) => {
-    e.preventDefault();
-    setBox6A(e.target.value);
+  const handleChangeBox6A = (dato) => {
+    setBox6A(dato);
   };
   const [box6B, setBox6B] = useState({ valor6B: "" });
-  const handleChangeBox6B = (e) => {
-    e.preventDefault();
-    setBox6B(e.target.value);
+  const handleChangeBox6B = (dato) => {
+    setBox6B(dato);
   };
   const [box6C, setBox6C] = useState({ valor6C: "" });
-  const handleChangeBox6C = (e) => {
-    e.preventDefault();
-    setBox6C(e.target.value);
+  const handleChangeBox6C = (dato) => {
+    setBox6C(dato);
   };
   const [box6D, setBox6D] = useState({ valor6D: "" });
-  const handleChangeBox6D = (e) => {
-    e.preventDefault();
-    setBox6D(e.target.value);
+  const handleChangeBox6D = (dato) => {
+    setBox6D(dato);
   };
   const [box6E, setBox6E] = useState({ valor6E: "" });
-  const handleChangeBox6E = (e) => {
-    e.preventDefault();
-    setBox6E(e.target.value);
+  const handleChangeBox6E = (dato) => {
+    setBox6E(dato);
   };
   //fila 8
   const [box8A, setBox8A] = useState({ valor8A: "" });
-  const handleChangeBox8A = (e) => {
-    e.preventDefault();
-    setBox8A(e.target.value);
+  const handleChangeBox8A = (dato) => {
+    setBox8A(dato);
   };
   const [box8B, setBox8B] = useState({ valor8B: "" });
-  const handleChangeBox8B = (e) => {
-    e.preventDefault();
-    setBox8B(e.target.value);
+  const handleChangeBox8B = (dato) => {
+    setBox8B(dato);
   };
   const [box8C, setBox8C] = useState({ valor8C: "" });
-  const handleChangeBox8C = (e) => {
-    e.preventDefault();
-    setBox8C(e.target.value);
+  const handleChangeBox8C = (dato) => {
+    setBox8C(dato);
   };
   const [box8D, setBox8D] = useState({ valor8D: "" });
-  const handleChangeBox8D = (e) => {
-    e.preventDefault();
-    setBox8D(e.target.value);
+  const handleChangeBox8D = (dato) => {
+    setBox8D(dato);
   };
   const [box8E, setBox8E] = useState({ valor8E: "" });
-  const handleChangeBox8E = (e) => {
-    e.preventDefault();
-    setBox8E(e.target.value);
+  const handleChangeBox8E = (dato) => {
+    setBox8E(dato);
   };
   //fila 9
   const [box9A, setBox9A] = useState({ valor9A: "" });
-  const handleChangeBox9A = (e) => {
-    e.preventDefault();
-    setBox9A(e.target.value);
+  const handleChangeBox9A = (dato) => {
+    setBox9A(dato);
   };
   const [box9B, setBox9B] = useState({ valor9B: "" });
-  const handleChangeBox9B = (e) => {
-    e.preventDefault();
-    setBox9B(e.target.value);
+  const handleChangeBox9B = (dato) => {
+    setBox9B(dato);
   };
   const [box9C, setBox9C] = useState({ valor9C: "" });
-  const handleChangeBox9C = (e) => {
-    e.preventDefault();
-    setBox9C(e.target.value);
+  const handleChangeBox9C = (dato) => {
+    setBox9C(dato);
   };
   const [box9D, setBox9D] = useState({ valor9D: "" });
-  const handleChangeBox9D = (e) => {
-    e.preventDefault();
-    setBox9D(e.target.value);
+  const handleChangeBox9D = (dato) => {
+    setBox9D(dato);
   };
   const [box9E, setBox9E] = useState({ valor9E: "" });
-  const handleChangeBox9E = (e) => {
-    e.preventDefault();
-    setBox9E(e.target.value);
+  const handleChangeBox9E = (dato) => {
+    setBox9E(dato);
   };
   //fila 10
   const [box10A, setBox10A] = useState({ valor10A: "" });
-  const handleChangeBox10A = (e) => {
-    e.preventDefault();
-    setBox10A(e.target.value);
+  const handleChangeBox10A = (dato) => {
+    setBox10A(dato);
   };
   const [box10B, setBox10B] = useState({ valor10B: "" });
-  const handleChangeBox10B = (e) => {
-    e.preventDefault();
-    setBox10B(e.target.value);
+  const handleChangeBox10B = (dato) => {
+    setBox10B(dato);
   };
   const [box10C, setBox10C] = useState({ valor10C: "" });
-  const handleChangeBox10C = (e) => {
-    e.preventDefault();
-    setBox10C(e.target.value);
+  const handleChangeBox10C = (dato) => {
+    setBox10C(dato);
   };
   const [box10D, setBox10D] = useState({ valor10D: "" });
-  const handleChangeBox10D = (e) => {
-    e.preventDefault();
-    setBox10D(e.target.value);
+  const handleChangeBox10D = (dato) => {
+    setBox10D(dato);
   };
   const [box10E, setBox10E] = useState({ valor10E: "" });
-  const handleChangeBox10E = (e) => {
-    e.preventDefault();
-    setBox10E(e.target.value);
+  const handleChangeBox10E = (dato) => {
+    setBox10E(dato);
   };
   //fila 11
   const [box11A, setBox11A] = useState({ valor11A: "" });
-  const handleChangeBox11A = (e) => {
-    e.preventDefault();
-    setBox11A(e.target.value);
+  const handleChangeBox11A = (dato) => {
+    setBox11A(dato);
   };
   const [box11B, setBox11B] = useState({ valor11B: "" });
-  const handleChangeBox11B = (e) => {
-    e.preventDefault();
-    setBox11B(e.target.value);
+  const handleChangeBox11B = (dato) => {
+    setBox11B(dato);
   };
   const [box11C, setBox11C] = useState({ valor11C: "" });
-  const handleChangeBox11C = (e) => {
-    e.preventDefault();
-    setBox11C(e.target.value);
+  const handleChangeBox11C = (dato) => {
+    setBox11C(dato);
   };
   const [box11D, setBox11D] = useState({ valor11D: "" });
-  const handleChangeBox11D = (e) => {
-    e.preventDefault();
-    setBox11D(e.target.value);
+  const handleChangeBox11D = (dato) => {
+    setBox11D(dato);
   };
   const [box11E, setBox11E] = useState({ valor11E: "" });
-  const handleChangeBox11E = (e) => {
-    e.preventDefault();
-    setBox11E(e.target.value);
+  const handleChangeBox11E = (dato) => {
+    setBox11E(dato);
   };
   //fila 12
   const [box12A, setBox12A] = useState({ valor12A: "" });
-  const handleChangeBox12A = (e) => {
-    e.preventDefault();
-    setBox12A(e.target.value);
+  const handleChangeBox12A = (dato) => {
+    setBox12A(dato);
   };
   const [box12B, setBox12B] = useState({ valor12B: "" });
-  const handleChangeBox12B = (e) => {
-    e.preventDefault();
-    setBox12B(e.target.value);
+  const handleChangeBox12B = (dato) => {
+    setBox12B(dato);
   };
   const [box12C, setBox12C] = useState({ valor12C: "" });
-  const handleChangeBox12C = (e) => {
-    e.preventDefault();
-    setBox12C(e.target.value);
+  const handleChangeBox12C = (dato) => {
+    setBox12C(dato);
   };
   const [box12D, setBox12D] = useState({ valor12D: "" });
-  const handleChangeBox12D = (e) => {
-    e.preventDefault();
-    setBox12D(e.target.value);
+  const handleChangeBox12D = (dato) => {
+    setBox12D(dato);
   };
   const [box12E, setBox12E] = useState({ valor12E: "" });
-  const handleChangeBox12E = (e) => {
-    e.preventDefault();
-    setBox12E(e.target.value);
+  const handleChangeBox12E = (dato) => {
+    setBox12E(dato);
   };
   //fila 13
   const [box13A, setBox13A] = useState({ valor13A: "" });
-  const handleChangeBox13A = (e) => {
-    e.preventDefault();
-    setBox13A(e.target.value);
+  const handleChangeBox13A = (dato) => {
+    setBox13A(dato);
   };
   const [box13B, setBox13B] = useState({ valor13B: "" });
-  const handleChangeBox13B = (e) => {
-    e.preventDefault();
-    setBox13B(e.target.value);
+  const handleChangeBox13B = (dato) => {
+    setBox13B(dato);
   };
   const [box13C, setBox13C] = useState({ valor13C: "" });
-  const handleChangeBox13C = (e) => {
-    e.preventDefault();
-    setBox13C(e.target.value);
+  const handleChangeBox13C = (dato) => {
+    setBox13C(dato);
   };
   const [box13D, setBox13D] = useState({ valor13D: "" });
-  const handleChangeBox13D = (e) => {
-    e.preventDefault();
-    setBox13D(e.target.value);
+  const handleChangeBox13D = (dato) => {
+    setBox13D(dato);
   };
   const [box13E, setBox13E] = useState({ valor13E: "" });
-  const handleChangeBox13E = (e) => {
-    e.preventDefault();
-    setBox13E(e.target.value);
+  const handleChangeBox13E = (dato) => {
+    setBox13E(dato);
   };
   //console.log(horaFin);
   const { state, setState, dispatch } = useContext(DataHorario);
@@ -463,6 +415,7 @@ export const TablaSemestre1 = () => {
   form.casilla13D = { box13D, id: uniqid() };
   form.casilla13E = { box13E, id: uniqid() };
   // LOGICA PARA GUARDAR LA TABLA
+
   const { stateH, dispatchH } = useContext(DataHorario);
   const handlerSubmitSaveHorario = (e) => {
     e.preventDefault();
@@ -471,12 +424,19 @@ export const TablaSemestre1 = () => {
       payload: { ...form },
     });
   };
+
   return (
     <tbody>
       <tr>
         <th>07:45-08:45</th>
         <td>
-          {/**<OpcionesMateriaS1 id={casilla1A} value={casilla1A} /> */}
+          <OpcionesMateriaS1
+            id="casilla1A"
+            value={box1A}
+            onChange={handleChangeBox1A}
+            onfuc={handleChangeBox1A}
+          />
+          {/** 
           <select
             className="col-form-label"
             id="casilla1A"
@@ -489,462 +449,231 @@ export const TablaSemestre1 = () => {
             <option value="Física 1">Física 1</option>
             <option value="Computación Básica">Computación Básica</option>
             <option value="Cálculo 1">Cálculo 1</option>
-          </select>{" "}
+          </select>
+          */}
         </td>
         <td>
-          <select
-            className="col-form-label"
+          <OpcionesMateriaS1
             id="casilla1B"
-            value={box1B.valor1B}
-            onChange={handleChangeBox1B}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>{" "}
+            value={box1B}
+            onfuc={handleChangeBox1B}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
+          <OpcionesMateriaS1
             id="casilla1C"
-            value={box1C.valor1C}
-            onChange={handleChangeBox1C}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>{" "}
+            value={box1C}
+            onfuc={handleChangeBox1C}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
+          <OpcionesMateriaS1
             id="casilla1D"
-            value={box1D.valor1D}
-            onChange={handleChangeBox1D}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>{" "}
+            value={box1D}
+            onfuc={handleChangeBox1D}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
+          <OpcionesMateriaS1
             id="casilla1E"
-            value={box1E.valor1E}
-            onChange={handleChangeBox1E}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>{" "}
+            value={box1E}
+            onfuc={handleChangeBox1E}
+          />
         </td>
       </tr>
       {/*FILA 2 */}
       <tr>
         <th>08:30-09:15</th>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box2A.valor2A}
-            onChange={handleChangeBox2A}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla2A"
+            value={box2A}
+            onfuc={handleChangeBox2A}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box2B.valor2B}
-            onChange={handleChangeBox2B}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla2B"
+            value={box2B}
+            onfuc={handleChangeBox2B}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box2C.valor2C}
-            onChange={handleChangeBox2C}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla2C"
+            value={box2C}
+            onfuc={handleChangeBox2C}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box2D.valor2D}
-            onChange={handleChangeBox2D}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla2D"
+            value={box2D}
+            onfuc={handleChangeBox2D}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box2E.valor2E}
-            onChange={handleChangeBox2E}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla2E"
+            value={box2E}
+            onfuc={handleChangeBox2E}
+          />
         </td>
       </tr>
       {/*FILA 3 */}
       <tr>
         <th>09:15-10:00</th>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box3A.valor3A}
-            onChange={handleChangeBox3A}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla3A"
+            value={box3A}
+            onfuc={handleChangeBox3A}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box3B.valor3B}
-            onChange={handleChangeBox3B}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla3B"
+            value={box3B}
+            onfuc={handleChangeBox3B}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box3C.valor3C}
-            onChange={handleChangeBox3C}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla3C"
+            value={box3C}
+            onfuc={handleChangeBox3C}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box3D.valor3D}
-            onChange={handleChangeBox3D}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla3D"
+            value={box3D}
+            onfuc={handleChangeBox3D}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box3E.valor3E}
-            onChange={handleChangeBox3E}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla3E"
+            value={box3E}
+            onfuc={handleChangeBox3E}
+          />
         </td>
       </tr>
       {/*FILA 4 */}
       <tr>
         <th>10:00-10:45</th>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box4A.valor4A}
-            onChange={handleChangeBox4A}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla4A"
+            value={box4A}
+            onfuc={handleChangeBox4A}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box4B.valor4B}
-            onChange={handleChangeBox4B}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla4B"
+            value={box4B}
+            onfuc={handleChangeBox4B}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box4C.valor4C}
-            onChange={handleChangeBox4C}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla4AC"
+            value={box4C}
+            onfuc={handleChangeBox4C}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box4D.valor4D}
-            onChange={handleChangeBox4D}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla4D"
+            value={box4D}
+            onfuc={handleChangeBox4D}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box4E.valor4E}
-            onChange={handleChangeBox4E}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla4E"
+            value={box4E}
+            onfuc={handleChangeBox4E}
+          />
         </td>
       </tr>
       {/*FILA 5 */}
       <tr>
         <th>10:45-11:30</th>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box5A.valor5A}
-            onChange={handleChangeBox5A}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla5A"
+            value={box5A}
+            onfuc={handleChangeBox5A}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box5B.valor5B}
-            onChange={handleChangeBox5B}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla5B"
+            value={box5B}
+            onfuc={handleChangeBox5B}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box5C.valor5C}
-            onChange={handleChangeBox5C}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla5C"
+            value={box5C}
+            onfuc={handleChangeBox5C}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box5D.valor5D}
-            onChange={handleChangeBox5D}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla5D"
+            value={box5D}
+            onfuc={handleChangeBox5D}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box5E.valor5E}
-            onChange={handleChangeBox5E}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla5E"
+            value={box5E}
+            onfuc={handleChangeBox5E}
+          />
         </td>
       </tr>
       {/*FILA 6 */}
       <tr>
         <th>11:30-12:15</th>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box6A.valor6A}
-            onChange={handleChangeBox6A}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla6A"
+            value={box6A}
+            onfuc={handleChangeBox6A}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box6B.valor6B}
-            onChange={handleChangeBox6B}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla6B"
+            value={box6B}
+            onfuc={handleChangeBox6B}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box6C.valor6C}
-            onChange={handleChangeBox6C}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla6C"
+            value={box6C}
+            onfuc={handleChangeBox6C}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box6D.valor6D}
-            onChange={handleChangeBox6D}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla6D"
+            value={box6D}
+            onfuc={handleChangeBox6D}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box6E.valor6E}
-            onChange={handleChangeBox6E}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla6E"
+            value={box6E}
+            onfuc={handleChangeBox6E}
+          />
         </td>
       </tr>
       {/*FILA 7 */}
@@ -960,474 +689,234 @@ export const TablaSemestre1 = () => {
       <tr>
         <th>14:00-14:45</th>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box8A.valor8A}
-            onChange={handleChangeBox8A}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla8A"
+            value={box8A}
+            onfuc={handleChangeBox8A}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box8B.valor8B}
-            onChange={handleChangeBox8B}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla8B"
+            value={box8B}
+            onfuc={handleChangeBox8B}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box8C.valor8C}
-            onChange={handleChangeBox8C}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla8C"
+            value={box8C}
+            onfuc={handleChangeBox8C}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box8D.valor8D}
-            onChange={handleChangeBox8D}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla8D"
+            value={box8D}
+            onfuc={handleChangeBox8D}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box8E.valor8E}
-            onChange={handleChangeBox8E}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla8E"
+            value={box8E}
+            onfuc={handleChangeBox8E}
+          />
         </td>
       </tr>
       {/*FILA 9 */}
       <tr>
         <th>14:45-15:30</th>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box9A.valor9A}
-            onChange={handleChangeBox9A}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla9A"
+            value={box9A}
+            onfuc={handleChangeBox9A}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box9B.valor9B}
-            onChange={handleChangeBox9B}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla9B"
+            value={box9B}
+            onfuc={handleChangeBox9B}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box9C.valor9C}
-            onChange={handleChangeBox9C}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla9C"
+            value={box9C}
+            onfuc={handleChangeBox9C}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box9D.valor9D}
-            onChange={handleChangeBox9D}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla9D"
+            value={box9D}
+            onfuc={handleChangeBox9D}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box9E.valor9E}
-            onChange={handleChangeBox9E}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla9E"
+            value={box9E}
+            onfuc={handleChangeBox9E}
+          />
         </td>
       </tr>
       {/*FILA 10 */}
       <tr>
         <th>15:30-16:15</th>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box10A.valor10A}
-            onChange={handleChangeBox10A}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla10A"
+            value={box10A}
+            onfuc={handleChangeBox10A}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box10B.valor10B}
-            onChange={handleChangeBox10B}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla10B"
+            value={box10B}
+            onfuc={handleChangeBox10B}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box10C.valor10C}
-            onChange={handleChangeBox10C}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla10C"
+            value={box10C}
+            onfuc={handleChangeBox10C}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box10D.valor10D}
-            onChange={handleChangeBox10D}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla10D"
+            value={box10D}
+            onfuc={handleChangeBox10D}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box10E.valor10E}
-            onChange={handleChangeBox10E}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla10E"
+            value={box10E}
+            onfuc={handleChangeBox10E}
+          />
         </td>
       </tr>
       {/*FILA 11 */}
       <tr>
         <th>16:15-17:00</th>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box11A.valor11A}
-            onChange={handleChangeBox11A}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla11A"
+            value={box11A}
+            onfuc={handleChangeBox11A}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box11B.valor11B}
-            onChange={handleChangeBox11B}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla11B"
+            value={box11B}
+            onfuc={handleChangeBox11B}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box11C.valor11C}
-            onChange={handleChangeBox11C}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla11C"
+            value={box11C}
+            onfuc={handleChangeBox11C}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box11D.valor11D}
-            onChange={handleChangeBox11D}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla11D"
+            value={box11D}
+            onfuc={handleChangeBox11D}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box11E.valor11E}
-            onChange={handleChangeBox11E}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla11E"
+            value={box11E}
+            onfuc={handleChangeBox11E}
+          />
         </td>
       </tr>
       {/*FILA 12 */}
       <tr>
         <th>17:00-17:45</th>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box12A.valor12A}
-            onChange={handleChangeBox12A}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla12A"
+            value={box12A}
+            onfuc={handleChangeBox12A}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box12B.valor12B}
-            onChange={handleChangeBox12B}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla12B"
+            value={box12B}
+            onfuc={handleChangeBox12B}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box12C.valor12C}
-            onChange={handleChangeBox12C}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla12C"
+            value={box12C}
+            onfuc={handleChangeBox12C}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box12D.valor12D}
-            onChange={handleChangeBox12D}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla12D"
+            value={box12D}
+            onfuc={handleChangeBox12D}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box12E.valor12E}
-            onChange={handleChangeBox12E}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla12E"
+            value={box12E}
+            onfuc={handleChangeBox12E}
+          />
         </td>
       </tr>
       {/*FILA 13 */}
       <tr>
         <th>17:45-18:30</th>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box13A.valor13A}
-            onChange={handleChangeBox13A}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla13A"
+            value={box13A}
+            onfuc={handleChangeBox13A}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box13B.valor13B}
-            onChange={handleChangeBox13B}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla13B"
+            value={box13B}
+            onfuc={handleChangeBox13B}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box13C.valor13C}
-            onChange={handleChangeBox13C}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla13C"
+            value={box13C}
+            onfuc={handleChangeBox13C}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box13D.valor13D}
-            onChange={handleChangeBox13D}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla13D"
+            value={box13D}
+            onfuc={handleChangeBox13D}
+          />
         </td>
         <td>
-          <select
-            className="col-form-label"
-            id="casilla1E"
-            value={box13E.valor13E}
-            onChange={handleChangeBox13E}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
+          <OpcionesMateriaS1
+            id="casilla13E"
+            value={box13E}
+            onfuc={handleChangeBox13E}
+          />
         </td>
       </tr>
       <tr>

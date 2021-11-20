@@ -1,14 +1,15 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
+
+import { MainDocente } from "../../admin/docente/MainDocente";
+import { MainMateria } from "../../admin/materia/MainMateria";
+import { MainAmbiente } from "../../admin/ambientes/MainAmbiente";
+import { MainHorario } from "../../admin/horario/MainHorario";
+import { MainReportes } from "../../admin/reportes/MainReportes";
+import { MainSemestre } from "../../admin/semestre/MainSemestre";
+import { HeaderInterface } from "../../HeaderInterface";
 //import { SidebarMenu } from "../../SidebarMenu";
-import { MainDocente } from "../../docente/MainDocente";
-import { MainMateria } from "../../materia/MainMateria";
-import { MainAmbiente } from "../../ambientes/MainAmbiente";
-import { MainHorario } from "../../horario/MainHorario";
-import { MainReportes } from "../../reportes/MainReportes";
-import { MainSemestre } from "../../semestre/MainSemestre";
-import { HeaderInterface } from "../../../HeaderInterface";
 
 export const DashBoardComponent = ({ children, ...rest }) => {
   //const { auth } = useSelector((state) => state);

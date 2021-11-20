@@ -1,9 +1,11 @@
 import React, { useReducer, useState } from "react";
-import store from "./store/store";
-import { Provider } from "react-redux";
-import { RouteAppAdmin } from "../route/RouteAppAdmin";
-import DataUser from "./reducers/AppContextUSer";
+//import { RouteAppAdmin } from "../admin/route/RouteAppAdmin";
 import { AppReducerUser } from "./reducers/AppReducerUser";
+import store from "./store/store";
+
+import { Provider } from "react-redux";
+import DataUser from "./reducers/AppContextUSer";
+import { RouteAppAdmin } from "../route/RouteAppAdmin";
 
 export const LoginComponent = () => {
   const [user, setUser] = useState([]);

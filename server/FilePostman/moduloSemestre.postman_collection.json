@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "1a3fc28a-2ef1-49df-9fb2-b5b630968d03",
+		"name": "moduloSemestre",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create semestre",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "semestre",
+							"value": "9",
+							"type": "text"
+						},
+						{
+							"key": "año",
+							"value": "2019",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/semestre",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"semestre"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get semestre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/semestre/6195bb1fc2f8335273e3ec25",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"semestre",
+						"6195bb1fc2f8335273e3ec25"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get SemestreList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/semestre",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"semestre"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateSemestre",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "semestre",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/semestre/6196dda5d8500160a8e4e9ac",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"semestre",
+						"6196dda5d8500160a8e4e9ac"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteSemestre",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/semestre/6195bb1fc2f8335273e3ec25",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"semestre",
+						"6195bb1fc2f8335273e3ec25"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

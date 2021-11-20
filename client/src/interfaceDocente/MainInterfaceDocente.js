@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderInterface } from "../HeaderInterface";
+import { HeaderInterface } from "../../HeaderInterface";
 import { CabeceraInterfaceDoc } from "./CabeceraInterfaceDoc";
 import { SidebarMenuID } from "./SidebarMenuID";
 

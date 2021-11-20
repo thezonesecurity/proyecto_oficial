@@ -4,9 +4,12 @@ import mongoose, { Mongoose } from "mongoose";
 import fileUpload from "express-fileupload";
 import UserModule from "./modules/usermodule/init";
 import JsonWebToken from "./middleware/JsonWebToken";
+import SemestreModule from "./modules/semestremodule/initS";
+import AmbienteModule from "./modules/ambientemodule/initAmbiente";
 import MateriaModule from "./modules/materiamodule/initMateria";
 
 //import cors from "cors"
+
 if (process.env.NODE_ENV == "development") {
   dotenv.config();
 }
@@ -16,6 +19,7 @@ class App {
   private port: number;
   private clientMongo: Mongoose;
   private apiversion: string;
+  //private semestreversion: string; //
   private uploadpath: string;
   private jsonwebtoken: JsonWebToken;
   //private apimateria: string;
@@ -23,7 +27,7 @@ class App {
     this.app = express();
     this.uploadpath = process.env.UPLOADPATH || "/";
     this.apiversion = process.env.API_VERSION || "api";
-    //this.apimateria = process.env.APIMATERIA || "api1.1";
+    //this.semestreversion = process.env.SEMESTRE_VERSION || "api1"; //
     this.port = Number(process.env.PORT) || 8000;
     this.jsonwebtoken = new JsonWebToken();
     this.clientMongo = mongoose;
@@ -59,6 +63,8 @@ class App {
     console.log("Load Modules ...");
     new UserModule(`/${this.apiversion}`, ["user", "roles"], this);
     new MateriaModule(`/${this.apiversion}/materia`, this);
+    new SemestreModule(`/${this.apiversion}/semestre`, this);
+    new AmbienteModule(`/${this.apiversion}/ambiente`, this);
   }
   public getApp() {
     return this.app;

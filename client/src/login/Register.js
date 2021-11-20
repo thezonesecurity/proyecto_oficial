@@ -4,8 +4,8 @@ import { useForm } from "./hooks/useForm";
 import DataUser from "./reducers/AppContextUSer";
 import { types } from "./types/types";
 import uniqid from "uniqid";
-import { ErrorValidacion } from "../ErrorValidacion";
-import { MessageCreateUser } from "../MessageCreateUser";
+import { ErrorValidacion } from "../admin/ErrorValidacion";
+import { MessageCreateUser } from "../admin/MessageCreateUser";
 export const Register = () => {
   const { state, setState, dispatch } = useContext(DataUser);
   //console.log("stateUSER", state);
