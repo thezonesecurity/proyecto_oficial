@@ -2,18 +2,11 @@ import express, { Express } from "express";
 import dotenv from "dotenv";
 import mongoose, { Mongoose } from "mongoose";
 import fileUpload from "express-fileupload";
-<<<<<<< HEAD
-
-import UserModule from "./modules/usermodule/init";
-import JsonWebToken from "./middleware/JsonWebToken";
-import SemestreModule from "./modules/semestremodule/initS";
-
-=======
 import JsonWebToken from "./middleware/JsonWebToken";
 
 import UserModule from "./modules/usermodule/init";
 import AmbienteModule from "./modules/ambientemodule/initAmbiente";
->>>>>>> 0cfce3e7ce897ad51e5c79f11e8e7bac986d8d0d
+import SemestreModule from "./modules/semestremodule/initS";
 //import cors from "cors"
 
 if (process.env.NODE_ENV == "development") {
@@ -67,11 +60,8 @@ class App {
   private startModules() {
     console.log("Load Modules ...");
     new UserModule(`/${this.apiversion}`, ["user", "roles"], this);
-<<<<<<< HEAD
     new SemestreModule(`/${this.apiversion}/semestre`, this);
-=======
     new AmbienteModule(`/${this.apiversion}/ambiente`, this);
->>>>>>> 0cfce3e7ce897ad51e5c79f11e8e7bac986d8d0d
   }
   public getApp() {
     return this.app;

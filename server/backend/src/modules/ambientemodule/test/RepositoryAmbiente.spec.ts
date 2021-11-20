@@ -49,6 +49,7 @@ describe("crud operators of AmbienteRepository", () => {
     const expected = await ambienteRepo.findOne(updateAmbiente.id);
     expect(expected.ambiente).toBe("UA-1");
   });
+
   //test para eliminar un ambiente
   test("show be delete ambiente form collection ambientes -> method delete", async () => {
     const ambienteRepo = new AmbienteRepository(createModelAmbiente(mongoose));
