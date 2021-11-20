@@ -5,7 +5,6 @@ import {
   Route,
   /*Link*/
 } from "react-router-dom";
-
 import { DashBoardComponent } from "../login/dashboard/DashBoardComponent";
 import { LoginAD } from "../login/LoginAD";
 import { Register } from "../login/Register";

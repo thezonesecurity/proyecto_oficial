@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { MdAttachEmail, MdVpnKey } from "react-icons/md";
 import { useForm } from "./hooks/useForm";
-import { useDispatch } from "react-redux";
-import { authAsync, auth } from "./actions/auth";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { auth, authAsync } from "./actions/auth";
+//import { useSelector } from "react-redux";
 
 export const LoginAD = () => {
   const dispatch = useDispatch();
@@ -27,6 +27,11 @@ export const LoginAD = () => {
     e.preventDefault(); //e.preventDefault(); es para que no se recargue en otro servicio
     dispatch(authAsync(email, password));
   };
+
+  //logica para roles
+  const roles = "admin";
+  //const roles = "docente";
+  //const roles = "estudiante";
 
   return (
     <>
@@ -90,8 +95,12 @@ export const LoginAD = () => {
             </div>
           </div>
         </div>
-      ) : (
+      ) : roles === "admin" ? (
         <Redirect to="/docente" />
+      ) : roles === "docente" ? (
+        <Redirect to="/interface-docente" />
+      ) : (
+        <Redirect to="/interface-estudiante" />
       )}
     </>
   );

@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-export const ContenidoLista = (
-  {
-    /*
+export const ContenidoLista = ({
   apellidos,
   nombre,
   carga_horaria,
@@ -13,12 +11,10 @@ export const ContenidoLista = (
   telefono,
   id,
   num,
-  */
-  }
-) => {
-  //  console.log(num);
+}) => {
+  //console.log("props docente", props);
 
-  const [data, setData] = useState({});
+  /* const [data, setData] = useState({});
   useEffect(() => {
     const RequestUser = async () => {
       const dataUser = await axios
@@ -46,10 +42,25 @@ export const ContenidoLista = (
     direccion,
     telefono,
     carga_horaria,
-  } = data;
+  } = data;*/
 
   return (
     <tbody>
+      <tr key={id}>
+        <th scope="row">{num}</th>
+        <td>{nombre}</td>
+        <td>{apellidos}</td>
+        <td>{ci}</td>
+        <td>{email}</td>
+        <td>{direccion}</td>
+        <td>{telefono}</td>
+        <td> {carga_horaria}</td>
+      </tr>
+    </tbody>
+  );
+};
+{
+  /*<tbody>
       {/* <tr key={id}>
         <th scope="row">{num}</th>
         <td>{nombre}</td>
@@ -59,7 +70,7 @@ export const ContenidoLista = (
         <td>{direccion}</td>
         <td>{telefono}</td>
         <td> {carga_horaria}</td>
-      </tr>*/}
+      </tr>
       <tr key={id}>
         <th scope="row">1</th>
         <td>{nombre}</td>
@@ -70,6 +81,5 @@ export const ContenidoLista = (
         <td>{telefono}</td>
         <td>{carga_horaria}</td>
       </tr>
-    </tbody>
-  );
-};
+    </tbody>*/
+}

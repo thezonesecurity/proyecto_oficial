@@ -1,3 +1,5 @@
+//import { types } from "../types/types";
+
 import { types } from "../types/types";
 
 export const authAsync = (email, password) => {

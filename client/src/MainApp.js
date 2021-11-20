@@ -1,5 +1,10 @@
 import React from "react";
-import { LoginComponent } from "./admin/login/LoginComponent";
+import { LoginComponent } from "./login/LoginComponent";
+//import { Provider } from "react-redux";
+//import store from "./admin/login/store/store";
+
+//import { MainInterfaceDocente } from "./interfaceDocente/MainInterfaceDocente";
+//import { RouteAppID } from "./interfaceDocente/route/RouteAppID";
 
 export const MainApp = () => {
   return (

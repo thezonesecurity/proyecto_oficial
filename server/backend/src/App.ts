@@ -2,8 +2,11 @@ import express, { Express } from "express";
 import dotenv from "dotenv";
 import mongoose, { Mongoose } from "mongoose";
 import fileUpload from "express-fileupload";
+
 import UserModule from "./modules/usermodule/init";
 import JsonWebToken from "./middleware/JsonWebToken";
+import SemestreModule from "./modules/semestremodule/initS";
+
 //import cors from "cors"
 if (process.env.NODE_ENV == "development") {
   dotenv.config();
@@ -14,12 +17,14 @@ class App {
   private port: number;
   private clientMongo: Mongoose;
   private apiversion: string;
+  //private semestreversion: string; //
   private uploadpath: string;
   private jsonwebtoken: JsonWebToken;
   constructor() {
     this.app = express();
     this.uploadpath = process.env.UPLOADPATH || "/";
     this.apiversion = process.env.API_VERSION || "api";
+    //this.semestreversion = process.env.SEMESTRE_VERSION || "api1"; //
     this.port = Number(process.env.PORT) || 8000;
     this.jsonwebtoken = new JsonWebToken();
     this.clientMongo = mongoose;
@@ -54,6 +59,7 @@ class App {
   private startModules() {
     console.log("Load Modules ...");
     new UserModule(`/${this.apiversion}`, ["user", "roles"], this);
+    new SemestreModule(`/${this.apiversion}/semestre`, this);
   }
   public getApp() {
     return this.app;

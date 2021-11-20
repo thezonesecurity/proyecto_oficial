@@ -4,7 +4,7 @@ import DataDocente from "./contex/AppContext";
 import axios from "axios";
 export const ListaDocente = () => {
   const { state, dispatch } = useContext(DataDocente);
-  //console.log("state", state);
+  // console.log("state-DOCENTE", state);
   /*
   //---------------------------------------------------------------------------------------
   const [data, setData] = useState({});

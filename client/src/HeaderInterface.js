@@ -1,7 +1,8 @@
 import React from "react";
 import { MdLockOpen } from "react-icons/md";
 import { useDispatch } from "react-redux";
-import { authLogoutAsync } from "./admin/login/actions/auth";
+import { authLogoutAsync } from "./login/actions/auth";
+//import { authLogoutAsync } from "./admin/login/actions/auth";
 
 export const HeaderInterface = () => {
   const dispatch = useDispatch();
