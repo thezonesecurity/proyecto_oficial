@@ -2,9 +2,12 @@ import express, { Express } from "express";
 import dotenv from "dotenv";
 import mongoose, { Mongoose } from "mongoose";
 import fileUpload from "express-fileupload";
-import UserModule from "./modules/usermodule/init";
 import JsonWebToken from "./middleware/JsonWebToken";
+
+import UserModule from "./modules/usermodule/init";
+import AmbienteModule from "./modules/ambientemodule/initAmbiente";
 //import cors from "cors"
+
 if (process.env.NODE_ENV == "development") {
   dotenv.config();
 }
@@ -54,6 +57,7 @@ class App {
   private startModules() {
     console.log("Load Modules ...");
     new UserModule(`/${this.apiversion}`, ["user", "roles"], this);
+    new AmbienteModule(`/${this.apiversion}/ambiente`, this);
   }
   public getApp() {
     return this.app;
