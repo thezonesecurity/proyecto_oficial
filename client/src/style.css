@@ -1,0 +1,346 @@
+.container {
+  padding-top: 125px;
+}
+.content {
+  padding-left: 14px;
+  padding-top: 14px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+/*para insertar docente*/
+* {
+  box-sizing: border-box;
+}
+form {
+  width: 400px;
+  padding: 16px;
+  border-radius: 10px;
+  margin: auto;
+  background-color: rgba(90, 68, 68, 0.404);
+}
+
+form label {
+  width: 85px;
+  font-weight: bold;
+  display: inline-block;
+  color: black;
+}
+
+form input[type="text"],
+form input[type="email"] {
+  width: 255px;
+  padding: 3px 20px;
+  border: 1px solid #f6f6f6;
+  border-radius: 3px;
+  background-color: #f6f6f6;
+  margin: 8px 2px;
+  display: inline-block;
+}
+
+form input[type="submit"] {
+  width: 50%;
+  padding: 5px 16px;
+  margin-top: 15px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  display: block;
+  color: #fff;
+  background-color: #000;
+}
+
+form input[type="submit"]:hover {
+  cursor: pointer;
+}
+.titleForm {
+  color: #000;
+}
+/*fin de insertar docente*/
+a:link {
+  text-decoration: none;
+}
+.subSidebar {
+  padding: 10px;
+  padding-left: 65px;
+  padding-top: 20px;
+}
+
+/* Made with love by Mutiullah Samim*/
+
+@import url("https://fonts.googleapis.com/css?family=Numans");
+html,
+body {
+  /* background-image: url("https://getwallpapers.com/wallpaper/download/344517"); */
+  /* background-image: url("https://getwallpapers.com/wallpaper/download/7676"); */
+  /*background-color: #316b83;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  font-family: "Numans", sans-serif;
+   background-image: url("http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg");
+  
+   background-image: url("http://2.bp.blogspot.com/-8LQBkzsrm8U/UjzwFDzNfzI/AAAAAAAAOio/aNaKwV5lADI/s1600/Descargar%2BPack%2BWallpaper%2BGratis%2BAbstractos%2B%25252818%252529.jpg");
+  background-image: url("https://getwallpapers.com/wallpaper/full/f/4/7/60210.jpg");
+   */
+  background-image: url("https://getwallpapers.com/wallpaper/full/f/4/7/60210.jpg");
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  align-content: center;
+}
+
+.card {
+  background-color: rgba(14, 59, 104, 0.096) !important;
+}
+
+.social_icon span {
+  font-size: 60px;
+  margin-left: 10px;
+  color: #ffc312;
+}
+
+.social_icon span:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.card-header h3 {
+  color: white;
+}
+
+.social_icon {
+  position: absolute;
+  right: 20px;
+  top: -45px;
+}
+
+.input-group-prepend span {
+  width: 50px;
+  background-color: #ffc312;
+  color: black;
+  border: 0 !important;
+}
+
+input:focus {
+  outline: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
+}
+
+.remember {
+  color: white;
+}
+
+.remember input {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+.login_btn {
+  color: black;
+  background-color: #ffc312;
+  width: 100px;
+}
+
+.login_btn:hover {
+  color: black;
+  background-color: white;
+}
+
+.links {
+  color: white;
+}
+
+.links a {
+  margin-left: 4px;
+}
+/*--------------------------desde aki para la maquetacion-------------------------*/
+/*background-color: #6c82ca;
+  color: #ffffff;
+  padding: 15px;*/
+.cabecera {
+  padding-top: 16px;
+  margin-bottom: 9px;
+  background-color: #dddddd8a;
+  padding: 15px;
+}
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+/*header*/
+.header {
+  color: #ffffff;
+  padding: 15px;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+}
+/*sub sidebar*/
+.menu li {
+  padding-top: 12px;
+  margin-bottom: 4px;
+  border-radius: 5%;
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+  background-color: #52525225;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+/*letras de sidebar*/
+.letters {
+  background-color: #000;
+}
+.menu li:hover {
+  background-color: #3a4750;
+}
+/*contenido tabla*/
+.aside {
+  background-color: #7d9bb856;
+  padding: 15px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.footer {
+  background-color: #0099cc;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  padding: 15px;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {
+    width: 8.33%;
+  }
+  .col-s-2 {
+    width: 16.66%;
+  }
+  .col-s-3 {
+    width: 25%;
+  }
+  .col-s-4 {
+    width: 33.33%;
+  }
+  .col-s-5 {
+    width: 41.66%;
+  }
+  .col-s-6 {
+    width: 50%;
+  }
+  .col-s-7 {
+    width: 58.33%;
+  }
+  .col-s-8 {
+    width: 66.66%;
+  }
+  .col-s-9 {
+    width: 75%;
+  }
+  .col-s-10 {
+    width: 83.33%;
+  }
+  .col-s-11 {
+    width: 91.66%;
+  }
+  .col-s-12 {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {
+    width: 8.33%;
+  }
+  .col-2 {
+    width: 16.66%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-4 {
+    width: 33.33%;
+  }
+  .col-5 {
+    width: 41.66%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-7 {
+    width: 58.33%;
+  }
+  .col-8 {
+    width: 66.66%;
+  }
+  .col-9 {
+    width: 75%;
+  }
+  .col-10 {
+    width: 83.33%;
+  }
+  .col-11 {
+    width: 91.66%;
+  }
+  .col-12 {
+    width: 100%;
+  }
+  /*-------------------stylos para interface docente-----------------------------*/
+  .perfil {
+    padding-left: 5%;
+    background-color: rgba(105, 80, 80, 0.349);
+    padding-top: 5%;
+  }
+  .avatar {
+    border-radius: 50%;
+    background-color: aqua;
+    padding: 3%;
+  }
+  .perfilSaludo {
+    padding-left: 8%;
+  }
+  .titleRol {
+    text-align: center;
+  }
+  .profile_info {
+    padding-top: 7%;
+  }
+  /*-------------------stylos para interface estudiante-----------------------------*/
+  .both {
+    border-collapse: separate;
+    border-spacing: 25px;
+    border-collapse: separate;
+  }
+}

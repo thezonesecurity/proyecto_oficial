@@ -2,13 +2,10 @@ import React from "react";
 
 export const VerMateriasProgramadas = () => {
   return (
-    <div>
-      <h4>Mi Programacion de Marerias</h4>
-      <div className="col-md-4">
-        <label for="inputState" className="form-label"></label>
-      </div>
-      <table className="table table-bordered table-hover">
-        <thead className="table-dark">
+    <>
+      <h4 className="titleForm">Marerias programadas</h4>
+      <table className="table table-dark">
+        <thead>
           <tr>
             <th scope="col">Sigla</th>
             <th scope="col">Materia</th>
@@ -23,7 +20,7 @@ export const VerMateriasProgramadas = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr className="table-active">
             <td>Sis-101</td>
             <td>Programacion</td>
             <td>2</td>
@@ -35,7 +32,7 @@ export const VerMateriasProgramadas = () => {
             <td>0</td>
             <td>0</td>
           </tr>
-          <tr>
+          <tr className="table-active">
             <td>SIS-737</td>
             <td>Forence</td>
             <td>3</td>
@@ -47,37 +44,11 @@ export const VerMateriasProgramadas = () => {
             <td>0</td>
             <td>0</td>
           </tr>
-          <tr>
-            <td>SIS-313</td>
-            <td>Diseño</td>
-            <td>1</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>SIS-313</td>
-            <td>Computacion Basica</td>
-            <td>2</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
         </tbody>
       </table>
-      <div>
-        <button type="button" className="btn btn-dark">
-          Imprimir
-        </button>
-      </div>
-    </div>
+      <button type="button" className="btn btn-dark">
+        Imprimir
+      </button>
+    </>
   );
 };

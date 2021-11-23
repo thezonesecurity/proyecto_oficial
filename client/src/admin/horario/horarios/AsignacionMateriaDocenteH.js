@@ -1,4 +1,5 @@
 import React from "react";
+
 import { ContenidoMateriaDocenteH } from "./ContenidoMateriaDocenteH";
 
 export const AsignacionMateriaDocenteH = () => {
@@ -8,7 +9,7 @@ export const AsignacionMateriaDocenteH = () => {
   //para mostrar docente
 
   return (
-    <div>
+    <>
       <h4>Asignación de Docentes</h4>
       <table className="table table-dark">
         <thead>
@@ -26,10 +27,9 @@ export const AsignacionMateriaDocenteH = () => {
         })*/}
         <ContenidoMateriaDocenteH />
       </table>
-
       <button type="button" className="btn btn-dark">
         Guardar
       </button>
-    </div>
+    </>
   );
 };

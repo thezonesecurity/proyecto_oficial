@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { TablaSemestre1 } from "./semestre/semestre1/TablaSemestre1";
 import { TablaSemestre2 } from "./semestre/semestre2/TablaSemestre2";
 import { TablaSemestre3 } from "./semestre/semestre3/TablaSemestre3";
@@ -40,9 +41,9 @@ export const RegistroHorarios = () => {
 
   //fin logica para mostrar opciones d semestre
   return (
-    <div>
-      <h4>Horarios</h4>
-      <div className="col-md-4">
+    <>
+      <h4 className="titleForm">Horarios</h4>
+      <div className="col-4">
         <select
           className="form-select"
           id="validationCustom04"
@@ -83,6 +84,6 @@ export const RegistroHorarios = () => {
           </tbody>
         )}
       </table>
-    </div>
+    </>
   );
 };

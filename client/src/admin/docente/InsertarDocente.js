@@ -1,13 +1,14 @@
 import React, { useContext, useState } from "react";
+import uniqid from "uniqid";
+
 import { actions } from "./contants/actions";
 import DataDocente from "./contex/AppContext";
 import { useForm } from "./hooks/useForm";
-import uniqid from "uniqid";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
+
 export const InsertarDocente = () => {
   const { state, setState, dispatch } = useContext(DataDocente);
-
   const [form, handlerChangeForm, resetForm] = useForm({
     num: "",
     nombre: "",
@@ -28,7 +29,6 @@ export const InsertarDocente = () => {
     telefono,
     carga_horaria,
   } = form;
-
   //esto es para insertar docentes nuevos y validar
   const [errors, setErrors] = useState(false);
   const [createUser, setCreateUser] = useState(false);
@@ -78,9 +78,10 @@ export const InsertarDocente = () => {
   //console.log("dataDocente", state);
 
   return (
-    <div>
+    <>
+      <h4 className="titleForm">Formulario crear Docente</h4>
       <form>
-        <div>
+        <div className="subform">
           <label htmlFor="nombre">Nombre</label>
           <input
             type="text"
@@ -135,7 +136,6 @@ export const InsertarDocente = () => {
             placeholder="79727515"
             onChange={handlerChangeForm}
           />
-
           <label htmlFor="carga_horaria">C. Horaria</label>
           <input
             name="carga_horaria"
@@ -145,7 +145,7 @@ export const InsertarDocente = () => {
             onChange={handlerChangeForm}
           />
         </div>
-        <br></br>
+        <br />
         {componente}
         {created}
         <button
@@ -164,6 +164,6 @@ export const InsertarDocente = () => {
           Cancelar
         </button>
       </form>
-    </div>
+    </>
   );
 };

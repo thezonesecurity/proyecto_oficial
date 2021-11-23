@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
-import { MdCreate, MdDeleteSweep } from "react-icons/md";
+import { MdDeleteSweep } from "react-icons/md";
+
 import { actions } from "./contants/actions";
 import DataDocente from "./contex/AppContext";
 import { ModalDocente } from "./ModalDocente";
@@ -36,7 +37,6 @@ export const ContenidoTabla = ({
         <td>{carga_horaria}</td>
         <td>
           <ModalDocente />
-
           {"   "}
           <button
             className="btn btn-outline-danger btn-sm"

@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
+import uniqid from "uniqid";
+
 import { Actions } from "./constants/Actions";
 import DataMateria from "./contex/AppContext";
 import { useForm } from "./hooks/useForm";
-import uniqid from "uniqid";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
 import Input from "./InputForm";
@@ -91,8 +92,8 @@ export const CrearMateria = () => {
   };
 
   return (
-    <div>
-      <h4>Registrar Materia</h4>
+    <>
+      <h4 className="titleForm">Registrar Materia</h4>
       <form>
         <Input
           htmlFor="uname"
@@ -137,8 +138,8 @@ export const CrearMateria = () => {
         />
         <br />
         <div className="form-group row">
-          <label className="col-sm-4 col-form">Semestre</label>
-          <div className="col-sm-7">
+          <label className="col-4 col-form">Semestre</label>
+          <div className="col-6">
             <select
               id="semestre"
               className="form-select"
@@ -173,7 +174,7 @@ export const CrearMateria = () => {
         </button>
       </form>
       <br />
-    </div>
+    </>
   );
 };
 

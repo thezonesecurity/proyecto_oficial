@@ -3,7 +3,7 @@ import React from "react";
 export const ReporteDocentesyMaterias = () => {
   return (
     <div>
-      <h4>Reportes de Docentes y Materias</h4>
+      <h4 className="titleForm">Reportes de Docentes y Materias</h4>
       <table className="table table-dark">
         <thead>
           <tr>
@@ -17,7 +17,7 @@ export const ReporteDocentesyMaterias = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr className="table-active">
             <th scope="row">1</th>
             <td>SIS-131</td>
             <td>Programacion 1</td>
@@ -26,7 +26,7 @@ export const ReporteDocentesyMaterias = () => {
             <td>G-1</td>
             <td>Amb. 4 P2</td>
           </tr>
-          <tr>
+          <tr className="table-active">
             <th scope="row">2</th>
             <td>SIS-231</td>
             <td>Programacion 2</td>
@@ -35,7 +35,7 @@ export const ReporteDocentesyMaterias = () => {
             <td>G-1</td>
             <td>Amb. 4 P2</td>
           </tr>
-          <tr>
+          <tr className="table-active">
             <th scope="row">3</th>
             <td>SIS-151</td>
             <td>Diseño</td>

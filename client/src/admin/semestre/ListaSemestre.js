@@ -1,15 +1,14 @@
 import React, { useContext } from "react";
+
 import { ContenidoListaSemestre } from "./ContenidoListaSemestre";
 import DataSemestre from "./contex/AppContexSemestre";
 
 export const ListaSemestre = () => {
   const { state } = useContext(DataSemestre);
   console.log("listaSemestrestate", state);
-  console.log("SS");
   return (
     <div>
-      <h4>Lista de Semestres</h4>
-
+      <h4 className="titleForm">Lista de Semestres</h4>
       <table className="table table-dark">
         <thead>
           <tr>
@@ -25,7 +24,7 @@ export const ListaSemestre = () => {
           })
         ) : (
           <tbody>
-            <tr>
+            <tr className="table-active">
               <td colSpan="4">No hay semestres registrados...</td>
             </tr>
           </tbody>

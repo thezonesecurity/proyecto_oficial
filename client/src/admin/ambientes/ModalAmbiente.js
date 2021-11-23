@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import DataAmbiente from "./contex/AppContext";
-import { MdCreate, MdDeleteSweep } from "react-icons/md";
+import { MdCreate } from "react-icons/md";
 import { Button, Modal } from "react-bootstrap";
+
+import DataAmbiente from "./contex/AppContext";
 
 export const ModalAmbiente = () => {
   //config para el modal

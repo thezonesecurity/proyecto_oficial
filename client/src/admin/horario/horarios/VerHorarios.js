@@ -7,8 +7,8 @@ export const VerHorarios = () => {
 
   console.log("contenido lista hORAIO", stateH);
   return (
-    <div>
-      <h4>Lista de Horarios</h4>
+    <>
+      <h4 className="titleForm">Lista de Horarios</h4>
       <div className="col-md-4">
         <select className="form-select" id="va">
           <option value="S0">Elegir Semestre...</option>
@@ -30,10 +30,18 @@ export const VerHorarios = () => {
             <th scope="col">Viernes</th>
           </tr>
         </thead>
-        {stateH.map((horarios) => {
-          return <VerTablaHorarios key={horarios.id} {...horarios} />;
-        })}
+        {stateH.length > 0 ? (
+          stateH.map((horarios) => {
+            return <VerTablaHorarios key={horarios.id} {...horarios} />;
+          })
+        ) : (
+          <tbody>
+            <tr className="table-active">
+              <td colSpan="6">No hay horarios registrados...</td>
+            </tr>
+          </tbody>
+        )}
       </table>
-    </div>
+    </>
   );
 };

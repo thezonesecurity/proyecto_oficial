@@ -8,11 +8,10 @@ import {
 import { MainInterfaceDocente } from "../MainInterfaceDocente";
 
 export const RouteAppID = () => {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/interface-docente" component={MainInterfaceDocente} />
-      </Switch>
-    </Router>
-  );
+  return;
+  <Router>
+    <Switch>
+      <Route path="/interface-docente" component={MainInterfaceDocente} />
+    </Switch>
+  </Router>;
 };

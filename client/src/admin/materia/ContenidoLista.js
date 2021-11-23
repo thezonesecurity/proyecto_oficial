@@ -1,5 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { MdDeleteSweep } from "react-icons/md";
+
 import { Actions } from "./constants/Actions";
 import DataMateria from "./contex/AppContext";
 import { ModalMateria } from "./ModalMateria";
@@ -21,7 +22,7 @@ export const ContenidoLista = ({
 
   return (
     <tbody>
-      <tr key={id}>
+      <tr key={id} className="table-active">
         <th scope="row">{num}</th>
         <td>{materia}</td>
         <td>{sigla}</td>
