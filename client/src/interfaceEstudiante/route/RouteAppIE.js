@@ -8,14 +8,10 @@ import {
 import { MainInterfaceEstudiante } from "../MainInterfaceEstudiante";
 
 export const RouteAppIE = () => {
-  return (
-    <Router>
-      <Switch>
-        <Route
-          path="/interface-estudiante"
-          component={MainInterfaceEstudiante}
-        />
-      </Switch>
-    </Router>
-  );
+  return;
+  <Router>
+    <Switch>
+      <Route path="/interface-estudiante" component={MainInterfaceEstudiante} />
+    </Switch>
+  </Router>;
 };

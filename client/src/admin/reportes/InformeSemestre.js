@@ -2,9 +2,9 @@ import React from "react";
 
 export const InformeSemestre = () => {
   return (
-    <div>
-      <h4>Informe de Semestres Asignados</h4>
-      <div className="col-md-4">
+    <>
+      <h4 className="titleForm">Informe de Semestres Asignados</h4>
+      <div className="col-5">
         <label htmlFor="inputState" className="form-label"></label>
         <select id="inputState" className="form-select">
           <option selected>Semestre1</option>
@@ -31,7 +31,7 @@ export const InformeSemestre = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr className="table-active">
             <th>Sis-101</th>
             <td>Programacion</td>
             <td>Ing. Limber Ruiz</td>
@@ -39,7 +39,7 @@ export const InformeSemestre = () => {
             <td>1</td>
             <td>Amb.4 2do. P.</td>
           </tr>
-          <tr>
+          <tr className="table-active">
             <th>SIS-737</th>
             <td>Forence</td>
             <td>Ing. Limber Ruiz</td>
@@ -47,7 +47,7 @@ export const InformeSemestre = () => {
             <td>2</td>
             <td>Amb.1 3er. P.</td>
           </tr>
-          <tr>
+          <tr className="table-active">
             <th>SIS-313</th>
             <td>Diseño</td>
             <td>Ing. Sandy</td>
@@ -55,7 +55,7 @@ export const InformeSemestre = () => {
             <td>3</td>
             <td>Amb.2 1er. P.</td>
           </tr>
-          <tr>
+          <tr className="table-active">
             <th>SIS-313</th>
             <td>Computacion Basica</td>
             <td>Ing. Sandy</td>
@@ -70,6 +70,6 @@ export const InformeSemestre = () => {
           Imprimir
         </button>
       </div>
-    </div>
+    </>
   );
 };

@@ -10,11 +10,9 @@ export const MainMateria = () => {
   const [state, dispatch] = useReducer(AppReducer, user);
   return (
     <DataMateria.Provider value={{ state, dispatch }}>
-      <div>
-        <div className="row align-items-start">
-          <SidebarMenu />
-          <CabeceraMateria />
-        </div>
+      <div className="row align-items-start">
+        <SidebarMenu />
+        <CabeceraMateria />
       </div>
     </DataMateria.Provider>
   );

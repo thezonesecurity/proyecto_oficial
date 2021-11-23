@@ -46,7 +46,7 @@ export const ContenidoLista = ({
 
   return (
     <tbody>
-      <tr key={id}>
+      <tr key={id} class="table-active">
         <th scope="row">{num}</th>
         <td>{nombre}</td>
         <td>{apellidos}</td>

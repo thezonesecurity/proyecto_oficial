@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
+
 import { ContenidoListaAmbiente } from "./ContenidoListaAmbiente";
 import DataAmbiente from "./contex/AppContext";
+
 export const ListarAmbiente = () => {
   const { state, dispatch } = useContext(DataAmbiente);
   //console.log("state", state);
   return (
-    <div>
-      <h4>Lista de Ambientes</h4>
+    <>
+      <h4 className="titleForm">Lista de Ambientes</h4>
       <table className="table table-dark">
         {/*class="container" */}
         <thead>
@@ -19,21 +21,19 @@ export const ListarAmbiente = () => {
         </thead>
         {state.length > 0 ? (
           state.map((item) => {
-            return <ContenidoListaAmbiente {...item} />;
+            return <ContenidoListaAmbiente key={item.id} {...item} />;
           })
         ) : (
           <tbody>
-            <tr>
+            <tr className="table-active">
               <td colSpan="5">No hay Ambientes registrados...</td>
             </tr>
           </tbody>
         )}
       </table>
-      <div>
-        <button type="button" className="btn btn-dark">
-          Imprimir
-        </button>
-      </div>
-    </div>
+      <button type="button" className="btn btn-dark">
+        Imprimir
+      </button>
+    </>
   );
 };

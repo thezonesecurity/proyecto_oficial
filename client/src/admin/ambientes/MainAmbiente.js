@@ -10,11 +10,9 @@ export const MainAmbiente = () => {
   const [state, dispatch] = useReducer(AppReducerAmb, ambiente);
   return (
     <DataAmbiente.Provider value={{ state, dispatch }}>
-      <div>
-        <div className="row align-items-start">
-          <SidebarMenu />
-          <CabeceraAmbiente />
-        </div>
+      <div className="row align-items-start">
+        <SidebarMenu />
+        <CabeceraAmbiente />
       </div>
     </DataAmbiente.Provider>
   );

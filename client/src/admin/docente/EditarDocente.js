@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+
 import { ContenidoTabla } from "./ContenidoTabla";
 import DataDocente from "./contex/AppContext";
 
@@ -17,8 +18,8 @@ export const EditarDocente = () => {
   } = state;
 
   return (
-    <div>
-      <h4>Editar Docentes</h4>
+    <>
+      <h4 className="titleForm">Editar Docentes</h4>
       <table className="table table-dark">
         <thead>
           <tr>
@@ -39,12 +40,12 @@ export const EditarDocente = () => {
           })
         ) : (
           <tbody>
-            <tr>
+            <tr className="table-active">
               <td colSpan="9">No hay Docentes para Editar...</td>
             </tr>
           </tbody>
         )}
       </table>
-    </div>
+    </>
   );
 };

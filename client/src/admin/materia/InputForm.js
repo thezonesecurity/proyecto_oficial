@@ -15,7 +15,6 @@ const InputForm = ({
 }) => {
   //const { state, setState, dispatch } = useContext(DataMateria);
   //  let valido = null;
-
   const validacion = () => {
     if (expresionRegular) {
       if (expresionRegular.test(value)) {
@@ -39,8 +38,7 @@ const InputForm = ({
         placeholder={placeholder}
         onKeyUp={validacion}
         onBlur={validacion}
-      ></input>
-
+      />
       {!valido ? (
         <AiOutlineCheck color="green" />
       ) : (

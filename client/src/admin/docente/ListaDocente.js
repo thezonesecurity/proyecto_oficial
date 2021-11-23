@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
+import axios from "axios";
+
 import { ContenidoLista } from "./ContenidoLista";
 import DataDocente from "./contex/AppContext";
-import axios from "axios";
+
 export const ListaDocente = () => {
   const { state, dispatch } = useContext(DataDocente);
   // console.log("state-DOCENTE", state);
@@ -29,8 +31,8 @@ export const ListaDocente = () => {
   //-----------------------------------------------------------------------------------------
 */
   return (
-    <div>
-      <h4>Listado de Docentes</h4>
+    <>
+      <h4 className="titleForm">Listado de Docentes</h4>
       <table className="table table-dark">
         <thead>
           <tr>
@@ -50,7 +52,7 @@ export const ListaDocente = () => {
           })
         ) : (
           <tbody>
-            <tr>
+            <tr className="table-active">
               <td colSpan="8">No hay Docentes registrados...</td>
             </tr>
           </tbody>
@@ -59,6 +61,6 @@ export const ListaDocente = () => {
       <button type="button" className="btn btn-dark">
         Imprimir
       </button>
-    </div>
+    </>
   );
 };
