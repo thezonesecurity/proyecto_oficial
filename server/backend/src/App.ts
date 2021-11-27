@@ -2,26 +2,17 @@ import express, { Express } from "express";
 import dotenv from "dotenv";
 import mongoose, { Mongoose } from "mongoose";
 import fileUpload from "express-fileupload";
-<<<<<<< HEAD
-import JsonWebToken from "./middleware/JsonWebToken";
-
-import UserModule from "./modules/usermodule/init";
-import AmbienteModule from "./modules/ambientemodule/initAmbiente";
-import SemestreModule from "./modules/semestremodule/initS";
-=======
 import UserModule from "./modules/usermodule/init";
 import JsonWebToken from "./middleware/JsonWebToken";
 import SemestreModule from "./modules/semestremodule/initS";
 import AmbienteModule from "./modules/ambientemodule/initAmbiente";
 import MateriaModule from "./modules/materiamodule/initMateria";
 
->>>>>>> 883dea70cf03f558a0eed9f42acaab913ce32aac
-//import cors from "cors"
+import cors from "cors";
 
 if (process.env.NODE_ENV == "development") {
   dotenv.config();
 }
-const cors: any = require("cors");
 class App {
   private app: Express;
   private port: number;
@@ -37,17 +28,18 @@ class App {
     this.apiversion = process.env.API_VERSION || "api";
     //this.semestreversion = process.env.SEMESTRE_VERSION || "api1"; //
     this.port = Number(process.env.PORT) || 8000;
-    this.jsonwebtoken = new JsonWebToken();
+
     this.clientMongo = mongoose;
     this.configureApp();
     this.configureDatabase();
     this.startModules();
+    this.jsonwebtoken = new JsonWebToken(this.clientMongo); //aquise aumento el this.clientMongo
   }
   private configureApp() {
+    this.app.use(cors({ origin: "http://localhost:3000" }));
     this.app.use(express.json());
     this.app.use(express.urlencoded());
     this.app.use(fileUpload({ limits: { fileSize: 20 * 1024 * 1024 } }));
-    this.app.use(cors());
   }
   private configureDatabase() {
     const dataBaseName = process.env.DB_NAME;
@@ -70,10 +62,7 @@ class App {
   private startModules() {
     console.log("Load Modules ...");
     new UserModule(`/${this.apiversion}`, ["user", "roles"], this);
-<<<<<<< HEAD
-=======
     new MateriaModule(`/${this.apiversion}/materia`, this);
->>>>>>> 883dea70cf03f558a0eed9f42acaab913ce32aac
     new SemestreModule(`/${this.apiversion}/semestre`, this);
     new AmbienteModule(`/${this.apiversion}/ambiente`, this);
   }

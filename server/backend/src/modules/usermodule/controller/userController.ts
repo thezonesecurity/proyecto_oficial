@@ -31,6 +31,7 @@ class UserController {
       telefono,
       carga_horaria,
       password,
+      rolUser,
     } = request.body;
     //cifrar el passwors importante
     password = sha1(password); // ya se cifro la constraseña
@@ -43,6 +44,7 @@ class UserController {
       telefono,
       carga_horaria,
       password,
+      rolUser,
     });
     response.status(201).json({ serverResponse: result });
   }
@@ -56,6 +58,7 @@ class UserController {
       direccion,
       telefono,
       carga_horaria,
+      rolUser,
     }: IUser = request.body;
     const result = await this.userRepository.update(id, {
       nombre,
@@ -65,6 +68,7 @@ class UserController {
       direccion,
       telefono,
       carga_horaria,
+      rolUser,
     });
     response.status(201).json({ serverResponse: result });
   }

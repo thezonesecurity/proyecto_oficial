@@ -6,5 +6,6 @@ interface UserUpdate {
   direccion: string;
   telefono: string;
   carga_horaria: string;
+  rolUser: string;
 }
 export default UserUpdate;

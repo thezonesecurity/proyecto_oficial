@@ -29,41 +29,56 @@ class Routes {
         this.userController.create(request, response);
       });
     this.app.route(`${this.rootPath}/${this.users}`).get(
+      //estos comandos son para proteger
       (request: Request, response: Response, next: NextFunction) => {
-        //estos comandos son para proteger
         this.mainApp.getJsonWebToken().verifyToken(request, response, next);
       },
       (request: Request, response: Response) => {
         this.userController.get(request, response);
       }
     );
-    this.app
-      .route(`${this.rootPath}/${this.users}/:id`)
-      .get((request: Request, response: Response) => {
+    this.app.route(`${this.rootPath}/${this.users}/:id`).get(
+      (request: Request, response: Response, next: NextFunction) => {
+        this.mainApp.getJsonWebToken().verifyToken(request, response, next);
+      },
+      (request: Request, response: Response) => {
         this.userController.getId(request, response);
-      });
+      }
+    );
 
-    this.app
-      .route(`${this.rootPath}/${this.users}/:id`)
-      .put((request: Request, response: Response) => {
+    this.app.route(`${this.rootPath}/${this.users}/:id`).put(
+      (request: Request, response: Response, next: NextFunction) => {
+        this.mainApp.getJsonWebToken().verifyToken(request, response, next);
+      },
+      (request: Request, response: Response) => {
         this.userController.update(request, response);
-      });
-    this.app
-      .route(`${this.rootPath}/${this.users}/:id`)
-      .delete((request: Request, response: Response) => {
+      }
+    );
+    this.app.route(`${this.rootPath}/${this.users}/:id`).delete(
+      (request: Request, response: Response, next: NextFunction) => {
+        this.mainApp.getJsonWebToken().verifyToken(request, response, next);
+      },
+      (request: Request, response: Response) => {
         this.userController.delete(request, response);
-      });
-    this.app
-      .route(`${this.rootPath}/${this.users}/upload/:id`)
-      .put((request: Request, response: Response) => {
+      }
+    );
+    this.app.route(`${this.rootPath}/${this.users}/upload/:id`).put(
+      (request: Request, response: Response, next: NextFunction) => {
+        this.mainApp.getJsonWebToken().verifyToken(request, response, next);
+      },
+      (request: Request, response: Response) => {
         this.userController.upload(request, response);
-      });
+      }
+    );
     // avatar
-    this.app
-      .route(`${this.rootPath}/${this.users}/avatar/:id`)
-      .get((request: Request, response: Response) => {
+    this.app.route(`${this.rootPath}/${this.users}/avatar/:id`).get(
+      (request: Request, response: Response, next: NextFunction) => {
+        this.mainApp.getJsonWebToken().verifyToken(request, response, next);
+      },
+      (request: Request, response: Response) => {
         this.userController.showavatar(request, response);
-      });
+      }
+    );
     //para token login
     this.app
       .route(`${this.rootPath}/${this.users}/singin`)
@@ -72,48 +87,69 @@ class Routes {
       });
 
     ///roles
-    this.app
-      .route(`${this.rootPath}/roles`)
-      .post((request: Request, response: Response) => {
+    this.app.route(`${this.rootPath}/roles`).post(
+      (request: Request, response: Response, next: NextFunction) => {
+        this.mainApp.getJsonWebToken().verifyToken(request, response, next);
+      },
+      (request: Request, response: Response) => {
         this.rolesController.create(request, response);
-      });
+      }
+    );
 
-    this.app
-      .route(`${this.rootPath}/roles/:id`)
-      .get((request: Request, response: Response) => {
+    this.app.route(`${this.rootPath}/roles/:id`).get(
+      (request: Request, response: Response, next: NextFunction) => {
+        this.mainApp.getJsonWebToken().verifyToken(request, response, next);
+      },
+      (request: Request, response: Response) => {
         this.rolesController.getId(request, response);
-      });
+      }
+    );
 
-    this.app
-      .route(`${this.rootPath}/roles`)
-      .get((request: Request, response: Response) => {
+    this.app.route(`${this.rootPath}/roles`).get(
+      (request: Request, response: Response, next: NextFunction) => {
+        this.mainApp.getJsonWebToken().verifyToken(request, response, next);
+      },
+      (request: Request, response: Response) => {
         this.rolesController.get(request, response);
-      });
+      }
+    );
 
-    this.app
-      .route(`${this.rootPath}/roles/:id`)
-      .put((request: Request, response: Response) => {
+    this.app.route(`${this.rootPath}/roles/:id`).put(
+      (request: Request, response: Response, next: NextFunction) => {
+        this.mainApp.getJsonWebToken().verifyToken(request, response, next);
+      },
+      (request: Request, response: Response) => {
         this.rolesController.update(request, response);
-      });
+      }
+    );
 
-    this.app
-      .route(`${this.rootPath}/roles/:id`)
-      .delete((request: Request, response: Response) => {
+    this.app.route(`${this.rootPath}/roles/:id`).delete(
+      (request: Request, response: Response, next: NextFunction) => {
+        this.mainApp.getJsonWebToken().verifyToken(request, response, next);
+      },
+      (request: Request, response: Response) => {
         this.rolesController.delete(request, response);
-      });
+      }
+    );
 
     //Asing roles
-    this.app
-      .route(`${this.rootPath}/addrol/:idUs/:idRol`)
-      .post((request: Request, response: Response) => {
+    this.app.route(`${this.rootPath}/addrol/:idUs/:idRol`).post(
+      (request: Request, response: Response, next: NextFunction) => {
+        this.mainApp.getJsonWebToken().verifyToken(request, response, next);
+      },
+      (request: Request, response: Response) => {
         this.rolesController.addUserRol(request, response);
-      });
+      }
+    );
 
-    this.app
-      .route(`${this.rootPath}/getall`)
-      .get((request: Request, response: Response) => {
+    this.app.route(`${this.rootPath}/getall`).get(
+      (request: Request, response: Response, next: NextFunction) => {
+        this.mainApp.getJsonWebToken().verifyToken(request, response, next);
+      },
+      (request: Request, response: Response) => {
         this.userController.getUserRoles(request, response);
-      });
+      }
+    );
   }
 }
 export default Routes;

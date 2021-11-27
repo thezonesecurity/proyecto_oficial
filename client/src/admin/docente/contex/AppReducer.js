@@ -1,4 +1,5 @@
 import { actions } from "../contants/actions";
+import { typesD } from "../types/typesD";
 
 export const AppReducer = (state, action) => {
   //console.log("reducer", action);
@@ -13,6 +14,10 @@ export const AppReducer = (state, action) => {
 
     case actions.EDDIT_FORM: {
       return;
+    }
+
+    case typesD.authRegister: {
+      return { ...state, msnregister: action.payload };
     }
     default: {
       return state;
