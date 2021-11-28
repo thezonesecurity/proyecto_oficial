@@ -6,6 +6,7 @@ import DataDocente from "./contex/AppContext";
 import { useForm } from "./hooks/useForm";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
+import axios from "axios";
 
 export const InsertarDocente = () => {
   const { state, setState, dispatch } = useContext(DataDocente);
@@ -18,6 +19,7 @@ export const InsertarDocente = () => {
     direccion: "",
     telefono: "",
     carga_horaria: "",
+    password: "",
   });
   const {
     num,
@@ -28,11 +30,12 @@ export const InsertarDocente = () => {
     direccion,
     telefono,
     carga_horaria,
+    password,
   } = form;
   //esto es para insertar docentes nuevos y validar
   const [errors, setErrors] = useState(false);
   const [createUser, setCreateUser] = useState(false);
-  const handlerSubmit = (e) => {
+  const handlerSubmit = async (e) => {
     // e.preventDefault(); --> evita que se propague el formulario
     e.preventDefault();
     //const num = 0;
@@ -43,7 +46,8 @@ export const InsertarDocente = () => {
       email === "" ||
       direccion === "" ||
       telefono === "" ||
-      carga_horaria === ""
+      carga_horaria === "" ||
+      password === ""
     ) {
       setErrors(true);
       setCreateUser(false);
@@ -51,13 +55,46 @@ export const InsertarDocente = () => {
     } else {
       setCreateUser(true);
     }
+
+    // PARA GUARDAR DATOS ANTES
     dispatch({
       type: actions.ADD_FORM,
       payload: { ...form, id: uniqid(), num: state.length + 1 },
     });
+    //-------------------------PETICION POST--------------------------------
+    /*
+    const res = await axios({
+      method: "POST",
+      url: "http://192.168.0.13:8000/api1.0/user/",
+      data: {
+        nombre: state.nombre,
+        apellidos: state.apellidos,
+        ci: state.ci,
+        email: state.email,
+        direccion: state.direccion,
+        carga_horaria: state.carga_horaria,
+        password: state.password,
+      },
+    });
+    /*
+    const result = await axios("http://192.168.0.13:8000/api1.0/user/", {
+      nombre: state.nombre,
+      apellidos: state.apellidos,
+      ci: state.ci,
+      email: state.email,
+      direccion: state.direccion,
+      carga_horaria: state.carga_horaria,
+      password: state.password,
+    }).then(function (response) {
+      console.log(response);
+    });
+    console.log("userPost", result);
+    */
+    //-------------------------PETICION POST--------------------------------
     resetForm();
     setErrors(false);
   };
+
   let componente;
   if (errors) {
     //mostrando el error
@@ -75,7 +112,7 @@ export const InsertarDocente = () => {
     setErrors(false);
     setCreateUser(false);
   };
-  //console.log("dataDocente", state);
+  // console.log("dataDocente", state);
 
   return (
     <>
@@ -142,6 +179,13 @@ export const InsertarDocente = () => {
             type="number"
             value={carga_horaria}
             placeholder="ej. 45 min"
+            onChange={handlerChangeForm}
+          />
+          <label htmlFor="carga_horaria">Password</label>
+          <input
+            name="password"
+            type="password"
+            value={password}
             onChange={handlerChangeForm}
           />
         </div>

@@ -3,33 +3,53 @@ import axios from "axios";
 
 import { ContenidoLista } from "./ContenidoLista";
 import DataDocente from "./contex/AppContext";
+import { actions } from "./contants/actions";
 
 export const ListaDocente = () => {
-  const { state, dispatch } = useContext(DataDocente);
-  // console.log("state-DOCENTE", state);
-  /*
-  //---------------------------------------------------------------------------------------
-  const [data, setData] = useState({});
+  //------------------------------LOGICA PARA LISTAR USARIOS-------------------------
+  const [dataUser, setDataUser] = useState({});
   useEffect(() => {
-    const RequestUser = async () => {
-      const dataUser = await axios
-        .get("http://localhost:8000/api1.0/user/")
-        .then(function (response) {
-          //console.log("api", response.data.serverResponse);
-          setData(response.data.serverResponse);
+    const peticionGet = async () => {
+      const result = await axios
+        .get("http://192.168.1.112:8000/api1.0/user/")
+        .then((item) => {
+          //console.log(item.data.serverResponse);
+          setDataUser(item.data.serverResponse);
         })
         .catch(function (error) {
           console.log(error);
-        })
-        .then(function () {
-          // always executed
         });
+      // console.log("datos", dataUser);
     };
-    RequestUser();
+    peticionGet();
   }, []);
-  const peticionGet = () => {};
+  //------------------------------LOGICA PARA LISTAR USARIOS-------------------------
+  //console.log("datosItem", dataUser);
   //-----------------------------------------------------------------------------------------
-*/
+  //para agregar dataUser al contex y asi tener los datos en el state
+  /*
+  const { state, dispatch } = useContext(DataDocente);
+  let data = dataUser;
+  const test = () => {
+    dispatch({
+      type: actions.ADD_FORM,
+      payload: { data },
+    });
+  };
+  test();
+  /*
+  componentDidUpdate(
+    (test = () => {
+      dispatch({
+        type: actions.ADD_FORM,
+        payload: { data },
+      });
+    }),
+    test()
+  );
+    console.log("stateDoc", state);
+  */
+
   return (
     <>
       <h4 className="titleForm">Listado de Docentes</h4>
@@ -44,16 +64,18 @@ export const ListaDocente = () => {
             <th scope="col">Direccion</th>
             <th scope="col">telefono</th>
             <th scope="col">Carga horaria</th>
+            <th scope="col">Opciones</th>
           </tr>
         </thead>
-        {state.length > 0 ? (
-          state.map((item) => {
-            return <ContenidoLista key={item.id} {...item} />;
+
+        {dataUser.length > 0 ? (
+          dataUser.map((item) => {
+            return <ContenidoLista key={item._id} {...item} />;
           })
         ) : (
           <tbody>
             <tr className="table-active">
-              <td colSpan="8">No hay Docentes registrados...</td>
+              <td colSpan="9">No hay Docentes registrados...</td>
             </tr>
           </tbody>
         )}
