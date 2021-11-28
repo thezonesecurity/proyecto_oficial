@@ -150,6 +150,7 @@ class UserController {
           .getJsonWebToken()
           .generateToken({ id: user.id, email });
         response.status(200).json({ serverResponse: token });
+        return;
       }
     }
     response.status(300).json({ serverResponse: "Error in the credentials" });

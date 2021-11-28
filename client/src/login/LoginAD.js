@@ -9,17 +9,17 @@ import { auth, authAsync } from "./actions/auth";
 export const LoginAD = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    const userData = localStorage.getItem("user");
-    if (userData != null) {
-      dispatch(auth(JSON.parse(userData)));
+    const token = localStorage.getItem("token");
+    if (token != null) {
+      dispatch(auth(token));
     }
   }, []);
 
-  const { auth: authRename } = useSelector((state) => state);
-  const { user, msnerror } = authRename;
+  const { auth: authRename, msnerror } = useSelector((state) => state);
+  const { token } = authRename;
   const [form, handlerChangeForm, handlerResetForm] = useForm({
-    email: "seminario@gmail.com",
-    password: "1234",
+    email: "nanami@gmail.com",
+    password: "12345",
   });
 
   const { email, password } = form;
@@ -35,7 +35,7 @@ export const LoginAD = () => {
 
   return (
     <>
-      {user == null ? (
+      {token == null ? (
         <div className="container">
           <div className="d-flex justify-content-center h-100">
             <div className="card">

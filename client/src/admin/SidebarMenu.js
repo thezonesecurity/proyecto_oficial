@@ -7,7 +7,7 @@ export const SidebarMenu = () => {
       <ul>
         <li className="nav-item">
           <Link to="/docente" aria-current="page">
-            Docente
+            Usuario
           </Link>
         </li>
         <br />

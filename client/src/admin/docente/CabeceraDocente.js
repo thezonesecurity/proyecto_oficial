@@ -12,13 +12,13 @@ export const CabeceraDocente = () => {
       <div className="cabecera">
         <ul className="nav  card-header-tabs">
           <li className="btn btn-outline-dark" aria-current="true">
-            <Link to={`${url}/lista-docente`}>Ver Lista de Docentes</Link>
+            <Link to={`${url}/lista-docente`}>Ver Lista de Usuarios</Link>
           </li>
           <li className="btn btn-outline-dark" aria-current="true">
-            <Link to={`${url}/crear-docente`}>Crear Docentes</Link>
+            <Link to={`${url}/crear-docente`}>Crear Usuarios</Link>
           </li>
           <li className="btn btn-outline-dark" aria-current="true">
-            <Link to={`${url}/editar-docente`}>Editar Docente</Link>
+            <Link to={`${url}/editar-docente`}>Editar Usuarios</Link>
           </li>
         </ul>
       </div>

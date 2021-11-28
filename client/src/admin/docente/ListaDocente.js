@@ -32,7 +32,7 @@ export const ListaDocente = () => {
 */
   return (
     <>
-      <h4 className="titleForm">Listado de Docentes</h4>
+      <h4 className="titleForm">Listado de Usuarios</h4>
       <table className="table table-dark">
         <thead>
           <tr>
@@ -53,7 +53,7 @@ export const ListaDocente = () => {
         ) : (
           <tbody>
             <tr className="table-active">
-              <td colSpan="8">No hay Docentes registrados...</td>
+              <td colSpan="8">No hay Usuarios registrados...</td>
             </tr>
           </tbody>
         )}

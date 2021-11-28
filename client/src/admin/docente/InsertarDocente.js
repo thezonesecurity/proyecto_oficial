@@ -8,6 +8,8 @@ import { useForm } from "./hooks/useForm";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
 import { authRegister } from "./actions/authDocente";
+import { useSelector } from "react-redux";
+import { Redirect } from "react-router";
 
 export const InsertarDocente = () => {
   const dispatch = useDispatch();
@@ -45,6 +47,12 @@ export const InsertarDocente = () => {
     repassword,
   } = form;
   form.roles = optionRol;
+
+  //desde aqui se controla el login
+  // const { auth } = useSelector((state) => state);
+  //console.log("auth", auth);
+  //const { msnregister } = auth;
+
   // console.log("form", form);
   //esto es para insertar docentes nuevos y validar
   const [errors, setErrors] = useState(false);
@@ -147,7 +155,7 @@ export const InsertarDocente = () => {
 
   return (
     <>
-      <h4 className="titleForm">Formulario crear Docente</h4>
+      <h4 className="titleForm">Formulario crear Usuarios</h4>
       <form>
         <div className="subform">
           <div className="form-group row">
@@ -163,7 +171,7 @@ export const InsertarDocente = () => {
                 <option defaultValue="elegirRol">Designar Rol</option>
                 <option value="Admin">Administrador</option>
                 <option value="Docente">Docente</option>
-                <option value="Estudiante">Estdiante</option>
+                <option value="Estudiante">Estudiante</option>
               </select>
             </div>
           </div>

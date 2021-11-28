@@ -4,9 +4,9 @@ export const authReducer = (state = {}, action) => {
   switch (action.type) {
     //para login
     case types.authLogin: {
-      const { id, displayName, photo } = action.payload;
+      const token = action.payload;
       return {
-        user: { id, displayName, photo },
+        token,
       };
     }
     case types.authLogout: {
