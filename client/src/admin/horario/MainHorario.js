@@ -9,11 +9,9 @@ export const MainHorario = () => {
   const [stateH, dispatchH] = useReducer(AppReducerH, horario);
   return (
     <DataHorario.Provider value={{ stateH, dispatchH }}>
-      <div>
-        <div className="row align-items-start">
-          <SidebarMenu />
-          <CabeceraHorario />
-        </div>
+      <div className="row align-items-start">
+        <SidebarMenu />
+        <CabeceraHorario />
       </div>
     </DataHorario.Provider>
   );

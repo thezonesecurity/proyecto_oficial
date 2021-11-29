@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
+import uniqid from "uniqid";
+
 import { useFormSemestre } from "./hooks/useFormSemestre";
 import DataSemestre from "./contex/AppContexSemestre";
 import { ActionsSemestre } from "./constants/ActionsSemestre";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
-import uniqid from "uniqid";
+
 export const RegistrarSemestre = () => {
   //para opcion semestre
   const [valueSemestre, setValueSemestre] = useState({ valor: "" });
@@ -70,11 +72,11 @@ export const RegistrarSemestre = () => {
   };
   return (
     <div>
-      <h4>Registrar Semestre</h4>
+      <h4 className="titleForm">Registrar Semestre</h4>
       <form>
         <div className="form-group row">
-          <label className="col-sm-4 col-form">Semestre</label>
-          <div className="col-sm-7">
+          <label className="col-4 col-form">Semestre</label>
+          <div className="col-6">
             <select
               id="semestre"
               className="form-select"
@@ -89,12 +91,11 @@ export const RegistrarSemestre = () => {
             </select>
           </div>
         </div>
-        <br />
         <div className="form-group row">
-          <label htmlFor="input" className="col-sm-4 col-form-label">
+          <label htmlFor="input" className="col-4 col-form-label">
             Año :
           </label>
-          <div className="col-sm-8">
+          <div className="col-5">
             <input
               type="number"
               className="form-control"
@@ -111,13 +112,17 @@ export const RegistrarSemestre = () => {
         {created}
         <button
           type="button"
-          className="btn btn-dark"
+          className="btn btn-outline-success"
           onClick={handlerSubmitSaveSemestre}
         >
           Guardar
         </button>
         {"  "}
-        <button type="button" className="btn btn-dark" onClick={clearform}>
+        <button
+          type="button"
+          className="btn btn-outline-dark"
+          onClick={clearform}
+        >
           Cancelar
         </button>
       </form>

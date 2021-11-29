@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
+
 export const OpcionesMateriaS1 = (props) => {
   //console.log("OM", props);
-
   const [casilla, setCasilla] = useState({ valor: "" });
   const handleChangeOption = (e) => {
     e.preventDefault();

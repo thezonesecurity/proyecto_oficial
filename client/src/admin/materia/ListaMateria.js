@@ -2,12 +2,13 @@ import React, { useContext } from "react";
 
 import { ContenidoLista } from "./ContenidoLista";
 import DataMateria from "./contex/AppContext";
+
 export const ListaMateria = () => {
   const { state, dispatch } = useContext(DataMateria);
   //console.log("state", state);
   return (
-    <div>
-      <h4>Listado de Materias</h4>
+    <>
+      <h4 className="titleForm">Listado de Materias</h4>
       <table className="table table-dark">
         <thead>
           <tr>
@@ -25,7 +26,7 @@ export const ListaMateria = () => {
           })
         ) : (
           <tbody>
-            <tr>
+            <tr className="table-active">
               <td colSpan="6">No hay materias registradas...</td>
             </tr>
           </tbody>
@@ -36,6 +37,6 @@ export const ListaMateria = () => {
           Imprimir
         </button>
       </div>
-    </div>
+    </>
   );
 };

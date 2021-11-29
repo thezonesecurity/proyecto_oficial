@@ -1,5 +1,7 @@
 import React from "react";
+
 import { LoginComponent } from "./login/LoginComponent";
+import "./style.css";
 //import { Provider } from "react-redux";
 //import store from "./admin/login/store/store";
 

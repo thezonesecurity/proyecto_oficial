@@ -1,11 +1,10 @@
 import React, { useContext, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MdCreate } from "react-icons/md";
-import { Button, Modal, NavItem } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
+
 import DataSemestre from "./contex/AppContexSemestre";
 import { useFormSemestre } from "./hooks/useFormSemestre";
-
-//import DataMateria from "./contex/AppContext";
 
 export const ModalSemestre = (props) => {
   const [show, setShow] = useState(false);

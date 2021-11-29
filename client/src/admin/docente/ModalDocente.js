@@ -2,16 +2,14 @@ import React, { useContext, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MdCreate } from "react-icons/md";
 import { Button, Modal } from "react-bootstrap";
+
 import DataDocente from "./contex/AppContext";
 
 export const ModalDocente = () => {
   const { state, dispatch } = useContext(DataDocente);
-
   const [data, setData] = useState(DataDocente);
-
   //console.log("modaldocente", state);
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false); //handleClose cierra el modal
   const handleShow = () => setShow(true); //handleShow abre el modal
   const stateob = Object.assign({}, state);

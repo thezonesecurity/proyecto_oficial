@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { MdDeleteSweep } from "react-icons/md";
+
 import { ActionsSemestre } from "./constants/ActionsSemestre";
 import DataSemestre from "./contex/AppContexSemestre";
 import { ModalSemestre } from "./ModalSemestre";
@@ -11,7 +12,7 @@ export const ContenidoListaSemestre = ({ num, año, id, semestre }) => {
   };
   return (
     <tbody>
-      <tr key={id}>
+      <tr key={id} className="table-active">
         <th>{num}</th>
         <td>{semestre}</td>
         <td>{año}</td>

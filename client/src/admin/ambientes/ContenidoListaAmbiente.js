@@ -4,6 +4,7 @@ import { MdDeleteSweep } from "react-icons/md";
 import { actionsAmb } from "./contants/actionsAmb";
 import DataAmbiente from "./contex/AppContext";
 import { ModalAmbiente } from "./ModalAmbiente";
+
 export const ContenidoListaAmbiente = ({ id, num, ambiente, ubicacion }) => {
   const { state, dispatch } = useContext(DataAmbiente);
   //console.log("contenido lista", state);
@@ -13,10 +14,10 @@ export const ContenidoListaAmbiente = ({ id, num, ambiente, ubicacion }) => {
   };
   return (
     <tbody>
-      <tr key={id}>
-        <th class="col">{num}</th>
-        <td class="col">{ambiente}</td>
-        <td class="col">{ubicacion}</td>
+      <tr key={id} class="table-active">
+        <th className="col">{num}</th>
+        <td className="col">{ambiente}</td>
+        <td className="col">{ubicacion}</td>
         <td>
           <ModalAmbiente />
           {"   "}

@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
+import uniqid from "uniqid";
+
 import { useForm } from "../../../../materia/hooks/useForm";
 import { ActionsH } from "../../constants/ActionsH";
 import DataHorario from "../../contex/AppContexH";
 import { OpcionesMateriaS1 } from "./OpcionesMateriaS1";
-import uniqid from "uniqid";
+
 export const TablaSemestre1 = () => {
   /*
      const [t, setT] = useState({ valor: "" });
@@ -436,21 +438,6 @@ export const TablaSemestre1 = () => {
             onChange={handleChangeBox1A}
             onfuc={handleChangeBox1A}
           />
-          {/** 
-          <select
-            className="col-form-label"
-            id="casilla1A"
-            value={box1A.valor1A}
-            onChange={handleChangeBox1A}
-          >
-            <option value="Elegir materia..">Elegir materia...</option>
-            <option value="Programación 1">Programación 1</option>
-            <option value="Diseño">Diseño</option>
-            <option value="Física 1">Física 1</option>
-            <option value="Computación Básica">Computación Básica</option>
-            <option value="Cálculo 1">Cálculo 1</option>
-          </select>
-          */}
         </td>
         <td>
           <OpcionesMateriaS1

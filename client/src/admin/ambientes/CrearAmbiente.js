@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
+import uniqid from "uniqid";
+
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
 import { actionsAmb } from "./contants/actionsAmb";
-import uniqid from "uniqid";
 import DataAmbiente from "./contex/AppContext";
 import { useForm } from "./hooks/useForm";
 
@@ -34,7 +35,6 @@ export const CrearAmbiente = () => {
     resetForm();
     setErrors(false);
   };
-
   let componente;
   if (errors) {
     //mostrando el error
@@ -54,49 +54,47 @@ export const CrearAmbiente = () => {
   };
 
   return (
-    <div>
-      <h4>Formulario crear ambiente</h4>
+    <>
+      <h4 className="titleForm">Formulario crear ambiente</h4>
       <form>
-        <div>
-          <label htmlFor="uname">Ambiente</label>
-          <input
-            type="text"
-            name="ambiente"
-            id="ambiente"
-            placeholder="2"
-            value={ambiente}
-            onChange={handlerChangeForm}
-          />
-          <br />
-          <label htmlFor="uname">Ubicación</label>
-          <input
-            type="text"
-            name="ubicacion"
-            id="ubicacion"
-            value={ubicacion}
-            onChange={handlerChangeForm}
-            placeholder="1 Piso"
-          />
-          <br />
-          {componente}
-          {created}
-          <button
-            onClick={handlerSubmitSaveAmb}
-            type="button"
-            className="btn btn-outline-success"
-          >
-            Guardar
-          </button>
-          {"  "}
-          <button
-            onClick={clearForm}
-            type="button"
-            className="btn btn-outline-dark"
-          >
-            Cancelar
-          </button>
-        </div>
+        <label htmlFor="uname">Ambiente</label>
+        <input
+          type="text"
+          name="ambiente"
+          id="ambiente"
+          placeholder="2"
+          value={ambiente}
+          onChange={handlerChangeForm}
+        />
+        <br />
+        <label htmlFor="uname">Ubicación</label>
+        <input
+          type="text"
+          name="ubicacion"
+          id="ubicacion"
+          value={ubicacion}
+          onChange={handlerChangeForm}
+          placeholder="1 Piso"
+        />
+        <br />
+        {componente}
+        {created}
+        <button
+          onClick={handlerSubmitSaveAmb}
+          type="button"
+          className="btn btn-outline-success"
+        >
+          Guardar
+        </button>
+        {"  "}
+        <button
+          onClick={clearForm}
+          type="button"
+          className="btn btn-outline-dark"
+        >
+          Cancelar
+        </button>
       </form>
-    </div>
+    </>
   );
 };

@@ -4,7 +4,6 @@ import { SidebarMenu } from "../SidebarMenu";
 import { CabeceraDocente } from "./CabeceraDocente";
 import { AppReducer } from "./contex/AppReducer";
 import DataDocente from "./contex/AppContext";
-import "./style.css";
 
 export const MainDocente = () => {
   const [user, setuser] = useState([]);
@@ -13,12 +12,20 @@ export const MainDocente = () => {
     <DataDocente.Provider value={{ state, dispatch }}>
       {/*(DataDocente.Provider).....El patrón Provider permite a la librería pasar datos de arriba a abajo*/}
       {/*el dispatch se encarga de modificar los valores del state*/}
-      <div>
+      <div className="row align-items-start">
+        <SidebarMenu />
+        <CabeceraDocente />
+      </div>
+    </DataDocente.Provider>
+  );
+};
+{
+  /*
+<div>
         <div className="row align-items-start">
           <SidebarMenu />
           <CabeceraDocente />
         </div>
       </div>
-    </DataDocente.Provider>
-  );
-};
+*/
+}
