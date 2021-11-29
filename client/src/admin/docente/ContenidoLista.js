@@ -1,85 +1,71 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { MdDeleteSweep } from "react-icons/md";
+import { useSelector } from "react-redux";
 
-export const ContenidoLista = ({
-  apellidos,
-  nombre,
-  carga_horaria,
-  ci,
-  direccion,
-  email,
-  telefono,
-  id,
-  num,
-}) => {
-  //console.log("props docente", props);
+import DataDocente from "./contex/AppContext";
+import { ModalDocente } from "./ModalDocente";
+import { endpointsD } from "./types/endPointsD";
 
-  /* const [data, setData] = useState({});
-  useEffect(() => {
-    const RequestUser = async () => {
-      const dataUser = await axios
-        .get("http://localhost:8000/api1.0/user/619028c0cc5656748d906eb7")
-        .then(function (response) {
-          //console.log("api", response.data.serverResponse);
-          setData(response.data.serverResponse);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-        .then(function () {
-          // always executed
-        });
-    };
-    RequestUser();
-  }, []);
-  //console.log("apiData2", data);
-  const {
-    id,
-    nombre,
-    apellidos,
-    ci,
-    email,
-    direccion,
-    telefono,
-    carga_horaria,
-  } = data;*/
+export const ContenidoLista = (props) => {
+  //(handlerClick) es para elminiar al docente
+  const { state, dispatch } = useContext(DataDocente);
+  const { auth } = useSelector((state) => state);
+  const { token } = auth;
+
+  const handlerClickDelete = async (id) => {
+    //dispatch({ type: actions.REMOVE_FORM, payload: id });
+    if (
+      window.confirm(
+        `Advertencia se eliminaria al usuario -> ${props.nombre} ${props.apellidos}`
+      )
+    ) {
+      //logica pa eliminar
+      //console.log("elimi8nado");
+      // console.log("be", props._id);
+      fetch(endpointsD.deleteUser.url + props._id, {
+        method: endpointsD.deleteUser.method,
+        headers: new Headers({
+          Authorization: token,
+          "Content-Type": "application/x-www-form-urlencoded",
+        }),
+      });
+    }
+  };
+  // console.log("props Contenido docente", props._id);
 
   return (
-    <tbody>
-      <tr key={id} class="table-active">
-        <th scope="row">{num}</th>
-        <td>{nombre}</td>
-        <td>{apellidos}</td>
-        <td>{ci}</td>
-        <td>{email}</td>
-        <td>{direccion}</td>
-        <td>{telefono}</td>
-        <td> {carga_horaria}</td>
-      </tr>
-    </tbody>
+    <>
+      <tbody>
+        <tr key={props._id} className="table-active">
+          <th scope="row">1</th>
+          <td>{props.nombre}</td>
+          <td>{props.apellidos}</td>
+          <td>{props.ci}</td>
+          <td>{props.email}</td>
+          <td>{props.direccion}</td>
+          <td>{props.telefono}</td>
+          {props.carga_horaria ? <td> {props.carga_horaria}</td> : <td>0</td>}
+          <td>{props.rolUser}</td>
+          <td>
+            <ModalDocente dataItem={props} />
+            {"   "}
+            <button
+              className="btn btn-outline-danger btn-sm"
+              onClick={() => {
+                handlerClickDelete(props.id);
+              }}
+            >
+              <MdDeleteSweep />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </>
   );
 };
+
 {
-  /*<tbody>
-      {/* <tr key={id}>
-        <th scope="row">{num}</th>
-        <td>{nombre}</td>
-        <td>{apellidos}</td>
-        <td>{ci}</td>
-        <td>{email}</td>
-        <td>{direccion}</td>
-        <td>{telefono}</td>
-        <td> {carga_horaria}</td>
-      </tr>
-      <tr key={id}>
-        <th scope="row">1</th>
-        <td>{nombre}</td>
-        <td>{apellidos}</td>
-        <td>{ci}</td>
-        <td>{email}</td>
-        <td>{direccion}</td>
-        <td>{telefono}</td>
-        <td>{carga_horaria}</td>
-      </tr>
-    </tbody>*/
+  /*
+handlerClickDelete(props.id);
+*/
 }

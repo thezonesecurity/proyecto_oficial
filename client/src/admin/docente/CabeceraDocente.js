@@ -17,9 +17,9 @@ export const CabeceraDocente = () => {
           <li className="btn btn-outline-dark" aria-current="true">
             <Link to={`${url}/crear-docente`}>Crear Usuarios</Link>
           </li>
-          <li className="btn btn-outline-dark" aria-current="true">
+          {/* <li className="btn btn-outline-dark" aria-current="true">
             <Link to={`${url}/editar-docente`}>Editar Usuarios</Link>
-          </li>
+          </li>*/}
         </ul>
       </div>
       {/*CABECERA */}

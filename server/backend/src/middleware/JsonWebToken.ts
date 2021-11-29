@@ -31,6 +31,7 @@ class JsonWebToken {
     const token: string = JWT.sign(data, this.secret, {
       expiresIn: 60 * this.time,
     });
+    console.log("------token-------", token);
     return token;
   }
   public async verifyToken(
@@ -40,6 +41,7 @@ class JsonWebToken {
   ) {
     const token: string | undefined = request.headers["authorization"];
     if (!token) {
+      console.log("TOKEN NO EXISTE");
       response.status(300).json({
         serverResponse:
           "You don't have access to this endpoint you need a token man",
@@ -52,11 +54,13 @@ class JsonWebToken {
       if (decode) {
         const params: IParams = { method: request.method, url: request.url };
         console.log("params", params);
+        console.log("URL", request.url);
         if (await this.verifyRoles(decode.id, params)) {
+          console.log("entro........");
           next();
           return;
         }
-        return response.status(200).json({
+        return response.status(300).json({
           serverResponse: "No tiene el permiso para usar este endpoint",
         });
       }
@@ -78,6 +82,7 @@ class JsonWebToken {
             rol.method?.toUpperCase() === params.method.toUpperCase() && //toUpperCase() es para cambiar de mayuscula a miniscula
             params.url.match(regularExpression) !== null
           ) {
+            console.log("todo OK");
             return true;
           }
         }

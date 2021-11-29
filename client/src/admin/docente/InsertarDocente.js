@@ -1,15 +1,10 @@
 import React, { useContext, useState } from "react";
-import uniqid from "uniqid";
 import { useDispatch } from "react-redux";
 
-import { actions } from "./contants/actions";
-import DataDocente from "./contex/AppContext";
 import { useForm } from "./hooks/useForm";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
 import { authRegister } from "./actions/authDocente";
-import { useSelector } from "react-redux";
-import { Redirect } from "react-router";
 
 export const InsertarDocente = () => {
   const dispatch = useDispatch();
@@ -77,9 +72,17 @@ export const InsertarDocente = () => {
     ) {
       setErrors(true);
       setCreateUser(false);
+      //para imput vacios
+      setTimeout(() => {
+        setErrors(false);
+      }, 6000);
       return;
     } else {
       setCreateUser(true);
+      //para crear usuario
+      setTimeout(() => {
+        setCreateUser(false);
+      }, 6000);
     }
 
     if (
@@ -104,6 +107,11 @@ export const InsertarDocente = () => {
     } else {
       setValidarPassword(true);
       setTamPassword(true);
+      //para el password
+      setTimeout(() => {
+        setValidarPassword(false);
+        setTamPassword(false);
+      }, 8000);
     }
 
     //dispatch({
@@ -136,7 +144,7 @@ export const InsertarDocente = () => {
   let tamañoPassword;
   if (tamPassword) {
     tamañoPassword = (
-      <ErrorValidacion mensaje="La contraseña debe de ser min.5 y max.10 dijitos" />
+      <ErrorValidacion mensaje="La contraseña debe de ser min.5 y max.10 dijitos o no coinciden" />
     );
   } else tamañoPassword = null;
 
@@ -265,7 +273,7 @@ export const InsertarDocente = () => {
           </div>
         </div>
         <br />
-        {mensajePassword}
+
         {tamañoPassword}
         {componente}
         {created}

@@ -12,6 +12,10 @@ export const LoginAD = () => {
     const token = localStorage.getItem("token");
     if (token != null) {
       dispatch(auth(token));
+    } else {
+      //esto aumente log
+      console.log("la credenciales no son validas");
+      return;
     }
   }, []);
 
@@ -25,6 +29,7 @@ export const LoginAD = () => {
   const { email, password } = form;
   const handlerSubmit = (e) => {
     e.preventDefault(); //e.preventDefault(); es para que no se recargue en otro servicio
+    console.log(email, password);
     dispatch(authAsync(email, password));
   };
 
@@ -32,7 +37,6 @@ export const LoginAD = () => {
   const roles = "admin";
   //const roles = "docente";
   //const roles = "estudiante";
-
   return (
     <>
       {token == null ? (

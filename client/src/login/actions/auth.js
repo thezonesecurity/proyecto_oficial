@@ -1,6 +1,7 @@
+import { useState } from "react";
+import { ErrorValidacion } from "../../admin/ErrorValidacion";
 import { endpointsL } from "../types/endPointsL";
 import { types } from "../types/types";
-
 export const authAsync = (email, password) => {
   return (dispatch) => {
     fetch(endpointsL.login.url, {
@@ -13,6 +14,7 @@ export const authAsync = (email, password) => {
       .then((response) => {
         if (response.status === 300) {
           //qui se agrega un comentario para las vistas
+          console.log("2 la credenciales no son validas");
           return;
         }
         //console.log("response", response.json);

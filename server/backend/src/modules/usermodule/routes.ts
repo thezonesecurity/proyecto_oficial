@@ -29,8 +29,8 @@ class Routes {
         this.userController.create(request, response);
       });
     this.app.route(`${this.rootPath}/${this.users}`).get(
-      //estos comandos son para proteger
       (request: Request, response: Response, next: NextFunction) => {
+        //estos comandos son para proteger
         this.mainApp.getJsonWebToken().verifyToken(request, response, next);
       },
       (request: Request, response: Response) => {
