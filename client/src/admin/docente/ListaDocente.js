@@ -6,6 +6,7 @@ import DataDocente from "./contex/AppContext";
 
 export const ListaDocente = () => {
   const { state, dispatch } = useContext(DataDocente);
+
   // console.log("state-DOCENTE", state);
   /*
   //---------------------------------------------------------------------------------------
