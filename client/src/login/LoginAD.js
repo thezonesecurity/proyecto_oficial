@@ -9,22 +9,27 @@ import { auth, authAsync } from "./actions/auth";
 export const LoginAD = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    const userData = localStorage.getItem("user");
-    if (userData != null) {
-      dispatch(auth(JSON.parse(userData)));
+    const token = localStorage.getItem("token");
+    if (token != null) {
+      dispatch(auth(token));
+    } else {
+      //esto aumente log
+      console.log("la credenciales no son validas");
+      return;
     }
   }, []);
 
-  const { auth: authRename } = useSelector((state) => state);
-  const { user, msnerror } = authRename;
+  const { auth: authRename, msnerror } = useSelector((state) => state);
+  const { token } = authRename;
   const [form, handlerChangeForm, handlerResetForm] = useForm({
-    email: "seminario@gmail.com",
-    password: "1234",
+    email: "nanami@gmail.com",
+    password: "12345",
   });
 
   const { email, password } = form;
   const handlerSubmit = (e) => {
     e.preventDefault(); //e.preventDefault(); es para que no se recargue en otro servicio
+    console.log(email, password);
     dispatch(authAsync(email, password));
   };
 
@@ -32,10 +37,9 @@ export const LoginAD = () => {
   const roles = "admin";
   //const roles = "docente";
   //const roles = "estudiante";
-
   return (
     <>
-      {user == null ? (
+      {token == null ? (
         <div className="container">
           <div className="d-flex justify-content-center h-100">
             <div className="card">

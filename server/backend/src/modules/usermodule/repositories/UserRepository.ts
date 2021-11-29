@@ -21,6 +21,9 @@ class UserRepository<T> extends BaseRepository<IUser> {
     const data = await this.userModel.find({}).populate("roles");
     return data;
   }
+  public async getUserCompleteData(id: string) {
+    return await this.userModel.findById({ _id: id }).populate("roles");
+  }
 
   public async login(email: string, password: string): Promise<Boolean> {
     const user = await this.userModel.findOne({ email, password });

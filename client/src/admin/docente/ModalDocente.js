@@ -7,8 +7,11 @@ import axios from "axios";
 import DataDocente from "./contex/AppContext";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
+import { endpointsD } from "./types/endPointsD";
+import { useSelector } from "react-redux";
 
 export const ModalDocente = (props) => {
+  console.log("modal", props.dataItem);
   const { _id } = props.dataItem;
   const { state, dispatch } = useContext(DataDocente);
   //const [data, setData] = useState(DataDocente);
@@ -24,20 +27,28 @@ export const ModalDocente = (props) => {
   //console.log("props modal doc", props.dataItem);
   //------------------------------LOGICA PARA VER UN USARIO-------------------------
   const [data, setData] = useState({});
+  const { auth } = useSelector((state) => state);
+  const { token } = auth;
+
   useEffect(() => {
-    const peticionGet = async () => {
-      const result = await axios
-        .get(`http://192.168.1.112:8000/api1.0/user/${_id}`)
-        .then((item) => {
-          //console.log("##", item.data.serverResponse);
-          setData(item.data.serverResponse);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    };
-    peticionGet();
+    fetch(endpointsD.getUser.url + props.dataItem._id, {
+      method: endpointsD.getUser.method,
+      headers: new Headers({
+        Authorization: token,
+        "Content-Type": "application/x-www-form-urlencoded",
+      }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        // this is the data we get after doing the delete request, do whatever you want with this data
+        //console.log("data", data.serverResponse);
+        setData(data.serverResponse);
+      });
+    // console.log("datos", dataUser);
   }, []);
+
   //------------------------------FIN LOGICA PARA VER UN USARIO-------------------------
   //console.log("datos api", data);
   //-------------------LOGICA PARA GUARDAR UN USUARIO MODIFICADO--------------------
@@ -70,12 +81,12 @@ export const ModalDocente = (props) => {
     } else {
       setControlUser(true);
     }
-    //actualiza datos
+    //actualiza datos--------------
     // console.log("save user", data);
-    const response = await axios.put(
-      `http://localhost:8000/api1.0/user/${_id}`,
-      data
-    );
+    //const response = await axios.put(
+    // `http://localhost:8000/api1.0/user/${_id}`,
+    //data
+    // );
     // console.log("update", response);
     setErrors(false);
     handleClose();

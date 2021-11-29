@@ -19,7 +19,7 @@ export const EditarDocente = () => {
 
   return (
     <>
-      <h4 className="titleForm">Editar Docentes</h4>
+      <h4 className="titleForm">Editar Usuarios</h4>
       <table className="table table-dark">
         <thead>
           <tr>

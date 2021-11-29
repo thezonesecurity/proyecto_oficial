@@ -8,12 +8,11 @@ import SemestreModule from "./modules/semestremodule/initS";
 import AmbienteModule from "./modules/ambientemodule/initAmbiente";
 import MateriaModule from "./modules/materiamodule/initMateria";
 
-//import cors from "cors"
+import cors from "cors";
 
 if (process.env.NODE_ENV == "development") {
   dotenv.config();
 }
-const cors: any = require("cors");
 class App {
   private app: Express;
   private port: number;
@@ -29,17 +28,18 @@ class App {
     this.apiversion = process.env.API_VERSION || "api";
     //this.semestreversion = process.env.SEMESTRE_VERSION || "api1"; //
     this.port = Number(process.env.PORT) || 8000;
-    this.jsonwebtoken = new JsonWebToken();
+
     this.clientMongo = mongoose;
     this.configureApp();
     this.configureDatabase();
     this.startModules();
+    this.jsonwebtoken = new JsonWebToken(this.clientMongo); //aquise aumento el this.clientMongo
   }
   private configureApp() {
+    this.app.use(cors({ origin: "http://localhost:3000" }));
     this.app.use(express.json());
     this.app.use(express.urlencoded());
     this.app.use(fileUpload({ limits: { fileSize: 20 * 1024 * 1024 } }));
-    this.app.use(cors());
   }
   private configureDatabase() {
     const dataBaseName = process.env.DB_NAME;
