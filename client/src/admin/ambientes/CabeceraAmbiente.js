@@ -4,7 +4,7 @@ import { RouteAmbiente } from "./route/RouteAmbiente";
 export const CabeceraAmbiente = () => {
   let { path, url } = useRouteMatch();
   return (
-    <div class="col-15 col-s-9">
+    <div className="col-15 col-s-9">
       {/*CABECERA */}
       <div className="cabecera">
         <ul className="nav card-header-tabs">

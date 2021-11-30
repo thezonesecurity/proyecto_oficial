@@ -10,7 +10,7 @@ export const ListaDocente = () => {
   const [dataUser, setDataUser] = useState({});
   const { auth } = useSelector((state) => state);
   const { token } = auth;
-  //console.log("token", token);
+  console.log("token", token);
   //192.168.1.112
   /*"http://localhost:8000/api1.0/user/"
   
@@ -19,20 +19,27 @@ export const ListaDocente = () => {
   const [data, setData] = useState({});
 
   useEffect(() => {
+    /*const peticionGet = async () => {
+      const result = await axios.get("http://localhost:8000/api1.0/user/");
+      console.log("datos", result);
+    };
+    peticionGet();
+    */
     fetch("http://localhost:8000/api1.0/user/", {
       method: "GET",
       headers: new Headers({
-        Authorization: token,
+        authorization: token,
         "Content-Type": "application/x-www-form-urlencoded",
       }),
     })
       .then((response) => {
+        console.log("server", response);
         return response.json();
       })
       .then((data) => {
         // this is the data we get after doing the delete request, do whatever you want with this data
-        console.log("serverREsponse", data.serverResponse);
-        //setDataUser(data.serverResponse);
+        console.log("serverREsponse", data);
+        setDataUser(data.serverResponse);
       });
     console.log("datosApi", dataUser);
   }, []);

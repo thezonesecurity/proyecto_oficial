@@ -30,7 +30,6 @@ class Routes {
       });
     this.app.route(`${this.rootPath}/${this.users}`).get(
       (request: Request, response: Response, next: NextFunction) => {
-        //estos comandos son para proteger
         this.mainApp.getJsonWebToken().verifyToken(request, response, next);
       },
       (request: Request, response: Response) => {
