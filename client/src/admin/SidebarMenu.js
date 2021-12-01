@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 export const SidebarMenu = () => {
   return (
-    <div class="col-2 col-s-3 menu">
+    <div className="col-2 col-s-3 menu">
       <ul>
         <li className="nav-item">
           <Link to="/docente" aria-current="page">
-            Docente
+            Usuario
           </Link>
         </li>
         <br />

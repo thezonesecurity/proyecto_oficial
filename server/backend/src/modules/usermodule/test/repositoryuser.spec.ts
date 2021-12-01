@@ -48,6 +48,7 @@ describe("Crud Oporations of UserRespository Class create", () => {
       direccion: "caller frias",
       telefono: "7845987",
       carga_horaria: "47",
+      rolUser: "Docente",
     });
     const expected = await userRepo.findOne(updateUser.id);
     expect(expected.nombre).toBe("Update User");

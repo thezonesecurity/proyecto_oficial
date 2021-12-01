@@ -1,10 +1,31 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { endpointsM } from "./constants/endPointsM";
 
 import { ContenidoLista } from "./ContenidoLista";
 import DataMateria from "./contex/AppContext";
 
 export const ListaMateria = () => {
   const { state, dispatch } = useContext(DataMateria);
+
+  const [dataMateria, setDataMateria] = useState({});
+  useEffect(() => {
+    fetch(endpointsM.listMateria.url, {
+      method: endpointsM.listMateria.method,
+      headers: new Headers({
+        // Authorization: token,
+        "Content-Type": "application/x-www-form-urlencoded",
+      }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        // this is the data we get after doing the delete request, do whatever you want with this data
+        //console.log("serverREsponse", data.serverResponse);
+        setDataMateria(data.serverResponse);
+      });
+    console.log("datosApi", dataMateria);
+  }, []);
   //console.log("state", state);
   return (
     <>
@@ -20,9 +41,9 @@ export const ListaMateria = () => {
             <th scope="col">Acciones</th>
           </tr>
         </thead>
-        {state.length > 0 ? (
-          state.map((item) => {
-            return <ContenidoLista key={item.id} {...item} />;
+        {dataMateria.length > 0 ? (
+          dataMateria.map((item) => {
+            return <ContenidoLista key={item._id} {...item} />;
           })
         ) : (
           <tbody>

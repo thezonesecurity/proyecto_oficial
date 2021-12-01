@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MdCreate } from "react-icons/md";
 import { Button, Modal, NavItem } from "react-bootstrap";
 //import DataMateria from "./contex/AppContext";
 import DataMateria from "./contex/AppContext";
 import { useForm } from "./hooks/useForm";
+import { endpointsM } from "./constants/endPointsM";
 
 export const ModalMateria = (props) => {
   //console.log("props", props);
@@ -13,27 +14,54 @@ export const ModalMateria = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   //config para los datos
-  const { state, setState, dispatch } = useContext(DataMateria);
-  const [form, handlerChangeForm, reserForm] = useForm({
-    materia: props.materia,
-    sigla: props.sigla,
-    carga_horaria: props.carga_horaria,
-    semestre: props.semestre,
-  });
 
-  console.log("form", form);
-  const { id, materia, sigla, carga_horaria, semestre } = form;
+  // lógica para ver materias
+  const [data, setData] = useState({});
+  useEffect(() => {
+    fetch(endpointsM.verMateria.url + props.dataItem._id, {
+      method: endpointsM.verMateria.method,
+      headers: new Headers({
+        // Authorization: token,
+        "Content-Type": "application/x-www-form-urlencoded",
+      }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        // this is the data we get after doing the delete request, do whatever you want with this data
+        console.log("serverREsponse", data.serverResponse);
+        setData(data.serverResponse);
+      });
+    //console.log("datosApi", dataMateria);
+  }, []);
 
-  const handlerChange = (e) => {
-    // console.log("e -> ", e.target.value);
-    //let change = { ...form, [e.target.name]: e.target.value };
-    setState({ [e.target.name]: e.target.value });
+  // para poder escribir en los inputs
+  const handleChangeEdit = (e) => {
+    // console.log(e.target.name);
+    setData((prev) => {
+      return {
+        ...prev,
+        [e.target.name]: e.target.value,
+      };
+    });
   };
 
-  const handleSutmitEditData = (e) => {
+  // lógica para guardar los datos editados
+  const handleSaveEdit = (e) => {
     e.preventDefault();
-    console.log("state", state);
+    fetch(endpointsM.editarMateria.url + props.dataItem._id, {
+      method: endpointsM.editarMateria.method,
+      body: JSON.stringify(data),
+      headers: {
+        // Authorization: token,
+        "Content-Type": "application/json",
+      },
+    });
+    console.log("save edit", data);
+    handleClose();
   };
+
   /*
   //////////////////////////////////////////
   const { state, setState, dispatch } = useContext(DataMateria);
@@ -70,45 +98,44 @@ export const ModalMateria = (props) => {
           <Modal.Title>Editar Materia</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={handlerChange}>
+          <form>
             <label htmlFor="nombre">Numero</label>
-            <input type="text" readOnly name="num" id="num" value={props.num} />
+            <input
+              type="text"
+              readOnly
+              name="num"
+              id="num"
+              value="1"
+              onChange={handleChangeEdit}
+            />
             <label htmlFor="nombre">Materia</label>
             <input
               type="text"
               name="materia"
               id="materia"
-              value={materia}
-              onChange={handlerChangeForm}
+              value={data.materia}
+              onChange={handleChangeEdit}
             />
             <label htmlFor="apellidos">Sigla</label>
             <input
               type="text"
               name="sigla"
               id="sigla"
-              value={sigla}
-              onChange={handlerChangeForm}
+              value={data.sigla}
+              onChange={handleChangeEdit}
             />
             <label htmlFor="ci">Carga Horaria</label>
             <input
               type="text"
               name="carga_horaria"
               id="carga_horaria"
-              value={carga_horaria}
-              onChange={handlerChangeForm}
-            />
-            <label htmlFor="ci">Semestre</label>
-            <input
-              type="text"
-              name="semestre"
-              id="semestre"
-              value={semestre}
-              onChange={handlerChangeForm}
+              value={data.carga_horaria}
+              onChange={handleChangeEdit}
             />
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleSutmitEditData}>
+          <Button variant="primary" onClick={handleSaveEdit}>
             Save Changes
           </Button>
           <Button variant="secondary" onClick={handleClose}>

@@ -55,6 +55,9 @@ form input[type="submit"]:hover {
 .titleForm {
   color: #000;
 }
+.bordesInputs {
+  padding: 2%;
+}
 /*fin de insertar docente*/
 a:link {
   text-decoration: none;

@@ -14,6 +14,9 @@ export const AppReducer = (state, action) => {
     case Actions.EDDIT_FORM_M: {
       return state.find((item) => item.id === id, action.payload);
     }
+    case Actions.authRegisterM: {
+      return { ...state, msnregister: action.payload };
+    }
     default: {
       return state;
     }

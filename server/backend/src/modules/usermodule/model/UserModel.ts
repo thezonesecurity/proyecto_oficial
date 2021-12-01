@@ -16,6 +16,7 @@ export interface IUser {
   password?: string;
   avatar?: Array<IAvatar>;
   roles?: Array<IRoles>;
+  rolUser?: string;
   // mensaje?: string;
 }
 export interface User extends Document, IUser {
@@ -38,10 +39,11 @@ const userSchema = new Schema({
       message: (props: any) => `${props.value} no es un correo valido`,
     },
   },
-  roles: [{ type: Schema.Types.ObjectId, unique: true, ref: "roles" }],
+  roles: [{ type: Schema.Types.ObjectId, ref: "roles" }],
+  rolUser: { type: String, required: true },
   direccion: { type: String, required: true },
   telefono: { type: String, required: false },
-  carga_horaria: { type: String, required: true },
+  carga_horaria: { type: String, required: false },
   password: { type: String, required: true },
   avatar: { type: Array, required: false },
   createAt: { type: Date, default: Date.now() },

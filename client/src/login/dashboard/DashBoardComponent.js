@@ -18,8 +18,9 @@ export const DashBoardComponent = ({ children, ...rest }) => {
   /* si el rol de usuario es estudiante se va a dirijir a RouterAppEstudiante*/
   /*<RouteAppAdmin />, <RouteAppID />, <RouteAppIE />, <RouteLogin/>*/
   const { auth } = useSelector((state) => state);
-  const { user } = auth;
-  return user == null ? (
+  const { token } = auth;
+
+  return token == null ? (
     <Redirect to="/login" />
   ) : (
     <>

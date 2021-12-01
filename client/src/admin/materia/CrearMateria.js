@@ -7,8 +7,13 @@ import { useForm } from "./hooks/useForm";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
 import Input from "./InputForm";
+import { dispatch, useDispatch } from "react-redux";
+import { authRegisterMateria } from "./actions/authMateria";
 
 export const CrearMateria = () => {
+  console.log(authRegisterMateria);
+
+  const dispatch = useDispatch();
   //para opcion semestre
   const [valueSemestre, setValueSemestre] = useState({ valor: "" });
   const handleChangeOption = (e) => {
@@ -18,18 +23,18 @@ export const CrearMateria = () => {
   };
   //console.log(valueSemestre); -----------------
   //usamos el useContext
-  const { state, setState, dispatch } = useContext(DataMateria);
+  //const { state, setState, dispatch } = useContext(DataMateria);
   //console.log("stateMAteria", state);
   //usamos el userForm
   const [form, handlerChangeForm, resetForm] = useForm({
-    num: "",
+    //num: "",
     materia: "",
     sigla: "",
     carga_horaria: "",
-    valido: null,
+    // valido: null,
   });
-  //console.log("form", form);
-  const { num, materia, sigla, carga_horaria, semestre, valido } = form;
+  console.log("form", form);
+  const { materia, sigla, carga_horaria } = form;
   const expresiones = {
     usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     nombre: /^[a-zA-ZÀ-ÿ\s]{4,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -47,8 +52,8 @@ export const CrearMateria = () => {
     if (
       materia === "" ||
       sigla === "" ||
-      carga_horaria === "" ||
-      semestre === ""
+      carga_horaria === ""
+      //semestre === ""
     ) {
       //aparece un error
       setErrors(true);
@@ -58,7 +63,7 @@ export const CrearMateria = () => {
       setCreateUser(true);
     }
     //SI NO se agrega los datos
-    dispatch({
+    /*dispatch({
       type: Actions.ADD_FORM_M,
       payload: {
         ...form,
@@ -66,10 +71,16 @@ export const CrearMateria = () => {
         num: state.length + 1,
         semestre: valueSemestre,
       },
-    });
+    });*/
+    dispatch(authRegisterMateria({ materia, sigla, carga_horaria }));
+    console.log(
+      "authRegisterM",
+      authRegisterMateria({ materia, sigla, carga_horaria })
+    );
     resetForm();
     setErrors(false);
   };
+
   //ESTA PARTE CARGA UN COMPONENTE CONDICCIONALMENTE
   let componente;
 
@@ -104,7 +115,6 @@ export const CrearMateria = () => {
           value={materia}
           onChange={handlerChangeForm}
           expresionRegular={expresiones.nombre}
-          valido={valido}
           required="required"
           pattern="[A-Za-z0-9]{5,40}"
           title="Letras y números. Tamaño mínimo: 5. Tamaño máximo: 40"
