@@ -1,11 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { endPointsS } from "./constants/endPointsS";
 
 import { ContenidoListaSemestre } from "./ContenidoListaSemestre";
 import DataSemestre from "./contex/AppContexSemestre";
 
 export const ListaSemestre = () => {
   const { state } = useContext(DataSemestre);
-  console.log("listaSemestrestate", state);
+  //console.log("listaSemestrestate", state);
+  ///-------------------para ver las lista de semestres-----------------------------
+  const [listSemestre, setListSemestre] = useState({});
+  //------------------------------------
+  useEffect(() => {
+    fetch(endPointsS.listaSemestre.url, {
+      method: endPointsS.listaSemestre.method,
+      headers: new Headers({
+        //Authorization: token,
+        "Content-Type": "application/x-www-form-urlencoded",
+      }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        // this is the data we get after doing the delete request, do whatever you want with this data
+        // console.log("serverResponse", data.severResponse);
+        setListSemestre(data.severResponse);
+      });
+    //console.log("datosApi", listSemestre);
+  }, []);
+  ///---------------------------------------------------------------------
   return (
     <div>
       <h4 className="titleForm">Lista de Semestres</h4>
@@ -18,9 +41,9 @@ export const ListaSemestre = () => {
             <th scope="col">Opciones</th>
           </tr>
         </thead>
-        {state.length > 0 ? (
-          state.map((item) => {
-            return <ContenidoListaSemestre key={item.id} {...item} />;
+        {listSemestre.length > 0 ? (
+          listSemestre.map((item) => {
+            return <ContenidoListaSemestre key={item._id} {...item} />;
           })
         ) : (
           <tbody>

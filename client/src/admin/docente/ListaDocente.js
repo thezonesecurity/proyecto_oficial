@@ -27,14 +27,15 @@ export const ListaDocente = () => {
       }),
     })
       .then((response) => {
+        console.log("response", response);
         return response.json();
       })
       .then((data) => {
         // this is the data we get after doing the delete request, do whatever you want with this data
         console.log("serverREsponse", data.serverResponse);
-        //setDataUser(data.serverResponse);
+        setDataUser(data.serverResponse);
       });
-    console.log("datosApi", dataUser);
+    //console.log("datosApi", dataUser);
   }, []);
 
   /*

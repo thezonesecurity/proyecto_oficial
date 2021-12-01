@@ -11,6 +11,11 @@ export const AppReducerSemestre = (state, action) => {
     case ActionsSemestre.EDDIT_FORM_SEMESTRE: {
       return;
     }
+    case ActionsSemestre.authRegisterS: {
+      ////esto se aumento para el register
+      return { ...state, msnregister: action.payload };
+    }
+
     default: {
       return state;
     }

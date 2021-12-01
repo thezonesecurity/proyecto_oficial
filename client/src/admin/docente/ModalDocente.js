@@ -88,6 +88,17 @@ export const ModalDocente = (props) => {
     //data
     // );
     // console.log("update", response);
+
+    /////--------------------------------------------------------
+    fetch(endpointsD.editUser.url + props.dataItem._id, {
+      method: endpointsD.editUser.method,
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log("Editado", data);
+    ///--------------------------------------------------------
     setErrors(false);
     handleClose();
   };

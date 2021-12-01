@@ -1,31 +1,35 @@
 import React, { useContext, useState } from "react";
 import uniqid from "uniqid";
+import { useDispatch } from "react-redux";
 
 import { useFormSemestre } from "./hooks/useFormSemestre";
 import DataSemestre from "./contex/AppContexSemestre";
 import { ActionsSemestre } from "./constants/ActionsSemestre";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
+import { authRegisterSemestre } from "./actions/authS";
 
 export const RegistrarSemestre = () => {
-  //para opcion semestre
-  const [valueSemestre, setValueSemestre] = useState({ valor: "" });
-  const handleChangeOption = (e) => {
-    e.preventDefault();
-    //console.log("value", e.target.value);
-    setValueSemestre(e.target.value);
-  };
   //console.log(valueSemestre);
-  const { state, setState, dispatch } = useContext(DataSemestre);
+  const dispatch = useDispatch();
+  //const { state, setState, dispatch } = useContext(DataSemestre);
+
+  //-----------------------------------------------------------------
   const [form, handlerChangeForm, resetForm] = useFormSemestre({
-    num: "",
     año: "",
-    valido: null,
+    semestre: "",
+    // valido: null,
   });
   const { año, semestre } = form;
+
+  //console.log("formSEMESTRE", semestre);
+
+  ////----------------------------------------------------
+
   //ESTO PARA VALIDAR Y GUARDAR DATOS
   const [errors, setErrors] = useState(false);
   const [createUser, setCreateUser] = useState(false);
+
   const handlerSubmitSaveSemestre = (e) => {
     e.preventDefault();
     if (año === "" || semestre === "") {
@@ -36,7 +40,7 @@ export const RegistrarSemestre = () => {
       setCreateUser(true);
     }
     //save date
-    dispatch({
+    /* dispatch({
       type: ActionsSemestre.ADD_FORM_SEMESTRE,
       payload: {
         ...form,
@@ -44,7 +48,8 @@ export const RegistrarSemestre = () => {
         num: state.length + 1,
         semestre: valueSemestre,
       },
-    });
+    });*/
+    dispatch(authRegisterSemestre({ año, semestre }));
     resetForm();
     setErrors(false);
   };
@@ -70,25 +75,24 @@ export const RegistrarSemestre = () => {
     setErrors(false);
     setCreateUser(false);
   };
+  console.log("form", form);
   return (
     <div>
       <h4 className="titleForm">Registrar Semestre</h4>
       <form>
         <div className="form-group row">
-          <label className="col-4 col-form">Semestre</label>
-          <div className="col-6">
-            <select
+          <label htmlFor="input" className="col-2 col-form-label">
+            Semestre:
+          </label>
+          <div className="col-2">
+            <input
+              type="text"
               id="semestre"
-              className="form-select"
-              value={valueSemestre}
-              onChange={handleChangeOption}
-            >
-              <option value="elegirSemestre">Elegir Semestre...</option>
-              <option value="semestre 1">Semestre 1</option>
-              <option value="semestre 2">Semestre 2</option>
-              <option value="semestre 3">Semestre 3</option>
-              <option value="semestre 4">Semestre 4</option>
-            </select>
+              className="form-control"
+              name="semestre"
+              value={semestre}
+              onChange={handlerChangeForm}
+            />
           </div>
         </div>
         <div className="form-group row">
@@ -219,4 +223,33 @@ export const RegistrarSemestre = () => {
         </div>
       </div>
     </div>
+
+
+ //para opcion semestre
+  const [valueSemestre, setValueSemestre] = useState({ valor: "" });
+  const handleChangeOption = (e) => {
+    e.preventDefault();
+    //console.log("value", e.target.value);
+    setValueSemestre(e.target.value);
+  };
+
+    <div className="col-6">
+            <select
+              id="semestre"
+              className="form-select"
+              value={valueSemestre}
+              onChange={handleChangeOption}
+            >
+              <option defaultValue="elegirSemestre">Elegir Semestre...</option>
+              <option value="semestre 1">Semestre 1</option>
+              <option value="semestre 2">Semestre 2</option>
+              <option value="semestre 3">Semestre 3</option>
+              <option value="semestre 4">Semestre 4</option>
+              <option value="semestre 5">Semestre 5</option>
+              <option value="semestre 6">Semestre 6</option>
+              <option value="semestre 7">Semestre 7</option>
+              <option value="semestre 8">Semestre 8</option>
+              <option value="semestre 9">Semestre 9</option>
+            </select>
+          </div>
 */
