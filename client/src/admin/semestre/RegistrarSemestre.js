@@ -8,6 +8,7 @@ import { ActionsSemestre } from "./constants/ActionsSemestre";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
 import { authRegisterSemestre } from "./actions/authS";
+import axios from "axios";
 
 export const RegistrarSemestre = () => {
   //console.log(valueSemestre);
@@ -16,11 +17,12 @@ export const RegistrarSemestre = () => {
 
   //-----------------------------------------------------------------
   const [form, handlerChangeForm, resetForm] = useFormSemestre({
-    año: "",
     semestre: "",
+    año: "",
+
     // valido: null,
   });
-  const { año, semestre } = form;
+  const { semestre, año } = form;
 
   //console.log("formSEMESTRE", semestre);
 
@@ -49,7 +51,17 @@ export const RegistrarSemestre = () => {
         semestre: valueSemestre,
       },
     });*/
-    dispatch(authRegisterSemestre({ año, semestre }));
+    //dispatch(authRegisterSemestre({ semestre, año }));
+    //console.log("AUTH", authRegisterSemestre({ semestre, año }));
+    const peticionGet = async () => {
+      const result = await axios
+        .post("http://localhost:8000/api1.0/semestre/", form)
+        .catch(function (error) {
+          console.log(error);
+        });
+    };
+    peticionGet();
+
     resetForm();
     setErrors(false);
   };

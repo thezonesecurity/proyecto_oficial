@@ -3,17 +3,20 @@ import { endPointsS } from "../constants/endPointsS";
 
 export const authRegisterSemestre = (authRegisterSemestreData) => {
   return (dispatch) => {
-    fetch(endPointsS.registrarSemestre.url, {
-      method: endPointsS.registrarSemestre.method,
+    fetch("http://localhost:8000/api1.0/semestre/", {
+      method: "POST",
       headers: {
         "Content-Type": "aplication/json",
       },
       body: JSON.stringify(authRegisterSemestreData),
     })
-      .then((response) => response.json())
-      .then(({ severResponse }) => {
-        console.log("serverRESPONSE", severResponse);
-        dispatch(registerS(severResponse));
+      .then((response) => {
+        console.log("response", response);
+        response.json();
+      })
+      .then((data) => {
+        console.log("serverRESPONSE", data);
+        dispatch(registerS(data));
       });
   };
 };

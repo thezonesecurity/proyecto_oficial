@@ -43,10 +43,10 @@ export const ModalDocente = (props) => {
       })
       .then((data) => {
         // this is the data we get after doing the delete request, do whatever you want with this data
-        //console.log("data", data.serverResponse);
+        console.log("dataSERVER", data.serverResponse);
         setData(data.serverResponse);
       });
-    // console.log("datos", dataUser);
+    console.log("datosDATA", data);
   }, []);
 
   //------------------------------FIN LOGICA PARA VER UN USARIO-------------------------
