@@ -132,7 +132,7 @@ export const InsertarDocente = () => {
   } else componente = null;
   let created;
   if (createUser && !validarPassword && !tamPassword) {
-    created = <MessageCreateUser mensaje="Docente creado correctamente" />;
+    created = <MessageCreateUser mensaje="Usuario creado correctamente" />;
   } else created = null;
   let mensajePassword;
   if (validarPassword) {

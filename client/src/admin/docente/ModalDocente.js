@@ -11,8 +11,7 @@ import { endpointsD } from "./types/endPointsD";
 import { useSelector } from "react-redux";
 
 export const ModalDocente = (props) => {
-  console.log("modal", props.dataItem);
-  const { _id } = props.dataItem;
+  //console.log("modal", props.dataItem);
   const { state, dispatch } = useContext(DataDocente);
   //const [data, setData] = useState(DataDocente);
   //console.log("modaldocente", state);
@@ -26,11 +25,12 @@ export const ModalDocente = (props) => {
 
   //console.log("props modal doc", props.dataItem);
   //------------------------------LOGICA PARA VER UN USARIO-------------------------
-  const [data, setData] = useState({});
+  const [data, setData] = useState(props.dataItem);
+  // console.log("dataVacio", data);
   const { auth } = useSelector((state) => state);
   const { token } = auth;
 
-  useEffect(() => {
+  /* useEffect(() => {
     fetch(endpointsD.getUser.url + props.dataItem._id, {
       method: endpointsD.getUser.method,
       headers: new Headers({
@@ -46,8 +46,9 @@ export const ModalDocente = (props) => {
         console.log("dataSERVER", data.serverResponse);
         setData(data.serverResponse);
       });
-    console.log("datosDATA", data);
-  }, []);
+    console.log("datosDATAresultados", data);
+    console.log("Token Modal", token);
+  }, []);*/
 
   //------------------------------FIN LOGICA PARA VER UN USARIO-------------------------
   //console.log("datos api", data);
@@ -90,14 +91,34 @@ export const ModalDocente = (props) => {
     // console.log("update", response);
 
     /////--------------------------------------------------------
-    fetch(endpointsD.editUser.url + props.dataItem._id, {
+
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: token,
+      },
+    };
+    console.log("config", config);
+    const peticionGet = async () => {
+      const result = await axios
+        .put(endpointsD.editUser.url + props.dataItem._id, data, config)
+        .catch(function (error) {
+          console.log(error);
+        });
+      console.log("reult", result);
+    };
+    peticionGet();
+    /*fetch(endpointsD.editUser.url + props.dataItem._id, {
       method: endpointsD.editUser.method,
       body: JSON.stringify(data),
       headers: {
+        Authorization: token,
         "Content-Type": "application/json",
       },
     });
-    console.log("Editado", data);
+    console.log("EditadoSave", data);
+    console.log("token", token);
+    console.log("propsid", props.dataItem._id);*/
     ///--------------------------------------------------------
     setErrors(false);
     handleClose();

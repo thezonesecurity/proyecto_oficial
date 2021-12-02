@@ -19,7 +19,19 @@ export const ListaDocente = () => {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:8000/api1.0/user/", {
+    const listData = async () => {
+      const data = await axios
+        .get(endpointsD.listUsers.url)
+        .catch(function (error) {
+          console.log(error);
+        });
+      //console.log("result", data);
+      setDataUser(data.data.serverResponse);
+      console.log("server", data.data.serverResponse);
+    };
+    listData();
+
+    /* fetch("http://localhost:8000/api1.0/user/", {
       method: "GET",
       headers: new Headers({
         Authorization: token,
@@ -35,7 +47,7 @@ export const ListaDocente = () => {
         console.log("serverREsponse", data.serverResponse);
         setDataUser(data.serverResponse);
       });
-    //console.log("datosApi", dataUser);
+    //console.log("datosApi", dataUser);*/
   }, []);
 
   /*
