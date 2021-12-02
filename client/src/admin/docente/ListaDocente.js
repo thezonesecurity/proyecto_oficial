@@ -19,13 +19,19 @@ export const ListaDocente = () => {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    /*const peticionGet = async () => {
-      const result = await axios.get("http://localhost:8000/api1.0/user/");
-      console.log("datos", result);
+    const listData = async () => {
+      const data = await axios
+        .get(endpointsD.listUsers.url)
+        .catch(function (error) {
+          console.log(error);
+        });
+      //console.log("result", data);
+      setDataUser(data.data.serverResponse);
+      console.log("server", data.data.serverResponse);
     };
-    peticionGet();
-    */
-    fetch("http://localhost:8000/api1.0/user/", {
+    listData();
+
+    /* fetch("http://localhost:8000/api1.0/user/", {
       method: "GET",
       headers: new Headers({
         authorization: token,
@@ -33,15 +39,15 @@ export const ListaDocente = () => {
       }),
     })
       .then((response) => {
-        console.log("server", response);
+        console.log("response", response);
         return response.json();
       })
       .then((data) => {
         // this is the data we get after doing the delete request, do whatever you want with this data
-        console.log("serverREsponse", data);
+        console.log("serverREsponse", data.serverResponse);
         setDataUser(data.serverResponse);
       });
-    console.log("datosApi", dataUser);
+    //console.log("datosApi", dataUser);*/
   }, []);
 
   /*

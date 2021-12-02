@@ -12,7 +12,6 @@ import { useSelector } from "react-redux";
 
 export const ModalDocente = (props) => {
   console.log("modal", props.dataItem);
-  const { _id } = props.dataItem;
   const { state, dispatch } = useContext(DataDocente);
   //const [data, setData] = useState(DataDocente);
   //console.log("modaldocente", state);
@@ -26,11 +25,12 @@ export const ModalDocente = (props) => {
 
   //console.log("props modal doc", props.dataItem);
   //------------------------------LOGICA PARA VER UN USARIO-------------------------
-  const [data, setData] = useState({});
+  const [data, setData] = useState(props.dataItem);
+  // console.log("dataVacio", data);
   const { auth } = useSelector((state) => state);
   const { token } = auth;
 
-  useEffect(() => {
+  /* useEffect(() => {
     fetch(endpointsD.getUser.url + props.dataItem._id, {
       method: endpointsD.getUser.method,
       headers: new Headers({
@@ -43,11 +43,12 @@ export const ModalDocente = (props) => {
       })
       .then((data) => {
         // this is the data we get after doing the delete request, do whatever you want with this data
-        //console.log("data", data.serverResponse);
+        console.log("dataSERVER", data.serverResponse);
         setData(data.serverResponse);
       });
-    // console.log("datos", dataUser);
-  }, []);
+    console.log("datosDATAresultados", data);
+    console.log("Token Modal", token);
+  }, []);*/
 
   //------------------------------FIN LOGICA PARA VER UN USARIO-------------------------
   //console.log("datos api", data);
@@ -88,6 +89,37 @@ export const ModalDocente = (props) => {
     //data
     // );
     // console.log("update", response);
+
+    /////--------------------------------------------------------
+
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: token,
+      },
+    };
+    console.log("config", config);
+    const peticionGet = async () => {
+      const result = await axios
+        .put(endpointsD.editUser.url + props.dataItem._id, data, config)
+        .catch(function (error) {
+          console.log(error);
+        });
+      console.log("reult", result);
+    };
+    peticionGet();
+    /*fetch(endpointsD.editUser.url + props.dataItem._id, {
+      method: endpointsD.editUser.method,
+      body: JSON.stringify(data),
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+    });
+    console.log("EditadoSave", data);
+    console.log("token", token);
+    console.log("propsid", props.dataItem._id);*/
+    ///--------------------------------------------------------
     setErrors(false);
     handleClose();
   };
@@ -100,7 +132,7 @@ export const ModalDocente = (props) => {
   } else componente = null;
   let updated;
   if (controlUser) {
-    updated = <MessageCreateUser mensaje="Docente actualizado correctamente" />;
+    updated = <MessageCreateUser mensaje="Usuario actualizado correctamente" />;
   } else updated = null;
   //-------------------LOGICA PARA GUARDAR UN USUARIO MODIFICADO--------------------
   return (
@@ -110,7 +142,7 @@ export const ModalDocente = (props) => {
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Editar Docente</Modal.Title>
+          <Modal.Title>Editar Usuario</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form>
@@ -168,15 +200,21 @@ export const ModalDocente = (props) => {
               onChange={handleChangeEdit}
               placeholder="79727515"
             />
-            <label htmlFor="carga_horaria">C. Horaria</label>
-            <input
-              id="carga_horaria"
-              name="carga_horaria"
-              type="number"
-              value={data.carga_horaria}
-              onChange={handleChangeEdit}
-              placeholder="ej. 45 min"
-            />
+            {props.dataItem.rolUser === "Docente" ? (
+              <>
+                <label htmlFor="carga_horaria">C. Horaria</label>
+                <input
+                  id="carga_horaria"
+                  name="carga_horaria"
+                  type="number"
+                  value={data.carga_horaria}
+                  onChange={handleChangeEdit}
+                  placeholder="ej. 45 min"
+                />
+              </>
+            ) : (
+              <></>
+            )}
           </form>
           {componente}
         </Modal.Body>
