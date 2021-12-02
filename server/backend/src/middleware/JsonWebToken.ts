@@ -75,8 +75,10 @@ class JsonWebToken {
     );
     console.log("User", user);
     if (user && user.roles) {
+      console.log("User 1");
       for (let rol of user.roles) {
         if (rol.url) {
+          console.log("User 2");
           let regularExpression = new RegExp(rol.url, "g");
           if (
             rol.method?.toUpperCase() === params.method.toUpperCase() && //toUpperCase() es para cambiar de mayuscula a miniscula
@@ -88,6 +90,7 @@ class JsonWebToken {
         }
       }
     }
+    console.log("User FALSE");
     return false;
   }
 }

@@ -11,6 +11,7 @@ export abstract class BaseRepository<T>
   }
   //estos crud son metodos genericos
   async create(item: T): Promise<T | any> {
+    //await this.entity.syncIndexes(); //sincroniza los indices
     let newItem = new this.entity(item);
     return await newItem.save();
   }

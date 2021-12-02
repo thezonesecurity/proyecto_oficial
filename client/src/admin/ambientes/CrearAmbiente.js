@@ -1,23 +1,26 @@
 import React, { useContext, useState } from "react";
 import uniqid from "uniqid";
+import { useDispatch } from "react-redux";
 
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
 import { actionsAmb } from "./contants/actionsAmb";
 import DataAmbiente from "./contex/AppContext";
 import { useForm } from "./hooks/useForm";
+import { authRegisterAmbiente } from "./actions/authAmbiente";
 
 export const CrearAmbiente = () => {
-  const { state, setState, dispatch } = useContext(DataAmbiente);
+  const dispatch = useDispatch();
+  //const { state, setState, dispatch } = useContext(DataAmbiente);
   const [form, handlerChangeForm, resetForm] = useForm({
-    num: "",
+    // num: "",
     ambiente: "",
     ubicacion: "",
   });
-  const { num, ambiente, ubicacion } = form;
+  const { ambiente, ubicacion } = form;
   const [errors, setErrors] = useState(false);
   const [createUser, setCreateUser] = useState(false);
-  const handlerSubmitSaveAmb = (e) => {
+  const handlerSaveAmb = (e) => {
     e.preventDefault();
     if (ambiente === "" || ubicacion === "") {
       setErrors(true);
@@ -26,12 +29,14 @@ export const CrearAmbiente = () => {
     } else {
       setCreateUser(true);
     }
-    ///añade los datos a la tabla
+    ///añade los datos a la BD
+    /*
     let num = 0;
     dispatch({
       type: actionsAmb.ADD_FORM_A,
       payload: { ...form, id: uniqid(), num: state.length + 1 },
-    });
+    });*/
+    dispatch(authRegisterAmbiente({ ambiente, ubicacion }));
     resetForm();
     setErrors(false);
   };
@@ -52,7 +57,7 @@ export const CrearAmbiente = () => {
     setErrors(false);
     setCreateUser(false);
   };
-
+  console.log("form", form);
   return (
     <>
       <h4 className="titleForm">Formulario crear ambiente</h4>
@@ -80,7 +85,7 @@ export const CrearAmbiente = () => {
         {componente}
         {created}
         <button
-          onClick={handlerSubmitSaveAmb}
+          onClick={handlerSaveAmb}
           type="button"
           className="btn btn-outline-success"
         >

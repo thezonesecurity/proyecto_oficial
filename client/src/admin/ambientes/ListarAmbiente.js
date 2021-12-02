@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { endpointsAmbiente } from "./contants/enPointsAmbiente";
 
 import { ContenidoListaAmbiente } from "./ContenidoListaAmbiente";
 import DataAmbiente from "./contex/AppContext";
@@ -6,6 +7,25 @@ import DataAmbiente from "./contex/AppContext";
 export const ListarAmbiente = () => {
   const { state, dispatch } = useContext(DataAmbiente);
   //console.log("state", state);
+  const [listAmbiente, setListAmbiente] = useState({});
+  useEffect(() => {
+    fetch(endpointsAmbiente.listarAmbiente.url, {
+      method: endpointsAmbiente.listarAmbiente.method,
+      headers: new Headers({
+        // Authorization: token,
+        "Content-Type": "application/x-www-form-urlencoded",
+      }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        // this is the data we get after doing the delete request, do whatever you want with this data
+        //console.log("serverREsponse", data.serverResponse);
+        setListAmbiente(data.serverResponse);
+      });
+    //console.log("datosApi", listAmbiente);
+  }, []);
   return (
     <>
       <h4 className="titleForm">Lista de Ambientes</h4>
@@ -19,9 +39,9 @@ export const ListarAmbiente = () => {
             <th scope="col">Opciones</th>
           </tr>
         </thead>
-        {state.length > 0 ? (
-          state.map((item) => {
-            return <ContenidoListaAmbiente key={item.id} {...item} />;
+        {listAmbiente.length > 0 ? (
+          listAmbiente.map((item) => {
+            return <ContenidoListaAmbiente key={item._id} {...item} />;
           })
         ) : (
           <tbody>

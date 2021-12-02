@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { MdDeleteSweep } from "react-icons/md";
 import { useSelector } from "react-redux";
@@ -7,6 +8,7 @@ import { ModalDocente } from "./ModalDocente";
 import { endpointsD } from "./types/endPointsD";
 
 export const ContenidoLista = (props) => {
+  console.log("propseliminar", props);
   //(handlerClick) es para elminiar al docente
   const { state, dispatch } = useContext(DataDocente);
   const { auth } = useSelector((state) => state);
@@ -20,15 +22,24 @@ export const ContenidoLista = (props) => {
       )
     ) {
       //logica pa eliminar
+      const deleteData = async () => {
+        const result = await axios
+          .delete(endpointsD.deleteUser.url + props._id)
+          .catch(function (error) {
+            console.log(error);
+          });
+      };
+      deleteData();
+
       //console.log("elimi8nado");
       // console.log("be", props._id);
-      fetch(endpointsD.deleteUser.url + props._id, {
+      /* fetch(endpointsD.deleteUser.url + props._id, {
         method: endpointsD.deleteUser.method,
         headers: new Headers({
           Authorization: token,
           "Content-Type": "application/x-www-form-urlencoded",
         }),
-      });
+      });*/
     }
   };
   // console.log("props Contenido docente", props._id);

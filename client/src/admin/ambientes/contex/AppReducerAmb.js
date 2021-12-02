@@ -13,6 +13,10 @@ export const AppReducerAmb = (state, action) => {
     case actionsAmb.EDDIT_FORM_A: {
       return;
     }
+    //para datos a la BD
+    case actionsAmb.authRegisterAmb: {
+      return { ...state, msnregister: action.payload };
+    }
     default: {
       return state;
     }

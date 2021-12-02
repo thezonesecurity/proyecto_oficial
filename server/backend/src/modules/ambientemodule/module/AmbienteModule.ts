@@ -17,7 +17,6 @@ export const AmbienteSchema = new Schema({
   ambiente: {
     type: String,
     required: true,
-    //unique: true,
     validate: {
       validator: (v: string) => {
         return /[\A\-\1-9]/.test(v);
