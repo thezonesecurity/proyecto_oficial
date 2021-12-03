@@ -1,0 +1,26 @@
+import { Mongoose, Schema } from "mongoose";
+
+export interface IMateriaDocente {
+  materia?: string;
+  sigla?: string;
+  grupo?: number;
+  docente?: string;
+  ambiente?: string;
+}
+export interface MateriaDocente extends Document, IMateriaDocente {
+  createAt: Date;
+  updateAt: Date;
+}
+export const AMDModelSchema = new Schema({
+  materia: { type: String, required: true },
+  sigla: { type: String, required: true },
+  grupo: { type: Number, required: true },
+  docente: { type: String, required: true },
+  ambiente: { type: String, required: true },
+  createAt: { type: Date, default: Date.now() },
+  updateAt: { type: Date },
+});
+export const createModelAMD = (mongoose: Mongoose) => {
+  //al poner <MateriaDocente> se envia como dato generico
+  return mongoose.model<MateriaDocente>("materiaDocente", AMDModelSchema);
+};
