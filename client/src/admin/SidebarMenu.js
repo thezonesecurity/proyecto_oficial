@@ -6,25 +6,25 @@ export const SidebarMenu = () => {
     <div className="col-2 col-s-3 menu">
       <ul>
         <li className="nav-item">
-          <Link to="/docente" aria-current="page">
+          <Link to="/usuario/lista-usuario" aria-current="page">
             Usuario
           </Link>
         </li>
         <br />
         <li className="nav-item">
-          <Link to="/semestre" aria-current="page">
+          <Link to="/semestre/lista-semestre" aria-current="page">
             Semestre
           </Link>
         </li>
         <br />
         <li className="nav-item">
-          <Link to="/materia" aria-current="page">
+          <Link to="/materia/lista-materia" aria-current="page">
             Materias
           </Link>
         </li>
         <br />
         <li className="nav-item">
-          <Link to="/ambiente" aria-current="page">
+          <Link to="/ambiente/lista-ambientes" aria-current="page">
             Ambientes
           </Link>
         </li>

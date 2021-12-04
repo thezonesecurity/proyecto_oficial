@@ -1,6 +1,6 @@
 import { endpointsD } from "../types/endPointsD";
 import { typesD } from "../types/typesD";
-/*export const authDocente = (
+/*export const authUsuario = (
   nombre,
   apellidos,
   ci,

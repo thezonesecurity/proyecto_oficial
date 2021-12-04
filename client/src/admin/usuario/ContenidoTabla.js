@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 import { MdDeleteSweep } from "react-icons/md";
 
 import { actions } from "./contants/actions";
-import DataDocente from "./contex/AppContext";
-import { ModalDocente } from "./ModalDocente";
+import DataUsuario from "./contex/AppContext";
+import { ModalUsuario } from "./ModalUsuario";
 
 export const ContenidoTabla = ({
   // estos datos esta siendo recuperados del editar docente
@@ -18,7 +18,7 @@ export const ContenidoTabla = ({
   num,
 }) => {
   //  console.log(num);
-  const { state, dispatch } = useContext(DataDocente);
+  const { state, dispatch } = useContext(DataUsuario);
   //(handlerClick) es para elminiar al docente
   const handlerClickDelete = (id) => {
     dispatch({ type: actions.REMOVE_FORM, payload: id });
@@ -36,7 +36,7 @@ export const ContenidoTabla = ({
         <td>{telefono}</td>
         <td>{carga_horaria}</td>
         <td>
-          <ModalDocente />
+          <ModalUsuario />
           {"   "}
           <button
             className="btn btn-outline-danger btn-sm"

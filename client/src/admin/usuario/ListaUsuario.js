@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { ContenidoLista } from "./ContenidoLista";
 import { endpointsD } from "./types/endPointsD";
 
-export const ListaDocente = () => {
+export const ListaUsuario = () => {
   //------------------------------LOGICA PARA LISTAR USARIOS-------------------------
   const [dataUser, setDataUser] = useState({});
   const { auth } = useSelector((state) => state);
@@ -72,7 +72,7 @@ export const ListaDocente = () => {
   //-----------------------------------------------------------------------------------------
   //para agregar dataUser al contex y asi tener los datos en el state
   /*
-  const { state, dispatch } = useContext(DataDocente);
+  const { state, dispatch } = useContext(DataUsuario);
   let data = dataUser;
   const test = () => {
     dispatch({

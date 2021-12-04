@@ -14,12 +14,12 @@ class MateriaController {
   // mètodos
   // método POST. Insertar datos
   public async create(request: Request, response: Response) {
-    let { materia, sigla, carga_horaria } = request.body;
+    let { materia, sigla, carga_horaria, semestre } = request.body;
     //let { materia, sigla, semestre, carga_horaria } = request.body;
     const result = await this.userRepositoryMateria.create({
       materia,
       sigla,
-      //semestre,
+      semestre,
       carga_horaria,
     });
     response.status(201).json({ serverResponse: result });
@@ -27,11 +27,12 @@ class MateriaController {
   // Actualizar datos
   public async update(request: Request, response: Response) {
     const { id } = request.params;
-    const { materia, sigla, carga_horaria }: IUserMat = request.body;
+    const { materia, sigla, carga_horaria, semestre }: IUserMat = request.body;
     const result = await this.userRepositoryMateria.update(id, {
       materia,
       sigla,
       carga_horaria,
+      semestre,
     }); // en result se va guardar los resultados
     response.status(201).json({ serverResponse: result }); // respondemos con un mensaje, y el resultado de nuestra petición
   }

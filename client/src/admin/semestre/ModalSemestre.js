@@ -6,12 +6,22 @@ import { Button, Modal } from "react-bootstrap";
 import DataSemestre from "./contex/AppContexSemestre";
 import { useFormSemestre } from "./hooks/useFormSemestre";
 import { endPointsS } from "./constants/endPointsS";
+import { ErrorValidacion } from "../ErrorValidacion";
 
 export const ModalSemestre = (props) => {
-  //console.log("props", props.dataItem);
+  console.log("propsModalSemestre ", props.dataItem);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  //-------------------------mensaje de cambios en los datos----------------
+  const [errors, setErrors] = useState(false);
+  let componente;
+  if (errors) {
+    //mostrando el error
+    componente = (
+      <ErrorValidacion mensaje="Verifique, no se mofifico ningun dato" />
+    );
+  } else componente = null;
   ///--------------------------logica para ver un semestre----------------
   const [data, setData] = useState({});
 
@@ -33,6 +43,7 @@ export const ModalSemestre = (props) => {
       });
     //console.log("datos", data);
   }, []);
+  console.log("datosApiModal", data);
   ///-------------------------------------------------------------------
 
   ///------------para escribir en los imputs--------------
@@ -50,17 +61,30 @@ export const ModalSemestre = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("guardado", data);
-    fetch(endPointsS.editarSemestre.url + props.dataItem._id, {
-      method: endPointsS.editarSemestre.method,
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    if (
+      props.dataItem.semestre !== data.semestre ||
+      props.dataItem.año !== data.año
+    ) {
+      //se guarda los datos editados en la BD
+      fetch(endPointsS.editarSemestre.url + props.dataItem._id, {
+        method: endPointsS.editarSemestre.method,
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      handleClose();
+    } else {
+      setErrors(true);
+      setTimeout(() => {
+        setErrors(false);
+      }, 5000);
+    }
+
     console.log("Editado", data);
-    handleClose();
   };
   //------------------------------------------------------
+
   return (
     <>
       <Button className="btn btn-outline-secondary btn-sm" onClick={handleShow}>
@@ -94,6 +118,8 @@ export const ModalSemestre = (props) => {
               onChange={handleChangeEdit}
             />
           </form>
+          <br />
+          {componente}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleSubmit}>

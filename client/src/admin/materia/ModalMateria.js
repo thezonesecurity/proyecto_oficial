@@ -6,17 +6,45 @@ import { Button, Modal, NavItem } from "react-bootstrap";
 import DataMateria from "./contex/AppContext";
 import { useForm } from "./hooks/useForm";
 import { endpointsM } from "./constants/endPointsM";
+import axios from "axios";
+import { ErrorValidacion } from "../ErrorValidacion";
 
 export const ModalMateria = (props) => {
-  //console.log("props", props);
+  console.log("propsMOdal", props.dataItem);
+  const [valueSemestre, setValueSemestre] = useState(props.dataItem.semestre);
+  const handleChangeOption = (e) => {
+    e.preventDefault();
+    //console.log("value", e.target.value);
+    setValueSemestre(e.target.value);
+  };
+  console.log("valueSemestre", valueSemestre);
   //config para el modal
+  //------------------peticion al servidor de listas semestre---------------
+  const [dataSemestre, setDataSemestre] = useState({});
+  useEffect(() => {
+    const listData = async () => {
+      const data = await axios
+        .get(endpointsM.listMatSemestre.url)
+        .catch(function (error) {
+          console.log(error);
+        });
+      //console.log("result", data);
+      setDataSemestre(data.data.severResponse);
+      // console.log("server", data.data.severResponse);
+    };
+    listData();
+  }, []);
+  //console.log("serverModalSemestre", dataSemestre);
+  //------------------FIN al servidor de listas semestre---------------
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   //config para los datos
 
-  // lógica para ver materias
+  //-----------------. lógica para ver materias de la api-----------------------------
   const [data, setData] = useState({});
+
   useEffect(() => {
     fetch(endpointsM.verMateria.url + props.dataItem._id, {
       method: endpointsM.verMateria.method,
@@ -30,13 +58,15 @@ export const ModalMateria = (props) => {
       })
       .then((data) => {
         // this is the data we get after doing the delete request, do whatever you want with this data
-        console.log("serverREsponse", data.serverResponse);
+        // console.log("serverREsponse", data.serverResponse);
         setData(data.serverResponse);
       });
     //console.log("datosApi", dataMateria);
   }, []);
-
+  //console.log("dataMOdal", data);
+  //-----------------.FIN lógica para ver materias de la api-----------------------------
   // para poder escribir en los inputs
+  console.log("dataMOdal", data);
   const handleChangeEdit = (e) => {
     // console.log(e.target.name);
     setData((prev) => {
@@ -47,21 +77,44 @@ export const ModalMateria = (props) => {
     });
   };
 
-  // lógica para guardar los datos editados
+  //--------------------------lógica para guardar los datos editados----------------------
+  data.semestre = valueSemestre;
+  const [errors, setErrors] = useState(false);
   const handleSaveEdit = (e) => {
     e.preventDefault();
-    fetch(endpointsM.editarMateria.url + props.dataItem._id, {
-      method: endpointsM.editarMateria.method,
-      body: JSON.stringify(data),
-      headers: {
-        // Authorization: token,
-        "Content-Type": "application/json",
-      },
-    });
-    console.log("save edit", data);
-    handleClose();
-  };
 
+    if (
+      props.dataItem.materia !== data.materia ||
+      props.dataItem.semestre !== data.semestre ||
+      props.dataItem.sigla !== data.sigla ||
+      props.dataItem.carga_horaria !== data.carga_horaria
+    ) {
+      //aqui se manda datos editados ala BD
+      fetch(endpointsM.editarMateria.url + props.dataItem._id, {
+        method: endpointsM.editarMateria.method,
+        body: JSON.stringify(data),
+        headers: {
+          // Authorization: token,
+          "Content-Type": "application/json",
+        },
+      });
+      //console.log("save edit", data);
+      handleClose();
+    } else {
+      setErrors(true);
+      setTimeout(() => {
+        setErrors(false);
+      }, 5000);
+    }
+  };
+  let componente;
+  if (errors) {
+    //mostrando el error
+    componente = (
+      <ErrorValidacion mensaje="Verifique, no se modifico ningun dato" />
+    );
+  } else componente = null;
+  //--------------------------FIN lógica para guardar los datos editados----------------------
   /*
   //////////////////////////////////////////
   const { state, setState, dispatch } = useContext(DataMateria);
@@ -132,7 +185,34 @@ export const ModalMateria = (props) => {
               value={data.carga_horaria}
               onChange={handleChangeEdit}
             />
+            <div className="form-group row">
+              <label className="col-4 col-form">Semestre</label>
+              <div className="col-6">
+                <select
+                  id="semestre"
+                  className="form-select"
+                  value={data.semestre}
+                  onChange={handleChangeOption}
+                >
+                  {dataSemestre.length > 0 ? (
+                    dataSemestre.map((item) => {
+                      return (
+                        <>
+                          <option value={item.semestre}>{item.semestre}</option>
+                        </>
+                      );
+                    })
+                  ) : (
+                    <option value="sinSemestre">
+                      No existe semestres creados
+                    </option>
+                  )}
+                </select>
+              </div>
+            </div>
           </form>
+          <br />
+          {componente}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleSaveEdit}>

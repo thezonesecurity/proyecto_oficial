@@ -37,9 +37,15 @@ export const RegistrarSemestre = () => {
     if (año === "" || semestre === "") {
       setErrors(true);
       setCreateUser(false);
+      setTimeout(() => {
+        setErrors(false);
+      }, 5000);
       return;
     } else {
       setCreateUser(true);
+      setTimeout(() => {
+        setCreateUser(false);
+      }, 5000);
     }
     //save date
     /* dispatch({
@@ -68,7 +74,6 @@ export const RegistrarSemestre = () => {
 
   //ESTA PARTE CARGA UN COMPONENTE CONDICCIONALMENTE
   let componente;
-
   if (errors) {
     //mostrando el error
     componente = (

@@ -7,6 +7,7 @@ const newMateria = {
   materia: "Programacion",
   sigla: "SIS-131",
   carga_horaria: "45",
+  semestre: "semestre 1",
 };
 // HOOKS
 
@@ -52,6 +53,7 @@ describe("Crud Operators of UserRepositoryMateria Class create", () => {
       materia: "Update Materia",
       sigla: "SIS-124",
       carga_horaria: "50",
+      semestre: "semestre 2",
     });
     const expected = await materiaRepo.findOne(updateMateria.id); // devuelve la materia modificada
     expect(expected.materia).toBe("Update Materia");

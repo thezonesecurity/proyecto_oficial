@@ -100,7 +100,7 @@ export const LoginAD = () => {
           </div>
         </div>
       ) : roles === "admin" ? (
-        <Redirect to="/docente" />
+        <Redirect to="/usuario" />
       ) : roles === "docente" ? (
         <Redirect to="/interface-docente" />
       ) : (

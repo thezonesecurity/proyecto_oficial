@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import uniqid from "uniqid";
 
 import { Actions } from "./constants/Actions";
@@ -7,11 +7,13 @@ import { useForm } from "./hooks/useForm";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
 import Input from "./InputForm";
-import { dispatch, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { authRegisterMateria } from "./actions/authMateria";
+import { endpointsM } from "./constants/endPointsM";
+import axios from "axios";
 
 export const CrearMateria = () => {
-  console.log(authRegisterMateria);
+  // console.log(authRegisterMateria);
 
   const dispatch = useDispatch();
   //para opcion semestre
@@ -21,7 +23,7 @@ export const CrearMateria = () => {
     //console.log("value", e.target.value);
     setValueSemestre(e.target.value);
   };
-  //console.log(valueSemestre); -----------------
+  console.log("valueSemestre", valueSemestre);
   //usamos el useContext
   //const { state, setState, dispatch } = useContext(DataMateria);
   //console.log("stateMAteria", state);
@@ -31,10 +33,11 @@ export const CrearMateria = () => {
     materia: "",
     sigla: "",
     carga_horaria: "",
+    semestre: "",
     // valido: null,
   });
-  console.log("form", form);
-  const { materia, sigla, carga_horaria } = form;
+  console.log("formMAteria", form);
+  const { materia, sigla, carga_horaria, semestre } = form;
   const expresiones = {
     usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     nombre: /^[a-zA-ZÀ-ÿ\s]{4,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -42,7 +45,7 @@ export const CrearMateria = () => {
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     telefono: /^\d{7,14}$/, // 7 a 14 numeros.
   };
-
+  form.semestre = valueSemestre;
   //ESTO PARA VALIDAR Y GUARDAR DATOS
   const [errors, setErrors] = useState(false);
   const [createUser, setCreateUser] = useState(false);
@@ -52,15 +55,21 @@ export const CrearMateria = () => {
     if (
       materia === "" ||
       sigla === "" ||
-      carga_horaria === ""
-      //semestre === ""
+      carga_horaria === "" ||
+      semestre === "sinSemestre"
     ) {
       //aparece un error
       setErrors(true);
       setCreateUser(false);
+      setTimeout(() => {
+        setErrors(false);
+      }, 5000);
       return;
     } else {
       setCreateUser(true);
+      setTimeout(() => {
+        setCreateUser(false);
+      }, 6000);
     }
     //SI NO se agrega los datos
     /*dispatch({
@@ -72,18 +81,26 @@ export const CrearMateria = () => {
         semestre: valueSemestre,
       },
     });*/
-    dispatch(authRegisterMateria({ materia, sigla, carga_horaria }));
-    console.log(
+
+    dispatch(
+      authRegisterMateria({
+        materia,
+        sigla,
+        carga_horaria,
+        semestre: valueSemestre,
+      })
+    );
+    /*console.log(
       "authRegisterM",
       authRegisterMateria({ materia, sigla, carga_horaria })
     );
+    */
     resetForm();
     setErrors(false);
   };
 
   //ESTA PARTE CARGA UN COMPONENTE CONDICCIONALMENTE
   let componente;
-
   if (errors) {
     //mostrando el error
     componente = (
@@ -101,7 +118,24 @@ export const CrearMateria = () => {
     setErrors(false);
     setCreateUser(false);
   };
+  //------------------peticion al servidor de listas semestre---------------
+  const [dataSemestre, setDataSemestre] = useState({});
 
+  useEffect(() => {
+    const listData = async () => {
+      const data = await axios
+        .get(endpointsM.listMatSemestre.url)
+        .catch(function (error) {
+          console.log(error);
+        });
+      //console.log("result", data);
+      setDataSemestre(data.data.severResponse);
+      // console.log("server", data.data.severResponse);
+    };
+    listData();
+  }, []);
+  //console.log("serverMatSemestre", dataSemestre);
+  //------------------FIN al servidor de listas semestre---------------
   return (
     <>
       <h4 className="titleForm">Registrar Materia</h4>
@@ -147,6 +181,7 @@ export const CrearMateria = () => {
           pattern="[0-9]*"
         />
         <br />
+
         <div className="form-group row">
           <label className="col-4 col-form">Semestre</label>
           <div className="col-6">
@@ -156,11 +191,20 @@ export const CrearMateria = () => {
               value={valueSemestre}
               onChange={handleChangeOption}
             >
-              <option value="elegirSemestre">Elegir Semestre...</option>
-              <option value="semestre 1">Semestre 1</option>
-              <option value="semestre 2">Semestre 2</option>
-              <option value="semestre 3">Semestre 3</option>
-              <option value="semestre 4">Semestre 4</option>
+              {dataSemestre.length > 0 ? (
+                dataSemestre.map((item) => {
+                  return (
+                    <>
+                      <option key={item._id} value={item.semestre}>
+                        {item.semestre}
+                      </option>
+                      ;
+                    </>
+                  );
+                })
+              ) : (
+                <option value="sinSemestre">No existe semestres creados</option>
+              )}
             </select>
           </div>
         </div>
@@ -316,6 +360,23 @@ export const CrearMateria = () => {
           placeholder="Ej. 45 "
         />
         <br />
+        <div className="form-group row">
+          <label className="col-4 col-form">Semestre</label>
+          <div className="col-6">
+            <select
+              id="semestre"
+              className="form-select"
+              value={valueSemestre}
+              onChange={handleChangeOption}
+            >
+              <option value="elegirSemestre">Elegir Semestre...</option>
+              <option value="semestre 1">Semestre 1</option>
+              <option value="semestre 2">Semestre 2</option>
+              <option value="semestre 3">Semestre 3</option>
+              <option value="semestre 4">Semestre 4</option>
+            </select>
+          </div>
+        </div>
         {componente}
         {created}
         <button
