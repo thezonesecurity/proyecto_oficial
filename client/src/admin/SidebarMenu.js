@@ -30,13 +30,13 @@ export const SidebarMenu = () => {
         </li>
         <br />
         <li className="nav-item">
-          <Link to="/horario" aria-current="page">
+          <Link to="/horario/lista-horarios" aria-current="page">
             Horarios
           </Link>
         </li>
         <br />
         <li className="nav-item">
-          <Link to="/reporte" aria-current="page">
+          <Link to="/reporte/reporte-doc-mat" aria-current="page">
             Reportes
           </Link>
         </li>

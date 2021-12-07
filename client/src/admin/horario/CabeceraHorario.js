@@ -13,9 +13,9 @@ export const CabeceraHorario = () => {
           <li className="btn btn-outline-dark">
             <Link to={`${url}/lista-horarios`}>Lista de Horarios</Link>
           </li>
-          <li className="btn btn-outline-dark">
+          {/*<li className="btn btn-outline-dark">
             <Link to={`${url}/registro-horarios`}>Registrar Horarios</Link>
-          </li>
+          </li> */}
           <li className="btn btn-outline-dark">
             <Link to={`${url}/asignacion-mat-doc`}>
               Asignación Materia - Docente

@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<coverage generated="1638661571455" clover="3.2.0">
+  <project timestamp="1638661571455" name="All files">
+    <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7" elements="21" coveredelements="21" complexity="0" loc="14" ncloc="14" packages="3" files="3" classes="3"/>
+    <package name="modelH">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="HorarioModel.ts" path="/home/olga/Vídeos/proyecto_oficial/server/backend/src/modules/horariomodule/modelH/HorarioModel.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="repositoriesH">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="HorarioRepository.ts" path="/home/olga/Vídeos/proyecto_oficial/server/backend/src/modules/horariomodule/repositoriesH/HorarioRepository.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+=======
 <coverage generated="1638563212374" clover="3.2.0">
   <project timestamp="1638563212374" name="All files">
     <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="7" elements="22" coveredelements="21" complexity="0" loc="14" ncloc="14" packages="3" files="3" classes="3"/>
@@ -16,10 +35,25 @@
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="AMDReposirity.ts" path="/home/beyong/Documentos/proyecto_seminario/server/backend/src/modules/moduloAsigancionMateriaDocente/repositoriesAMD/AMDReposirity.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+>>>>>>> 90c7ff0db631d1a4ab101f4e33c7c2e2446b101a
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
       </file>
     </package>
+<<<<<<< HEAD
+    <package name="repositoriesH.baseH">
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+      <file name="BaseRepositoryH.ts" path="/home/olga/Vídeos/proyecto_oficial/server/backend/src/modules/horariomodule/repositoriesH/baseH/BaseRepositoryH.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+=======
     <package name="repositoriesAMD.base">
       <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
       <file name="baseResositoryAMD.ts" path="/home/beyong/Documentos/proyecto_seminario/server/backend/src/modules/moduloAsigancionMateriaDocente/repositoriesAMD/base/baseResositoryAMD.ts">
@@ -32,6 +66,7 @@
         <line num="23" count="3" type="stmt"/>
         <line num="27" count="3" type="stmt"/>
         <line num="31" count="2" type="stmt"/>
+>>>>>>> 90c7ff0db631d1a4ab101f4e33c7c2e2446b101a
       </file>
     </package>
   </project>

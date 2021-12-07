@@ -3,7 +3,8 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ListaAMD } from "../../ListaAMD";
 import { AsignacionMateriaDocenteH } from "../AsignacionMateriaDocenteH";
-import { RegistroHorarios } from "../RegistroHorarios";
+import { IngresarHorarios } from "../IngresarHorarios";
+//import { RegistroHorarios } from "../RegistroHorarios";
 import { VerHorarios } from "../VerHorarios";
 export const RouteHorario = ({ path }) => {
   return (
@@ -11,7 +12,7 @@ export const RouteHorario = ({ path }) => {
       <Route path={`${path}/lista-horarios`} component={VerHorarios}></Route>
       <Route
         path={`${path}/registro-horarios`}
-        component={RegistroHorarios}
+        component={IngresarHorarios}
       ></Route>
       <Route
         path={`${path}/asignacion-mat-doc`}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { ContenidoAMD } from "./ContenidoAMD";
-import { endpointsAMD } from "./horarios/constants/endPointsAMD";
+import { endpointsAMD } from "./horarios/types/endPointsAMD";
 
 export const ListaAMD = () => {
   //-------------------------peticion list de Asignacion materia docente-------------------

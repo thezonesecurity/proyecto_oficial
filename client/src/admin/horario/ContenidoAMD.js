@@ -1,6 +1,7 @@
 import React from "react";
 import { MdDeleteSweep } from "react-icons/md";
-import { endpointsAMD } from "./horarios/constants/endPointsAMD";
+import { endpointsAMD } from "./horarios/types/endPointsAMD";
+
 import { ModalAMD } from "./ModalAMD";
 
 export const ContenidoAMD = (props) => {

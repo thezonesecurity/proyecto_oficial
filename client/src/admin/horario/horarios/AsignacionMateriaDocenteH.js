@@ -5,11 +5,12 @@ import { useDispatch } from "react-redux";
 import { useForm } from "../../ambientes/hooks/useForm";
 import { ActionsH } from "./constants/ActionsH";
 import { DataAMD } from "./contex/AppContexH";
-import { endpointsAMD } from "./constants/endPointsAMD";
+
 import DataAmbiente from "../../ambientes/contex/AppContext";
 import { ErrorValidacion } from "../../ErrorValidacion";
 import { MessageCreateUser } from "../../MessageCreateUser";
 import { authRegisterAMD } from "./constants/authADM";
+import { endpointsAMD } from "./types/endPointsAMD";
 
 export const AsignacionMateriaDocenteH = () => {
   const dispatch = useDispatch();

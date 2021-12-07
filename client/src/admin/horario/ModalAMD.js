@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MdCreate } from "react-icons/md";
 import { Button, Modal } from "react-bootstrap";
-import { endpointsAMD } from "./horarios/constants/endPointsAMD";
+
 import { useForm } from "../ambientes/hooks/useForm";
 import { ErrorValidacion } from "../ErrorValidacion";
+import { endpointsAMD } from "./horarios/types/endPointsAMD";
 
 export const ModalAMD = (props) => {
   //config para el modal

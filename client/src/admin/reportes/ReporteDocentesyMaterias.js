@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { endpointsAMD } from "../horario/horarios/constants/endPointsAMD";
+import { endpointsAMD } from "../horario/horarios/types/endPointsAMD";
+
 import { ContenidoListaAMD } from "./ContenidoListaAMD";
 
 export const ReporteDocentesyMaterias = () => {

@@ -5,4 +5,6 @@ export const ActionsH = {
 
   ADD_FORM_AMD: "añadir formulario",
   authRegisterAMD: "auth/register",
+  ADD_MATERIA: "add materia",
+  REMOVE_MATERIA: "remove materia",
 };

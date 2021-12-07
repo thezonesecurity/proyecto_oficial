@@ -1,5 +1,5 @@
+import { endpointsAMD } from "../types/endPointsAMD";
 import { ActionsH } from "./ActionsH";
-import { endpointsAMD } from "./endPointsAMD";
 
 export const authRegisterAMD = (authRegisterDataAMD) => {
   console.log(authRegisterDataAMD);

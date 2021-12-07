@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "042da97d-71b4-4904-b077-79fbadf4411c",
+		"name": "modulo Horario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create Horario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "hora",
+							"value": "17:45 - 18:30",
+							"type": "text"
+						},
+						{
+							"key": "lunes",
+							"value": "FIS-333",
+							"type": "text"
+						},
+						{
+							"key": "martes",
+							"value": "DIS-313",
+							"type": "text"
+						},
+						{
+							"key": "miercoles",
+							"value": "ING-125",
+							"type": "text"
+						},
+						{
+							"key": "jueves",
+							"value": "SIS-514",
+							"type": "text"
+						},
+						{
+							"key": "viernes",
+							"value": "FIS-369",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/horario/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"horario",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getHorariosList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/horario/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"horario",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get horarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/horario/61abca741d2ed153bc32f934",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"horario",
+						"61abca741d2ed153bc32f934"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Horario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "miercoles",
+							"value": "Diseño",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/horario/61abca741d2ed153bc32f934",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"horario",
+						"61abca741d2ed153bc32f934"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete Horario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api1.0/horario/61abca741d2ed153bc32f934",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"horario",
+						"61abca741d2ed153bc32f934"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
