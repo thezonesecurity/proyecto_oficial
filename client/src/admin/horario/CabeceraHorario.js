@@ -21,6 +21,9 @@ export const CabeceraHorario = () => {
               Asignación Materia - Docente
             </Link>
           </li>
+          <li className="btn btn-outline-dark">
+            <Link to={`${url}/list-mat-doc`}>Lista Materia - Docente</Link>
+          </li>
         </ul>
       </div>
       {/*CABECERA */}

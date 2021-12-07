@@ -11,6 +11,10 @@ export const AppReducerH = (stateH, actionH) => {
     case ActionsH.EDDIT_FORM_H: {
       return;
     }
+
+    case ActionsH.ADD_FORM_AMD: {
+      return [...stateH, actionH.payload];
+    }
     default: {
       return stateH;
     }

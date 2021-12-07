@@ -3,7 +3,7 @@ import { Mongoose, Schema } from "mongoose";
 export interface IMateriaDocente {
   materia?: string;
   sigla?: string;
-  grupo?: number;
+  grupo?: string;
   docente?: string;
   ambiente?: string;
 }
@@ -13,10 +13,10 @@ export interface MateriaDocente extends Document, IMateriaDocente {
 }
 export const AMDModelSchema = new Schema({
   materia: { type: String, required: true },
-  sigla: { type: String, required: true },
-  grupo: { type: Number, required: true },
+  sigla: { type: String, required: false },
+  grupo: { type: String, required: true },
   docente: { type: String, required: true },
-  ambiente: { type: String, required: true },
+  ambiente: { type: String, required: false },
   createAt: { type: Date, default: Date.now() },
   updateAt: { type: Date },
 });

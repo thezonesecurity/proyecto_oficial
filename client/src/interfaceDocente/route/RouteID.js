@@ -4,6 +4,7 @@ import { MateriasAsignadasDocente } from "../MateriasAsignadasDocente";
 import { SolicitarAjusteMateria } from "../SolicitarAjusteMateria";
 
 export const RouteID = ({ path }) => {
+  console.log("path", path);
   return (
     <Switch>
       <Route

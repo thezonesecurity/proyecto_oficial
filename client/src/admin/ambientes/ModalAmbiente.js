@@ -46,6 +46,7 @@ export const ModalAmbiente = (props) => {
     });
   };
   //--------------------Logica para guardar los datos editados-----------------
+  const [errors, setErrors] = useState(false);
   const handleSaveEdit = (e) => {
     e.preventDefault();
     if (
@@ -71,7 +72,7 @@ export const ModalAmbiente = (props) => {
   //console.log("state", state);
   //const { state, dispatch } = useContext(DataAmbiente);
   //const { id, num, ambiente, ubicacion } = state;
-  const [errors, setErrors] = useState(false);
+
   let componente;
   if (errors) {
     //mostrando el error

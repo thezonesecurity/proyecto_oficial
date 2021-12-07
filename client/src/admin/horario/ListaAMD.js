@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { endpointsAMD } from "../horario/horarios/constants/endPointsAMD";
-import { ContenidoListaAMD } from "./ContenidoListaAMD";
 
-export const ReporteDocentesyMaterias = () => {
+import { ContenidoAMD } from "./ContenidoAMD";
+import { endpointsAMD } from "./horarios/constants/endPointsAMD";
+
+export const ListaAMD = () => {
   //-------------------------peticion list de Asignacion materia docente-------------------
   const [listAMD, setListAMD] = useState({});
   useEffect(() => {
@@ -33,16 +34,17 @@ export const ReporteDocentesyMaterias = () => {
             <th scope="col">Materia</th>
             <th scope="col">Docente</th>
             <th scope="col">Grupo</th>
+            <th scope="col">Opciones</th>
           </tr>
         </thead>
         {listAMD.length > 0 ? (
           listAMD.map((item) => {
-            return <ContenidoListaAMD key={item._id} {...item} />;
+            return <ContenidoAMD key={item._id} {...item} />;
           })
         ) : (
           <tbody>
             <tr className="table-active">
-              <td colSpan="5">No hay Ambientes registrados...</td>
+              <td colSpan="6">No hay Ambientes registrados...</td>
             </tr>
           </tbody>
         )}
