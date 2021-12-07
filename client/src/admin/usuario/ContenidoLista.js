@@ -3,14 +3,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { MdDeleteSweep } from "react-icons/md";
 import { useSelector } from "react-redux";
 
-import DataDocente from "./contex/AppContext";
-import { ModalDocente } from "./ModalDocente";
+import DataUsuario from "./contex/AppContext";
+import { ModalUsuario } from "./ModalUsuario";
 import { endpointsD } from "./types/endPointsD";
 
 export const ContenidoLista = (props) => {
   console.log("propseliminar", props);
   //(handlerClick) es para elminiar al docente
-  const { state, dispatch } = useContext(DataDocente);
+  const { state, dispatch } = useContext(DataUsuario);
   const { auth } = useSelector((state) => state);
   const { token } = auth;
 
@@ -58,7 +58,7 @@ export const ContenidoLista = (props) => {
           {props.carga_horaria ? <td> {props.carga_horaria}</td> : <td>0</td>}
           <td>{props.rolUser}</td>
           <td>
-            <ModalDocente dataItem={props} />
+            <ModalUsuario dataItem={props} />
             {"   "}
             <button
               className="btn btn-outline-danger btn-sm"

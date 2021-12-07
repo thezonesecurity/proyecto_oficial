@@ -25,9 +25,15 @@ export const CrearAmbiente = () => {
     if (ambiente === "" || ubicacion === "") {
       setErrors(true);
       setCreateUser(false);
+      setTimeout(() => {
+        setErrors(false);
+      }, 4000);
       return;
     } else {
       setCreateUser(true);
+      setTimeout(() => {
+        setCreateUser(false);
+      }, 4000);
     }
     ///añade los datos a la BD
     /*

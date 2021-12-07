@@ -4,16 +4,15 @@ import { MdCreate } from "react-icons/md";
 import { Button, Modal } from "react-bootstrap";
 import axios from "axios";
 
-import DataDocente from "./contex/AppContext";
 import { ErrorValidacion } from "../ErrorValidacion";
-import { MessageCreateUser } from "../MessageCreateUser";
 import { endpointsD } from "./types/endPointsD";
 import { useSelector } from "react-redux";
+import DataUsuario from "./contex/AppContext";
 
-export const ModalDocente = (props) => {
-  console.log("modal", props.dataItem);
-  const { state, dispatch } = useContext(DataDocente);
-  //const [data, setData] = useState(DataDocente);
+export const ModalUsuario = (props) => {
+  console.log("modalPropsUsuario", props.dataItem);
+  const { state, dispatch } = useContext(DataUsuario);
+  //const [data, setData] = useState(DataUsuario);
   //console.log("modaldocente", state);
   const [show, setShow] = useState(false);
   const handleClose = () => {
@@ -25,16 +24,15 @@ export const ModalDocente = (props) => {
 
   //console.log("props modal doc", props.dataItem);
   //------------------------------LOGICA PARA VER UN USARIO-------------------------
-  const [data, setData] = useState(props.dataItem);
   // console.log("dataVacio", data);
   const { auth } = useSelector((state) => state);
   const { token } = auth;
-
-  /* useEffect(() => {
+  const [dataUser, setDataUser] = useState({});
+  useEffect(() => {
     fetch(endpointsD.getUser.url + props.dataItem._id, {
       method: endpointsD.getUser.method,
       headers: new Headers({
-        Authorization: token,
+        //Authorization: token,
         "Content-Type": "application/x-www-form-urlencoded",
       }),
     })
@@ -42,20 +40,31 @@ export const ModalDocente = (props) => {
         return response.json();
       })
       .then((data) => {
-        // this is the data we get after doing the delete request, do whatever you want with this data
-        console.log("dataSERVER", data.serverResponse);
-        setData(data.serverResponse);
+        console.log("data serverResponse", data.serverResponse);
+        setDataUser(data.serverResponse);
       });
-    console.log("datosDATAresultados", data);
-    console.log("Token Modal", token);
-  }, []);*/
+    //console.log("datosMOdalAmbiente", data);
+  }, []);
+  console.log("datosMOdalUser", dataUser);
+  /*
+  useEffect(() => {
+    const peticionGetUser = async () => {
+      const result = await axios
+        .get(endpointsD.getUser.url + props.dataItem._id, token)
+        .catch(function (error) {
+          console.log(error);
+        });
 
+      console.log("reultDataApi", result);
+      //setDataUser(result);
+    };
+    peticionGetUser();
+  }, []);
+  console.log("dataApiModalUser", dataUser);
+  */
   //------------------------------FIN LOGICA PARA VER UN USARIO-------------------------
-  //console.log("datos api", data);
-  //-------------------LOGICA PARA GUARDAR UN USUARIO MODIFICADO--------------------
-  const [errors, setErrors] = useState(false);
-  const [controlUser, setControlUser] = useState(false);
 
+  const [errors, setErrors] = useState(false);
   const handleChangeEdit = (e) => {
     // console.log(e.target.name);
     setData((prev) => {
@@ -65,49 +74,43 @@ export const ModalDocente = (props) => {
       };
     });
   };
+  //-------------------LOGICA PARA GUARDAR UN USUARIO MODIFICADO--------------------
+  const [data, setData] = useState(props.dataItem);
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (
-      data.nombre === "" ||
-      data.apellidos === "" ||
-      data.ci === "" ||
-      data.email === "" ||
-      data.direccion === "" ||
-      data.telefono === "" ||
-      data.carga_horaria === ""
+      props.dataItem.nombre === data.nombre ||
+      props.dataItem.apellidos === data.apellidos ||
+      props.dataItem.ci === data.ci ||
+      props.dataItem.email === data.email ||
+      props.dataItem.telefono === data.telefono ||
+      props.dataItem.direccion === data.direccion ||
+      props.dataItem.carga_horaria === data.carga_horaria
     ) {
-      setErrors(true);
-      setControlUser(false);
-      return;
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+          Authorization: token,
+        },
+      };
+      console.log("config", config);
+      const peticionUpdateUser = async () => {
+        const result = await axios
+          .put(endpointsD.editUser.url + props.dataItem._id, data, config)
+          .catch(function (error) {
+            console.log(error);
+          });
+        console.log("reult", result);
+      };
+      peticionUpdateUser();
+      handleClose();
     } else {
-      setControlUser(true);
+      setErrors(true);
+      setTimeout(() => {
+        setErrors(false);
+      }, 4000);
     }
-    //actualiza datos--------------
-    // console.log("save user", data);
-    //const response = await axios.put(
-    // `http://localhost:8000/api1.0/user/${_id}`,
-    //data
-    // );
-    // console.log("update", response);
-
-    /////--------------------------------------------------------
-
-    const config = {
-      headers: {
-        "Content-type": "application/json",
-        Authorization: token,
-      },
-    };
-    console.log("config", config);
-    const peticionGet = async () => {
-      const result = await axios
-        .put(endpointsD.editUser.url + props.dataItem._id, data, config)
-        .catch(function (error) {
-          console.log(error);
-        });
-      console.log("reult", result);
-    };
-    peticionGet();
     /*fetch(endpointsD.editUser.url + props.dataItem._id, {
       method: endpointsD.editUser.method,
       body: JSON.stringify(data),
@@ -120,21 +123,23 @@ export const ModalDocente = (props) => {
     console.log("token", token);
     console.log("propsid", props.dataItem._id);*/
     ///--------------------------------------------------------
-    setErrors(false);
-    handleClose();
+    //actualiza datos--------------
+    // console.log("save user", data);
+    //const response = await axios.put(
+    // `http://localhost:8000/api1.0/user/${_id}`,
+    //data
+    // );
+    // console.log("update", response)
   };
+  //-------------------LOGICA PARA GUARDAR UN USUARIO MODIFICADO--------------------
   //para controlar si la tabla esta vacia
   let componente;
   if (errors) {
     componente = (
-      <ErrorValidacion mensaje="Verifique todos los campos son requeridos" />
+      <ErrorValidacion mensaje="Verifique, no se modifico ningun dato" />
     );
   } else componente = null;
-  let updated;
-  if (controlUser) {
-    updated = <MessageCreateUser mensaje="Usuario actualizado correctamente" />;
-  } else updated = null;
-  //-------------------LOGICA PARA GUARDAR UN USUARIO MODIFICADO--------------------
+
   return (
     <>
       <Button className="btn btn-outline-secondary btn-sm" onClick={handleShow}>
@@ -216,6 +221,7 @@ export const ModalDocente = (props) => {
               <></>
             )}
           </form>
+          <br />
           {componente}
         </Modal.Body>
         <Modal.Footer>

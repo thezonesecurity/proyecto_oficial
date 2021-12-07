@@ -1,6 +1,6 @@
 import App from "../../App";
 import { Express, request, Request, Response } from "express";
-import MateriaController from "./controllerM.ts/MateriaController";
+import MateriaController from "./controllerM/MateriaController";
 class RoutesMateria {
   private rootPath: string;
   private mainappM: App;

@@ -6,9 +6,10 @@ import { Button, Modal } from "react-bootstrap";
 import DataAmbiente from "./contex/AppContext";
 import { useForm } from "../materia/hooks/useForm";
 import { endpointsAmbiente } from "./contants/enPointsAmbiente";
+import { ErrorValidacion } from "../ErrorValidacion";
 
 export const ModalAmbiente = (props) => {
-  //console.log("propsmodal", props.dataItem._id);
+  console.log("propsmodalAmbiente", props.dataItem);
   //config para el modal
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -31,8 +32,9 @@ export const ModalAmbiente = (props) => {
         //console.log("data serverResponse", data.serverResponse);
         setData(data.serverResponse);
       });
-    // console.log("datosAPi", data);
+    //console.log("datosMOdalAmbiente", data);
   }, []);
+  console.log("datosMOdalAmbiente", data);
   //---------------------para escribir en los inputs--------------------
   const handleChangeEdit = (e) => {
     // console.log(e.target.name);
@@ -46,20 +48,37 @@ export const ModalAmbiente = (props) => {
   //--------------------Logica para guardar los datos editados-----------------
   const handleSaveEdit = (e) => {
     e.preventDefault();
-    fetch(endpointsAmbiente.editarAmbiente.url + props.dataItem._id, {
-      method: endpointsAmbiente.editarAmbiente.method,
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    console.log("save edit", data);
-    handleClose();
+    if (
+      props.dataItem.ambiente !== data.ambiente ||
+      props.dataItem.ubicacion !== data.ubicacion
+    ) {
+      fetch(endpointsAmbiente.editarAmbiente.url + props.dataItem._id, {
+        method: endpointsAmbiente.editarAmbiente.method,
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log("save edit", data);
+      handleClose();
+    } else {
+      setErrors(true);
+      setTimeout(() => {
+        setErrors(false);
+      }, 4000);
+    }
   };
   //console.log("state", state);
   //const { state, dispatch } = useContext(DataAmbiente);
   //const { id, num, ambiente, ubicacion } = state;
-
+  const [errors, setErrors] = useState(false);
+  let componente;
+  if (errors) {
+    //mostrando el error
+    componente = (
+      <ErrorValidacion mensaje="Verifique, no se modificaron ningun dato" />
+    );
+  } else componente = null;
   return (
     <>
       <Button className="btn btn-outline-secondary btn-sm" onClick={handleShow}>
@@ -91,6 +110,8 @@ export const ModalAmbiente = (props) => {
               onChange={handleChangeEdit}
             />
           </form>
+          <br />
+          {componente}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleSaveEdit}>

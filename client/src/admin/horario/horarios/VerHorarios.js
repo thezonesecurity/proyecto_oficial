@@ -18,7 +18,7 @@ export const VerHorarios = () => {
         .catch(function (error) {
           console.log(error);
         });
-      //console.log("result", data);
+      console.log("result", data);
       setDatahorario(data.data.serverResponse);
       //console.log("server", data.data.serverResponse);
     };

@@ -1,15 +1,16 @@
 import express, { Express } from "express";
 import dotenv from "dotenv";
 import mongoose, { Mongoose } from "mongoose";
+
 import fileUpload from "express-fileupload";
 import UserModule from "./modules/usermodule/init";
 import JsonWebToken from "./middleware/JsonWebToken";
 import SemestreModule from "./modules/semestremodule/initS";
 import AmbienteModule from "./modules/ambientemodule/initAmbiente";
 import MateriaModule from "./modules/materiamodule/initMateria";
-import HorarioModule from "./modules/horariomodule/initH";
-
+import AMDModule from "./modules/moduloAsigancionMateriaDocente/initAMD";
 import cors from "cors";
+import HorarioModule from "./modules/horariomodule/initH";
 
 if (process.env.NODE_ENV == "development") {
   dotenv.config();
@@ -66,6 +67,7 @@ class App {
     new MateriaModule(`/${this.apiversion}/materia`, this);
     new SemestreModule(`/${this.apiversion}/semestre`, this);
     new AmbienteModule(`/${this.apiversion}/ambiente`, this);
+    new AMDModule(`/${this.apiversion}/amd`, this);
     new HorarioModule(`/${this.apiversion}/horario`, this);
   }
   public getApp() {

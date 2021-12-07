@@ -13,4 +13,10 @@ export const endpointsM = {
     method: "PUT",
   },
   verMateria: { url: "http://localhost:8000/api1.0/materia/", method: "GET" },
+
+  //peticion de lista de semestres
+  listMatSemestre: {
+    url: "http://localhost:8000/api1.0/semestre/",
+    method: "GET",
+  },
 };

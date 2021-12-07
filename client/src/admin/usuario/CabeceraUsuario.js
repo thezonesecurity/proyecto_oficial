@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 
-import { RouteDocente } from "./route/RouteDocente";
+import { RouteUsuario } from "./route/RouteDocente";
 
-export const CabeceraDocente = () => {
+export const CabeceraUsuario = () => {
   let { path, url } = useRouteMatch(); //(useRouteMatch).. es una lebrireria que hace coincidir con los datos del url
   // console.log(url);
   return (
@@ -12,13 +12,13 @@ export const CabeceraDocente = () => {
       <div className="cabecera">
         <ul className="nav  card-header-tabs">
           <li className="btn btn-outline-dark" aria-current="true">
-            <Link to={`${url}/lista-docente`}>Ver Lista de Usuarios</Link>
+            <Link to={`${url}/lista-usuario`}>Ver Lista de Usuarios</Link>
           </li>
           <li className="btn btn-outline-dark" aria-current="true">
-            <Link to={`${url}/crear-docente`}>Crear Usuarios</Link>
+            <Link to={`${url}/crear-usuario`}>Crear Usuarios</Link>
           </li>
           {/* <li className="btn btn-outline-dark" aria-current="true">
-            <Link to={`${url}/editar-docente`}>Editar Usuarios</Link>
+            <Link to={`${url}/editar-usuario`}>Editar Usuarios</Link>
           </li>*/}
         </ul>
       </div>
@@ -27,7 +27,7 @@ export const CabeceraDocente = () => {
       <div className="col-20 col-s-12">
         <div className="aside">
           <hr />
-          <RouteDocente path={path} />
+          <RouteUsuario path={path} />
         </div>
       </div>
       {/*CONTENIDO */}

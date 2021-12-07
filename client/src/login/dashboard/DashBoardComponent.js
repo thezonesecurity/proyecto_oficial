@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { MainDocente } from "../../admin/docente/MainDocente";
+import { MainUsuario } from "../../admin/usuario/MainUsuario";
 import { MainMateria } from "../../admin/materia/MainMateria";
 import { MainAmbiente } from "../../admin/ambientes/MainAmbiente";
 import { MainHorario } from "../../admin/horario/MainHorario";
@@ -26,7 +26,7 @@ export const DashBoardComponent = ({ children, ...rest }) => {
     <>
       <HeaderInterface />
       <Switch>
-        <Route path="/docente" component={MainDocente} />
+        <Route path="/usuario" component={MainUsuario} />
         <Route path="/materia" component={MainMateria} />
         <Route path="/ambiente" component={MainAmbiente} />
         <Route path="/horario" component={MainHorario} />

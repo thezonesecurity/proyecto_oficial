@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux";
 import { useForm } from "./hooks/useForm";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
-import { authRegister } from "./actions/authDocente";
+import { authRegister } from "./actions/authUsuario";
 
-export const InsertarDocente = () => {
+export const InsertarUsuario = () => {
   const dispatch = useDispatch();
   const [optionRol, setOptionRol] = useState({});
   //console.log("optionrol", optionRol);
@@ -16,7 +16,7 @@ export const InsertarDocente = () => {
     //console.log("target", e.target.value);
   };
 
-  //const { state, setState, dispatch } = useContext(DataDocente);
+  //const { state, setState, dispatch } = useContext(DataUsuario);
   const [form, handlerChangeForm, resetForm] = useForm({
     nombre: "",
     apellidos: "",
@@ -156,7 +156,7 @@ export const InsertarDocente = () => {
     setValidarPassword(false);
     setTamPassword(false);
   };
-  //console.log("dataDocente", state);
+  //console.log("dataUsuario", state);
   const ocultar = () => {
     setErrors(false);
   };

@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 
 import { ContenidoTabla } from "./ContenidoTabla";
-import DataDocente from "./contex/AppContext";
+import DataUsuario from "./contex/AppContext";
 
-export const EditarDocente = () => {
-  const { state, dispatch } = useContext(DataDocente);
+export const EditarUsuario = () => {
+  const { state, dispatch } = useContext(DataUsuario);
   const {
     num,
     nombre,

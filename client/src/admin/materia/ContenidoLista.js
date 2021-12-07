@@ -44,7 +44,7 @@ export const ContenidoLista = (
         <th scope="row">1</th>
         <td>{props.materia}</td>
         <td>{props.sigla}</td>
-        <td>semestre</td>
+        <td>{props.semestre}</td>
         <td>{props.carga_horaria}</td>
         <td>
           <ModalMateria dataItem={props} />

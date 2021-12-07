@@ -1,7 +1,8 @@
 import React, { useReducer, useState } from "react";
-import { AppReducer } from "../docente/contex/AppReducer";
+//import { AppReducer } from "../docente/contex/AppReducer";
 
 import { SidebarMenu } from "../SidebarMenu";
+import { AppReducer } from "./contex/AppReducer";
 import { CabeceraMateria } from "./CabeceraMateria";
 import DataMateria from "./contex/AppContext";
 
