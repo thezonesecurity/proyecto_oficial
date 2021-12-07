@@ -11,6 +11,7 @@ export abstract class BaseRepositoryMateria<T>
   }
   // Creación de métodos genèricos
   async create(item: T): Promise<T | any> {
+    //await this.entity.syncIndexes(); //sincroniza los indices
     let newItem = new this.entity(item); // prepara al objeto para añadir a la Base de Datos
     return await newItem.save();
   }

@@ -7,6 +7,7 @@ import JsonWebToken from "./middleware/JsonWebToken";
 import SemestreModule from "./modules/semestremodule/initS";
 import AmbienteModule from "./modules/ambientemodule/initAmbiente";
 import MateriaModule from "./modules/materiamodule/initMateria";
+import HorarioModule from "./modules/horariomodule/initH";
 
 import cors from "cors";
 
@@ -65,6 +66,7 @@ class App {
     new MateriaModule(`/${this.apiversion}/materia`, this);
     new SemestreModule(`/${this.apiversion}/semestre`, this);
     new AmbienteModule(`/${this.apiversion}/ambiente`, this);
+    new HorarioModule(`/${this.apiversion}/horario`, this);
   }
   public getApp() {
     return this.app;
