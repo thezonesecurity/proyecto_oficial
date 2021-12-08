@@ -86,10 +86,10 @@ export const LoginAD = () => {
   //logica para roles
   const { rolUser } = User;
   console.log("result USer Rol", rolUser);
-  const roles = rolUser || "Admin";
+  //const roles = rolUser || "Admin";
   //const roles = "Admin";
   //const roles = "Admin";    david@gmail.com  || diana@gmail.com
-  //const roles = "Docente";     jhon@gmail.com
+  const roles = "Docente"; // jhon@gmail.com
   //const roles = "Estudiante";   flor@gmail.com
   return (
     <>
