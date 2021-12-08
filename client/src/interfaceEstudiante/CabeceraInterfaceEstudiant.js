@@ -1,8 +1,9 @@
 import React from "react";
-import { MdOutlineAccountCircle } from "react-icons/md";
 import { useRouteMatch } from "react-router";
 import { Link } from "react-router-dom";
+
 import { RouteIE } from "./route/RouteIE";
+
 export const CabeceraInterfaceEstudiant = () => {
   let { path, url } = useRouteMatch();
   console.log(url);
@@ -34,8 +35,7 @@ export const CabeceraInterfaceEstudiant = () => {
   );
 };
 
-{
-  /*
+/*
  <div className="col card">
       <div>
         <div className="card text-center">
@@ -71,4 +71,3 @@ export const CabeceraInterfaceEstudiant = () => {
       </div>
     </div>
 */
-}

@@ -26,11 +26,9 @@ export const RouteAppIE = () => {
   );
 };
 
-{
-  /**<Router>
+/**<Router>
     <Switch>
       <Route path="/interface-estudiante" component={MainInterfaceEstudiante} />
     </Switch>
   </Router>;
 }; */
-}

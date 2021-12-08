@@ -31,8 +31,7 @@ export const CabeceraSemestre = () => {
   );
 };
 
-{
-  /*
+/*
   <div className="col card">
       <div>
         <div className="card text-center">
@@ -60,4 +59,3 @@ export const CabeceraSemestre = () => {
       </div>
     </div>
 */
-}

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { endpointsAMD } from "../horario/horarios/types/endPointsAMD";
 
+import { endpointsAMD } from "../horario/horarios/types/endPointsAMD";
 import { ContenidoListaAMD } from "./ContenidoListaAMD";
 
 export const ReporteDocentesyMaterias = () => {
   //-------------------------peticion list de Asignacion materia docente-------------------
-  const [listAMD, setListAMD] = useState({});
+  const [listAMD, setListAMD] = useState([]);
   useEffect(() => {
     fetch(endpointsAMD.listAMD.url, {
       method: endpointsAMD.listAMD.method,
@@ -18,7 +18,6 @@ export const ReporteDocentesyMaterias = () => {
         return response.json();
       })
       .then((data) => {
-        // this is the data we get after doing the delete request, do whatever you want with this data
         console.log("serverREsponse AMD", data.serverResponse);
         setListAMD(data.serverResponse);
       });
@@ -26,13 +25,14 @@ export const ReporteDocentesyMaterias = () => {
   }, []);
   return (
     <div>
-      <h4 className="titleForm">Reportes de Docentes y Materias</h4>
+      <h4 className="titleForm">Reportes de Asignacion Materias - Docentes</h4>
       <table className="table table-dark">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Materia</th>
             <th scope="col">Docente</th>
+            <th scope="col">Ambiente</th>
             <th scope="col">Grupo</th>
           </tr>
         </thead>

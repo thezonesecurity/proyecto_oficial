@@ -2,12 +2,12 @@ import React, { useState } from "react";
 
 export const ContenidoMateriaDocenteH = () => {
   const [valueSemestre, setValueSemestre] = useState({ valor: "" });
-  const handleChangeOption = (e) => {
+  /*const handleChangeOption = (e) => {
     e.preventDefault();
     //console.log("value", e.target.value);
     setValueSemestre(e.target.value);
   };
-  console.log("valueSemestre", valueSemestre);
+  console.log("valueSemestre", valueSemestre);*/
   return (
     <tbody>
       <tr>

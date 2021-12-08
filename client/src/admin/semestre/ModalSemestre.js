@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MdCreate } from "react-icons/md";
 import { Button, Modal } from "react-bootstrap";
 
-import DataSemestre from "./contex/AppContexSemestre";
-import { useFormSemestre } from "./hooks/useFormSemestre";
 import { endPointsS } from "./constants/endPointsS";
 import { ErrorValidacion } from "../ErrorValidacion";
 
@@ -17,7 +15,6 @@ export const ModalSemestre = (props) => {
   const [errors, setErrors] = useState(false);
   let componente;
   if (errors) {
-    //mostrando el error
     componente = (
       <ErrorValidacion mensaje="Verifique, no se mofifico ningun dato" />
     );
@@ -42,10 +39,9 @@ export const ModalSemestre = (props) => {
         setData(data.severResponse);
       });
     //console.log("datos", data);
-  }, []);
+  }, [props.dataItem._id]);
   console.log("datosApiModal", data);
   ///-------------------------------------------------------------------
-
   ///------------para escribir en los imputs--------------
   const handleChangeEdit = (e) => {
     // console.log(e.target.name);
@@ -80,11 +76,9 @@ export const ModalSemestre = (props) => {
         setErrors(false);
       }, 5000);
     }
-
     console.log("Editado", data);
   };
   //------------------------------------------------------
-
   return (
     <>
       <Button className="btn btn-outline-secondary btn-sm" onClick={handleShow}>

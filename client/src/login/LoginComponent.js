@@ -6,10 +6,9 @@ import store from "./store/store";
 import { Provider } from "react-redux";
 import DataUser from "./reducers/AppContextUSer";
 import { RouteAppAdmin } from "../route/RouteAppAdmin";
-import { RouteAppID } from "../interfaceDocente/route/RouteAppID";
 
 export const LoginComponent = () => {
-  const [user, setUser] = useState([]);
+  const [user] = useState([]);
   const [state, dispatch] = useReducer(AppReducerUser, user);
   return (
     <DataUser.Provider value={{ state, dispatch }}>

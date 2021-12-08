@@ -37,12 +37,11 @@ export const SidebarMenuIE = () => {
     </div>
   );
 };
-{
-  /*
+
+/*
  <div className="col-2 card">
       <div className="nav nav-tabs card-header-tabs">
         <SubSidebarIE />
       </div>
     </div>
 */
-}

@@ -9,7 +9,7 @@ import { endpointsH } from "./types/endPointsH";
 export const VerHorarios = () => {
   // const { stateH, dispatchH } = useContext(DataHorario);
   //console.log("contenido lista hORAIO", stateH);
-  const [dataHorario, setDatahorario] = useState({});
+  const [dataHorario, setDatahorario] = useState([]);
 
   useEffect(() => {
     const listData = async () => {

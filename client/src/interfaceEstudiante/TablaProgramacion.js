@@ -6,7 +6,7 @@ export const TablaProgramacion = () => {
       <div className="row align-items-start">
         <div className="col sm-5">
           <div className="form-check">
-            <h8>Diseño y Programación Gráfica</h8>
+            <h4>Diseño y Programación Gráfica</h4>
             <input
               className="form-check-input"
               type="checkbox"
@@ -25,8 +25,7 @@ export const TablaProgramacion = () => {
   );
 };
 
-{
-  /*
+/*
 <div className="row align-items-start">
       <div className="col sm-10">
         <td>
@@ -52,4 +51,3 @@ export const TablaProgramacion = () => {
       </div>
     </div>
 */
-}

@@ -1,13 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import { MdDeleteSweep } from "react-icons/md";
 
-import { ActionsSemestre } from "./constants/ActionsSemestre";
 import { endPointsS } from "./constants/endPointsS";
-import DataSemestre from "./contex/AppContexSemestre";
+
 import { ModalSemestre } from "./ModalSemestre";
 
 export const ContenidoListaSemestre = (props) => {
-  const { dispatch } = useContext(DataSemestre);
+  //const { dispatch } = useContext(DataSemestre);
   const handlerClickDelete = (id) => {
     //dispatch({ type: ActionsSemestre.REMOVE_FORM_SEMESTRE, payload: id });
     if (

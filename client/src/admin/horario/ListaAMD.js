@@ -5,7 +5,7 @@ import { endpointsAMD } from "./horarios/types/endPointsAMD";
 
 export const ListaAMD = () => {
   //-------------------------peticion list de Asignacion materia docente-------------------
-  const [listAMD, setListAMD] = useState({});
+  const [listAMD, setListAMD] = useState([]);
   useEffect(() => {
     fetch(endpointsAMD.listAMD.url, {
       method: endpointsAMD.listAMD.method,
@@ -33,6 +33,7 @@ export const ListaAMD = () => {
             <th scope="col">#</th>
             <th scope="col">Materia</th>
             <th scope="col">Docente</th>
+            <th scope="col">Ambiente</th>
             <th scope="col">Grupo</th>
             <th scope="col">Opciones</th>
           </tr>

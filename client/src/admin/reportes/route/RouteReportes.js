@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { InformeSemestre } from "../InformeSemestre";
 import { Planilla } from "../Planilla";
 import { ReporteDocentesyMaterias } from "../ReporteDocentesyMaterias";
+
 export const RouteReportes = ({ path }) => {
   return (
     <Switch>

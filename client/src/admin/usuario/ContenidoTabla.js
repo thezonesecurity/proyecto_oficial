@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { MdDeleteSweep } from "react-icons/md";
 
 import { actions } from "./contants/actions";
@@ -18,7 +18,7 @@ export const ContenidoTabla = ({
   num,
 }) => {
   //  console.log(num);
-  const { state, dispatch } = useContext(DataUsuario);
+  const { dispatch } = useContext(DataUsuario);
   //(handlerClick) es para elminiar al docente
   const handlerClickDelete = (id) => {
     dispatch({ type: actions.REMOVE_FORM, payload: id });
@@ -35,6 +35,7 @@ export const ContenidoTabla = ({
         <td>{direccion}</td>
         <td>{telefono}</td>
         <td>{carga_horaria}</td>
+        <td>{rolUser}</td>
         <td>
           <ModalUsuario />
           {"   "}

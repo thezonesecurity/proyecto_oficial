@@ -6,7 +6,7 @@ import DataAmbiente from "./contex/AppContext";
 import { AppReducerAmb } from "./contex/AppReducerAmb";
 
 export const MainAmbiente = () => {
-  const [ambiente, setambiente] = useState([]);
+  const [ambiente] = useState([]);
   const [state, dispatch] = useReducer(AppReducerAmb, ambiente);
   return (
     <DataAmbiente.Provider value={{ state, dispatch }}>

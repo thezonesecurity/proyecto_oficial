@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MdCreate } from "react-icons/md";
-import { Button, Modal, NavItem } from "react-bootstrap";
-//import DataMateria from "./contex/AppContext";
-import DataMateria from "./contex/AppContext";
-import { useForm } from "./hooks/useForm";
-import { endpointsM } from "./constants/endPointsM";
+import { Button, Modal } from "react-bootstrap";
 import axios from "axios";
+//import DataMateria from "./contex/AppContext";
+
+import { endpointsM } from "./constants/endPointsM";
 import { ErrorValidacion } from "../ErrorValidacion";
 
 export const ModalMateria = (props) => {
@@ -20,7 +19,7 @@ export const ModalMateria = (props) => {
   console.log("valueSemestre", valueSemestre);
   //config para el modal
   //------------------peticion al servidor de listas semestre---------------
-  const [dataSemestre, setDataSemestre] = useState({});
+  const [dataSemestre, setDataSemestre] = useState([]);
   useEffect(() => {
     const listData = async () => {
       const data = await axios
@@ -62,7 +61,7 @@ export const ModalMateria = (props) => {
         setData(data.serverResponse);
       });
     //console.log("datosApi", dataMateria);
-  }, []);
+  }, [props.dataItem._id]);
   //console.log("dataMOdal", data);
   //-----------------.FIN lógica para ver materias de la api-----------------------------
   // para poder escribir en los inputs
@@ -115,31 +114,7 @@ export const ModalMateria = (props) => {
     );
   } else componente = null;
   //--------------------------FIN lógica para guardar los datos editados----------------------
-  /*
-  //////////////////////////////////////////
-  const { state, setState, dispatch } = useContext(DataMateria);
-  const [form, handlerChangeForm, reserForm] = useForm({
-    id: props.id,
-    materia: props.materia,
-    sigla: props.sigla,
-    carga_horaria: props.carga_horaria,
-  });
 
-  console.log("form", form);
-  const { id, materia, sigla, carga_horaria } = form;
-
-  const handlerChange = (e) => {
-    // console.log("e -> ", e.target.value);
-    //let change = { ...form, [e.target.name]: e.target.value };
-    setState({ [e.target.name]: e.target.value });
-  };
-
-  //console.log("edit", edit);
-  const  handleSutmitEditData= (e) => {
-    e.preventDefault();
-    console.log("State", state);
-  };
-  */
   return (
     <>
       <Button className="btn btn-outline-secondary btn-sm" onClick={handleShow}>
@@ -278,8 +253,7 @@ export const ModalMateria = (props) => {
           })}
 */
 
-{
-  /** my codigo
+/** my codigo
  const [materia, setMateria] = useState(props.materia);
   const [sigla, setSigla] = useState(props.sigla);
   const [carga_horaria, setstateCarga_horaria] = useState(props.carga_horaria);
@@ -298,7 +272,6 @@ export const ModalMateria = (props) => {
     );
   };
 */
-}
 
 /* const edit = state.map((item) =>
     item.id === id
@@ -361,3 +334,29 @@ export const ModalMateria = (props) => {
     });
     handleClose();
   };*/
+
+/*
+  //////////////////////////////////////////
+  const { state, setState, dispatch } = useContext(DataMateria);
+  const [form, handlerChangeForm, reserForm] = useForm({
+    id: props.id,
+    materia: props.materia,
+    sigla: props.sigla,
+    carga_horaria: props.carga_horaria,
+  });
+
+  console.log("form", form);
+  const { id, materia, sigla, carga_horaria } = form;
+
+  const handlerChange = (e) => {
+    // console.log("e -> ", e.target.value);
+    //let change = { ...form, [e.target.name]: e.target.value };
+    setState({ [e.target.name]: e.target.value });
+  };
+
+  //console.log("edit", edit);
+  const  handleSutmitEditData= (e) => {
+    e.preventDefault();
+    console.log("State", state);
+  };
+  */

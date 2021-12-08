@@ -2,7 +2,7 @@ import React from "react";
 
 export const SidebarMenuID = () => {
   return (
-    <div class="col-3 col-s-3 menu">
+    <div className="col-3 col-s-3 menu">
       <div className="perfil">
         <h4 className="titleRol">DOCENTE</h4>
         <table>
@@ -38,12 +38,10 @@ export const SidebarMenuID = () => {
   );
 };
 
-{
-  /*
+/*
 <div className="col-3 card">
       <div className="nav nav-tabs card-header-tabs">
         <SubSidebarID />
       </div>
     </div>
 */
-}

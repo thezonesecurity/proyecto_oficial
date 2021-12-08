@@ -45,12 +45,10 @@ export const SidebarMenu = () => {
   );
 };
 
-{
-  /*
+/*
 <div className="col-2 card">
       <div className="nav nav-tabs card-header-tabs">
         <SubSidebar />
       </div>
     </div>
 */
-}

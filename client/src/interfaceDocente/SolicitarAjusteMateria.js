@@ -6,7 +6,7 @@ export const SolicitarAjusteMateria = () => {
       <h4 className="titleForm">Solicitar Ajuste De Materia</h4>
       <form>
         <div className="form-group row">
-          <label for="input" className="col-2 col-form-label">
+          <label htmlFor="input" className="col-2 col-form-label">
             PARA:
           </label>
           <div className="col-6">

@@ -1,13 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { endpointsM } from "./constants/endPointsM";
 
 import { ContenidoLista } from "./ContenidoLista";
-import DataMateria from "./contex/AppContext";
 
 export const ListaMateria = () => {
-  const { state, dispatch } = useContext(DataMateria);
+  //const { state, dispatch } = useContext(DataMateria);
 
-  const [dataMateria, setDataMateria] = useState({});
+  const [dataMateria, setDataMateria] = useState([]);
   useEffect(() => {
     fetch(endpointsM.listMateria.url, {
       method: endpointsM.listMateria.method,

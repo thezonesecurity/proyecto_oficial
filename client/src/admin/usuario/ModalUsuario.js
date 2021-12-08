@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MdCreate } from "react-icons/md";
 import { Button, Modal } from "react-bootstrap";
@@ -7,11 +7,10 @@ import axios from "axios";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { endpointsD } from "./types/endPointsD";
 import { useSelector } from "react-redux";
-import DataUsuario from "./contex/AppContext";
 
 export const ModalUsuario = (props) => {
-  console.log("modalPropsUsuario", props.dataItem);
-  const { state, dispatch } = useContext(DataUsuario);
+  console.log("modalPropsUsuario -> ", props.dataItem);
+  //const { state, dispatch } = useContext(DataUsuario);
   //const [data, setData] = useState(DataUsuario);
   //console.log("modaldocente", state);
   const [show, setShow] = useState(false);
@@ -20,50 +19,8 @@ export const ModalUsuario = (props) => {
     setErrors(false);
   }; //handleClose cierra el modal
   const handleShow = () => setShow(true); //handleShow abre el modal
-  const stateob = Object.assign({}, state);
-
+  // const stateob = Object.assign({}, state);
   //console.log("props modal doc", props.dataItem);
-  //------------------------------LOGICA PARA VER UN USARIO-------------------------
-  // console.log("dataVacio", data);
-  const { auth } = useSelector((state) => state);
-  const { token } = auth;
-  const [dataUser, setDataUser] = useState({});
-  useEffect(() => {
-    fetch(endpointsD.getUser.url + props.dataItem._id, {
-      method: endpointsD.getUser.method,
-      headers: new Headers({
-        //Authorization: token,
-        "Content-Type": "application/x-www-form-urlencoded",
-      }),
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log("data serverResponse", data.serverResponse);
-        setDataUser(data.serverResponse);
-      });
-    //console.log("datosMOdalAmbiente", data);
-  }, []);
-  console.log("datosMOdalUser", dataUser);
-  /*
-  useEffect(() => {
-    const peticionGetUser = async () => {
-      const result = await axios
-        .get(endpointsD.getUser.url + props.dataItem._id, token)
-        .catch(function (error) {
-          console.log(error);
-        });
-
-      console.log("reultDataApi", result);
-      //setDataUser(result);
-    };
-    peticionGetUser();
-  }, []);
-  console.log("dataApiModalUser", dataUser);
-  */
-  //------------------------------FIN LOGICA PARA VER UN USARIO-------------------------
-
   const [errors, setErrors] = useState(false);
   const handleChangeEdit = (e) => {
     // console.log(e.target.name);
@@ -75,18 +32,20 @@ export const ModalUsuario = (props) => {
     });
   };
   //-------------------LOGICA PARA GUARDAR UN USUARIO MODIFICADO--------------------
+  const { auth } = useSelector((state) => state);
+  const { token } = auth;
   const [data, setData] = useState(props.dataItem);
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (
-      props.dataItem.nombre === data.nombre ||
-      props.dataItem.apellidos === data.apellidos ||
-      props.dataItem.ci === data.ci ||
-      props.dataItem.email === data.email ||
-      props.dataItem.telefono === data.telefono ||
-      props.dataItem.direccion === data.direccion ||
-      props.dataItem.carga_horaria === data.carga_horaria
+      props.dataItem.nombre !== data.nombre ||
+      props.dataItem.apellidos !== data.apellidos ||
+      props.dataItem.ci !== data.ci ||
+      props.dataItem.email !== data.email ||
+      props.dataItem.telefono !== data.telefono ||
+      props.dataItem.direccion !== data.direccion ||
+      props.dataItem.carga_horaria !== data.carga_horaria ||
+      props.dataItem.rolUser !== data.rolUser
     ) {
       const config = {
         headers: {
@@ -95,44 +54,39 @@ export const ModalUsuario = (props) => {
         },
       };
       console.log("config", config);
-      const peticionUpdateUser = async () => {
-        const result = await axios
-          .put(endpointsD.editUser.url + props.dataItem._id, data, config)
-          .catch(function (error) {
-            console.log(error);
-          });
-        console.log("reult", result);
-      };
-      peticionUpdateUser();
-      handleClose();
+      if (data.rolUser !== "Docente") {
+        data.carga_horaria = "0";
+        const peticionUpdateUser = async () => {
+          const result = await axios
+            .put(endpointsD.editUser.url + props.dataItem._id, data, config)
+            .catch(function (error) {
+              console.log(error);
+            });
+          console.log("reult", result);
+        };
+        peticionUpdateUser();
+        handleClose();
+      } else {
+        const peticionUpdateUser = async () => {
+          const result = await axios
+            .put(endpointsD.editUser.url + props.dataItem._id, data, config)
+            .catch(function (error) {
+              console.log(error);
+            });
+          console.log("reult", result);
+        };
+        peticionUpdateUser();
+        handleClose();
+      }
     } else {
       setErrors(true);
       setTimeout(() => {
         setErrors(false);
       }, 4000);
     }
-    /*fetch(endpointsD.editUser.url + props.dataItem._id, {
-      method: endpointsD.editUser.method,
-      body: JSON.stringify(data),
-      headers: {
-        Authorization: token,
-        "Content-Type": "application/json",
-      },
-    });
-    console.log("EditadoSave", data);
-    console.log("token", token);
-    console.log("propsid", props.dataItem._id);*/
-    ///--------------------------------------------------------
-    //actualiza datos--------------
-    // console.log("save user", data);
-    //const response = await axios.put(
-    // `http://localhost:8000/api1.0/user/${_id}`,
-    //data
-    // );
-    // console.log("update", response)
   };
-  //-------------------LOGICA PARA GUARDAR UN USUARIO MODIFICADO--------------------
-  //para controlar si la tabla esta vacia
+  console.log("EditadoSave modal user -> ", data);
+  //-------------------FIN LOGICA PARA GUARDAR UN USUARIO MODIFICADO--------------------
   let componente;
   if (errors) {
     componente = (
@@ -151,6 +105,35 @@ export const ModalUsuario = (props) => {
         </Modal.Header>
         <Modal.Body>
           <form>
+            <div className="form-group row">
+              <label className="col-4 col-form">Asignar Rol</label>
+              <div className="col-7">
+                <select
+                  id="rolUser"
+                  className="form-select"
+                  value={data.rolUser}
+                  name="rolUser"
+                  onChange={handleChangeEdit}
+                >
+                  <option defaultValue="elegirRol">Designar Rol</option>
+                  <option value="Admin">Administrador</option>
+                  <option value="Docente">Docente</option>
+                  <option value="Estudiante">Estudiante</option>
+                </select>
+              </div>
+            </div>
+            {data.rolUser === "Docente" && (
+              <div className="bordesInputs">
+                <label htmlFor="carga_horaria">Carga Hrs.</label>
+                <input
+                  name="carga_horaria"
+                  type="number"
+                  value={data.carga_horaria}
+                  placeholder="ej. 45 min"
+                  onChange={handleChangeEdit}
+                />
+              </div>
+            )}
             <label htmlFor="nombre">Nombre</label>
             <input
               type="text"
@@ -205,21 +188,6 @@ export const ModalUsuario = (props) => {
               onChange={handleChangeEdit}
               placeholder="79727515"
             />
-            {props.dataItem.rolUser === "Docente" ? (
-              <>
-                <label htmlFor="carga_horaria">C. Horaria</label>
-                <input
-                  id="carga_horaria"
-                  name="carga_horaria"
-                  type="number"
-                  value={data.carga_horaria}
-                  onChange={handleChangeEdit}
-                  placeholder="ej. 45 min"
-                />
-              </>
-            ) : (
-              <></>
-            )}
           </form>
           <br />
           {componente}
@@ -236,3 +204,62 @@ export const ModalUsuario = (props) => {
     </>
   );
 };
+//------------------------------LOGICA PARA VER UN USARIO-------------------------
+// console.log("dataVacio", data);
+/*
+  const [dataUser, setDataUser] = useState({});
+  useEffect(() => {
+    fetch(endpointsD.getUser.url + props.dataItem._id, {
+      method: endpointsD.getUser.method,
+      headers: new Headers({
+        //Authorization: token,
+        "Content-Type": "application/x-www-form-urlencoded",
+      }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        //console.log("data serverResponse", data.serverResponse);
+        setDataUser(data.serverResponse);
+      });
+    //console.log("datosMOdalAmbiente", data);
+  }, [props.dataItem._id]);*/
+
+/*
+  useEffect(() => {
+    const peticionGetUser = async () => {
+      const result = await axios
+        .get(endpointsD.getUser.url + props.dataItem._id, token)
+        .catch(function (error) {
+          console.log(error);
+        });
+
+      console.log("reultDataApi", result);
+      //setDataUser(result);
+    };
+    peticionGetUser();
+  }, []);
+  console.log("dataApiModalUser", dataUser);
+  */
+//------------------------------FIN LOGICA PARA VER UN USARIO-------------------------
+
+/*fetch(endpointsD.editUser.url + props.dataItem._id, {
+      method: endpointsD.editUser.method,
+      body: JSON.stringify(data),
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+    });
+    console.log("EditadoSave", data);
+    console.log("token", token);
+    console.log("propsid", props.dataItem._id);*/
+///--------------------------------------------------------
+//actualiza datos--------------
+// console.log("save user", data);
+//const response = await axios.put(
+// `http://localhost:8000/api1.0/user/${_id}`,
+//data
+// );
+// console.log("update", response)

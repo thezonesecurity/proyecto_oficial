@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { MdDeleteSweep } from "react-icons/md";
 
-import { Actions } from "./constants/Actions";
 import { endpointsM } from "./constants/endPointsM";
-import DataMateria from "./contex/AppContext";
 import { ModalMateria } from "./ModalMateria";
 
 export const ContenidoLista = (
@@ -15,7 +13,7 @@ export const ContenidoLista = (
   semestre,*/
   props
 ) => {
-  const { state, dispatch } = useContext(DataMateria);
+  // const { state, dispatch } = useContext(DataMateria);
   //console.log("contenido lista", state);
   const handlerClickDelete = (id) => {
     //console.log("eleminado");

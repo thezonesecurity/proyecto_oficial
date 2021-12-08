@@ -1,23 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Modal, Button } from "react-bootstrap";
-import { useForm } from "../../materia/hooks/useForm";
-import DataHorario from "./contex/AppContexH";
-import { ActionsH } from "./constants/ActionsH";
-import { endpointsH } from "./types/endPointsH";
 import axios from "axios";
-//import { useDispatch } from "react-redux";
+
+import { endpointsH } from "./types/endPointsH";
 
 export default function ModalListaHorario(props) {
   //console.log("modal", props.dataItem._id);
-
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   //////----------------------------logica para ver un Horario-----------------------------------
-
   const [data, setData] = useState({});
-
   useEffect(() => {
     fetch(endpointsH.getHorarios.url + props.dataItem._id, {
       method: endpointsH.getHorarios.method,
@@ -30,20 +24,13 @@ export default function ModalListaHorario(props) {
         return response.json();
       })
       .then((data) => {
-        // this is the data we get after doing the delete request, do whatever you want with this data
         //console.log("dataserver", data.serverResponse);
         setData(data.serverResponse);
       });
     //console.log("datos", data);
-  }, []);
-
+  }, [props.dataItem._id]);
   ////----------------------------------fin logica----------------------------------------------
-
   ///------------para escribir en los imputs--------------
-  const [amb, setAmb] = useState();
-
-  const [sig, setSig] = useState();
-
   const handleChangeEdit = (e) => {
     console.log("Sigla---->", e.target.value);
     setData((prev) => {
@@ -53,30 +40,9 @@ export default function ModalListaHorario(props) {
       };
     });
   };
-
-  const handleChangeEditAmbiente = (e) => {
-    console.log("Ambiente---->", e.target.value);
-    setAmb((prev) => {
-      return {
-        ...prev,
-        [e.target.name]: e.target.value,
-      };
-    });
-  };
-  console.log("ambiente", amb);
-  console.log("sigla", sig);
-
-  const test = [amb && sig];
-  // const [test, setTest] = useState(amb, sig);
-  //setTest(amb , sig);
-  console.log("test", test);
-
   ///-------------------------fin------------------------------
-
   ///----------------------Mostrar Materia---------------------------
-
-  const [dataMateria, setDataMateria] = useState({});
-
+  const [dataMateria, setDataMateria] = useState([]);
   useEffect(() => {
     const Materia = async () => {
       const data = await axios
@@ -89,29 +55,10 @@ export default function ModalListaHorario(props) {
       // console.log("server", data.data.serverResponse);
     };
     Materia();
-
-    /* fetch(endpointsH.verMateria.url + props.dataItem._id, {
-      method: endpointsH.verMateria.method,
-      headers: new Headers({
-        // Authorization: token,
-        "Content-Type": "application/x-www-form-urlencoded",
-      }),
-    })
-      .then((response) => {
-        console.log("response", response);
-        return response.json();
-      })
-      .then((dato) => {
-        console.log("serverREsponseMateria", dato);
-        //setDataMateria(data.serverResponse);
-      });*/
   }, []);
   //console.log("datosApiMateria", dataMateria);
-
   ///-----------------------Fin mostrar Materia----------------------
-
   ///-----------------------Mostrar Ambiente-------------------------
-
   const [listAmbiente, setListAmbiente] = useState({});
   useEffect(() => {
     fetch(endpointsH.verAmbiente.url, {
@@ -130,9 +77,7 @@ export default function ModalListaHorario(props) {
       });
     // console.log("datosApiAmbiente", listAmbiente);
   }, []);
-
   ///------------------------Fin mostrar Ambiente--------------------
-
   ///-----------------para guardar lo editado--------------
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -148,7 +93,6 @@ export default function ModalListaHorario(props) {
     handleClose();
   };
   //-----------------------fin editado-------------------------------
-
   return (
     <>
       <Button color="success" className="nextButton" onClick={handleShow}>
@@ -169,7 +113,6 @@ export default function ModalListaHorario(props) {
               value={data.hora}
               onChange={handleChangeEdit}
             />
-
             <div className="form-group row">
               <label className="col-2 col-form">Lunes</label>
               <div className="col-8">
@@ -419,3 +362,41 @@ export default function ModalListaHorario() {
   );
 }
 */
+
+/*
+   const [amb, setAmb] = useState();
+
+  const [sig, setSig] = useState();
+  const handleChangeEditAmbiente = (e) => {
+    console.log("Ambiente---->", e.target.value);
+    setAmb((prev) => {
+      return {
+        ...prev,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
+  console.log("ambiente", amb);
+  console.log("sigla", sig);
+
+  const test = [amb && sig];
+  // const [test, setTest] = useState(amb, sig);
+  //setTest(amb , sig);
+  console.log("test", test);
+*/
+
+/* fetch(endpointsH.verMateria.url + props.dataItem._id, {
+      method: endpointsH.verMateria.method,
+      headers: new Headers({
+        // Authorization: token,
+        "Content-Type": "application/x-www-form-urlencoded",
+      }),
+    })
+      .then((response) => {
+        console.log("response", response);
+        return response.json();
+      })
+      .then((dato) => {
+        console.log("serverREsponseMateria", dato);
+        //setDataMateria(data.serverResponse);
+      });*/

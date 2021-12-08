@@ -9,7 +9,6 @@ export const useForm = (initForm) => {
     setForm(initForm);
   };
   //para crear user
-
   const [formUser, setFormUser] = useState(initForm);
   const handlerChangeFormUser = ({ target }) => {
     setFormUser({ ...formUser, [target.name]: target.value });
@@ -17,7 +16,6 @@ export const useForm = (initForm) => {
   const handlerResetFormUser = ({ target }) => {
     setFormUser(initForm);
   };
-
   return [
     form,
     handlerChangeForm,

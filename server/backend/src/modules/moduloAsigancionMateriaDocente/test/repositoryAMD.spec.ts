@@ -6,7 +6,7 @@ import { AMDRepository } from "../repositoriesAMD/AMDReposirity";
 const newAMD = {
   materia: "biologia",
   sigla: "BIO-125",
-  grupo: 1,
+  grupo: "1",
   docente: "diana manriquez",
   ambiente: "P-3 A-4",
 };
@@ -42,7 +42,7 @@ describe("CRUD Operators of AMDRepository class", () => {
     await amdRepo.update(updateAMD.id, {
       materia: "biologia 2",
       sigla: "BIO-225",
-      grupo: 1,
+      grupo: "1",
       docente: "diana alice manriquez",
       ambiente: "P-22 A-22",
     });

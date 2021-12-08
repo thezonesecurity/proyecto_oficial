@@ -16,7 +16,7 @@ export const AMDModelSchema = new Schema({
   sigla: { type: String, required: false },
   grupo: { type: String, required: true },
   docente: { type: String, required: true },
-  ambiente: { type: String, required: false },
+  ambiente: { type: String, required: true },
   createAt: { type: Date, default: Date.now() },
   updateAt: { type: Date },
 });
