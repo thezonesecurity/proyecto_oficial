@@ -2,7 +2,7 @@ import React from "react";
 
 export const SidebarMenuIE = () => {
   return (
-    <div class="col-3 col-s-3 menu">
+    <div className="col-3 col-s-3 menu">
       <div className="perfil">
         <h4 className="titleRol">ESTUDIANTE</h4>
         <table>

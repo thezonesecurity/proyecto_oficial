@@ -65,16 +65,18 @@ export const LoginAD = () => {
           const getUser = () => {
             fetch(endpointsL.verUser.url + element._id, {
               method: endpointsL.verUser.method,
+              //Authorization: token,
               headers: {
                 "Content-Type": "application/json",
               },
             })
               .then((response) => {
+                // console.log("response", response);
                 return response.json();
               })
               .then((data) => {
                 console.log("serverREsponseLogin -> ", data.serverResponse);
-                return setUser(data.serverResponse);
+                setUser(data.serverResponse);
               });
           };
           getUser();
@@ -90,9 +92,9 @@ export const LoginAD = () => {
   console.log("result USer Rol", rolUser);
   const roles = rolUser;
   //const roles = "Admin" || "Admin";
-  //const roles = "Admin";    david@gmail.com  || diana@gmail.com
-  //const roles = "Docente";     jhon@gmail.com
-  //const roles = "Estudiante";   flor@gmail.com
+  //const roles = "Admin";
+  //const roles = "Docente";
+  //const roles = "Estudiante";
   return (
     <>
       {token == null ? (

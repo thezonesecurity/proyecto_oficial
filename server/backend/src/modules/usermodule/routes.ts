@@ -33,14 +33,11 @@ class Routes {
       .get((request: Request, response: Response) => {
         this.userController.get(request, response);
       });
-    this.app.route(`${this.rootPath}/${this.users}/:id`).get(
-      /*(request: Request, response: Response, next: NextFunction) => {
-        this.mainApp.getJsonWebToken().verifyToken(request, response, next);
-      },*/
-      (request: Request, response: Response) => {
+    this.app
+      .route(`${this.rootPath}/${this.users}/:id`)
+      .get((request: Request, response: Response) => {
         this.userController.getId(request, response);
-      }
-    );
+      });
 
     this.app.route(`${this.rootPath}/${this.users}/:id`).put(
       /* (request: Request, response: Response, next: NextFunction) => {
