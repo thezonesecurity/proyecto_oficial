@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 
 export const ModalUsuario = (props) => {
   console.log("modalPropsUsuario -> ", props.dataItem);
+  const [errors, setErrors] = useState(false);
   //const { state, dispatch } = useContext(DataUsuario);
   //const [data, setData] = useState(DataUsuario);
   //console.log("modaldocente", state);
@@ -21,7 +22,6 @@ export const ModalUsuario = (props) => {
   const handleShow = () => setShow(true); //handleShow abre el modal
   // const stateob = Object.assign({}, state);
   //console.log("props modal doc", props.dataItem);
-  const [errors, setErrors] = useState(false);
   const handleChangeEdit = (e) => {
     // console.log(e.target.name);
     setData((prev) => {

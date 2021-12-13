@@ -9,7 +9,7 @@ export abstract class BaseRepository<T> implements IWrite<T>, IRead<T> {
   }
   //METODOS DE CRUD USUARIOS
   async create(item: T): Promise<T | any> {
-    //await this.entity.syncIndexes(); //sincroniza los indices
+    // await this.entity.syncIndexes(); //sincroniza los indices
     let newItem = new this.entity(item);
     return await newItem.save();
   }

@@ -45,7 +45,7 @@ export const ListaAMD = () => {
         ) : (
           <tbody>
             <tr className="table-active">
-              <td colSpan="6">No hay Ambientes registrados...</td>
+              <td colSpan="6">No existe materias asignados a ningun docente</td>
             </tr>
           </tbody>
         )}
