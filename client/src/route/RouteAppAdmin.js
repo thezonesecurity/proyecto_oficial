@@ -41,4 +41,9 @@ export const RouteAppAdmin = ({ path }) => {
           <Route path="/register" component={Register} />
           */
 
-/*para ruta login */
+/*para ruta login
+
+
+ <RouteAppID />
+        <RouteAppIE />
+*/
