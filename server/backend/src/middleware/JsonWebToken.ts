@@ -81,7 +81,7 @@ class JsonWebToken {
           console.log("User 2");
           let regularExpression = new RegExp(rol.url, "g");
           if (
-            rol.method?.toUpperCase() === params.method.toUpperCase() && //toUpperCase() es para cambiar de mayuscula a miniscula
+            rol.metodoRol?.toUpperCase() === params.method.toUpperCase() && //toUpperCase() es para cambiar de mayuscula a miniscula
             params.url.match(regularExpression) !== null
           ) {
             console.log("todo OK");

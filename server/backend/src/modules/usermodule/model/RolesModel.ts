@@ -1,16 +1,17 @@
 import { Document, Mongoose, Schema } from "mongoose";
 
 export interface IRoles {
-  name?: string;
-  method?: string;
+  nombreRol?: string;
+  metodoRol?: string;
   url?: string;
 }
 export interface Roles extends Document, IRoles {
-  created: string;
+  createAt: Date;
+  updateAt: Date;
 }
 const RolesSchema = new Schema({
-  name: { type: String, required: true },
-  method: {
+  nombreRol: { type: String, required: true },
+  metodoRol: {
     type: String,
     required: true,
     enum: ["post", "get", "put", "delete"],
@@ -19,7 +20,8 @@ const RolesSchema = new Schema({
     type: String,
     required: true,
   },
-  created: { type: Date, default: Date.now() },
+  creatAt: { type: Date, default: Date.now() },
+  updateAt: { type: Date },
 });
 export const createModel = (mongoose: Mongoose) => {
   return mongoose.model<Roles>("roles", RolesSchema);

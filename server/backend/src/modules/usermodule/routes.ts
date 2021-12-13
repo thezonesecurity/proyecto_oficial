@@ -33,14 +33,11 @@ class Routes {
       .get((request: Request, response: Response) => {
         this.userController.get(request, response);
       });
-    this.app.route(`${this.rootPath}/${this.users}/:id`).get(
-      /*(request: Request, response: Response, next: NextFunction) => {
-        this.mainApp.getJsonWebToken().verifyToken(request, response, next);
-      },*/
-      (request: Request, response: Response) => {
+    this.app
+      .route(`${this.rootPath}/${this.users}/:id`)
+      .get((request: Request, response: Response) => {
         this.userController.getId(request, response);
-      }
-    );
+      });
 
     this.app.route(`${this.rootPath}/${this.users}/:id`).put(
       /* (request: Request, response: Response, next: NextFunction) => {
@@ -84,9 +81,9 @@ class Routes {
 
     ///roles
     this.app.route(`${this.rootPath}/roles`).post(
-      (request: Request, response: Response, next: NextFunction) => {
+      /*(request: Request, response: Response, next: NextFunction) => {
         this.mainApp.getJsonWebToken().verifyToken(request, response, next);
-      },
+      }, */
       (request: Request, response: Response) => {
         this.rolesController.create(request, response);
       }
@@ -102,27 +99,27 @@ class Routes {
     );
 
     this.app.route(`${this.rootPath}/roles`).get(
-      (request: Request, response: Response, next: NextFunction) => {
+      /*(request: Request, response: Response, next: NextFunction) => {
         this.mainApp.getJsonWebToken().verifyToken(request, response, next);
-      },
+      }, */
       (request: Request, response: Response) => {
         this.rolesController.get(request, response);
       }
     );
 
     this.app.route(`${this.rootPath}/roles/:id`).put(
-      (request: Request, response: Response, next: NextFunction) => {
+      /*(request: Request, response: Response, next: NextFunction) => {
         this.mainApp.getJsonWebToken().verifyToken(request, response, next);
-      },
+      }, */
       (request: Request, response: Response) => {
         this.rolesController.update(request, response);
       }
     );
 
     this.app.route(`${this.rootPath}/roles/:id`).delete(
-      (request: Request, response: Response, next: NextFunction) => {
+      /*(request: Request, response: Response, next: NextFunction) => {
         this.mainApp.getJsonWebToken().verifyToken(request, response, next);
-      },
+      },  */
       (request: Request, response: Response) => {
         this.rolesController.delete(request, response);
       }
@@ -130,9 +127,9 @@ class Routes {
 
     //Asing roles
     this.app.route(`${this.rootPath}/addrol/:idUs/:idRol`).post(
-      (request: Request, response: Response, next: NextFunction) => {
+      /*(request: Request, response: Response, next: NextFunction) => {
         this.mainApp.getJsonWebToken().verifyToken(request, response, next);
-      },
+      }, */
       (request: Request, response: Response) => {
         this.rolesController.addUserRol(request, response);
       }

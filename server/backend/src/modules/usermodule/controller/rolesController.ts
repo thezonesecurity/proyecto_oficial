@@ -16,10 +16,10 @@ class RolesController {
   }
   //create roles
   public async create(request: Request, response: Response) {
-    const { name, method, url } = request.body;
+    const { nombreRol, metodoRol, url } = request.body;
     const responseData = await this.rolesRepository.create({
-      name,
-      method,
+      nombreRol,
+      metodoRol,
       url,
     });
     response.status(201).json({ ServerResponse: responseData });
@@ -38,8 +38,12 @@ class RolesController {
   public async update(request: Request, response: Response) {
     //es para editar o actualizar los datos de roles
     const { id } = request.params;
-    const { name, method, url } = request.body;
-    const update = await this.rolesRepository.update(id, { name, method, url });
+    const { nombreRol, metodoRol, url } = request.body;
+    const update = await this.rolesRepository.update(id, {
+      nombreRol,
+      metodoRol,
+      url,
+    });
     response.status(200).json({ serverResponse: update });
   }
   public async delete(request: Request, response: Response) {
@@ -48,7 +52,7 @@ class RolesController {
     response.status(200).json({ serverResponse: deleteData });
   }
   public async addUserRol(request: Request, response: Response) {
-    //esto es para la signacion de roles
+    //esto es para la asignacion de roles
     const { idUs, idRol } = request.params;
     const result = await this.rolesRepository.addRolUser(idUs, idRol);
     response.status(201).json({ serverResponse: result });

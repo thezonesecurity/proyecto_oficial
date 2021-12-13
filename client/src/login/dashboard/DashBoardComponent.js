@@ -12,6 +12,7 @@ import { HeaderInterface } from "../../HeaderInterface";
 //import { SidebarMenu } from "../../SidebarMenu";
 
 export const DashBoardComponent = ({ children, ...rest }) => {
+  console.log("children", children);
   //const { auth } = useSelector((state) => state);
   /*si el rol de usuario es admin se va a dirijir a RouterAppAdmin */
   /* si el rol de usuario es docente se va a dirijir a RouterAppDocente*/
