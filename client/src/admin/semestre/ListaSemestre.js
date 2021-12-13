@@ -1,14 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { endPointsS } from "./constants/endPointsS";
 
 import { ContenidoListaSemestre } from "./ContenidoListaSemestre";
-import DataSemestre from "./contex/AppContexSemestre";
 
 export const ListaSemestre = () => {
-  const { state } = useContext(DataSemestre);
+  //const { state } = useContext(DataSemestre);
   //console.log("listaSemestrestate", state);
   ///-------------------para ver las lista de semestres-----------------------------
-  const [listSemestre, setListSemestre] = useState({});
+  const [listSemestre, setListSemestre] = useState([]);
   //------------------------------------
   useEffect(() => {
     fetch(endPointsS.listaSemestre.url, {

@@ -39,8 +39,7 @@ export const CabeceraHorario = () => {
   );
 };
 
-{
-  /*
+/*
 <div className="col card">
       <div>
         <div className="card text-center">
@@ -75,4 +74,3 @@ export const CabeceraHorario = () => {
       </div>
     </div>
 */
-}

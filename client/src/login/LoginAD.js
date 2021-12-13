@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { MdAttachEmail, MdVpnKey } from "react-icons/md";
-import { useForm } from "./hooks/useForm";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+
+import { useForm } from "./hooks/useForm";
 import { auth, authAsync } from "./actions/auth";
 import { endpointsL } from "./types/endPointsL";
-import axios from "axios";
-import { InputGroup } from "react-bootstrap";
-//import { useSelector } from "react-redux";
 
+//import { useSelector } from "react-redux";
 export const LoginAD = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -20,11 +20,11 @@ export const LoginAD = () => {
       console.log("la credenciales no son validas");
       return;
     }
-  }, []);
+  }, [dispatch]);
 
   const { auth: authRename, msnerror } = useSelector((state) => state);
   const { token } = authRename;
-  const [form, handlerChangeForm, handlerResetForm] = useForm({
+  const [form, handlerChangeForm] = useForm({
     email: "",
     password: "",
   });
@@ -37,7 +37,7 @@ export const LoginAD = () => {
   };
 
   //-------------------- peticion de listar usuarios-----------------------
-  const [dataUser, setDataUser] = useState({});
+  const [dataUser, setDataUser] = useState([]);
   const [User, setUser] = useState({});
   useEffect(() => {
     const listData = async () => {
@@ -48,20 +48,22 @@ export const LoginAD = () => {
         });
       //console.log("result", data);
       setDataUser(data.data.serverResponse);
-      //console.log("serverLOgin", data.data.serverResponse);
+      console.log("state1", data.data.serverResponse);
     };
     listData();
-  }, []);
+  }, [email]);
   console.log("serverLOgin", dataUser);
   console.log("email", form.email);
+
   useEffect(() => {
-    const fuc = async () => {
+    const fuc = () => {
       dataUser.map((element) => {
         if (form.email === element.email) {
           console.log("encontro", element.nombre, element.email, element._id);
+          console.log("element", element);
           //-----------------peticion para ver un usuario------------------------
-          const getUser = async () => {
-            await fetch(endpointsL.verUser.url + element._id, {
+          const getUser = () => {
+            fetch(endpointsL.verUser.url + element._id, {
               method: endpointsL.verUser.method,
               headers: {
                 "Content-Type": "application/json",
@@ -72,24 +74,24 @@ export const LoginAD = () => {
               })
               .then((data) => {
                 console.log("serverREsponseLogin -> ", data.serverResponse);
-                setUser(data.serverResponse);
+                return setUser(data.serverResponse);
               });
           };
           getUser();
         }
       });
     };
-    //fuc();
-  }, []);
+    fuc();
+  }, [dataUser, form.email]);
   console.log("result USer", User);
 
   //logica para roles
   const { rolUser } = User;
   console.log("result USer Rol", rolUser);
-  //const roles = rolUser || "Admin";
-  //const roles = "Admin";
+  const roles = rolUser;
+  //const roles = "Admin" || "Admin";
   //const roles = "Admin";    david@gmail.com  || diana@gmail.com
-  const roles = "Docente"; // jhon@gmail.com
+  //const roles = "Docente"; // jhon@gmail.com
   //const roles = "Estudiante";   flor@gmail.com
   return (
     <>
@@ -144,9 +146,9 @@ export const LoginAD = () => {
                       className="btn float-right login_btn"
                     />
                     <br />
-                    <div className="d-flex justify-content-center links">
+                    {/* <div className="d-flex justify-content-center links">
                       <Link to="/register">Sign Up</Link>
-                    </div>
+                    </div> */}
                   </div>
                 </form>
               </div>

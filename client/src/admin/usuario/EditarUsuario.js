@@ -4,18 +4,7 @@ import { ContenidoTabla } from "./ContenidoTabla";
 import DataUsuario from "./contex/AppContext";
 
 export const EditarUsuario = () => {
-  const { state, dispatch } = useContext(DataUsuario);
-  const {
-    num,
-    nombre,
-    apellidos,
-    ci,
-    email,
-    direccion,
-    telefono,
-    carga_horaria,
-    id,
-  } = state;
+  const { state } = useContext(DataUsuario);
 
   return (
     <>
@@ -49,3 +38,16 @@ export const EditarUsuario = () => {
     </>
   );
 };
+
+/*
+const {
+    num,
+    nombre,
+    apellidos,
+    ci,
+    email,
+    direccion,
+    telefono,
+    carga_horaria,
+    id,
+  } = state; */

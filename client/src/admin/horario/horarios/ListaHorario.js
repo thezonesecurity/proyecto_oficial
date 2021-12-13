@@ -1,7 +1,4 @@
-import React, { useContext } from "react";
-import { MdDeleteSweep } from "react-icons/md";
-
-import DataHorario from "./contex/AppContexH";
+import React from "react";
 import ModalListaHorario from "./ModalListaHorario";
 
 export const ListaHorario = (props) => {

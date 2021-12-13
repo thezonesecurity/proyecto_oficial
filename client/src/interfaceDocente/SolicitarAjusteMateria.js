@@ -14,36 +14,65 @@ export const SolicitarAjusteMateria = () => {
     // valido: null,
   });
   const { para, de, asunto } = form;
-
+  console.log("FORM", form);
   // -----------para crear-------------
   const [errors, setErrors] = useState(false);
   const [createUser, setCreateUser] = useState(false);
 
+  const validate = {
+    email: /^[\w\.]+@\w+[.][\w]{2,3}$/,
+  };
+
+  const [valido, setValido] = useState(false);
+
+  /*const validacion = (validoP, validoD) => {
+    if (validate.email.test(validoP) && validate.email.test(validoD)) {
+      console.log("input correcto");
+      setValido(true);
+      setTimeout(() => {
+        setValido(false);
+      }, 5000);
+    } else {
+      console.log("input incorrecto");
+      setValido(false);
+    }
+  };
+  console.log("valido", valido);*/
   //-----------------
   const handlerSubmitSaveIDocente = (e) => {
     e.preventDefault();
     if (para === "" || de === "" || asunto === "") {
       setErrors(true);
-      setCreateUser(false);
       setTimeout(() => {
         setErrors(false);
       }, 5000);
       return;
+    }
+
+    //validacion(para, de);
+    if (validate.email.test(para) && validate.email.test(de)) {
+      console.log("input correcto");
+      setValido(true);
+      setCreateUser(false);
+      setTimeout(() => {
+        setValido(false);
+      }, 5000);
     } else {
+      console.log("input incorrecto");
       setCreateUser(true);
       setTimeout(() => {
         setCreateUser(false);
       }, 5000);
     }
 
-    const peticionGetID = async () => {
+    const peticionPostID = async () => {
       const result = await axios
         .post("http://localhost:8000/api1.0/idocente/", form)
         .catch(function (error) {
           console.log(error);
         });
     };
-    peticionGetID();
+    peticionPostID();
 
     resetForm();
     setErrors(false);
@@ -55,15 +84,22 @@ export const SolicitarAjusteMateria = () => {
   if (errors) {
     //mostrando el error
     componente = (
-      <ErrorValidacion mensaje="Verifique todos los campos son requeridos" />
+      <ErrorValidacion mensaje="Verifique, todos los campos son requeridos" />
     );
   } else componente = null;
 
   let created;
   if (createUser) {
-    created = <MessageCreateUser mensaje="Mensaje enviado correctamente" />;
+    created = <ErrorValidacion mensaje="Verifique, emails incorrectos" />;
   } else created = null;
   //console.log("stateCrearSemestre", state);
+
+  let errornovalido;
+  if (valido) {
+    errornovalido = (
+      <MessageCreateUser mensaje="Mensaje enviado correctamente" />
+    );
+  } else errornovalido = null;
 
   // --------------------------
 
@@ -72,7 +108,7 @@ export const SolicitarAjusteMateria = () => {
     setErrors(false);
     setCreateUser(false);
   };
-  console.log("form", form);
+  //console.log("TEST1", form);
   return (
     <>
       <h4 className="titleForm">Solicitar Ajuste De Materia</h4>
@@ -84,7 +120,6 @@ export const SolicitarAjusteMateria = () => {
           <div className="col-6">
             <input
               type="email"
-              id="para"
               className="form-control"
               name="para"
               value={para}
@@ -99,7 +134,6 @@ export const SolicitarAjusteMateria = () => {
           <div className="col-6">
             <input
               type="email"
-              id="de"
               className="form-control"
               name="de"
               value={de}
@@ -111,23 +145,22 @@ export const SolicitarAjusteMateria = () => {
           <label htmlFor="input" className="col-3 col-form-label">
             ASUNTO:
           </label>
-          <div className="col-8">
-            <div className="col-6">
-              <input
-                type="text"
-                id="asunto"
-                className="form-control"
-                name="asunto"
-                value={asunto}
-                onChange={handlerChangeForm}
-              />
-            </div>
+          <div class="form-floating">
+            <textarea
+              type="text"
+              className="form-control"
+              name="asunto"
+              value={asunto}
+              onChange={handlerChangeForm}
+            ></textarea>
+            <label for="floatingTextarea">Mensaje:</label>
           </div>
         </div>
       </form>
       <br />
       {componente}
       {created}
+      {errornovalido}
       <button
         type="button"
         className="btn btn-outline-success"

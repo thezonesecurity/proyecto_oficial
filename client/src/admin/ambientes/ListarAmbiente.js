@@ -1,13 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { endpointsAmbiente } from "./contants/enPointsAmbiente";
 
 import { ContenidoListaAmbiente } from "./ContenidoListaAmbiente";
-import DataAmbiente from "./contex/AppContext";
 
 export const ListarAmbiente = () => {
-  const { state, dispatch } = useContext(DataAmbiente);
+  //const { state, dispatch } = useContext(DataAmbiente);
   //console.log("state", state);
-  const [listAmbiente, setListAmbiente] = useState({});
+  const [listAmbiente, setListAmbiente] = useState([]);
   useEffect(() => {
     fetch(endpointsAmbiente.listarAmbiente.url, {
       method: endpointsAmbiente.listarAmbiente.method,

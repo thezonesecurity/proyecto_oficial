@@ -31,8 +31,7 @@ export const CabeceraMateria = () => {
   );
 };
 
-{
-  /*
+/*
 <div className="col card">
       <div>
         <div className="card text-center">
@@ -58,4 +57,3 @@ export const CabeceraMateria = () => {
       </div>
     </div>
 */
-}

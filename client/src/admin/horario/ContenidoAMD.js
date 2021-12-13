@@ -31,6 +31,7 @@ export const ContenidoAMD = (props) => {
         <th scope="row">1</th>
         <td>{props.materia}</td>
         <td>{props.docente}</td>
+        <td>{props.ambiente}</td>
         <td>{props.grupo}</td>
         <td>
           <ModalAMD dataItem={props} />{" "}

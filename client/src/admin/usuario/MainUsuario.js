@@ -6,7 +6,7 @@ import { AppReducer } from "./contex/AppReducer";
 import DataUsuario from "./contex/AppContext";
 
 export const MainUsuario = () => {
-  const [user, setuser] = useState([]);
+  const [user] = useState([]);
   const [state, dispatch] = useReducer(AppReducer, user); //useReducer es un hook de React para actualizar un estado interno por medio de una función llamada reducer
   return (
     <DataUsuario.Provider value={{ state, dispatch }}>
@@ -19,8 +19,8 @@ export const MainUsuario = () => {
     </DataUsuario.Provider>
   );
 };
-{
-  /*
+
+/*
 <div>
         <div className="row align-items-start">
           <SidebarMenu />
@@ -28,4 +28,3 @@ export const MainUsuario = () => {
         </div>
       </div>
 */
-}

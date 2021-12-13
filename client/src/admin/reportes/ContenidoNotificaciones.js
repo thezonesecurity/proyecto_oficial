@@ -1,24 +1,23 @@
 import React from "react";
 import { MdDeleteSweep } from "react-icons/md";
+import { endPointsN } from "./constants/endPointsN";
+import ModalNotificaciones from "./ModalNotificaciones";
 
-import { endPointsS } from "./constants/endPointsS";
+export const ContenidoNotificaciones = (props) => {
+  console.log("lista Notificaciones", props);
 
-import { ModalSemestre } from "./ModalSemestre";
-
-export const ContenidoListaSemestre = (props) => {
-  //const { dispatch } = useContext(DataSemestre);
   const handlerClickDelete = (id) => {
     //dispatch({ type: ActionsSemestre.REMOVE_FORM_SEMESTRE, payload: id });
     if (
       window.confirm(
-        `Advertencia se eliminaria el Semestre -> ${props.año} ${props.semestre}`
+        `Advertencia se eliminaria las notificaciones -> ${props.de} ${props.asunto}`
       )
     ) {
       //logica pa eliminar
       //console.log("elimi8nado");
       // console.log("be", props._id);
-      fetch(endPointsS.eliminarSemestre.url + props._id, {
-        method: endPointsS.eliminarSemestre.method,
+      fetch(endPointsN.eliminarNotificaciones.url + props._id, {
+        method: endPointsN.eliminarNotificaciones.method,
         headers: new Headers({
           //Authorization: token,
           "Content-Type": "application/x-www-form-urlencoded",
@@ -28,12 +27,10 @@ export const ContenidoListaSemestre = (props) => {
   };
   return (
     <tbody>
-      <tr key={props._id} className="table-active">
-        <th>1</th>
-        <td>{props.semestre}</td>
-        <td>{props.año}</td>
+      <tr className="table-active">
+        <td>{props.de}</td>
         <td>
-          <ModalSemestre dataItem={props} />
+          <ModalNotificaciones dataItem={props} />
           <button
             className="btn btn-outline-danger btn-sm"
             onClick={() => {

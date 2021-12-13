@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { ErrorValidacion } from "../../admin/ErrorValidacion";
 import { endpointsL } from "../types/endPointsL";
 import { types } from "../types/types";
+
 export const authAsync = (email, password) => {
   return (dispatch) => {
     fetch(endpointsL.login.url, {

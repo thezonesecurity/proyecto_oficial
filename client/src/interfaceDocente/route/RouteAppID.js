@@ -7,7 +7,6 @@ import {
   Redirect,
   /*Link*/
 } from "react-router-dom";
-import { HeaderInterface } from "../../HeaderInterface";
 import { MainInterfaceDocente } from "../MainInterfaceDocente";
 
 export const RouteAppID = () => {
@@ -24,8 +23,7 @@ export const RouteAppID = () => {
   );
 };
 
-{
-  /**
+/**
 ;
   <Router>
     <Switch>
@@ -33,4 +31,3 @@ export const RouteAppID = () => {
     </Switch>
   </Router>;
 */
-}

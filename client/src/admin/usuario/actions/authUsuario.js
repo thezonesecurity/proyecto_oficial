@@ -1,33 +1,6 @@
 import { endpointsD } from "../types/endPointsD";
 import { typesD } from "../types/typesD";
-/*export const authUsuario = (
-  nombre,
-  apellidos,
-  ci,
-  email,
-  direccion,
-  telefono,
-  carga_horaria,
-  roles,
-  password,
-  repassword
-) => {
-  return (dispatch) => {
-    setTimeout(() => {
-      if (email === "seminario@gmail.com" && password === "1234") {
-        const userdata = {
-          id: new Date().getTime(),
-          displayName: email,
-          photo: "",
-        }; //({ id: new Date().getTime(), displayName: email, photo: ""})auth en este auth tiene que benir de una base de datos
-        localStorage.setItem("user", JSON.stringify(userdata));
-        dispatch(authDocente(userdata));
-      } else {
-        dispatch(error("Credenciales Incorrectas"));
-      }
-    }, 100);
-  };
-};*/
+
 export const authRegister = (authRegisterData) => {
   console.log(authRegisterData);
 
@@ -58,3 +31,32 @@ export const error = (msn) => {
     payload: msn,
   };
 };
+
+/*export const authUsuario = (
+  nombre,
+  apellidos,
+  ci,
+  email,
+  direccion,
+  telefono,
+  carga_horaria,
+  roles,
+  password,
+  repassword
+) => {
+  return (dispatch) => {
+    setTimeout(() => {
+      if (email === "seminario@gmail.com" && password === "1234") {
+        const userdata = {
+          id: new Date().getTime(),
+          displayName: email,
+          photo: "",
+        }; //({ id: new Date().getTime(), displayName: email, photo: ""})auth en este auth tiene que benir de una base de datos
+        localStorage.setItem("user", JSON.stringify(userdata));
+        dispatch(authDocente(userdata));
+      } else {
+        dispatch(error("Credenciales Incorrectas"));
+      }
+    }, 100);
+  };
+};*/

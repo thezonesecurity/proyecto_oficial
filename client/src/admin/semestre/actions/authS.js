@@ -1,5 +1,5 @@
 import { ActionsSemestre } from "../constants/ActionsSemestre";
-import { endPointsS } from "../constants/endPointsS";
+//import { endPointsS } from "../constants/endPointsS";
 
 export const authRegisterSemestre = (authRegisterSemestreData) => {
   return (dispatch) => {

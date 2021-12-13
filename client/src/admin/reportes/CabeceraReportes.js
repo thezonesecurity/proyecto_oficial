@@ -21,10 +21,14 @@ export const CabeceraReportes = () => {
           <li className="btn btn-outline-dark">
             <Link to={`${url}/informe-semestre`}>Informe de Semestres</Link>
           </li>
+          <li className="btn btn-outline-dark">
+            <Link to={`${url}/notificaciones`}>Notificaciones</Link>
+          </li>
         </ul>
       </div>
       {/*CABECERA */}
       {/*CONTENIDO */}
+
       <div className="col-20 col-s-12">
         <div className="aside">
           <hr />
@@ -36,8 +40,7 @@ export const CabeceraReportes = () => {
   );
 };
 
-{
-  /**
+/**
   <div className="col card">
       <div>
         <div className="card text-center">
@@ -67,4 +70,3 @@ export const CabeceraReportes = () => {
       </div>
     </div>
  */
-}

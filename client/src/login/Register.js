@@ -1,13 +1,15 @@
 import React, { useContext, useState } from "react";
 import { MdPersonPin, MdVpnKey, MdAttachEmail } from "react-icons/md";
+import uniqid from "uniqid";
+
 import { useForm } from "./hooks/useForm";
 import DataUser from "./reducers/AppContextUSer";
 import { types } from "./types/types";
-import uniqid from "uniqid";
 import { ErrorValidacion } from "../admin/ErrorValidacion";
 import { MessageCreateUser } from "../admin/MessageCreateUser";
+
 export const Register = () => {
-  const { state, setState, dispatch } = useContext(DataUser);
+  const { dispatch } = useContext(DataUser);
   //console.log("stateUSER", state);
   const [formUser, handlerChangeFormUser, resetForm] = useForm({
     username: "",

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { useForm } from "./hooks/useForm";
@@ -15,7 +15,6 @@ export const InsertarUsuario = () => {
     setOptionRol(e.target.value);
     //console.log("target", e.target.value);
   };
-
   //const { state, setState, dispatch } = useContext(DataUsuario);
   const [form, handlerChangeForm, resetForm] = useForm({
     nombre: "",
@@ -134,12 +133,6 @@ export const InsertarUsuario = () => {
   if (createUser && !validarPassword && !tamPassword) {
     created = <MessageCreateUser mensaje="Usuario creado correctamente" />;
   } else created = null;
-  let mensajePassword;
-  if (validarPassword) {
-    mensajePassword = (
-      <ErrorValidacion mensaje="Las contraseñas no coinciden" />
-    );
-  } else mensajePassword = null;
 
   let tamañoPassword;
   if (tamPassword) {
@@ -157,10 +150,9 @@ export const InsertarUsuario = () => {
     setTamPassword(false);
   };
   //console.log("dataUsuario", state);
-  const ocultar = () => {
+  /*const ocultar = () => {
     setErrors(false);
-  };
-
+  };*/
   return (
     <>
       <h4 className="titleForm">Formulario crear Usuarios</h4>
@@ -273,7 +265,6 @@ export const InsertarUsuario = () => {
           </div>
         </div>
         <br />
-
         {tamañoPassword}
         {componente}
         {created}
@@ -296,3 +287,12 @@ export const InsertarUsuario = () => {
     </>
   );
 };
+
+/*
+let mensajePassword;
+  if (validarPassword) {
+    mensajePassword = (
+      <ErrorValidacion mensaje="Las contraseñas no coinciden" />
+    );
+  } else mensajePassword = null;
+*/

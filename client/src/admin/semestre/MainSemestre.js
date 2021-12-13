@@ -6,7 +6,8 @@ import DataSemestre from "./contex/AppContexSemestre";
 import { AppReducerSemestre } from "./contex/AppReducerSemestre";
 
 export const MainSemestre = () => {
-  const [semestre, setSemestre] = useState([]);
+  //const [semestre, setSemestre] = useState([]);
+  const [semestre] = useState([]);
   const [state, dispatch] = useReducer(AppReducerSemestre, semestre);
   return (
     <DataSemestre.Provider value={{ state, dispatch }}>

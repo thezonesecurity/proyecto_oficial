@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "c618456c-0ad2-412e-9ce3-efc30bae0c1a",
+		"name": "Modulo Interfaz Docente",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Interfaz Docente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "para",
+							"value": "ignacio@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "de",
+							"value": "miguel@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "asunto",
+							"value": "Corregir ambiente",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/idocente/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"idocente",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Interfaz Docente",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/idocente/61b0cd00741145cb0a5a2089",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"idocente",
+						"61b0cd00741145cb0a5a2089"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Interfaz Docente List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/idocente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"idocente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Interfaz Docente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "asunto",
+							"value": "corregir horario",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/idocente/61b0cd00741145cb0a5a2089",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"idocente",
+						"61b0cd00741145cb0a5a2089"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Interfaz Docente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api1.0/idocente/61b0ccb4741145cb0a5a2085",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api1.0",
+						"idocente",
+						"61b0ccb4741145cb0a5a2085"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

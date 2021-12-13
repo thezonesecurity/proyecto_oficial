@@ -1,20 +1,15 @@
-import React, { useContext, useState } from "react";
-import uniqid from "uniqid";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import axios from "axios";
 
 import { useFormSemestre } from "./hooks/useFormSemestre";
-import DataSemestre from "./contex/AppContexSemestre";
-import { ActionsSemestre } from "./constants/ActionsSemestre";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
-import { authRegisterSemestre } from "./actions/authS";
-import axios from "axios";
+//import { authRegisterSemestre } from "./actions/authS";
 
 export const RegistrarSemestre = () => {
   //console.log(valueSemestre);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   //const { state, setState, dispatch } = useContext(DataSemestre);
-
   //-----------------------------------------------------------------
   const [form, handlerChangeForm, resetForm] = useFormSemestre({
     semestre: "",
@@ -60,14 +55,13 @@ export const RegistrarSemestre = () => {
     //dispatch(authRegisterSemestre({ semestre, año }));
     //console.log("AUTH", authRegisterSemestre({ semestre, año }));
     const peticionGet = async () => {
-      const result = await axios
+      await axios
         .post("http://localhost:8000/api1.0/semestre/", form)
         .catch(function (error) {
           console.log(error);
         });
     };
     peticionGet();
-
     resetForm();
     setErrors(false);
   };
@@ -150,8 +144,8 @@ export const RegistrarSemestre = () => {
     </div>
   );
 };
-{
-  /** 
+
+/** 
         <br />
         <div className="form-group row">
           <label for="input" className="col-sm-4 col-form-label">
@@ -171,7 +165,6 @@ export const RegistrarSemestre = () => {
           </div>
         </div>
         */
-}
 
 /*
 <div>

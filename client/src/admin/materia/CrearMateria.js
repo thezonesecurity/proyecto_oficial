@@ -1,16 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
-import uniqid from "uniqid";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useDispatch } from "react-redux";
 
-import { Actions } from "./constants/Actions";
-import DataMateria from "./contex/AppContext";
 import { useForm } from "./hooks/useForm";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
 import Input from "./InputForm";
-import { useDispatch } from "react-redux";
 import { authRegisterMateria } from "./actions/authMateria";
 import { endpointsM } from "./constants/endPointsM";
-import axios from "axios";
 
 export const CrearMateria = () => {
   // console.log(authRegisterMateria);
@@ -38,13 +35,13 @@ export const CrearMateria = () => {
   });
   console.log("formMAteria", form);
   const { materia, sigla, carga_horaria, semestre } = form;
-  const expresiones = {
+  /*const expresiones = {
     usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     nombre: /^[a-zA-ZÀ-ÿ\s]{4,40}$/, // Letras y espacios, pueden llevar acentos.
     password: /^.{4,12}$/, // 4 a 12 digitos.
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     telefono: /^\d{7,14}$/, // 7 a 14 numeros.
-  };
+  };*/
   form.semestre = valueSemestre;
   //ESTO PARA VALIDAR Y GUARDAR DATOS
   const [errors, setErrors] = useState(false);
@@ -90,15 +87,9 @@ export const CrearMateria = () => {
         semestre: valueSemestre,
       })
     );
-    /*console.log(
-      "authRegisterM",
-      authRegisterMateria({ materia, sigla, carga_horaria })
-    );
-    */
     resetForm();
     setErrors(false);
   };
-
   //ESTA PARTE CARGA UN COMPONENTE CONDICCIONALMENTE
   let componente;
   if (errors) {
@@ -107,7 +98,6 @@ export const CrearMateria = () => {
       <ErrorValidacion mensaje="Verifique todos los campos son requeridos" />
     );
   } else componente = null;
-
   let created;
   if (createUser) {
     created = <MessageCreateUser mensaje="Materia creada correctamente" />;
@@ -119,7 +109,7 @@ export const CrearMateria = () => {
     setCreateUser(false);
   };
   //------------------peticion al servidor de listas semestre---------------
-  const [dataSemestre, setDataSemestre] = useState({});
+  const [dataSemestre, setDataSemestre] = useState([]);
 
   useEffect(() => {
     const listData = async () => {
@@ -148,7 +138,6 @@ export const CrearMateria = () => {
           name="materia"
           value={materia}
           onChange={handlerChangeForm}
-          expresionRegular={expresiones.nombre}
           required="required"
           pattern="[A-Za-z0-9]{5,40}"
           title="Letras y números. Tamaño mínimo: 5. Tamaño máximo: 40"
@@ -164,7 +153,6 @@ export const CrearMateria = () => {
           value={sigla}
           onChange={handlerChangeForm}
           placeholder="Ej. SIS-745"
-          expresionRegular={expresiones.usuario}
         />
         <br />
         <Input
@@ -176,7 +164,6 @@ export const CrearMateria = () => {
           value={carga_horaria}
           onChange={handlerChangeForm}
           placeholder="Ej. 45 "
-          expresionRegular={expresiones.telefono}
           inputmode="numeric"
           pattern="[0-9]*"
         />

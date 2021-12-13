@@ -1,12 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
-import uniqid from "uniqid";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { useForm } from "../../ambientes/hooks/useForm";
-import { ActionsH } from "./constants/ActionsH";
-import { DataAMD } from "./contex/AppContexH";
-
-import DataAmbiente from "../../ambientes/contex/AppContext";
 import { ErrorValidacion } from "../../ErrorValidacion";
 import { MessageCreateUser } from "../../MessageCreateUser";
 import { authRegisterAMD } from "./constants/authADM";
@@ -15,7 +10,7 @@ import { endpointsAMD } from "./types/endPointsAMD";
 export const AsignacionMateriaDocenteH = () => {
   const dispatch = useDispatch();
   //---------------------------peticion de lista usuarios---------------------
-  const [dataUser, setDataUser] = useState({});
+  const [dataUser, setDataUser] = useState([]);
   useEffect(() => {
     fetch(endpointsAMD.listDocente.url, {
       method: endpointsAMD.listDocente.method,
@@ -35,7 +30,7 @@ export const AsignacionMateriaDocenteH = () => {
   }, []);
   console.log("datosApiUSER", dataUser);
   //---------------------------peticion de lista materias---------------------
-  const [dataMateria, setDataMateria] = useState({});
+  const [dataMateria, setDataMateria] = useState([]);
   useEffect(() => {
     fetch(endpointsAMD.listMateria.url, {
       method: endpointsAMD.listMateria.method,
@@ -55,34 +50,7 @@ export const AsignacionMateriaDocenteH = () => {
   }, []);
   console.log("datosApiMATERIA", dataMateria);
   //--------------------------- peticion de lista ambientes---------------------
-  const [preListAmbiente, setPreListAmbiente] = useState({});
-  const [listAmbiente, setListAmbiente] = useState({});
-  const [test, setTest] = useState({});
-  /*
-  const fuc = () => {
-    test.forEach((element) => {
-      let ubi = element.ubicacion;
-      let amb = element.ambiente;
-
-      element.ambiente = amb + " " + ubi;
-      console.log("test amb -> ", element.ambiente);
-      console.log("test ubi-> ", element.ubicacion);
-    });
-  };
-  fuc();
-  /*
-  const fuc = () => {
-    test.forEach((element) => {
-      let ubi = element.Ubicacion;
-      let amb = element.ambiente;
-
-      element.ambiente = amb + " " + ubi;
-      console.log("test amb -> ", element.ambiente);
-      console.log("test ubi-> ", element.ubicacion);
-    });
-  };
-  fuc();
-*/
+  const [listAmbiente, setListAmbiente] = useState([]);
   useEffect(() => {
     fetch(endpointsAMD.listAmbiente.url, {
       method: endpointsAMD.listAmbiente.method,
@@ -95,30 +63,14 @@ export const AsignacionMateriaDocenteH = () => {
         return response.json();
       })
       .then((data) => {
-        // console.log("serverREsponseAmb", data.serverResponse);
-        setPreListAmbiente(data.serverResponse);
-        setListAmbiente(data.serverResponse);
-        setTest(data.serverResponse);
-        //
-
-        /*
-        const fuc = () => {
-          data.serverResponse.forEach((element) => {
-            setTest([element.ambiente + " " + element.ubicacion]);
-            //setListAmbiente(...[element.ambiente + " " + element.ubicacion]);7
-            setListAmbiente([
-              ...preListAmbiente,
-              { colore: element.ambiente + " " + element.ubicacion },
-            ]);
+        data.serverResponse.forEach((element) => {
+          setListAmbiente((prev) => {
+            return [...prev, element.ambiente + " " + element.ubicacion];
           });
-        };
-        fuc();*/
+        });
       });
   }, []);
-
-  console.log("datosApiAMBIENTE", preListAmbiente);
   //console.log("listAmbiente -> ", listAmbiente);
-  //console.log("test -> ", test);
   //--------------------------- peticion para guardar asignacion materia docente---------------------
   //const { state, setState, dispatch } = useContext(DataAMD);
   const [errors, setErrors] = useState(false);
@@ -129,14 +81,13 @@ export const AsignacionMateriaDocenteH = () => {
     docente: "",
     // sigla: "",
     // num: "",
-    // ambiente: "",
+    ambiente: "",
   });
   console.log("form AMD", form);
-  const { grupo, materia, docente } = form;
-  //const [data, setData] = useState({});
+  const { grupo, materia, docente, ambiente } = form;
   const handleSaveDate = (e) => {
     e.preventDefault();
-    if (grupo === "" || materia === "" || docente === "") {
+    if (grupo === "" || materia === "" || docente === "" || ambiente === "") {
       setErrors(true);
       setCreateAMD(false);
       setTimeout(() => {
@@ -149,23 +100,18 @@ export const AsignacionMateriaDocenteH = () => {
         setCreateAMD(false);
       }, 4000);
     }
-
-    if (materia !== "Asigne un Materia" || docente !== "Asigne un Docente") {
-      dispatch(authRegisterAMD({ grupo, materia, docente }));
+    // logica para guardar
+    if (
+      materia !== "Asigne un Materia" ||
+      docente !== "Asigne un Docente" ||
+      ambiente !== "Asigne un Ambiente"
+    ) {
+      dispatch(authRegisterAMD({ grupo, materia, docente, ambiente }));
       resetForm();
     }
-    /*
-    let num = 0;
-    dispatch({
-      type: ActionsH.ADD_FORM_AMD,
-      payload: { ...form, id: uniqid() },
-    });
-    //setData(form, { id: uniqid() });*/
   };
-
   let componente;
   if (errors) {
-    //mostrando el error
     componente = (
       <ErrorValidacion mensaje="Verifique todos los campos son requeridos" />
     );
@@ -256,33 +202,35 @@ export const AsignacionMateriaDocenteH = () => {
             </select>
           </div>
         </div>
-        {/*
-        <div className="form-group row">
-          <label className="col-4 col-form">Ambiente</label>
-          <div className="col-6">
-            <select
-              id="ambiente"
-              name="ambiente"
-              className="form-select"
-              value={ambiente}
-              onChange={handlerChangeForm}
-            >
-              {preListAmbiente.length > 0 ? (
-                preListAmbiente.map((item) => {
-                  return (
-                    <>
-                      <option key={item._id} value={item.ambiente}>
-                        {item.ambiente} - - {item.Ubicacion}
-                      </option>
-                    </>
-                  );
-                })
-              ) : (
-                <option value="sinSemestre">No existe ambientes creados</option>
-              )}
-            </select>
+        {
+          <div className="form-group row">
+            <label className="col-4 col-form">Ambiente</label>
+            <div className="col-6">
+              <select
+                id="ambiente"
+                name="ambiente"
+                className="form-select"
+                value={ambiente}
+                onChange={handlerChangeForm}
+              >
+                <option defaultValue="sinvalor">Asigne un Ambiente</option>
+                {listAmbiente.length > 0 ? (
+                  listAmbiente.map((item) => {
+                    return (
+                      <>
+                        <option key={item}>{item}</option>
+                      </>
+                    );
+                  })
+                ) : (
+                  <option value="sinSemestre">
+                    No existe ambientes creados
+                  </option>
+                )}
+              </select>
+            </div>
           </div>
-        </div> */}
+        }
         {componente}
         {created}
         <button
@@ -304,9 +252,57 @@ export const AsignacionMateriaDocenteH = () => {
   );
 };
 
-{
-  /*<option defaultValue="sin opcion">Elejir una opcion</option>
+/*<option defaultValue="sin opcion">Elejir una opcion</option>
               <option value="opcion 1">opcion 1</option>
               <option value="opcion 2">opcion 2</option>
             <option value="opcion 3">opcion 3</option>*/
-}
+
+/*
+  const fuc = () => {
+    test.forEach((element) => {
+      let ubi = element.ubicacion;
+      let amb = element.ambiente;
+
+      element.ambiente = amb + " " + ubi;
+      console.log("test amb -> ", element.ambiente);
+      console.log("test ubi-> ", element.ubicacion);
+    });
+  };
+  fuc();
+  */
+
+/* const [preListAmbiente, setPreListAmbiente] = useState({});
+        const [test, setTest] = useState([]);
+        // console.log("serverREsponseAmb", data.serverResponse);
+        //setPreListAmbiente(data.serverResponse);
+        // setListAmbiente(data.serverResponse);
+        // setTest(data.serverResponse);
+        //
+         //setListAmbiente(...[element.ambiente + " " + element.ubicacion]);7
+          setListAmbiente([
+            ...preListAmbiente,
+            { colore: element.ambiente + " " + element.ubicacion },
+          ]);*/
+/*
+        fuc();
+         const fuc = () => {
+          test.forEach((element) => {
+            let ubi = element.Ubicacion;
+            let amb = element.ambiente;
+
+            element.ambiente = amb + " " + ubi;
+            console.log("test amb -> ", element.ambiente);
+            console.log("test ubi-> ", element.ubicacion);
+          });
+        };
+        fuc();*/
+//console.log("datosApiAMBIENTE", preListAmbiente);
+
+// console.log("test -> ", test);
+/*
+    let num = 0;
+    dispatch({
+      type: ActionsH.ADD_FORM_AMD,
+      payload: { ...form, id: uniqid() },
+    });
+    //setData(form, { id: uniqid() });*/

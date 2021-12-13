@@ -1,18 +1,16 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
-import { MdDeleteSweep } from "react-icons/md";
-import { useSelector } from "react-redux";
+import React from "react";
 
-import DataUsuario from "./contex/AppContext";
+import { MdDeleteSweep } from "react-icons/md";
 import { ModalUsuario } from "./ModalUsuario";
 import { endpointsD } from "./types/endPointsD";
 
 export const ContenidoLista = (props) => {
   console.log("propseliminar", props);
   //(handlerClick) es para elminiar al docente
-  const { state, dispatch } = useContext(DataUsuario);
-  const { auth } = useSelector((state) => state);
-  const { token } = auth;
+  //const { state, dispatch } = useContext(DataUsuario);
+  //const { auth } = useSelector((state) => state);
+  // const { token } = auth;
 
   const handlerClickDelete = async (id) => {
     //dispatch({ type: actions.REMOVE_FORM, payload: id });
@@ -23,7 +21,7 @@ export const ContenidoLista = (props) => {
     ) {
       //logica pa eliminar
       const deleteData = async () => {
-        const result = await axios
+        await axios
           .delete(endpointsD.deleteUser.url + props._id)
           .catch(function (error) {
             console.log(error);
@@ -75,8 +73,6 @@ export const ContenidoLista = (props) => {
   );
 };
 
-{
-  /*
+/*
 handlerClickDelete(props.id);
 */
-}

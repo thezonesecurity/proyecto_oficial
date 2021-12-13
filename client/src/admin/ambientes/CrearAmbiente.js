@@ -1,11 +1,8 @@
-import React, { useContext, useState } from "react";
-import uniqid from "uniqid";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
-import { actionsAmb } from "./contants/actionsAmb";
-import DataAmbiente from "./contex/AppContext";
 import { useForm } from "./hooks/useForm";
 import { authRegisterAmbiente } from "./actions/authAmbiente";
 
@@ -46,6 +43,7 @@ export const CrearAmbiente = () => {
     resetForm();
     setErrors(false);
   };
+  console.log("estadoTest", form);
   let componente;
   if (errors) {
     //mostrando el error

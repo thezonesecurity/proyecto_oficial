@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { MdDeleteSweep } from "react-icons/md";
 
-import { actionsAmb } from "./contants/actionsAmb";
 import { endpointsAmbiente } from "./contants/enPointsAmbiente";
-import DataAmbiente from "./contex/AppContext";
 import { ModalAmbiente } from "./ModalAmbiente";
 
 export const ContenidoListaAmbiente = (props) => {
-  const { state, dispatch } = useContext(DataAmbiente);
+  // const { state, dispatch } = useContext(DataAmbiente);
   //console.log("contenido lista", props);
   const handlerClickDelete = () => {
     //dispatch({ type: actionsAmb.REMOVE_FORM_A, payload: id });

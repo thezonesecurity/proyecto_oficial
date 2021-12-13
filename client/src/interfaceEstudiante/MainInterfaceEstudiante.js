@@ -1,6 +1,5 @@
 import React from "react";
 
-import { HeaderInterface } from "../HeaderInterface";
 import { CabeceraInterfaceEstudiant } from "./CabeceraInterfaceEstudiant";
 import DataInterfaceEstudiante from "./context/IEContext";
 import { SidebarMenuIE } from "./SidebarMenuIE";

@@ -25,11 +25,9 @@ export const ProgramarMaterias = () => {
   );
 };
 
-{
-  /*
+/*
 <div className="form-group row">
         <h4 className="titleForm">Programación de Materias</h4>
         <TablaProgramacion />
       </div>
 */
-}

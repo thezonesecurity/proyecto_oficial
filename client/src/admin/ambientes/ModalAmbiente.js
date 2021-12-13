@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MdCreate } from "react-icons/md";
 import { Button, Modal } from "react-bootstrap";
 
-import DataAmbiente from "./contex/AppContext";
-import { useForm } from "../materia/hooks/useForm";
 import { endpointsAmbiente } from "./contants/enPointsAmbiente";
 import { ErrorValidacion } from "../ErrorValidacion";
 
@@ -33,7 +31,7 @@ export const ModalAmbiente = (props) => {
         setData(data.serverResponse);
       });
     //console.log("datosMOdalAmbiente", data);
-  }, []);
+  }, [props.dataItem._id]);
   console.log("datosMOdalAmbiente", data);
   //---------------------para escribir en los inputs--------------------
   const handleChangeEdit = (e) => {

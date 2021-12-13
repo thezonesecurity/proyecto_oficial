@@ -13,9 +13,9 @@ export const ModalAMD = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   //---------------------------peticion de lista usuarios---------------------
-  const [dataUser, setDataUser] = useState({});
-  useEffect(async () => {
-    await fetch(endpointsAMD.listDocente.url, {
+  const [dataUser, setDataUser] = useState([]);
+  useEffect(() => {
+    fetch(endpointsAMD.listDocente.url, {
       method: endpointsAMD.listDocente.method,
       headers: new Headers({
         // Authorization: token,
@@ -33,9 +33,9 @@ export const ModalAMD = (props) => {
   }, []);
   console.log("datosApiUSER modal AMD", dataUser);
   //---------------------------peticion de lista materias---------------------
-  const [dataMateria, setDataMateria] = useState({});
-  useEffect(async () => {
-    await fetch(endpointsAMD.listMateria.url, {
+  const [dataMateria, setDataMateria] = useState([]);
+  useEffect(() => {
+    fetch(endpointsAMD.listMateria.url, {
       method: endpointsAMD.listMateria.method,
       headers: new Headers({
         // Authorization: token,
@@ -53,17 +53,37 @@ export const ModalAMD = (props) => {
     // console.log("datosApi amd", dataMateria);
   }, []);
   console.log("datosApiMATERIA modal AMD", dataMateria);
-
+  const [listAmbiente, setListAmbiente] = useState([]);
+  useEffect(() => {
+    fetch(endpointsAMD.listAmbiente.url, {
+      method: endpointsAMD.listAmbiente.method,
+      headers: new Headers({
+        // Authorization: token,
+        "Content-Type": "application/x-www-form-urlencoded",
+      }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        data.serverResponse.forEach((element) => {
+          setListAmbiente((prev) => {
+            return [...prev, element.ambiente + " " + element.ubicacion];
+          });
+        });
+      });
+  }, []);
+  //console.log("listAmbiente -> ", listAmbiente);
   //--------------------------------para escribir en los inputs----------------------------
-  const [form, handlerChangeForm, resetForm] = useForm({
+  const [form, handlerChangeForm] = useForm({
     grupo: props.dataItem.grupo,
     materia: props.dataItem.materia,
     docente: props.dataItem.docente,
+    ambiente: props.dataItem.ambiente,
     // sigla: "",
     // num: "",
-    // ambiente: "",
   });
-  const { grupo, materia, docente } = form;
+  const { grupo, materia, docente, ambiente } = form;
   console.log("form modal AMD", form);
   //------------------------logica para guardar los datos editados--------------------------
   console.log(
@@ -79,7 +99,8 @@ export const ModalAMD = (props) => {
     if (
       props.dataItem.grupo !== grupo ||
       props.dataItem.materia !== materia ||
-      props.dataItem.docente !== docente
+      props.dataItem.docente !== docente ||
+      props.dataItem.ambiente !== ambiente
     ) {
       await fetch(endpointsAMD.updateAMD.url + props.dataItem._id, {
         method: endpointsAMD.updateAMD.method,
@@ -188,6 +209,32 @@ export const ModalAMD = (props) => {
                   ) : (
                     <option value="sinSemestre">
                       No existe materias creadas
+                    </option>
+                  )}
+                </select>
+              </div>
+            </div>
+            <div className="form-group row">
+              <label className="col-4 col-form">Ambiente</label>
+              <div className="col-6">
+                <select
+                  id="ambiente"
+                  name="ambiente"
+                  className="form-select"
+                  value={ambiente}
+                  onChange={handlerChangeForm}
+                >
+                  {listAmbiente.length > 0 ? (
+                    listAmbiente.map((item) => {
+                      return (
+                        <>
+                          <option key={item}>{item}</option>
+                        </>
+                      );
+                    })
+                  ) : (
+                    <option value="sinSemestre">
+                      No existe ambientes creados
                     </option>
                   )}
                 </select>
