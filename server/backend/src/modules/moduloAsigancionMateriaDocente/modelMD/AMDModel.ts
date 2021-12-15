@@ -5,6 +5,7 @@ export interface IMateriaDocente {
   sigla?: string;
   grupo?: string;
   docente?: string;
+  ci?: string;
   ambiente?: string;
 }
 export interface MateriaDocente extends Document, IMateriaDocente {
@@ -16,6 +17,7 @@ export const AMDModelSchema = new Schema({
   sigla: { type: String, required: false },
   grupo: { type: String, required: true },
   docente: { type: String, required: true },
+  ci: { type: String, required: true, unique: true },
   ambiente: { type: String, required: true },
   createAt: { type: Date, default: Date.now() },
   updateAt: { type: Date },

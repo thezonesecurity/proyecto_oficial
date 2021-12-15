@@ -22,17 +22,17 @@ export const ListaAMD = () => {
         console.log("serverREsponse AMD", data.serverResponse);
         setListAMD(data.serverResponse);
       });
-    console.log("datosApi AMD ", listAMD);
+    // console.log("datosApi AMD ", listAMD);
   }, []);
   return (
     <div>
-      <h4 className="titleForm">Reportes de Docentes y Materias</h4>
+      <h4 className="titleForm">Lista de Asignacion de Docentes y Materias</h4>
       <table className="table table-dark">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Materia</th>
             <th scope="col">Docente</th>
+            <th scope="col">C.I.</th>
             <th scope="col">Ambiente</th>
             <th scope="col">Grupo</th>
             <th scope="col">Opciones</th>
