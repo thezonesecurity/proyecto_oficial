@@ -20,6 +20,9 @@ export const CabeceraInterfaceDoc = () => {
               Solicitar ajustes de Materia
             </Link>
           </li>
+          <li className="btn btn-outline-dark">
+            <Link to={`${url}/mensajes-enviados`}>Ver Mensajes Enviados</Link>
+          </li>
         </ul>
       </div>
       {/*CABECERA */}

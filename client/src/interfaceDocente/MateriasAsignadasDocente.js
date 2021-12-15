@@ -1,6 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+import { endPointsID } from "./constants/endPointsID";
+import { ContenidoListaMateria } from "./ContenidoListaMateria";
 
 export const MateriasAsignadasDocente = () => {
+  //const { state } = useContext(DataSemestre);
+  //console.log("listaSemestrestate", state);
+  ///-------------------para ver las lista de materias asignadas al docente-----------------------------
+  const [listaMateriasAsignadasD, setlistaMateriasAsignadasD] = useState([]);
+  //------------------------------------
+  useEffect(() => {
+    fetch(endPointsID.asignacionLMD.url, {
+      method: endPointsID.asignacionLMD.method,
+      headers: new Headers({
+        //Authorization: token,
+        "Content-Type": "application/x-www-form-urlencoded",
+      }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        // this is the data we get after doing the delete request, do whatever you want with this data
+        console.log("serverResponse", data.serverResponse);
+        setlistaMateriasAsignadasD(data.serverResponse);
+      });
+    //console.log("datosApi", listaMateriasAsignadasD);
+  }, []);
+  ///---------------------------------------------------------------------
+
   return (
     <div>
       <h4 className="titleForm">Materias Asignadas al Docente</h4>
@@ -8,13 +36,30 @@ export const MateriasAsignadasDocente = () => {
         <thead>
           <tr>
             <th scope="col">Materia</th>
-            <th scope="col">Sigla</th>
             <th scope="col">Ambiente</th>
-            <th scope="col">Dia</th>
-            <th scope="col">Horario</th>
           </tr>
         </thead>
-        <tbody>
+        {listaMateriasAsignadasD.length > 0 ? (
+          listaMateriasAsignadasD.map((item) => {
+            return <ContenidoListaMateria key={item._id} {...item} />;
+          })
+        ) : (
+          <tbody>
+            <tr className="table-active">
+              <td colSpan="4">No hay materias asignadas...</td>
+            </tr>
+          </tbody>
+        )}
+      </table>
+      <button type="button" className="btn btn-dark">
+        Imprimir
+      </button>
+    </div>
+  );
+};
+
+/*
+<tbody>
           <tr className="table-active">
             <td>Programacion</td>
             <td>Sis-101</td>
@@ -30,10 +75,4 @@ export const MateriasAsignadasDocente = () => {
             <td>10:00 - 10:45</td>
           </tr>
         </tbody>
-      </table>
-      <button type="button" className="btn btn-dark">
-        Imprimir
-      </button>
-    </div>
-  );
-};
+*/
