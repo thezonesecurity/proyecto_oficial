@@ -59,7 +59,6 @@ export const ListaUsuario = () => {
       <table className="table table-dark">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Nombres</th>
             <th scope="col">Apellidos</th>
             <th scope="col">C.I.</th>

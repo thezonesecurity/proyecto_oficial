@@ -32,7 +32,6 @@ export const ListarAmbiente = () => {
         {/*class="container" */}
         <thead>
           <tr>
-            <th scope="col">Nro.</th>
             <th scope="col">Ambiente</th>
             <th scope="col">Ubicacion</th>
             <th scope="col">Opciones</th>

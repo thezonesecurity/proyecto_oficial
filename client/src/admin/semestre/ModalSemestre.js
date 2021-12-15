@@ -91,9 +91,6 @@ export const ModalSemestre = (props) => {
         </Modal.Header>
         <Modal.Body>
           <form>
-            <label htmlFor="num">Numero</label>
-            <input type="text" readOnly name="num" id="num" value="1" />
-            <br />
             <label htmlFor="semestre">Semestre</label>
             <input
               type="text"

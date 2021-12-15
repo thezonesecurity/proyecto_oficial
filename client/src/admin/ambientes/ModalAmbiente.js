@@ -90,8 +90,6 @@ export const ModalAmbiente = (props) => {
         </Modal.Header>
         <Modal.Body>
           <form>
-            <label htmlFor="numero">Numero</label>
-            <input type="text" readOnly name="num" id="num" value="1" />
             <label htmlFor="ambiente">Ambiente</label>
             <input
               type="text"

@@ -35,7 +35,6 @@ export const ListaSemestre = () => {
       <table className="table table-dark">
         <thead>
           <tr>
-            <th scope="col">Nro.</th>
             <th scope="col">Semestre</th>
             <th scope="col">Año</th>
             <th scope="col">Opciones</th>

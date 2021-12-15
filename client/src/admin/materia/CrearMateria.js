@@ -178,6 +178,7 @@ export const CrearMateria = () => {
               value={valueSemestre}
               onChange={handleChangeOption}
             >
+              <option value="sinSemestre">Elegir Semestre</option>
               {dataSemestre.length > 0 ? (
                 dataSemestre.map((item) => {
                   return (

@@ -32,7 +32,6 @@ export const ListaMateria = () => {
       <table className="table table-dark">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Materia</th>
             <th scope="col">Sigla</th>
             <th scope="col">Semestre</th>

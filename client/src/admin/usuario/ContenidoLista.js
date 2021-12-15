@@ -46,7 +46,6 @@ export const ContenidoLista = (props) => {
     <>
       <tbody>
         <tr key={props._id} className="table-active">
-          <th scope="row">1</th>
           <td>{props.nombre}</td>
           <td>{props.apellidos}</td>
           <td>{props.ci}</td>

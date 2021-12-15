@@ -124,7 +124,7 @@ export const SolicitarAjusteMateria = () => {
           <label htmlFor="input" className="col-3 col-form-label">
             ASUNTO:
           </label>
-          <div class="form-floating">
+          <div className="form-floating">
             <textarea
               type="text"
               className="form-control"

@@ -14,19 +14,14 @@ export const RegistrarSemestre = () => {
   const [form, handlerChangeForm, resetForm] = useFormSemestre({
     semestre: "",
     año: "",
-
     // valido: null,
   });
   const { semestre, año } = form;
-
   //console.log("formSEMESTRE", semestre);
-
   ////----------------------------------------------------
-
   //ESTO PARA VALIDAR Y GUARDAR DATOS
   const [errors, setErrors] = useState(false);
   const [createUser, setCreateUser] = useState(false);
-
   const handlerSubmitSaveSemestre = (e) => {
     e.preventDefault();
     if (año === "" || semestre === "") {

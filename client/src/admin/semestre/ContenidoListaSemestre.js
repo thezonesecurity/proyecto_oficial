@@ -29,7 +29,6 @@ export const ContenidoListaSemestre = (props) => {
   return (
     <tbody>
       <tr key={props._id} className="table-active">
-        <th>1</th>
         <td>{props.semestre}</td>
         <td>{props.año}</td>
         <td>

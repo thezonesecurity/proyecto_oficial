@@ -127,15 +127,6 @@ export const ModalMateria = (props) => {
         </Modal.Header>
         <Modal.Body>
           <form>
-            <label htmlFor="nombre">Numero</label>
-            <input
-              type="text"
-              readOnly
-              name="num"
-              id="num"
-              value="1"
-              onChange={handleChangeEdit}
-            />
             <label htmlFor="nombre">Materia</label>
             <input
               type="text"

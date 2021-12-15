@@ -29,7 +29,6 @@ export const ContenidoListaAmbiente = (props) => {
   return (
     <tbody>
       <tr key={props._id} className="table-active">
-        <th className="col">1</th>
         <td className="col">{props.ambiente}</td>
         <td className="col">{props.ubicacion}</td>
         <td>
