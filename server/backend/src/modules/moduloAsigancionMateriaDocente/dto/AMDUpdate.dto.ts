@@ -3,5 +3,6 @@ export interface AMDUpdate {
   sigla: string;
   grupo: string;
   docente: string;
+  ci: string;
   ambiente: string;
 }

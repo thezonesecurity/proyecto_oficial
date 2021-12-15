@@ -26,9 +26,10 @@ export const AsignacionMateriaDocenteH = () => {
         // console.log("serverREsponse", data.serverResponse);
         setDataUser(data.serverResponse);
       });
-    // console.log("datosApiUser", dataUser);
+    // console.log("datosApiUser", dataUser);form.docente === element.email
   }, []);
-  console.log("datosApiUSER", dataUser);
+  //console.log("datosApiUSER", dataUser);
+
   //---------------------------peticion de lista materias---------------------
   const [dataMateria, setDataMateria] = useState([]);
   useEffect(() => {
@@ -48,7 +49,7 @@ export const AsignacionMateriaDocenteH = () => {
       });
     // console.log("datosApi", dataMateria);
   }, []);
-  console.log("datosApiMATERIA", dataMateria);
+  // console.log("datosApiMATERIA", dataMateria);
   //--------------------------- peticion de lista ambientes---------------------
   const [listAmbiente, setListAmbiente] = useState([]);
   useEffect(() => {
@@ -79,12 +80,13 @@ export const AsignacionMateriaDocenteH = () => {
     grupo: "",
     materia: "",
     docente: "",
-    // sigla: "",
+    ci: "",
     // num: "",
     ambiente: "",
   });
-  console.log("form AMD", form);
-  const { grupo, materia, docente, ambiente } = form;
+  // console.log("form AMD", form);
+  const { grupo, materia, docente, ambiente, ci } = form;
+
   const handleSaveDate = (e) => {
     e.preventDefault();
     if (grupo === "" || materia === "" || docente === "" || ambiente === "") {
@@ -106,7 +108,9 @@ export const AsignacionMateriaDocenteH = () => {
       docente !== "Asigne un Docente" ||
       ambiente !== "Asigne un Ambiente"
     ) {
-      dispatch(authRegisterAMD({ grupo, materia, docente, ambiente }));
+      dispatch(
+        authRegisterAMD({ grupo, materia, docente, ambiente, ci: form.ci })
+      );
       resetForm();
     }
   };
@@ -128,6 +132,48 @@ export const AsignacionMateriaDocenteH = () => {
     setErrors(false);
     setCreateAMD(false);
   };
+  //---------------------------peticion de buscar un usuario---------------------
+  const [oneUser, setOneUSer] = useState({});
+  useEffect(() => {
+    const fuc = () => {
+      dataUser.map((element) => {
+        if (docente.includes(element.nombre) === true) {
+          console.log(
+            "encontro ------------------------=>",
+            element.nombre,
+            element.email,
+            element._id,
+            element.ci
+          );
+          //console.log("element", element);
+          //--------peticion para ver un usuario---------
+          const getUser = () => {
+            fetch(endpointsAMD.listDocente.url + element._id, {
+              method: endpointsAMD.listDocente.method,
+              //Authorization: token,
+              headers: {
+                "Content-Type": "application/json",
+              },
+            })
+              .then((response) => {
+                // console.log("response", response);
+                return response.json();
+              })
+              .then((data) => {
+                // console.log("serverREsponse one user -> ");
+                //  console.log("serverREsponse one user -> ", data.serverResponse);
+                setOneUSer(data.serverResponse);
+              });
+          };
+          getUser();
+        }
+      });
+    };
+    fuc();
+  }, [dataUser, docente]);
+  form.ci = oneUser.ci;
+  console.log("result ONE USER--------------->", oneUser);
+  console.log("result form--------------->", form);
   return (
     <>
       <h4 className="titleForm">Asignacion Materia Docente</h4>

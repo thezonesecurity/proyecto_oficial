@@ -11,7 +11,7 @@ class AMDController {
   //method post
   public async create(request: Request, response: Response) {
     //se envia datos usando el body(enviando solo cadenas)
-    let { materia, sigla, grupo, docente, ambiente } = request.body;
+    let { materia, sigla, grupo, docente, ci, ambiente } = request.body;
     //al momento d hacer el metodo create -> ingresa a AMDRepository a su metodo create
     //luego lo reenvia al mismo AMDController
     const result = await this.amdRepository.create({
@@ -19,6 +19,7 @@ class AMDController {
       sigla,
       grupo,
       docente,
+      ci,
       ambiente,
     });
     response.status(201).json({ serverResponse: result });
@@ -38,13 +39,14 @@ class AMDController {
   //method update
   public async update(request: Request, response: Response) {
     const { id } = request.params;
-    const { materia, sigla, grupo, docente, ambiente }: IMateriaDocente =
+    const { materia, sigla, grupo, docente, ci, ambiente }: IMateriaDocente =
       request.body;
     const result = await this.amdRepository.update(id, {
       materia,
       sigla,
       grupo,
       docente,
+      ci,
       ambiente,
     });
     response.status(201).json({ serverResponse: result });

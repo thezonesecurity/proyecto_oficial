@@ -7,7 +7,7 @@ export const ListaSemestre = () => {
   //const { state } = useContext(DataSemestre);
   //console.log("listaSemestrestate", state);
   ///-------------------para ver las lista de semestres-----------------------------
-  const [listSemestre, setListSemestre] = useState([]);
+  const [listSemestre, setListSemestre] = useState(null);
   //------------------------------------
   useEffect(() => {
     fetch(endPointsS.listaSemestre.url, {
@@ -25,8 +25,9 @@ export const ListaSemestre = () => {
         // console.log("serverResponse", data.severResponse);
         setListSemestre(data.severResponse);
       });
+
     //console.log("datosApi", listSemestre);
-  }, []);
+  }, []); //listSemestre
   ///---------------------------------------------------------------------
   return (
     <div>
@@ -40,7 +41,7 @@ export const ListaSemestre = () => {
             <th scope="col">Opciones</th>
           </tr>
         </thead>
-        {listSemestre.length > 0 ? (
+        {listSemestre?.length > 0 ? (
           listSemestre.map((item) => {
             return <ContenidoListaSemestre key={item._id} {...item} />;
           })

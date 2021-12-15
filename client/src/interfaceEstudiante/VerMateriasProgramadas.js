@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { endPointsIE } from "./constants/endPointsIE";
+import { ContenidoMateriasProgramadas } from "./ContenidoMateriasProgramadas";
 
 export const VerMateriasProgramadas = () => {
+  ///-------------------para ver las materias programadas-----------------------------
+  const [listIEstudiante, setListIEstudiante] = useState([]);
+  //------------------------------------
+  useEffect(() => {
+    fetch(endPointsIE.listaIEstudiante.url, {
+      method: endPointsIE.listaIEstudiante.method,
+      headers: new Headers({
+        //Authorization: token,
+        "Content-Type": "application/x-www-form-urlencoded",
+      }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        // this is the data we get after doing the delete request, do whatever you want with this data
+        console.log("serverResponse", data.severResponse);
+        setListIEstudiante(data.severResponse);
+      });
+    //console.log("datosApi", listSemestre);
+  }, []);
+
   return (
     <>
       <h4 className="titleForm">Marerias programadas</h4>
@@ -19,32 +43,17 @@ export const VerMateriasProgramadas = () => {
             <th scope="col">2do T.</th>
           </tr>
         </thead>
-        <tbody>
-          <tr className="table-active">
-            <td>Sis-101</td>
-            <td>Programacion</td>
-            <td>2</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr className="table-active">
-            <td>SIS-737</td>
-            <td>Forence</td>
-            <td>3</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-        </tbody>
+        {listIEstudiante.length > 0 ? (
+          listIEstudiante.map((item) => {
+            return <ContenidoMateriasProgramadas key={item._id} {...item} />;
+          })
+        ) : (
+          <tbody>
+            <tr className="table-active">
+              <td colSpan="11">No hay materias programadas.....</td>
+            </tr>
+          </tbody>
+        )}
       </table>
       <button type="button" className="btn btn-dark">
         Imprimir

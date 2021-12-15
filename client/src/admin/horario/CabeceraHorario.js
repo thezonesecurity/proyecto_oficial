@@ -22,7 +22,9 @@ export const CabeceraHorario = () => {
             </Link>
           </li>
           <li className="btn btn-outline-dark">
-            <Link to={`${url}/list-mat-doc`}>Lista Materia - Docente</Link>
+            <Link to={`${url}/list-mat-doc`}>
+              Lista Asignacion Materia - Docente
+            </Link>
           </li>
         </ul>
       </div>
