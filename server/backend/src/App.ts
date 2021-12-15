@@ -12,6 +12,7 @@ import AMDModule from "./modules/moduloAsigancionMateriaDocente/initAMD";
 import cors from "cors";
 import HorarioModule from "./modules/horariomodule/initH";
 import IDocenteModule from "./modules/InterfazDocente/initIDocente";
+import EstudianteModule from "./modules/InterfazEstudiante/initEstudiante";
 
 if (process.env.NODE_ENV == "development") {
   dotenv.config();
@@ -71,6 +72,8 @@ class App {
     new AMDModule(`/${this.apiversion}/amd`, this);
     new HorarioModule(`/${this.apiversion}/horario`, this);
     new IDocenteModule(`/${this.apiversion}/idocente`, this);
+
+    new EstudianteModule(`/${this.apiversion}/estudiante`, this);
   }
   public getApp() {
     return this.app;
