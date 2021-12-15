@@ -14,17 +14,92 @@
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
-							"key": "sigla",
+							"key": "sigla1",
 							"value": "SIS-313",
 							"type": "text"
 						},
 						{
-							"key": "materia",
+							"key": "sigla2",
+							"value": "sif-542",
+							"type": "text"
+						},
+						{
+							"key": "sigla3",
+							"value": "sis-526",
+							"type": "text"
+						},
+						{
+							"key": "sigla4",
+							"value": "sis-526",
+							"type": "text"
+						},
+						{
+							"key": "sigla5",
+							"value": "sis-526",
+							"type": "text"
+						},
+						{
+							"key": "sigla6",
+							"value": "sis-526",
+							"type": "text"
+						},
+						{
+							"key": "materia1",
 							"value": "Diseño",
 							"type": "text"
 						},
 						{
-							"key": "grupo",
+							"key": "materia2",
+							"value": "Algebra",
+							"type": "text"
+						},
+						{
+							"key": "materia3",
+							"value": "Fisica",
+							"type": "text"
+						},
+						{
+							"key": "materia4",
+							"value": "Redes 1",
+							"type": "text"
+						},
+						{
+							"key": "materia5",
+							"value": "Sistemas Distribuidos",
+							"type": "text"
+						},
+						{
+							"key": "materia6",
+							"value": "Servidores",
+							"type": "text"
+						},
+						{
+							"key": "grupo1",
+							"value": "G-2",
+							"type": "text"
+						},
+						{
+							"key": "grupo2",
+							"value": "G-3",
+							"type": "text"
+						},
+						{
+							"key": "grupo3",
+							"value": "G-1",
+							"type": "text"
+						},
+						{
+							"key": "grupo4",
+							"value": "G-2",
+							"type": "text"
+						},
+						{
+							"key": "grupo5",
+							"value": "G-1",
+							"type": "text"
+						},
+						{
+							"key": "grupo6",
 							"value": "G-2",
 							"type": "text"
 						},
@@ -62,12 +137,6 @@
 							"key": "segundoTurno",
 							"value": "0",
 							"type": "text"
-						},
-						{
-							"key": "",
-							"value": "",
-							"type": "text",
-							"disabled": true
 						}
 					]
 				},
