@@ -29,9 +29,9 @@ export const ReporteDocentesyMaterias = () => {
       <table className="table table-dark">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Materia</th>
             <th scope="col">Docente</th>
+            <th scope="col">C.I.</th>
             <th scope="col">Ambiente</th>
             <th scope="col">Grupo</th>
           </tr>

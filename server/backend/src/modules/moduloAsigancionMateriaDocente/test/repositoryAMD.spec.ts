@@ -44,6 +44,7 @@ describe("CRUD Operators of AMDRepository class", () => {
       sigla: "BIO-225",
       grupo: "1",
       docente: "diana alice manriquez",
+      ci: "19892748a",
       ambiente: "P-22 A-22",
     });
     const expected = await amdRepo.findOne(updateAMD.id);

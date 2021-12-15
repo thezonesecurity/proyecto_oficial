@@ -26,12 +26,12 @@ export const ModalAMD = (props) => {
         return response.json();
       })
       .then((data) => {
-        console.log("serverREsponse modal AMD user", data.serverResponse);
+        //console.log("serverREsponse modal AMD user", data.serverResponse);
         setDataUser(data.serverResponse);
       });
     // console.log("datosApiUser", dataUser);
   }, []);
-  console.log("datosApiUSER modal AMD", dataUser);
+  // console.log("datosApiUSER modal AMD", dataUser);
   //---------------------------peticion de lista materias---------------------
   const [dataMateria, setDataMateria] = useState([]);
   useEffect(() => {
@@ -43,16 +43,16 @@ export const ModalAMD = (props) => {
       }),
     })
       .then((response) => {
-        console.log("datosApi amd", response);
+        // console.log("datosApi amd", response);
         return response.json();
       })
       .then((data) => {
-        console.log("serverREsponse amd modal", data.serverResponse);
+        // console.log("serverREsponse amd modal", data.serverResponse);
         setDataMateria(data.serverResponse);
       });
     // console.log("datosApi amd", dataMateria);
   }, []);
-  console.log("datosApiMATERIA modal AMD", dataMateria);
+  //console.log("datosApiMATERIA modal AMD", dataMateria);
   const [listAmbiente, setListAmbiente] = useState([]);
   useEffect(() => {
     fetch(endpointsAMD.listAmbiente.url, {
@@ -80,19 +80,20 @@ export const ModalAMD = (props) => {
     materia: props.dataItem.materia,
     docente: props.dataItem.docente,
     ambiente: props.dataItem.ambiente,
+    ci: props.dataItem.ci,
     // sigla: "",
     // num: "",
   });
-  const { grupo, materia, docente, ambiente } = form;
+  const { grupo, materia, docente, ambiente, ci } = form;
   console.log("form modal AMD", form);
   //------------------------logica para guardar los datos editados--------------------------
-  console.log(
+  /* console.log(
     props.dataItem.grupo,
     "->",
     props.dataItem.materia,
     "->",
     props.dataItem.materia
-  );
+  );*/
   const [errors, setErrors] = useState(false);
   const handleSaveEdit = async (e) => {
     e.preventDefault();
@@ -129,6 +130,47 @@ export const ModalAMD = (props) => {
       <ErrorValidacion mensaje="Verifique, no se modificaron ningun dato" />
     );
   } else componente = null;
+  //---------------------------peticion de buscar un usuario---------------------
+  const [oneUser, setOneUSer] = useState({});
+  useEffect(() => {
+    const fuc = () => {
+      dataUser.map((element) => {
+        if (docente.includes(element.nombre) === true) {
+          console.log(
+            "encontro ------------------------=>",
+            element.nombre,
+            element.email,
+            element._id,
+            element.ci
+          );
+          //console.log("element", element);
+          //--------peticion para ver un usuario---------
+          const getUser = () => {
+            fetch(endpointsAMD.listDocente.url + element._id, {
+              method: endpointsAMD.listDocente.method,
+              //Authorization: token,
+              headers: {
+                "Content-Type": "application/json",
+              },
+            })
+              .then((response) => {
+                // console.log("response", response);
+                return response.json();
+              })
+              .then((data) => {
+                // console.log("serverREsponse one user -> ");
+                //  console.log("serverREsponse one user -> ", data.serverResponse);
+                setOneUSer(data.serverResponse);
+              });
+          };
+          getUser();
+        }
+      });
+    };
+    fuc();
+  }, [dataUser, docente]);
+  form.ci = oneUser.ci;
+  console.log("result modal ONE USER--------------->", oneUser);
   return (
     <>
       <Button className="btn btn-outline-secondary btn-sm" onClick={handleShow}>
@@ -141,14 +183,6 @@ export const ModalAMD = (props) => {
         </Modal.Header>
         <Modal.Body>
           <form>
-            <label htmlFor="grupo">Grupo</label>
-            <input
-              type="text"
-              name="grupo"
-              id="grupo"
-              value={grupo}
-              onChange={handlerChangeForm}
-            />
             <div className="form-group row">
               <label className="col-2 col-form">Materia</label>
               <div className="col-10">
@@ -214,9 +248,18 @@ export const ModalAMD = (props) => {
                 </select>
               </div>
             </div>
+            <label htmlFor="grupo">C.I.</label>
+            <input
+              readOnly
+              type="text"
+              name="ci"
+              id="ci"
+              value={ci}
+              onChange={handlerChangeForm}
+            />
             <div className="form-group row">
-              <label className="col-4 col-form">Ambiente</label>
-              <div className="col-6">
+              <label className="col-3 col-form">Ambiente</label>
+              <div className="col-8">
                 <select
                   id="ambiente"
                   name="ambiente"
@@ -240,6 +283,14 @@ export const ModalAMD = (props) => {
                 </select>
               </div>
             </div>
+            <label htmlFor="grupo">Grupo</label>
+            <input
+              type="text"
+              name="grupo"
+              id="grupo"
+              value={grupo}
+              onChange={handlerChangeForm}
+            />
           </form>
           <br />
           {componente}

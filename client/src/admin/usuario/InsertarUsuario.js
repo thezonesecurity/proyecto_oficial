@@ -5,6 +5,7 @@ import { useForm } from "./hooks/useForm";
 import { ErrorValidacion } from "../ErrorValidacion";
 import { MessageCreateUser } from "../MessageCreateUser";
 import { authRegister } from "./actions/authUsuario";
+import { CheckRoles } from "./CheckRoles";
 
 export const InsertarUsuario = () => {
   const dispatch = useDispatch();
@@ -153,6 +154,7 @@ export const InsertarUsuario = () => {
   /*const ocultar = () => {
     setErrors(false);
   };*/
+  console.log("dataUsuario", form);
   return (
     <>
       <h4 className="titleForm">Formulario crear Usuarios</h4>
@@ -175,6 +177,12 @@ export const InsertarUsuario = () => {
               </select>
             </div>
           </div>
+          {/*optionRol === "Admin" && (
+            <>
+              <label htmlFor="nombre">Otros roles</label>
+              <CheckRoles />
+            </>
+          )*/}
           <label htmlFor="nombre">Nombre</label>
           <input
             type="text"

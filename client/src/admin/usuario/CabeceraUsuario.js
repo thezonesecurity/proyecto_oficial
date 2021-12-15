@@ -19,13 +19,13 @@ export const CabeceraUsuario = () => {
           </li>
           {/* <li className="btn btn-outline-dark" aria-current="true">
             <Link to={`${url}/editar-usuario`}>Editar Usuarios</Link>
-          </li>*/}
+          </li>
           <li className="btn btn-outline-dark" aria-current="true">
             <Link to={`${url}/listar-rol`}>Listar Rol</Link>
           </li>
           <li className="btn btn-outline-dark" aria-current="true">
             <Link to={`${url}/crear-rol`}>Crear Rol</Link>
-          </li>
+          </li>*/}
         </ul>
       </div>
       {/*CABECERA */}
