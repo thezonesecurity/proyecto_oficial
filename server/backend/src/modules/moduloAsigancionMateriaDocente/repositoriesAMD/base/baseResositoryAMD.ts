@@ -11,6 +11,7 @@ export abstract class BaseReposirotyAMD<T>
   }
   async create(item: T): Promise<T | any> {
     //throw new Error("Method not implemented.");
+    await this.entity.syncIndexes(); //sincroniza los indices
     let newItem = new this.entity(item);
     return await newItem.save();
   }
